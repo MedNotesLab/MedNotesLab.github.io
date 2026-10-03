@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,21 +7,40 @@
 
 <title>MedNotesLab ♡</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Comfortaa:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&family=Gaegu:wght@400;700&family=Josefin+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&family=Pacifico&family=Patrick+Hand&family=Quicksand:wght@400;500;600;700&family=Sacramento&family=Shantell+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap');
 
 :root {
-    --pink: #e98eb3;
-    --pink-light: #fff0f6;
-    --pink-dark: #c85d89;
-    --text: #493c46;
-    --muted: #8c7b86;
-    --card: rgba(255,255,255,0.82);
-    --border: rgba(210,160,185,0.25);
-    --shadow: 0 12px 35px rgba(120,80,105,0.10);
-    --radius: 22px;
+    --main: #e78fb4;
+    --main-dark: #c76591;
+    --main-light: #ffeaf3;
+
+    --second: #c9b9ed;
+    --third: #b8dfd5;
+
+    --text: #4d4149;
+    --muted: #8e7d87;
+
+    --card: rgba(255,255,255,0.78);
+    --card-solid: #fffafd;
+
+    --border: rgba(190,145,170,0.22);
+
+    --shadow: 0 15px 40px rgba(112,75,99,0.10);
+
     --font: "Nunito", sans-serif;
+
+    --radius: 25px;
 }
+
+
+/* =========================
+   BASIC
+========================= */
 
 * {
     box-sizing: border-box;
@@ -32,153 +52,366 @@ html {
 
 body {
     margin: 0;
-    font-family: var(--font);
     color: var(--text);
+    font-family: var(--font);
     min-height: 100vh;
+    overflow-x: hidden;
+
     background:
-        radial-gradient(circle at 10% 10%, #ffe4f0 0, transparent 25%),
-        radial-gradient(circle at 90% 15%, #e9e4ff 0, transparent 25%),
-        radial-gradient(circle at 80% 90%, #dff7f0 0, transparent 25%),
+        radial-gradient(circle at 8% 8%, #ffddea 0, transparent 22%),
+        radial-gradient(circle at 92% 12%, #e5ddff 0, transparent 23%),
+        radial-gradient(circle at 75% 90%, #d9f5ed 0, transparent 25%),
+        radial-gradient(circle at 20% 80%, #fff0c9 0, transparent 18%),
         #fffafd;
-    transition: background 0.4s ease, color 0.4s ease;
+
+    transition:
+        background 0.5s ease,
+        color 0.3s ease;
 }
 
-/* NON-PASTEL MODE */
 
-body.nonpastel {
+/* =========================
+   THEMES
+========================= */
+
+body.theme-pink {
     background:
-        radial-gradient(circle at 10% 10%, #eeeeee 0, transparent 25%),
-        radial-gradient(circle at 90% 15%, #d8d8d8 0, transparent 25%),
-        #f5f5f5;
+        radial-gradient(circle at 5% 10%, #ffd7e8 0, transparent 25%),
+        radial-gradient(circle at 95% 20%, #f3d8e8 0, transparent 25%),
+        #fff7fb;
 }
 
-body.nonpastel .hero {
-    background: rgba(255,255,255,0.92);
+body.theme-lavender {
+    background:
+        radial-gradient(circle at 10% 10%, #ddd3ff 0, transparent 28%),
+        radial-gradient(circle at 90% 15%, #f1dcff 0, transparent 28%),
+        #fbf9ff;
 }
 
-body.nonpastel .course-card,
-body.nonpastel .about-card,
-body.nonpastel .stat-card,
-body.nonpastel .settings-panel {
-    background: rgba(255,255,255,0.94);
+body.theme-blue {
+    background:
+        radial-gradient(circle at 10% 10%, #cceeff 0, transparent 28%),
+        radial-gradient(circle at 90% 20%, #d8e6ff 0, transparent 28%),
+        #f8fcff;
 }
 
-/* HEADER */
+body.theme-mint {
+    background:
+        radial-gradient(circle at 10% 10%, #c9f1e5 0, transparent 28%),
+        radial-gradient(circle at 90% 20%, #d9f5c9 0, transparent 28%),
+        #f8fffc;
+}
+
+body.theme-peach {
+    background:
+        radial-gradient(circle at 10% 10%, #ffddc9 0, transparent 28%),
+        radial-gradient(circle at 90% 20%, #ffe9ba 0, transparent 28%),
+        #fffaf5;
+}
+
+body.theme-dark {
+    --text: #eee7ed;
+    --muted: #b9abb5;
+    --card: rgba(37,31,39,0.85);
+    --card-solid: #29232c;
+    --border: rgba(255,255,255,0.08);
+    --shadow: 0 15px 45px rgba(0,0,0,0.25);
+
+    background:
+        radial-gradient(circle at 10% 10%, #493449 0, transparent 25%),
+        radial-gradient(circle at 90% 20%, #37334f 0, transparent 25%),
+        #19171b;
+}
+
+body.theme-dark header {
+    background: rgba(25,23,27,0.80);
+}
+
+body.theme-dark .secondary-btn,
+body.theme-dark .search-box input,
+body.theme-dark .setting select,
+body.theme-dark .setting button {
+    background: #302a32;
+    color: var(--text);
+}
+
+body.theme-dark .lesson-number {
+    background: #39313b;
+}
+
+
+/* =========================
+   DECORATIONS
+========================= */
+
+.decorations {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.decor {
+    position: absolute;
+    opacity: 0.55;
+    animation: float 6s ease-in-out infinite;
+    user-select: none;
+}
+
+.decor:nth-child(1) {
+    left: 3%;
+    top: 18%;
+    font-size: 25px;
+}
+
+.decor:nth-child(2) {
+    right: 5%;
+    top: 30%;
+    font-size: 30px;
+    animation-delay: 1s;
+}
+
+.decor:nth-child(3) {
+    left: 8%;
+    top: 62%;
+    font-size: 22px;
+    animation-delay: 2s;
+}
+
+.decor:nth-child(4) {
+    right: 9%;
+    top: 72%;
+    font-size: 25px;
+    animation-delay: 3s;
+}
+
+.decor:nth-child(5) {
+    left: 45%;
+    top: 8%;
+    font-size: 18px;
+    animation-delay: 1.5s;
+}
+
+.decor:nth-child(6) {
+    right: 30%;
+    top: 50%;
+    font-size: 17px;
+    animation-delay: 2.5s;
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(5deg);
+    }
+}
+
+
+/* =========================
+   HEADER
+========================= */
 
 header {
     position: sticky;
     top: 0;
-    z-index: 50;
-    backdrop-filter: blur(18px);
-    background: rgba(255,250,253,0.78);
-    border-bottom: 1px solid var(--border);
+    z-index: 100;
+
+    backdrop-filter: blur(20px);
+
+    background: rgba(255,250,253,0.76);
+
+    border-bottom:
+        1px solid var(--border);
 }
 
 .navbar {
-    max-width: 1150px;
+    max-width: 1200px;
     margin: auto;
-    padding: 15px 20px;
+
+    padding: 13px 20px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 15px;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
     text-decoration: none;
     color: var(--text);
-    font-weight: 800;
+
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
     font-size: 1.25rem;
+    font-weight: 800;
 }
 
-.logo-heart {
-    width: 38px;
-    height: 38px;
-    border-radius: 13px;
+.logo-icon {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 15px;
+
     display: grid;
     place-items: center;
-    background: #ffe1ed;
-    font-size: 1.2rem;
+
+    background:
+        linear-gradient(135deg,
+        #ffd8e9,
+        #e8dcff);
+
+    box-shadow:
+        0 8px 20px rgba(180,120,155,0.15);
+
+    font-size: 1.35rem;
+}
+
+.logo-text span {
+    color: var(--main-dark);
 }
 
 .nav-buttons {
     display: flex;
-    gap: 8px;
+    gap: 7px;
 }
 
-.nav-btn {
+.nav-button {
     border: none;
     background: transparent;
-    padding: 9px 13px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-family: inherit;
+
     color: var(--text);
-    font-weight: 600;
+
+    font-family: inherit;
+    font-weight: 700;
+
+    padding: 10px 13px;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
 }
 
-.nav-btn:hover {
-    background: var(--pink-light);
+.nav-button:hover {
+    background: var(--main-light);
+    transform: translateY(-1px);
 }
 
-/* MAIN */
+
+/* =========================
+   MAIN
+========================= */
 
 main {
-    max-width: 1150px;
+    max-width: 1200px;
     margin: auto;
     padding: 35px 20px 80px;
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 .hero {
     position: relative;
-    overflow: hidden;
-    border-radius: 32px;
-    padding: 50px;
-    background: rgba(255,255,255,0.72);
-    backdrop-filter: blur(15px);
+
+    padding: 55px;
+
+    border-radius: 35px;
+
+    background: var(--card);
+
+    backdrop-filter: blur(18px);
+
+    border:
+        1px solid rgba(255,255,255,0.7);
+
     box-shadow: var(--shadow);
-    border: 1px solid rgba(255,255,255,0.8);
+
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "♡";
+
+    position: absolute;
+
+    right: 90px;
+    top: 25px;
+
+    font-size: 7rem;
+
+    color: #f5bad2;
+
+    opacity: 0.18;
+
+    transform: rotate(12deg);
 }
 
 .hero::after {
     content: "🧬";
+
     position: absolute;
-    right: 45px;
-    top: 30px;
-    font-size: 6rem;
-    opacity: 0.12;
-    transform: rotate(15deg);
+
+    right: 55px;
+    bottom: 25px;
+
+    font-size: 4rem;
+
+    opacity: 0.10;
+
+    transform: rotate(-10deg);
 }
 
-.eyebrow {
-    color: var(--pink-dark);
+.hero-sticker {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 7px;
+
+    padding: 7px 13px;
+
+    border-radius: 50px;
+
+    background: var(--main-light);
+
+    color: var(--main-dark);
+
+    font-size: 0.8rem;
+
     font-weight: 800;
-    letter-spacing: 1px;
-    font-size: 0.82rem;
-    text-transform: uppercase;
 }
 
 .hero h1 {
-    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    margin: 17px 0 13px;
+
+    font-size: clamp(3rem, 7vw, 5rem);
+
     line-height: 0.98;
-    margin: 10px 0 18px;
-    letter-spacing: -2px;
+
+    letter-spacing: -3px;
 }
 
 .hero h1 span {
-    color: var(--pink-dark);
+    color: var(--main-dark);
 }
 
-.hero p {
-    max-width: 650px;
+.hero-description {
+    max-width: 670px;
+
     color: var(--muted);
+
+    line-height: 1.75;
+
     font-size: 1.08rem;
-    line-height: 1.7;
+
     margin-bottom: 25px;
 }
 
@@ -191,147 +424,283 @@ main {
 .primary-btn,
 .secondary-btn {
     border: none;
-    border-radius: 14px;
-    padding: 12px 18px;
+
+    padding: 13px 19px;
+
+    border-radius: 15px;
+
     font-family: inherit;
-    font-weight: 700;
+
+    font-weight: 800;
+
     cursor: pointer;
-    transition: transform 0.2s ease;
+
+    transition: 0.2s;
 }
 
 .primary-btn {
-    background: var(--pink);
     color: white;
-    box-shadow: 0 7px 18px rgba(201,94,139,0.22);
+
+    background:
+        linear-gradient(135deg,
+        var(--main),
+        var(--main-dark));
+
+    box-shadow:
+        0 9px 22px rgba(200,95,140,0.22);
 }
 
 .secondary-btn {
     background: white;
+
     color: var(--text);
+
     border: 1px solid var(--border);
 }
 
 .primary-btn:hover,
 .secondary-btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
-/* STATS */
+
+/* =========================
+   LITTLE NOTE
+========================= */
+
+.cute-note {
+    margin-top: 20px;
+
+    display: inline-block;
+
+    padding: 10px 15px;
+
+    background: rgba(255,255,255,0.65);
+
+    border: 1px dashed #e2aec8;
+
+    border-radius: 15px;
+
+    color: var(--muted);
+
+    font-size: 0.88rem;
+
+    transform: rotate(-1deg);
+}
+
+
+/* =========================
+   STATS
+========================= */
 
 .stats {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
     gap: 14px;
-    margin: 20px 0;
+
+    margin: 18px 0;
 }
 
-.stat-card {
+.stat {
     background: var(--card);
+
     border: 1px solid var(--border);
+
     border-radius: var(--radius);
-    padding: 20px;
+
+    padding: 19px;
+
     box-shadow: var(--shadow);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.stat::after {
+    content: "✦";
+
+    position: absolute;
+
+    right: 14px;
+    top: 10px;
+
+    opacity: 0.15;
+
+    font-size: 2rem;
+}
+
+.stat-icon {
+    font-size: 1.35rem;
 }
 
 .stat-number {
-    font-size: 1.8rem;
+    margin-top: 5px;
+
+    font-size: 1.7rem;
+
     font-weight: 800;
 }
 
 .stat-label {
     color: var(--muted);
-    font-size: 0.9rem;
-    margin-top: 3px;
+
+    font-size: 0.82rem;
 }
 
-/* SEARCH */
 
-.section-title {
+/* =========================
+   SECTION
+========================= */
+
+.section-heading {
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     gap: 15px;
-    margin: 40px 0 15px;
+
+    margin: 42px 0 16px;
 }
 
-.section-title h2 {
+.section-heading h2 {
     margin: 0;
-    font-size: 1.65rem;
+
+    font-size: 1.75rem;
 }
 
-.search-box {
+.section-heading p {
+    margin: 4px 0 0;
+
+    color: var(--muted);
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-area {
     position: relative;
-    margin-bottom: 18px;
+
+    margin-bottom: 17px;
 }
 
-.search-box input {
+.search-area input {
     width: 100%;
-    padding: 16px 18px 16px 48px;
-    border-radius: 17px;
+
+    padding: 17px 20px 17px 49px;
+
+    border-radius: 18px;
+
     border: 1px solid var(--border);
-    background: rgba(255,255,255,0.82);
-    outline: none;
-    font-family: inherit;
-    font-size: 1rem;
+
+    background: var(--card);
+
     color: var(--text);
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 1rem;
+
     box-shadow: var(--shadow);
 }
 
-.search-box input:focus {
-    border-color: var(--pink);
+.search-area input:focus {
+    border-color: var(--main);
 }
 
-.search-icon {
+.search-symbol {
     position: absolute;
-    left: 17px;
+
+    left: 18px;
     top: 14px;
-    font-size: 1.1rem;
+
+    font-size: 1.15rem;
 }
 
-/* COURSES */
+
+/* =========================
+   COURSE CARDS
+========================= */
 
 .course-list {
     display: flex;
+
     flex-direction: column;
-    gap: 13px;
+
+    gap: 14px;
 }
 
 .course-card {
     background: var(--card);
+
     border: 1px solid var(--border);
+
     border-radius: var(--radius);
+
     box-shadow: var(--shadow);
+
     overflow: hidden;
-    transition: 0.25s ease;
+
+    transition: 0.25s;
 }
 
 .course-card:hover {
-    transform: translateY(-1px);
+    box-shadow:
+        0 18px 45px rgba(112,75,99,0.13);
 }
 
 .course-header {
     width: 100%;
+
     border: none;
+
     background: transparent;
-    padding: 21px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    cursor: pointer;
-    font-family: inherit;
-    text-align: left;
+
     color: var(--text);
+
+    font-family: inherit;
+
+    padding: 21px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    text-align: left;
+
+    cursor: pointer;
 }
 
-.course-number {
-    min-width: 48px;
-    height: 48px;
-    border-radius: 15px;
-    background: var(--pink-light);
+.course-icon {
+    width: 53px;
+    height: 53px;
+
+    border-radius: 18px;
+
     display: grid;
     place-items: center;
-    font-weight: 800;
-    color: var(--pink-dark);
+
+    background:
+        linear-gradient(135deg,
+        var(--main-light),
+        #f1e9ff);
+
+    font-size: 1.35rem;
+
+    flex-shrink: 0;
 }
 
 .course-info {
@@ -339,28 +708,53 @@ main {
 }
 
 .course-info h3 {
-    margin: 0 0 3px;
-    font-size: 1.05rem;
+    margin: 0 0 4px;
+
+    font-size: 1.08rem;
 }
 
 .course-info p {
     margin: 0;
+
     color: var(--muted);
-    font-size: 0.87rem;
+
+    font-size: 0.86rem;
+}
+
+.course-count {
+    color: var(--main-dark);
+
+    font-size: 0.78rem;
+
+    font-weight: 800;
+
+    background: var(--main-light);
+
+    padding: 6px 9px;
+
+    border-radius: 10px;
 }
 
 .course-arrow {
-    font-size: 1.2rem;
-    transition: transform 0.25s ease;
+    font-size: 1.1rem;
+
+    transition: transform 0.25s;
 }
 
 .course-card.open .course-arrow {
     transform: rotate(180deg);
 }
 
+
+/* =========================
+   LESSONS
+========================= */
+
 .lessons {
     display: none;
-    padding: 0 15px 15px;
+
+    padding:
+        0 15px 16px;
 }
 
 .course-card.open .lessons {
@@ -369,653 +763,1433 @@ main {
 
 .lesson {
     display: flex;
+
     align-items: center;
-    gap: 13px;
-    padding: 13px 15px;
+
+    gap: 12px;
+
+    padding: 11px 13px;
+
+    margin-top: 4px;
+
     border-radius: 15px;
-    text-decoration: none;
-    color: var(--text);
-    margin-top: 5px;
-    transition: 0.2s ease;
+
+    transition: 0.2s;
 }
 
 .lesson:hover {
-    background: var(--pink-light);
-    transform: translateX(3px);
+    background: var(--main-light);
+
+    transform: translateX(4px);
+}
+
+.lesson-link {
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    text-decoration: none;
+
+    color: var(--text);
+
+    font-weight: 600;
 }
 
 .lesson-number {
-    width: 34px;
-    height: 34px;
+    width: 35px;
+    height: 35px;
+
     border-radius: 11px;
-    display: grid;
-    place-items: center;
+
     background: #f5edf2;
+
+    display: grid;
+
+    place-items: center;
+
     color: var(--muted);
-    font-size: 0.8rem;
+
+    font-size: 0.75rem;
+
     font-weight: 800;
+
     flex-shrink: 0;
 }
 
 .lesson-title {
-    flex: 1;
-    font-weight: 600;
+    line-height: 1.3;
 }
 
-.lesson-check {
-    width: 25px;
-    height: 25px;
+.check {
+    width: 27px;
+    height: 27px;
+
     border-radius: 50%;
+
     border: 2px solid #dfcbd6;
+
     background: white;
-    cursor: pointer;
-    display: grid;
-    place-items: center;
+
     color: transparent;
+
+    cursor: pointer;
+
+    display: grid;
+
+    place-items: center;
+
     flex-shrink: 0;
 }
 
-.lesson.completed .lesson-check {
-    background: var(--pink);
-    border-color: var(--pink);
+.lesson.completed .check {
+    background: var(--main);
+
+    border-color: var(--main);
+
     color: white;
 }
 
 .lesson.completed .lesson-title {
+    opacity: 0.48;
+
     text-decoration: line-through;
-    opacity: 0.55;
 }
 
-/* ABOUT */
+
+/* =========================
+   ABOUT
+========================= */
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
+
+    grid-template-columns:
+        1.35fr 1fr;
+
     gap: 15px;
-    margin-top: 20px;
 }
 
 .about-card {
     background: var(--card);
+
     border: 1px solid var(--border);
+
     border-radius: var(--radius);
-    padding: 25px;
+
+    padding: 27px;
+
     box-shadow: var(--shadow);
 }
 
 .about-card h3 {
     margin-top: 0;
+
+    font-size: 1.25rem;
 }
 
 .about-card p {
     color: var(--muted);
-    line-height: 1.7;
+
+    line-height: 1.75;
 }
 
-.quote {
-    font-size: 1.1rem;
+.quote-box {
+    background:
+        linear-gradient(135deg,
+        var(--main-light),
+        #eee8ff);
+
+    border-radius: 19px;
+
+    padding: 20px;
+
     font-weight: 700;
+
     line-height: 1.6;
 }
 
-/* SETTINGS */
+
+/* =========================
+   SETTINGS
+========================= */
+
+.settings-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(60,40,55,0.18);
+
+    backdrop-filter: blur(3px);
+
+    z-index: 199;
+
+    display: none;
+}
+
+.settings-overlay.show {
+    display: block;
+}
 
 .settings-panel {
     position: fixed;
+
     right: 20px;
-    top: 75px;
-    width: min(330px, calc(100vw - 40px));
-    background: rgba(255,255,255,0.96);
+    top: 72px;
+
+    width: min(390px, calc(100vw - 40px));
+
+    max-height: calc(100vh - 95px);
+
+    overflow-y: auto;
+
+    background: var(--card-solid);
+
     border: 1px solid var(--border);
-    border-radius: 22px;
-    padding: 20px;
-    box-shadow: 0 20px 60px rgba(80,50,70,0.18);
-    z-index: 100;
+
+    border-radius: 26px;
+
+    padding: 23px;
+
+    box-shadow:
+        0 25px 70px rgba(60,40,55,0.20);
+
+    z-index: 200;
+
     display: none;
+
+    animation: pop 0.2s ease;
 }
 
 .settings-panel.show {
     display: block;
 }
 
-.settings-panel h3 {
-    margin-top: 0;
+@keyframes pop {
+    from {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
-.setting {
-    margin: 18px 0;
+.settings-top {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
 }
 
-.setting label {
-    display: block;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.setting select,
-.setting button {
-    width: 100%;
-    padding: 11px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    background: white;
-    font-family: inherit;
-    cursor: pointer;
+.settings-top h3 {
+    margin: 0;
 }
 
 .close-settings {
-    position: absolute;
-    right: 14px;
-    top: 12px;
     border: none;
-    background: transparent;
-    font-size: 1.2rem;
+
+    background: var(--main-light);
+
+    color: var(--main-dark);
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 11px;
+
+    cursor: pointer;
+
+    font-size: 1.1rem;
+}
+
+.setting {
+    margin: 21px 0;
+}
+
+.setting-label {
+    display: block;
+
+    font-weight: 800;
+
+    margin-bottom: 9px;
+}
+
+.setting-description {
+    color: var(--muted);
+
+    font-size: 0.78rem;
+
+    margin-bottom: 9px;
+}
+
+.setting select,
+.setting-button {
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 13px;
+
+    border: 1px solid var(--border);
+
+    background: white;
+
+    color: var(--text);
+
+    font-family: inherit;
+
     cursor: pointer;
 }
 
-/* FOOTER */
+.theme-options {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 8px;
+}
+
+.theme-option {
+    border: 2px solid transparent;
+
+    padding: 10px 5px;
+
+    border-radius: 13px;
+
+    background: #fafafa;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 0.75rem;
+}
+
+.theme-option.active {
+    border-color: var(--main);
+
+    background: var(--main-light);
+}
+
+.theme-preview {
+    width: 100%;
+    height: 24px;
+
+    border-radius: 8px;
+
+    margin-bottom: 5px;
+}
+
+.pink-preview {
+    background: linear-gradient(135deg,#ffd4e6,#fff3f8);
+}
+
+.lavender-preview {
+    background: linear-gradient(135deg,#ddd3ff,#f7f0ff);
+}
+
+.blue-preview {
+    background: linear-gradient(135deg,#cceeff,#f2fbff);
+}
+
+.mint-preview {
+    background: linear-gradient(135deg,#c9f1e5,#f1fff9);
+}
+
+.peach-preview {
+    background: linear-gradient(135deg,#ffddc9,#fff6e9);
+}
+
+.dark-preview {
+    background: linear-gradient(135deg,#40313f,#19171b);
+}
+
+.decoration-options {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+.decoration-option {
+    border: 1px solid var(--border);
+
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 8px 10px;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+}
+
+.decoration-option.active {
+    border-color: var(--main);
+
+    background: var(--main-light);
+}
+
+.toggle-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.toggle {
+    width: 48px;
+    height: 27px;
+
+    border-radius: 20px;
+
+    border: none;
+
+    background: #ddd;
+
+    cursor: pointer;
+
+    position: relative;
+}
+
+.toggle::after {
+    content: "";
+
+    width: 21px;
+    height: 21px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    position: absolute;
+
+    top: 3px;
+    left: 3px;
+
+    transition: 0.2s;
+}
+
+.toggle.on {
+    background: var(--main);
+}
+
+.toggle.on::after {
+    left: 24px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     text-align: center;
-    padding: 35px 20px;
+
+    padding: 40px 20px;
+
     color: var(--muted);
-    font-size: 0.85rem;
+
+    font-size: 0.83rem;
 }
 
-/* RESPONSIVE */
+.footer-heart {
+    color: var(--main-dark);
+}
 
-@media (max-width: 700px) {
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 750px) {
 
     .hero {
-        padding: 32px 25px;
+        padding: 34px 25px;
     }
 
-    .hero::after {
-        right: 10px;
-        font-size: 4rem;
+    .hero h1 {
+        letter-spacing: -2px;
     }
 
     .stats {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
     .about-grid {
         grid-template-columns: 1fr;
     }
 
-    .nav-btn span {
+    .course-count {
+        display: none;
+    }
+
+    .nav-button span {
         display: none;
     }
 
     main {
-        padding: 22px 14px 60px;
+        padding:
+            23px 14px 60px;
     }
 
-    .course-header {
-        padding: 17px;
-    }
 }
+
+@media(max-width: 430px) {
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero {
+        border-radius: 26px;
+    }
+
+    .hero::before {
+        right: 20px;
+        font-size: 5rem;
+    }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
+
+<!-- =========================
+     DECORATIONS
+========================= -->
+
+<div class="decorations" id="decorations">
+
+    <div class="decor">♡</div>
+    <div class="decor">✦</div>
+    <div class="decor">🩷</div>
+    <div class="decor">🧬</div>
+    <div class="decor">✿</div>
+    <div class="decor">🫧</div>
+
+</div>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
-    <nav class="navbar">
 
-        <a href="#" class="logo">
-            <div class="logo-heart">♡</div>
-            <span>MedNotesLab</span>
-        </a>
+<nav class="navbar">
 
-        <div class="nav-buttons">
-            <button class="nav-btn" onclick="scrollToCourses()">📚 <span>Courses</span></button>
-            <button class="nav-btn" onclick="toggleSettings()">⚙️ <span>Settings</span></button>
+    <a href="#" class="logo">
+
+        <div class="logo-icon">
+            🩷
         </div>
 
-    </nav>
+        <div class="logo-text">
+            MedNotes<span>Lab</span>
+        </div>
+
+    </a>
+
+
+    <div class="nav-buttons">
+
+        <button
+            class="nav-button"
+            onclick="scrollToCourses()"
+        >
+            📚 <span>Courses</span>
+        </button>
+
+        <button
+            class="nav-button"
+            onclick="openSettings()"
+        >
+            ⚙️ <span>Settings</span>
+        </button>
+
+    </div>
+
+</nav>
+
 </header>
 
 
-<!-- SETTINGS -->
+<!-- =========================
+     SETTINGS
+========================= -->
 
-<div class="settings-panel" id="settingsPanel">
+<div
+    class="settings-overlay"
+    id="settingsOverlay"
+    onclick="closeSettings()"
+></div>
 
-    <button class="close-settings" onclick="toggleSettings()">×</button>
 
-    <h3>⚙️ Customize MedNotesLab</h3>
+<div
+    class="settings-panel"
+    id="settingsPanel"
+>
 
-    <div class="setting">
-        <label>🎨 Background</label>
+    <div class="settings-top">
 
-        <select id="backgroundChoice" onchange="changeBackground(this.value)">
-            <option value="pastel">Pastel</option>
-            <option value="nonpastel">Non-pastel</option>
-        </select>
-    </div>
+        <h3>⚙️ Customize your space</h3>
 
-    <div class="setting">
-        <label>🖋️ Font</label>
-
-        <select id="fontChoice" onchange="changeFont(this.value)">
-            <option value="Nunito">Nunito</option>
-            <option value="Quicksand">Quicksand</option>
-            <option value="DM Sans">DM Sans</option>
-        </select>
-    </div>
-
-    <div class="setting">
-        <label>✨ Progress</label>
-
-        <button onclick="resetProgress()">
-            Reset completed lessons
+        <button
+            class="close-settings"
+            onclick="closeSettings()"
+        >
+            ×
         </button>
+
+    </div>
+
+
+    <!-- THEMES -->
+
+    <div class="setting">
+
+        <label class="setting-label">
+            🎨 Background
+        </label>
+
+        <div class="setting-description">
+            Pick the vibe you want while studying.
+        </div>
+
+        <div class="theme-options">
+
+            <button
+                class="theme-option"
+                data-theme="pink"
+                onclick="setTheme('pink')"
+            >
+                <div class="theme-preview pink-preview"></div>
+                Pink
+            </button>
+
+            <button
+                class="theme-option"
+                data-theme="lavender"
+                onclick="setTheme('lavender')"
+            >
+                <div class="theme-preview lavender-preview"></div>
+                Lavender
+            </button>
+
+            <button
+                class="theme-option"
+                data-theme="blue"
+                onclick="setTheme('blue')"
+            >
+                <div class="theme-preview blue-preview"></div>
+                Blue
+            </button>
+
+            <button
+                class="theme-option"
+                data-theme="mint"
+                onclick="setTheme('mint')"
+            >
+                <div class="theme-preview mint-preview"></div>
+                Mint
+            </button>
+
+            <button
+                class="theme-option"
+                data-theme="peach"
+                onclick="setTheme('peach')"
+            >
+                <div class="theme-preview peach-preview"></div>
+                Peach
+            </button>
+
+            <button
+                class="theme-option"
+                data-theme="dark"
+                onclick="setTheme('dark')"
+            >
+                <div class="theme-preview dark-preview"></div>
+                Night
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- FONT -->
+
+    <div class="setting">
+
+        <label class="setting-label">
+            🖋️ Font
+        </label>
+
+        <div class="setting-description">
+            Make the website feel more like you.
+        </div>
+
+        <select
+            id="fontChoice"
+            onchange="setFont(this.value)"
+        >
+
+            <option value="Nunito">Nunito — soft</option>
+
+            <option value="Quicksand">Quicksand — rounded</option>
+
+            <option value="Comfortaa">Comfortaa — bubbly</option>
+
+            <option value="Fredoka">Fredoka — cute</option>
+
+            <option value="Baloo 2">Baloo 2 — playful</option>
+
+            <option value="DM Sans">DM Sans — clean</option>
+
+            <option value="Manrope">Manrope — modern</option>
+
+            <option value="Montserrat">Montserrat — polished</option>
+
+            <option value="Josefin Sans">Josefin Sans — elegant</option>
+
+            <option value="Patrick Hand">Patrick Hand — handwritten</option>
+
+            <option value="Gaegu">Gaegu — journal</option>
+
+            <option value="Shantell Sans">Shantell Sans — sketchy</option>
+
+        </select>
+
+    </div>
+
+
+    <!-- DECORATIONS -->
+
+    <div class="setting">
+
+        <label class="setting-label">
+            ✨ Decorations
+        </label>
+
+        <div class="setting-description">
+            Choose what floats around your screen.
+        </div>
+
+        <div class="decoration-options">
+
+            <button
+                class="decoration-option"
+                onclick="setDecoration('cute')"
+            >
+                ♡ ✦ 🩷
+            </button>
+
+            <button
+                class="decoration-option"
+                onclick="setDecoration('medical')"
+            >
+                🧬 🔬 🩺
+            </button>
+
+            <button
+                class="decoration-option"
+                onclick="setDecoration('flowers')"
+            >
+                🌸 🌷 ✿
+            </button>
+
+            <button
+                class="decoration-option"
+                onclick="setDecoration('stars')"
+            >
+                ✦ ✧ ⋆
+            </button>
+
+            <button
+                class="decoration-option"
+                onclick="setDecoration('mixed')"
+            >
+                ♡ 🧬 ✿
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ANIMATION -->
+
+    <div class="setting">
+
+        <div class="toggle-row">
+
+            <div>
+
+                <div class="setting-label">
+                    🫧 Floating decorations
+                </div>
+
+                <div class="setting-description">
+                    Let the little decorations move.
+                </div>
+
+            </div>
+
+            <button
+                class="toggle on"
+                id="animationToggle"
+                onclick="toggleAnimations()"
+            ></button>
+
+        </div>
+
+    </div>
+
+
+    <!-- RESET -->
+
+    <div class="setting">
+
+        <label class="setting-label">
+            ♻️ Reset
+        </label>
+
+        <button
+            class="setting-button"
+            onclick="resetEverything()"
+        >
+            Reset progress & settings
+        </button>
+
     </div>
 
 </div>
 
 
+<!-- =========================
+     MAIN
+========================= -->
+
 <main>
 
-    <!-- HERO -->
 
-    <section class="hero">
+<!-- HERO -->
 
-        <div class="eyebrow">FREE HEALTH SCIENCE LEARNING</div>
+<section class="hero">
 
-        <h1>
-            Welcome to<br>
-            <span>MedNotesLab ♡</span>
-        </h1>
+    <div class="hero-sticker">
+        🩺 FREE HEALTH SCIENCE LEARNING
+    </div>
 
-        <p>
-            A free place to learn about the human body, health science,
-            genetics, medicine, diseases, mental health, and medical research
-            — one lesson at a time.
-        </p>
 
-        <div class="hero-buttons">
+    <h1>
+        Welcome to<br>
+        <span>MedNotesLab ♡</span>
+    </h1>
 
-            <button class="primary-btn" onclick="scrollToCourses()">
-                Start Learning ✦
-            </button>
 
-            <button class="secondary-btn" onclick="openFirstLesson()">
-                Begin Lesson 1 →
-            </button>
+    <p class="hero-description">
+
+        A cute little place to learn about the human body,
+        cells, DNA, medicine, diseases, mental health,
+        research, and so much more — completely free.
+
+    </p>
+
+
+    <div class="hero-buttons">
+
+        <button
+            class="primary-btn"
+            onclick="scrollToCourses()"
+        >
+            Start Learning ✦
+        </button>
+
+        <button
+            class="secondary-btn"
+            onclick="startLesson()"
+        >
+            Begin Lesson 1 →
+        </button>
+
+    </div>
+
+
+    <div class="cute-note">
+        ♡ Learn at your own pace · one lesson at a time
+    </div>
+
+</section>
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            📚
+        </div>
+
+        <div class="stat-number">
+            11
+        </div>
+
+        <div class="stat-label">
+            Courses
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            🧬
+        </div>
+
+        <div class="stat-number">
+            102
+        </div>
+
+        <div class="stat-label">
+            Lessons
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            ♡
+        </div>
+
+        <div
+            class="stat-number"
+            id="progressNumber"
+        >
+            0%
+        </div>
+
+        <div class="stat-label">
+            Completed
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            ✦
+        </div>
+
+        <div
+            class="stat-number"
+            id="completedNumber"
+        >
+            0
+        </div>
+
+        <div class="stat-label">
+            Lessons finished
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- COURSES -->
+
+<section id="courses">
+
+    <div class="section-heading">
+
+        <div>
+
+            <h2>
+                📚 Your Learning Path
+            </h2>
+
+            <p>
+                102 lessons waiting for you ♡
+            </p>
 
         </div>
 
-    </section>
+    </div>
 
 
-    <!-- STATS -->
+    <div class="search-area">
 
-    <section class="stats">
+        <span class="search-symbol">
+            🔎
+        </span>
 
-        <div class="stat-card">
-            <div class="stat-number">11</div>
-            <div class="stat-label">Courses</div>
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Search lessons... DNA, brain, vaccines, cells..."
+            oninput="searchLessons()"
+        >
+
+    </div>
+
+
+    <div
+        class="course-list"
+        id="courseList"
+    ></div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="section-heading">
+
+        <div>
+
+            <h2>
+                ♡ About MedNotesLab
+            </h2>
+
+            <p>
+                Why this little website exists
+            </p>
+
         </div>
 
-        <div class="stat-card">
-            <div class="stat-number">102</div>
-            <div class="stat-label">Lessons</div>
+    </div>
+
+
+    <div class="about-grid">
+
+
+        <div class="about-card">
+
+            <h3>
+                🧬 Learn. Explore. Understand.
+            </h3>
+
+            <p>
+
+                MedNotesLab is a free educational project
+                designed to make health science feel less
+                overwhelming and more fun to explore.
+
+            </p>
+
+            <p>
+
+                Start with the basics of health science,
+                then slowly move into cells, DNA, anatomy,
+                physiology, microbiology, diseases,
+                neuroscience, medicine, and research.
+
+            </p>
+
+            <p>
+
+                You don't have to know everything.
+                You don't even have to finish a whole course
+                in one day.
+
+                Just learn something new.
+
+            </p>
+
         </div>
 
-        <div class="stat-card">
-            <div class="stat-number" id="progressNumber">0%</div>
-            <div class="stat-label">Your Progress</div>
-        </div>
 
-    </section>
+        <div class="about-card">
 
+            <div class="quote-box">
 
-    <!-- COURSES -->
+                ✦
 
-    <section id="courses">
+                <br><br>
 
-        <div class="section-title">
-            <h2>📚 Explore the Courses</h2>
-        </div>
+                “You don't have to know
+                everything today.
 
-        <div class="search-box">
+                <br>
 
-            <span class="search-icon">🔎</span>
+                You just have to keep learning.”
 
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search a lesson... like DNA, brain, vaccines..."
-                oninput="searchLessons()"
-            >
+                <br><br>
 
-        </div>
-
-        <div class="course-list" id="courseList"></div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section id="about">
-
-        <div class="section-title">
-            <h2>♡ What is MedNotesLab?</h2>
-        </div>
-
-        <div class="about-grid">
-
-            <div class="about-card">
-
-                <h3>🧬 Learn health science your way</h3>
-
-                <p>
-                    MedNotesLab is a free educational project made to make
-                    health science easier and more organized to learn.
-                    Start with the foundations, explore cells and DNA,
-                    learn anatomy and physiology, then work your way toward
-                    medicine, diseases, mental health, and medical research.
-                </p>
-
-                <p>
-                    You don't have to finish everything at once.
-                    Pick a lesson, learn something new, and keep building
-                    your knowledge one step at a time.
-                </p>
+                ♡
 
             </div>
 
-            <div class="about-card">
-
-                <div class="quote">
-                    “You don't have to know everything today.
-                    You just have to keep learning.”
-                </div>
-
-                <p>
-                    ♡ 102 lessons<br>
-                    ♡ 11 courses<br>
-                    ♡ Free to learn<br>
-                    ♡ Made for curious minds
-                </p>
-
-            </div>
-
         </div>
 
-    </section>
+    </div>
+
+</section>
+
 
 </main>
 
 
 <footer>
-    Made with ♡ for curious minds · MedNotesLab
+
+    Made with
+    <span class="footer-heart">♡</span>
+    for curious minds
+
+    <br>
+
+    MedNotesLab · Learn something new today ✦
+
 </footer>
+
 
 
 <script>
 
+/* =====================================
+   COURSE DATA
+===================================== */
+
 const courses = [
 
 {
-    number: 1,
-    title: "Foundations of Health Science",
-    description: "Start here and learn the basics of health science.",
-    lessons: [
-        "What Is Health Science?",
-        "Levels of Organization in the Body",
-        "Homeostasis",
-        "Basic Medical Terminology",
-        "Introduction to Scientific Research",
-        "How Medical Evidence Works"
-    ]
+number: 1,
+title: "Foundations of Health Science",
+description: "Start with the foundations of health science.",
+icon: "🩺",
+lessons: [
+"What Is Health Science?",
+"Levels of Organization in the Body",
+"Homeostasis",
+"Basic Medical Terminology",
+"Introduction to Scientific Research",
+"How Medical Evidence Works"
+]
 },
 
 {
-    number: 2,
-    title: "Cells",
-    description: "Explore the tiny structures that make up living organisms.",
-    lessons: [
-        "What Is a Cell?",
-        "Cell Structures",
-        "Cell Membranes",
-        "Transport Across Cell Membranes",
-        "Cellular Energy",
-        "Cell Division",
-        "Cell Death",
-        "Tissues"
-    ]
+number: 2,
+title: "Cells",
+description: "Explore the tiny structures that make life possible.",
+icon: "🧫",
+lessons: [
+"What Is a Cell?",
+"Cell Structures",
+"Cell Membranes",
+"Transport Across Cell Membranes",
+"Cellular Energy",
+"Cell Division",
+"Cell Death",
+"Tissues"
+]
 },
 
 {
-    number: 3,
-    title: "Genetics & DNA",
-    description: "Learn how DNA, genes, chromosomes, and inheritance work.",
-    lessons: [
-        "DNA",
-        "Genes",
-        "Chromosomes",
-        "RNA",
-        "Protein Synthesis",
-        "Mutations",
-        "Inheritance",
-        "Genetic Disorders",
-        "Gene Expression",
-        "Epigenetics",
-        "Genomics",
-        "Gene Editing"
-    ]
+number: 3,
+title: "Genetics & DNA",
+description: "Discover DNA, genes, chromosomes, and inheritance.",
+icon: "🧬",
+lessons: [
+"DNA",
+"Genes",
+"Chromosomes",
+"RNA",
+"Protein Synthesis",
+"Mutations",
+"Inheritance",
+"Genetic Disorders",
+"Gene Expression",
+"Epigenetics",
+"Genomics",
+"Gene Editing"
+]
 },
 
 {
-    number: 4,
-    title: "Anatomy",
-    description: "Learn the structures and systems of the human body.",
-    lessons: [
-        "Anatomical Position & Directions",
-        "Skeletal System",
-        "Muscular System",
-        "Nervous System",
-        "Cardiovascular System",
-        "Respiratory System",
-        "Digestive System",
-        "Urinary System",
-        "Endocrine System",
-        "Immune System",
-        "Reproductive System",
-        "Integumentary System",
-        "The Five Senses"
-    ]
+number: 4,
+title: "Anatomy",
+description: "Explore the structures of the human body.",
+icon: "🫀",
+lessons: [
+"Anatomical Position & Directions",
+"Skeletal System",
+"Muscular System",
+"Nervous System",
+"Cardiovascular System",
+"Respiratory System",
+"Digestive System",
+"Urinary System",
+"Endocrine System",
+"Immune System",
+"Reproductive System",
+"Integumentary System",
+"The Five Senses"
+]
 },
 
 {
-    number: 5,
-    title: "Physiology",
-    description: "Discover how the body's systems actually work.",
-    lessons: [
-        "How the Heart Works",
-        "How Blood Moves",
-        "How We Breathe",
-        "How Digestion Works",
-        "How the Kidneys Work",
-        "How Hormones Work",
-        "How the Brain Communicates",
-        "How the Immune System Responds",
-        "Maintaining Homeostasis"
-    ]
+number: 5,
+title: "Physiology",
+description: "Learn how the body's systems actually work.",
+icon: "🫁",
+lessons: [
+"How the Heart Works",
+"How Blood Moves",
+"How We Breathe",
+"How Digestion Works",
+"How the Kidneys Work",
+"How Hormones Work",
+"How the Brain Communicates",
+"How the Immune System Responds",
+"Maintaining Homeostasis"
+]
 },
 
 {
-    number: 6,
-    title: "Microbiology",
-    description: "Meet bacteria, viruses, fungi, parasites, and more.",
-    lessons: [
-        "Bacteria",
-        "Viruses",
-        "Fungi",
-        "Parasites",
-        "Infection",
-        "Immune Response",
-        "Vaccines",
-        "Antibiotics & Resistance"
-    ]
+number: 6,
+title: "Microbiology",
+description: "Explore bacteria, viruses, fungi, parasites, and infection.",
+icon: "🦠",
+lessons: [
+"Bacteria",
+"Viruses",
+"Fungi",
+"Parasites",
+"Infection",
+"Immune Response",
+"Vaccines",
+"Antibiotics & Resistance"
+]
 },
 
 {
-    number: 7,
-    title: "Disease & Pathophysiology",
-    description: "Understand what happens when the body becomes sick.",
-    lessons: [
-        "What Is Disease?",
-        "Inflammation",
-        "Infectious Diseases",
-        "Genetic Diseases",
-        "Cardiovascular Diseases",
-        "Respiratory Diseases",
-        "Neurological Diseases",
-        "Autoimmune Diseases",
-        "Cancer Biology",
-        "How Diseases Affect the Body"
-    ]
+number: 7,
+title: "Disease & Pathophysiology",
+description: "Understand what happens when the body becomes sick.",
+icon: "🔬",
+lessons: [
+"What Is Disease?",
+"Inflammation",
+"Infectious Diseases",
+"Genetic Diseases",
+"Cardiovascular Diseases",
+"Respiratory Diseases",
+"Neurological Diseases",
+"Autoimmune Diseases",
+"Cancer Biology",
+"How Diseases Affect the Body"
+]
 },
 
 {
-    number: 8,
-    title: "Mental Health & Neuroscience",
-    description: "Explore the brain, emotions, behavior, and mental health.",
-    lessons: [
-        "The Brain",
-        "Neurotransmitters",
-        "Emotions",
-        "Stress",
-        "Sleep",
-        "Memory & Learning",
-        "Anxiety Disorders",
-        "Mood Disorders",
-        "ADHD",
-        "Trauma & the Brain",
-        "Mental Health Treatment",
-        "Mental Health & Physical Health"
-    ]
+number: 8,
+title: "Mental Health & Neuroscience",
+description: "Explore the brain, emotions, behavior, and mental health.",
+icon: "🧠",
+lessons: [
+"The Brain",
+"Neurotransmitters",
+"Emotions",
+"Stress",
+"Sleep",
+"Memory & Learning",
+"Anxiety Disorders",
+"Mood Disorders",
+"ADHD",
+"Trauma & the Brain",
+"Mental Health Treatment",
+"Mental Health & Physical Health"
+]
 },
 
 {
-    number: 9,
-    title: "Medicine",
-    description: "Learn the science behind medications and treatments.",
-    lessons: [
-        "What Is a Medication?",
-        "How Drugs Enter the Body",
-        "How Drugs Affect Cells",
-        "Drug Classes",
-        "Antibiotics",
-        "Pain Medicines",
-        "Medication Safety",
-        "Side Effects",
-        "Clinical Trials",
-        "How New Treatments Are Developed"
-    ]
+number: 9,
+title: "Medicine",
+description: "Learn the science behind medications and treatments.",
+icon: "💊",
+lessons: [
+"What Is a Medication?",
+"How Drugs Enter the Body",
+"How Drugs Affect Cells",
+"Drug Classes",
+"Antibiotics",
+"Pain Medicines",
+"Medication Safety",
+"Side Effects",
+"Clinical Trials",
+"How New Treatments Are Developed"
+]
 },
 
 {
-    number: 10,
-    title: "Medical Research",
-    description: "Learn how scientists study health and disease.",
-    lessons: [
-        "How Clinical Studies Work",
-        "Reading a Scientific Paper",
-        "Correlation vs. Causation",
-        "Medical Statistics",
-        "Epidemiology",
-        "Public Health",
-        "Medical Ethics",
-        "Evaluating Health Information"
-    ]
+number: 10,
+title: "Medical Research",
+description: "Learn how scientists study health and disease.",
+icon: "📊",
+lessons: [
+"How Clinical Studies Work",
+"Reading a Scientific Paper",
+"Correlation vs. Causation",
+"Medical Statistics",
+"Epidemiology",
+"Public Health",
+"Medical Ethics",
+"Evaluating Health Information"
+]
 },
 
 {
-    number: 11,
-    title: "Putting It Together",
-    description: "Use what you've learned to think through medical problems.",
-    lessons: [
-        "Medical Case Studies",
-        "Reading Medical Test Results",
-        "Connecting Symptoms to Body Systems",
-        "How Doctors Investigate Disease",
-        "Research Challenge",
-        "Final Medical Science Quiz"
-    ]
+number: 11,
+title: "Putting It Together",
+description: "Use what you've learned to think through medical problems.",
+icon: "🧩",
+lessons: [
+"Medical Case Studies",
+"Reading Medical Test Results",
+"Connecting Symptoms to Body Systems",
+"How Doctors Investigate Disease",
+"Research Challenge",
+"Final Medical Science Quiz"
+]
 }
 
 ];
 
-let lessonNumber = 1;
 
+/* =====================================
+   RENDER COURSES
+===================================== */
 
-/* CREATE COURSES */
+function renderCourses() {
 
-function renderCourses(list = courses) {
-
-    const container = document.getElementById("courseList");
+    const container =
+        document.getElementById("courseList");
 
     container.innerHTML = "";
 
-    let currentLessonNumber = 1;
+    let lessonNumber = 1;
 
-    list.forEach((course) => {
+    courses.forEach(course => {
 
-        const card = document.createElement("div");
+        const card =
+            document.createElement("div");
 
         card.className = "course-card";
 
-        const header = document.createElement("button");
+
+        const header =
+            document.createElement("button");
 
         header.className = "course-header";
 
         header.onclick = () => {
+
             card.classList.toggle("open");
+
         };
 
-        header.innerHTML = `
-            <div class="course-number">${course.number}</div>
 
-            <div class="course-info">
-                <h3>Course ${course.number} — ${course.title}</h3>
-                <p>${course.description}</p>
+        header.innerHTML = `
+
+            <div class="course-icon">
+                ${course.icon}
             </div>
 
-            <div class="course-arrow">⌄</div>
+            <div class="course-info">
+
+                <h3>
+                    Course ${course.number}
+                    — ${course.title}
+                </h3>
+
+                <p>
+                    ${course.description}
+                </p>
+
+            </div>
+
+            <div class="course-count">
+                ${course.lessons.length} lessons
+            </div>
+
+            <div class="course-arrow">
+               ⌄
+            </div>
+
         `;
 
-        const lessonsContainer = document.createElement("div");
 
-        lessonsContainer.className = "lessons";
+        const lessons =
+            document.createElement("div");
 
-        course.lessons.forEach((lesson) => {
+        lessons.className = "lessons";
 
-            const number = currentLessonNumber;
 
-            const lessonElement = document.createElement("div");
+        course.lessons.forEach(title => {
 
-            lessonElement.className = "lesson";
+            const number = lessonNumber;
 
-            lessonElement.dataset.lesson = number;
-            lessonElement.dataset.title = lesson.toLowerCase();
 
-            lessonElement.innerHTML = `
+            const lesson =
+                document.createElement("div");
+
+            lesson.className = "lesson";
+
+            lesson.dataset.number = number;
+
+            lesson.dataset.title =
+                title.toLowerCase();
+
+
+            lesson.innerHTML = `
 
                 <a
+                    class="lesson-link"
                     href="lessons/lesson${number}.html"
-                    class="lesson-title"
                 >
-                    <span class="lesson-number">${number}</span>
-                    ${lesson}
+
+                    <span class="lesson-number">
+                        ${number}
+                    </span>
+
+                    <span class="lesson-title">
+                        ${title}
+                    </span>
+
                 </a>
 
+
                 <button
-                    class="lesson-check"
+                    class="check"
                     onclick="toggleComplete(event, ${number})"
                     aria-label="Mark lesson complete"
                 >
@@ -1024,75 +2198,135 @@ function renderCourses(list = courses) {
 
             `;
 
-            lessonsContainer.appendChild(lessonElement);
 
-            currentLessonNumber++;
+            lessons.appendChild(lesson);
+
+            lessonNumber++;
+
         });
 
+
         card.appendChild(header);
-        card.appendChild(lessonsContainer);
+
+        card.appendChild(lessons);
 
         container.appendChild(card);
+
     });
 
+
     updateProgress();
+
 }
 
 
-/* SEARCH */
+/* =====================================
+   SEARCH
+===================================== */
 
 function searchLessons() {
 
-    const search = document
+    const query =
+        document
         .getElementById("searchInput")
         .value
         .toLowerCase()
         .trim();
 
-    const cards = document.querySelectorAll(".course-card");
 
-    cards.forEach(card => {
+    document
+        .querySelectorAll(".course-card")
+        .forEach(card => {
 
-        const lessons = card.querySelectorAll(".lesson");
+            const lessons =
+                card.querySelectorAll(".lesson");
 
-        let found = false;
+            let found = false;
 
-        lessons.forEach(lesson => {
 
-            const title = lesson.dataset.title;
+            lessons.forEach(lesson => {
 
-            if (title.includes(search)) {
-                lesson.style.display = "flex";
-                found = true;
+                const title =
+                    lesson.dataset.title;
+
+
+                if (
+                    title.includes(query)
+                    || query === ""
+                ) {
+
+                    lesson.style.display =
+                        "flex";
+
+                    if (query !== "") {
+                        found = true;
+                    }
+
+                } else {
+
+                    lesson.style.display =
+                        "none";
+
+                }
+
+            });
+
+
+            if (query === "") {
+
+                card.style.display =
+                    "block";
+
             } else {
-                lesson.style.display = search ? "none" : "flex";
+
+                card.style.display =
+                    found ? "block" : "none";
+
+                if (found) {
+
+                    card.classList.add("open");
+
+                }
+
             }
 
         });
 
-        card.style.display = found || search === "" ? "block" : "none";
-
-        if (search && found) {
-            card.classList.add("open");
-        }
-
-    });
 }
 
 
-/* COMPLETION */
+/* =====================================
+   PROGRESS
+===================================== */
+
+function getCompleted() {
+
+    return JSON.parse(
+        localStorage.getItem(
+            "mednotes_completed"
+        )
+    ) || [];
+
+}
+
 
 function toggleComplete(event, number) {
 
     event.preventDefault();
+
     event.stopPropagation();
 
+
     let completed =
-        JSON.parse(localStorage.getItem("mednotes_completed")) || [];
+        getCompleted();
+
 
     if (completed.includes(number)) {
 
-        completed = completed.filter(n => n !== number);
+        completed =
+            completed.filter(
+                item => item !== number
+            );
 
     } else {
 
@@ -1100,92 +2334,297 @@ function toggleComplete(event, number) {
 
     }
 
+
     localStorage.setItem(
         "mednotes_completed",
         JSON.stringify(completed)
     );
 
+
     updateProgress();
+
 }
 
-
-/* UPDATE PROGRESS */
 
 function updateProgress() {
 
     const completed =
-        JSON.parse(localStorage.getItem("mednotes_completed")) || [];
+        getCompleted();
 
-    const percent =
-        Math.round((completed.length / 102) * 100);
 
-    document.getElementById("progressNumber").textContent =
-        percent + "%";
+    const percentage =
+        Math.round(
+            (completed.length / 102) * 100
+        );
 
-    document.querySelectorAll(".lesson").forEach(lesson => {
 
-        const number = Number(lesson.dataset.lesson);
+    document
+        .getElementById("progressNumber")
+        .textContent =
+        percentage + "%";
 
-        if (completed.includes(number)) {
-            lesson.classList.add("completed");
-        } else {
-            lesson.classList.remove("completed");
-        }
 
-    });
+    document
+        .getElementById("completedNumber")
+        .textContent =
+        completed.length;
+
+
+    document
+        .querySelectorAll(".lesson")
+        .forEach(lesson => {
+
+            const number =
+                Number(
+                    lesson.dataset.number
+                );
+
+
+            if (
+                completed.includes(number)
+            ) {
+
+                lesson.classList.add(
+                    "completed"
+                );
+
+            } else {
+
+                lesson.classList.remove(
+                    "completed"
+                );
+
+            }
+
+        });
+
 }
 
 
-/* SETTINGS */
+/* =====================================
+   SETTINGS PANEL
+===================================== */
 
-function toggleSettings() {
+function openSettings() {
 
     document
         .getElementById("settingsPanel")
-        .classList.toggle("show");
+        .classList.add("show");
+
+    document
+        .getElementById("settingsOverlay")
+        .classList.add("show");
 
 }
 
 
-function changeBackground(value) {
+function closeSettings() {
 
-    if (value === "nonpastel") {
-        document.body.classList.add("nonpastel");
-    } else {
-        document.body.classList.remove("nonpastel");
-    }
+    document
+        .getElementById("settingsPanel")
+        .classList.remove("show");
 
-    localStorage.setItem("mednotes_background", value);
+    document
+        .getElementById("settingsOverlay")
+        .classList.remove("show");
+
 }
 
 
-function changeFont(value) {
+/* =====================================
+   THEMES
+===================================== */
+
+function setTheme(theme) {
+
+    document.body.className =
+        document.body.className
+        .replace(/theme-\S+/g, "")
+        .trim();
+
+
+    document.body.classList.add(
+        "theme-" + theme
+    );
+
+
+    localStorage.setItem(
+        "mednotes_theme",
+        theme
+    );
+
+
+    document
+        .querySelectorAll(".theme-option")
+        .forEach(button => {
+
+            button.classList.toggle(
+                "active",
+                button.dataset.theme === theme
+            );
+
+        });
+
+}
+
+
+/* =====================================
+   FONT
+===================================== */
+
+function setFont(font) {
 
     document.documentElement.style
-        .setProperty("--font", `"${value}", sans-serif`);
+        .setProperty(
+            "--font",
+            `"${font}", sans-serif`
+        );
 
-    localStorage.setItem("mednotes_font", value);
+
+    localStorage.setItem(
+        "mednotes_font",
+        font
+    );
+
 }
 
 
-/* RESET */
+/* =====================================
+   DECORATIONS
+===================================== */
 
-function resetProgress() {
+const decorationSets = {
 
-    const answer = confirm(
-        "Reset all completed lessons?"
+cute: [
+    "♡","✦","🩷","🎀","♡","✧"
+],
+
+medical: [
+    "🧬","🔬","🩺","🧫","🧠","🫀"
+],
+
+flowers: [
+    "🌸","🌷","✿","🌼","🪷","🌸"
+],
+
+stars: [
+    "✦","✧","⋆","☆","✦","⋆"
+],
+
+mixed: [
+    "♡","🧬","✿","🫧","✦","🩷"
+]
+
+};
+
+
+function setDecoration(type) {
+
+    const set =
+        decorationSets[type];
+
+
+    document
+        .querySelectorAll(".decor")
+        .forEach((element, index) => {
+
+            element.textContent =
+                set[index % set.length];
+
+        });
+
+
+    localStorage.setItem(
+        "mednotes_decorations",
+        type
     );
+
+}
+
+
+/* =====================================
+   ANIMATIONS
+===================================== */
+
+function toggleAnimations() {
+
+    const toggle =
+        document.getElementById(
+            "animationToggle"
+        );
+
+
+    toggle.classList.toggle("on");
+
+
+    const enabled =
+        toggle.classList.contains("on");
+
+
+    document
+        .querySelectorAll(".decor")
+        .forEach(element => {
+
+            element.style.animation =
+                enabled
+                ? ""
+                : "none";
+
+        });
+
+
+    localStorage.setItem(
+        "mednotes_animation",
+        enabled
+    );
+
+}
+
+
+/* =====================================
+   RESET
+===================================== */
+
+function resetEverything() {
+
+    const answer =
+        confirm(
+            "Reset your progress and all MedNotesLab settings?"
+        );
+
 
     if (!answer) return;
 
-    localStorage.removeItem("mednotes_completed");
 
-    updateProgress();
+    localStorage.removeItem(
+        "mednotes_completed"
+    );
+
+    localStorage.removeItem(
+        "mednotes_theme"
+    );
+
+    localStorage.removeItem(
+        "mednotes_font"
+    );
+
+    localStorage.removeItem(
+        "mednotes_decorations"
+    );
+
+    localStorage.removeItem(
+        "mednotes_animation"
+    );
+
+
+    location.reload();
 
 }
 
 
-/* NAVIGATION */
+/* =====================================
+   NAVIGATION
+===================================== */
 
 function scrollToCourses() {
 
@@ -1198,7 +2637,7 @@ function scrollToCourses() {
 }
 
 
-function openFirstLesson() {
+function startLesson() {
 
     window.location.href =
         "lessons/lesson1.html";
@@ -1206,34 +2645,76 @@ function openFirstLesson() {
 }
 
 
-/* LOAD SAVED SETTINGS */
+/* =====================================
+   LOAD SETTINGS
+===================================== */
 
 function loadSettings() {
 
-    const background =
-        localStorage.getItem("mednotes_background") || "pastel";
+    const theme =
+        localStorage.getItem(
+            "mednotes_theme"
+        ) || "pink";
+
 
     const font =
-        localStorage.getItem("mednotes_font") || "Nunito";
+        localStorage.getItem(
+            "mednotes_font"
+        ) || "Nunito";
 
-    document.getElementById("backgroundChoice").value =
-        background;
 
-    document.getElementById("fontChoice").value =
-        font;
+    const decorations =
+        localStorage.getItem(
+            "mednotes_decorations"
+        ) || "mixed";
 
-    changeBackground(background);
-    changeFont(font);
+
+    const animation =
+        localStorage.getItem(
+            "mednotes_animation"
+        );
+
+
+    setTheme(theme);
+
+    setFont(font);
+
+    setDecoration(decorations);
+
+
+    if (animation === "false") {
+
+        const toggle =
+            document.getElementById(
+                "animationToggle"
+            );
+
+        toggle.classList.remove("on");
+
+        document
+            .querySelectorAll(".decor")
+            .forEach(element => {
+
+                element.style.animation =
+                    "none";
+
+            });
+
+    }
 
 }
 
 
-/* START */
+/* =====================================
+   START WEBSITE
+===================================== */
 
 renderCourses();
+
 loadSettings();
 
 </script>
 
 </body>
 </html>
+```
