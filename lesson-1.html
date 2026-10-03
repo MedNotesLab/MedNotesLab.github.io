@@ -1,45 +1,1787 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Lesson 1 - What Is Health Science?</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lesson 1 - What Is Health Science? | MedNotesLab</title>
+
+    <!-- CUTE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #fff8fc;
+            color: #403940;
+            font-family: 'Nunito', sans-serif;
+            line-height: 1.75;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            background: linear-gradient(
+                135deg,
+                #fbdceb,
+                #e9def8,
+                #dff1fa
+            );
+
+            text-align: center;
+            padding: 55px 20px;
+            border-bottom: 3px solid #ead0df;
+        }
+
+        .lesson-number {
+            display: inline-block;
+
+            background: white;
+            color: #a05d82;
+
+            padding: 7px 17px;
+            border-radius: 25px;
+
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            margin: 0;
+
+            color: #704d65;
+
+            font-family: 'Quicksand', sans-serif;
+            font-size: 38px;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: #806b79;
+            font-size: 17px;
+            margin-bottom: 0;
+        }
+
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
+
+        .container {
+            max-width: 920px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+
+        /* =========================
+           GENERAL CARDS
+        ========================= */
+
+        .section {
+            background: white;
+
+            border: 1px solid #efdce7;
+            border-radius: 23px;
+
+            padding: 30px;
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 7px 22px rgba(130, 80, 110, 0.07);
+        }
+
+        .section h2 {
+            margin-top: 0;
+
+            color: #704d65;
+
+            font-family: 'Quicksand', sans-serif;
+            font-size: 26px;
+        }
+
+        .section h3 {
+            color: #76566c;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+
+        /* =========================
+           COURSE PROGRESS
+        ========================= */
+
+        .progress-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #704d65;
+        }
+
+        .progress {
+            background: #eee8f4;
+            border-radius: 20px;
+            height: 13px;
+            overflow: hidden;
+            margin: 12px 0 8px;
+        }
+
+        .progress-bar {
+            width: 1%;
+            height: 100%;
+
+            background: linear-gradient(
+                90deg,
+                #e5a8c6,
+                #bca2dd
+            );
+
+            border-radius: 20px;
+        }
+
+
+        /* =========================
+           COURSE ROADMAP
+        ========================= */
+
+        .course-roadmap {
+            background: #fffafd;
+        }
+
+        .course-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .course-lesson {
+            display: flex;
+            align-items: flex-start;
+
+            gap: 15px;
+
+            padding: 17px;
+
+            background: #faf7fc;
+
+            border: 1px solid #eadfea;
+            border-radius: 17px;
+
+            transition: 0.2s;
+        }
+
+        .course-lesson:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 14px rgba(130, 80, 110, 0.08);
+        }
+
+        .course-lesson.current {
+            background: #fff0f7;
+            border: 2px solid #e5b4cc;
+        }
+
+        .lesson-number-small {
+            min-width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #e7d9f2;
+            color: #76558e;
+
+            border-radius: 13px;
+
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        .current .lesson-number-small {
+            background: #e6b2ca;
+            color: white;
+        }
+
+        .course-lesson strong {
+            display: block;
+
+            color: #704d65;
+
+            font-family: 'Quicksand', sans-serif;
+            font-size: 17px;
+        }
+
+        .course-lesson span {
+            display: block;
+
+            color: #756b73;
+            font-size: 14px;
+
+            margin-top: 3px;
+        }
+
+
+        /* =========================
+           LEARNING GOALS
+        ========================= */
+
+        .learn {
+            background: #f7effc;
+            border-left: 7px solid #c99cda;
+        }
+
+        .learn li {
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================
+           PASTEL BOXES
+        ========================= */
+
+        .pink-box {
+            background: #fff0f7;
+            border-left: 6px solid #e4a8c6;
+
+            border-radius: 16px;
+
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .blue-box {
+            background: #eef8ff;
+            border-left: 6px solid #96c9e8;
+
+            border-radius: 16px;
+
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .yellow-box {
+            background: #fff8e7;
+            border-left: 6px solid #e4c36e;
+
+            border-radius: 16px;
+
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .green-box {
+            background: #effaf3;
+            border-left: 6px solid #91cba7;
+
+            border-radius: 16px;
+
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .label {
+            color: #a05d82;
+
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+
+            letter-spacing: .5px;
+        }
+
+
+        /* =========================
+           CLICKABLE DEFINITIONS
+        ========================= */
+
+        .term {
+            color: #9b5d80;
+
+            font-weight: 700;
+
+            text-decoration: underline dotted;
+
+            cursor: pointer;
+        }
+
+        .term:hover {
+            color: #704d65;
+        }
+
+        .definition-popup {
+            display: none;
+
+            background: #fff0f7;
+
+            border: 2px solid #e8bdd2;
+
+            border-radius: 15px;
+
+            padding: 16px;
+
+            margin-top: 12px;
+        }
+
+        .definition-popup strong {
+            color: #9b5d80;
+        }
+
+
+        /* =========================
+           DIAGRAM / IMAGE
+        ========================= */
+
+        .diagram {
+            margin-top: 25px;
+
+            padding: 25px;
+
+            background: #faf8ff;
+
+            border: 2px solid #e5dcf0;
+
+            border-radius: 20px;
+
+            text-align: center;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            width: 650px;
+
+            border-radius: 15px;
+
+            margin: 10px auto;
+
+            display: block;
+        }
+
+        .caption {
+            font-size: 14px;
+            color: #766b75;
+            margin-top: 12px;
+        }
+
+
+        /* =========================
+           FIELD CARDS
+        ========================= */
+
+        .fields {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 16px;
+
+            margin-top: 20px;
+        }
+
+        .field {
+            background: #fffafd;
+
+            border: 1px solid #ecdce7;
+
+            border-radius: 18px;
+
+            padding: 20px;
+
+            transition: 0.2s;
+        }
+
+        .field:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 5px 15px rgba(150,100,130,.10);
+        }
+
+        .field h3 {
+            margin-top: 0;
+        }
+
+
+        /* =========================
+           VOCABULARY
+        ========================= */
+
+        .vocab {
+            display: grid;
+            gap: 12px;
+        }
+
+        .word {
+            background: #fcf9fd;
+
+            border: 1px solid #eadfea;
+
+            border-radius: 15px;
+
+            padding: 16px;
+        }
+
+        .word strong {
+            color: #9b5d80;
+        }
+
+
+        /* =========================
+           QUIZ
+        ========================= */
+
+        .quiz {
+            background: #f6f2ff;
+
+            border-left: 7px solid #a994d1;
+        }
+
+        .question {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+
+            margin-top: 25px;
+        }
+
+        .answer {
+            background: white;
+
+            border: 2px solid #e2dcef;
+
+            border-radius: 13px;
+
+            padding: 13px 16px;
+
+            margin: 9px 0;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .answer:hover {
+            background: #faf8ff;
+
+            transform: translateX(3px);
+        }
+
+        .correct {
+            background: #e5f7eb !important;
+            border-color: #82bd96 !important;
+        }
+
+        .wrong {
+            background: #ffe8ed !important;
+            border-color: #e2a0b1 !important;
+        }
+
+        .feedback {
+            display: none;
+
+            padding: 13px;
+
+            border-radius: 12px;
+
+            margin-top: 10px;
+
+            font-weight: 600;
+        }
+
+        .correct-feedback {
+            background: #e5f7eb;
+            color: #3c7650;
+        }
+
+        .wrong-feedback {
+            background: #ffe8ed;
+            color: #914f62;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .navigation {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin: 35px 0 55px;
+        }
+
+        .button {
+            background: #c98eaf;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 13px 23px;
+
+            border-radius: 15px;
+
+            font-family: 'Poppins', sans-serif;
+
+            font-weight: 600;
+
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #b77a9d;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 650px) {
+
+            .header h1 {
+                font-size: 29px;
+            }
+
+            .fields {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 23px;
+            }
+
+            .navigation {
+                flex-direction: column;
+            }
+
+            .button {
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-    <h1>Lesson 1: What Is Health Science?</h1>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <div class="lesson-number">
+        LESSON 01
+    </div>
+
+    <h1>🩺 What Is Health Science?</h1>
 
     <p>
-        Health science is the study of the human body, health, disease,
-        medicine, and the ways scientists work to understand and improve health.
+        Course 1 · Foundations of Health Science
     </p>
 
-    <h2>What You Will Learn</h2>
+</header>
+
+
+<main class="container">
+
+
+<!-- =========================
+     PROGRESS
+========================= -->
+
+<section class="section">
+
+    <div class="progress-title">
+        📖 Course Progress
+    </div>
+
+    <div class="progress">
+        <div class="progress-bar"></div>
+    </div>
+
+    <small>
+        Lesson 1 of 6 · Foundations of Health Science
+    </small>
+
+</section>
+
+
+<!-- =========================
+     COURSE ROADMAP
+========================= -->
+
+<section class="section course-roadmap">
+
+    <h2>📚 Course 1 — Foundations of Health Science</h2>
+
+    <p>
+        This course introduces the scientific foundations you'll need
+        before studying cells, genetics, anatomy, disease, medicine,
+        and more.
+    </p>
+
+
+    <div class="course-list">
+
+
+        <div class="course-lesson current">
+
+            <div class="lesson-number-small">
+                01
+            </div>
+
+            <div>
+
+                <strong>
+                    What Is Health Science?
+                </strong>
+
+                <span>
+                    You're here! Learn what health science is and
+                    how different fields contribute to it.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="course-lesson">
+
+            <div class="lesson-number-small">
+                02
+            </div>
+
+            <div>
+
+                <strong>
+                    Levels of Organization in the Body
+                </strong>
+
+                <span>
+                    Learn how the body is organized from cells
+                    to tissues, organs, organ systems, and the organism.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="course-lesson">
+
+            <div class="lesson-number-small">
+                03
+            </div>
+
+            <div>
+
+                <strong>
+                    Homeostasis
+                </strong>
+
+                <span>
+                    Learn how the body maintains stable internal
+                    conditions and responds to changes.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="course-lesson">
+
+            <div class="lesson-number-small">
+                04
+            </div>
+
+            <div>
+
+                <strong>
+                    Basic Medical Terminology
+                </strong>
+
+                <span>
+                    Learn common medical roots, prefixes,
+                    suffixes, and terminology.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="course-lesson">
+
+            <div class="lesson-number-small">
+                05
+            </div>
+
+            <div>
+
+                <strong>
+                    Introduction to Scientific Research
+                </strong>
+
+                <span>
+                    Learn how scientists ask questions, collect
+                    evidence, conduct studies, and communicate findings.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="course-lesson">
+
+            <div class="lesson-number-small">
+                06
+            </div>
+
+            <div>
+
+                <strong>
+                    How Medical Evidence Works
+                </strong>
+
+                <span>
+                    Learn how medical evidence is evaluated and
+                    why evidence quality matters.
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     LEARNING GOALS
+========================= -->
+
+<section class="section learn">
+
+    <h2>🎀 What You'll Learn</h2>
+
+    <p>
+        By the end of this lesson, you should be able to:
+    </p>
 
     <ul>
-        <li>What health science means</li>
-        <li>Different areas of health science</li>
-        <li>Why health science is important</li>
+
+        <li>
+            Explain what health science means.
+        </li>
+
+        <li>
+            Describe what health includes.
+        </li>
+
+        <li>
+            Identify major areas of health science.
+        </li>
+
+        <li>
+            Explain why different fields work together.
+        </li>
+
+        <li>
+            Describe why scientific evidence matters.
+        </li>
+
     </ul>
 
-    <h2>What Is Health Science?</h2>
+</section>
+
+
+<!-- =========================
+     WHAT IS HEALTH SCIENCE
+========================= -->
+
+<section class="section">
+
+    <h2>🔬 What Is Health Science?</h2>
 
     <p>
-        Health science includes many different fields that study the human body,
-        diseases, treatments, and ways to prevent illness. It combines knowledge
-        from biology, chemistry, medicine, psychology, and other sciences.
+        Health science is a broad area of science that focuses on
+        understanding
+        <span class="term" onclick="showDefinition('health')">
+            health
+        </span>,
+        the human body, disease, healthcare, and the factors that
+        influence well-being.
     </p>
 
-    <h2>Check Yourself</h2>
+    <p>
+        Health science is not one single subject. It brings together
+        knowledge from many fields, including biology, chemistry,
+        psychology, genetics, medicine, public health, and research.
+    </p>
 
-    <p>What does health science study?</p>
 
-    <p>A. Only diseases</p>
-    <p>B. The human body, health, disease, medicine, and related sciences</p>
-    <p>C. Only medications</p>
+    <div id="health" class="definition-popup">
 
-    <h2>Next Lesson</h2>
+        <strong>🌷 Health</strong>
 
-    <p>Lesson 2: Levels of Organization in the Body</p>
+        <p>
+            A broad state of well-being involving physical, mental,
+            and social aspects of a person's life.
+        </p>
+
+    </div>
+
+
+    <div class="pink-box">
+
+        <div class="label">
+            ⭐ KEY IDEA
+        </div>
+
+        <p>
+            Health science is not just about doctors or hospitals.
+            It also involves understanding how the body works,
+            investigating disease, studying prevention, evaluating
+            treatments, and improving our understanding of health.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     HUMAN BODY IMAGE
+========================= -->
+
+<section class="section">
+
+    <h2>🫀 Health Science & the Human Body</h2>
+
+    <p>
+        One major part of health science is understanding the
+        structures that make up the human body. Scientists study
+        cells, tissues, organs, and body systems to understand
+        how they function together.
+    </p>
+
+
+    <div class="diagram">
+
+        <img
+            src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Human_body_features.jpg"
+            alt="Human body anatomy diagram"
+        >
+
+        <p class="caption">
+
+            <strong>🔎 Study the image:</strong>
+
+            Look at the different structures shown. Later in
+            MedNotesLab, we'll study many of these structures
+            individually and learn how they work.
+
+        </p>
+
+    </div>
+
+
+    <div class="blue-box">
+
+        <div class="label">
+            🧠 THINK ABOUT IT
+        </div>
+
+        <p>
+            If you wanted to understand how oxygen gets from the
+            air you breathe into your bloodstream, which body
+            systems would you need to study?
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WHAT DOES HEALTH MEAN
+========================= -->
+
+<section class="section">
+
+    <h2>🌷 What Does "Health" Mean?</h2>
+
+    <p>
+        It is easy to think of health as simply "not being sick."
+        However, health is broader than the absence of disease.
+    </p>
+
+    <p>
+        Health can involve physical, mental, and social aspects
+        of well-being. Environmental and behavioral factors can
+        also influence health.
+    </p>
+
+
+    <div class="fields">
+
+
+        <div class="field">
+
+            <h3>
+                🫀 Physical Health
+            </h3>
+
+            <p>
+                Relates to the condition and functioning of
+                the body's physical structures and systems.
+            </p>
+
+        </div>
+
+
+        <div class="field">
+
+            <h3>
+                🧠 Mental Health
+            </h3>
+
+            <p>
+                Relates to psychological and emotional well-being,
+                including thoughts, feelings, and behavior.
+            </p>
+
+        </div>
+
+
+        <div class="field">
+
+            <h3>
+                👥 Social Health
+            </h3>
+
+            <p>
+                Relates to relationships, interactions with
+                others, and social environments.
+            </p>
+
+        </div>
+
+
+        <div class="field">
+
+            <h3>
+                🌎 Environment
+            </h3>
+
+            <p>
+                A person's surroundings and environmental
+                conditions can influence health.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WHAT IS SCIENCE
+========================= -->
+
+<section class="section">
+
+    <h2>🧪 What Does "Science" Mean?</h2>
+
+    <p>
+        Science is a systematic way of developing knowledge about
+        the natural world. Scientists ask questions, collect
+        evidence, analyze information, and evaluate explanations.
+    </p>
+
+    <p>
+        In health science, this process can be used to investigate
+        questions about the human body, diseases, treatments,
+        behaviors, and populations.
+    </p>
+
+
+    <div class="diagram">
+
+        <h3>
+            🔎 A Simplified Scientific Investigation
+        </h3>
+
+        <div class="fields">
+
+            <div class="field">
+                <h3>❓ Question</h3>
+                <p>
+                    What are we trying to understand?
+                </p>
+            </div>
+
+            <div class="field">
+                <h3>🔬 Evidence</h3>
+                <p>
+                    What information can we collect?
+                </p>
+            </div>
+
+            <div class="field">
+                <h3>📊 Analysis</h3>
+                <p>
+                    What does the evidence show?
+                </p>
+            </div>
+
+            <div class="field">
+                <h3>📝 Conclusion</h3>
+                <p>
+                    What can we reasonably conclude?
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MAJOR AREAS
+========================= -->
+
+<section class="section">
+
+    <h2>🧬 Major Areas of Health Science</h2>
+
+    <p>
+        Health science contains many different fields. Each field
+        focuses on different questions about health and the body.
+    </p>
+
+
+    <div class="fields">
+
+
+        <div class="field">
+
+            <h3>🦴 Anatomy</h3>
+
+            <p>
+                The study of body structures and how those structures
+                are organized.
+            </p>
+
+        </div>
+
+
+        <div class="field">
+
+            <h3>⚙️ Physiology</h3>
+
+            <p>
+                The study of how living organisms and their parts
+                function.
+            </p>
+
+        </div>
+
+
+        <div class="field">
+
+            <h3>🧬 Genetics</h3>
+
+            <p>
+                The study of genes, DNA, heredity, and genetic
+                variation.
+            </p>
+
+        </div>
+
+
+        <div class="field">
+
+            <h3>🦠 Microbiology</h3>
+
+            <p>
+                The study of microorganisms and their interactions
+                with living organisms.
+            </p>
+
+        </div>
+
+
+        <div class="field">
+
+            <h3>🧠 Psychology</h3>
+
+            <p>
+                The study of behavior and mental processes.
+            </p>
+
+        </div>
+
+
+        <div class="field">
+
+            <h3>🌎 Public Health</h3>
+
+            <p>
+                The study and practice of protecting and improving
+                health at the population level.
+            </p>
+
+        </div>
+
+
+        <div class="field">
+
+            <h3>💊 Pharmacology</h3>
+
+            <p>
+                The study of how drugs and other substances interact
+                with living organisms.
+            </p>
+
+        </div>
+
+
+        <div class="field">
+
+            <h3>🔬 Medical Research</h3>
+
+            <p>
+                Scientific investigation into health, disease,
+                prevention, diagnosis, and treatment.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     HOW THEY CONNECT
+========================= -->
+
+<section class="section">
+
+    <h2>🔗 How Do These Fields Connect?</h2>
+
+    <p>
+        Health problems can be complicated. A single question may
+        require information from several scientific fields.
+    </p>
+
+
+    <div class="diagram">
+
+        <div class="fields">
+
+            <div class="field">
+
+                <h3>🧬 Genetics</h3>
+
+                <p>
+                    Could genetic factors contribute?
+                </p>
+
+            </div>
+
+
+            <div class="field">
+
+                <h3>🦠 Microbiology</h3>
+
+                <p>
+                    Could microorganisms be involved?
+                </p>
+
+            </div>
+
+
+            <div class="field">
+
+                <h3>🫀 Physiology</h3>
+
+                <p>
+                    How does the body respond?
+                </p>
+
+            </div>
+
+
+            <div class="field">
+
+                <h3>💊 Medicine</h3>
+
+                <p>
+                    What treatments or approaches can be studied?
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="yellow-box">
+
+        <div class="label">
+            💡 REMEMBER
+        </div>
+
+        <p>
+            Different fields can provide different pieces of the
+            same scientific puzzle.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     REAL WORLD EXAMPLE
+========================= -->
+
+<section class="section">
+
+    <h2>🏥 Real-World Example</h2>
+
+    <p>
+        Imagine researchers are studying a disease that affects
+        the lungs.
+    </p>
+
+    <p>
+        They might study lung structure using
+        <span class="term" onclick="showDefinition('anatomy')">
+            anatomy
+        </span>,
+        investigate how lung function changes using
+        <span class="term" onclick="showDefinition('physiology')">
+            physiology
+        </span>,
+        investigate possible causes using microbiology or genetics,
+        and study potential treatments through medical research.
+    </p>
+
+
+    <div id="anatomy" class="definition-popup">
+
+        <strong>🦴 Anatomy</strong>
+
+        <p>
+            The study of the structures of living organisms.
+        </p>
+
+    </div>
+
+
+    <div id="physiology" class="definition-popup">
+
+        <strong>⚙️ Physiology</strong>
+
+        <p>
+            The study of how living organisms and their parts function.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     VOCABULARY
+========================= -->
+
+<section class="section">
+
+    <h2>📖 Key Vocabulary</h2>
+
+    <p>
+        Click a term to reveal its definition.
+    </p>
+
+
+    <div class="vocab">
+
+
+        <div class="word">
+
+            <span
+                class="term"
+                onclick="showDefinition('disease')">
+                Disease
+            </span>
+
+            <div id="disease" class="definition-popup">
+
+                <strong>Disease</strong>
+
+                <p>
+                    A condition that affects normal body structure
+                    or function.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="word">
+
+            <span
+                class="term"
+                onclick="showDefinition('evidence')">
+                Evidence
+            </span>
+
+            <div id="evidence" class="definition-popup">
+
+                <strong>Evidence</strong>
+
+                <p>
+                    Information or data used to investigate a
+                    question or evaluate an explanation.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="word">
+
+            <span
+                class="term"
+                onclick="showDefinition('research')">
+                Research
+            </span>
+
+            <div id="research" class="definition-popup">
+
+                <strong>Research</strong>
+
+                <p>
+                    A systematic process used to investigate
+                    questions and develop knowledge.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="word">
+
+            <span
+                class="term"
+                onclick="showDefinition('multidisciplinary')">
+                Multidisciplinary
+            </span>
+
+            <div id="multidisciplinary" class="definition-popup">
+
+                <strong>Multidisciplinary</strong>
+
+                <p>
+                    Involving more than one field or area of study.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     QUIZ
+========================= -->
+
+<section class="section quiz">
+
+    <h2>🧠 Check Your Knowledge</h2>
+
+    <p>
+        Choose an answer. You'll immediately see whether your
+        answer is correct.
+    </p>
+
+
+    <!-- QUESTION 1 -->
+
+    <p class="question">
+        1. What does health science study?
+    </p>
+
+
+    <div
+        class="answer"
+        onclick="checkAnswer(this, false, 'feedback1')">
+
+        A. Only diseases
+
+    </div>
+
+
+    <div
+        class="answer"
+        onclick="checkAnswer(this, true, 'feedback1')">
+
+        B. Health, the human body, disease, healthcare,
+        and related sciences
+
+    </div>
+
+
+    <div
+        class="answer"
+        onclick="checkAnswer(this, false, 'feedback1')">
+
+        C. Only medications
+
+    </div>
+
+
+    <div id="feedback1" class="feedback"></div>
+
+
+    <!-- QUESTION 2 -->
+
+    <p class="question">
+        2. What does physiology study?
+    </p>
+
+
+    <div
+        class="answer"
+        onclick="checkAnswer(this, false, 'feedback2')">
+
+        A. How body structures are arranged
+
+    </div>
+
+
+    <div
+        class="answer"
+        onclick="checkAnswer(this, true, 'feedback2')">
+
+        B. How living structures function
+
+    </div>
+
+
+    <div
+        class="answer"
+        onclick="checkAnswer(this, false, 'feedback2')">
+
+        C. Only diseases
+
+    </div>
+
+
+    <div id="feedback2" class="feedback"></div>
+
+
+    <!-- QUESTION 3 -->
+
+    <p class="question">
+        3. Which field studies genes and DNA?
+    </p>
+
+
+    <div
+        class="answer"
+        onclick="checkAnswer(this, false, 'feedback3')">
+
+        A. Anatomy
+
+    </div>
+
+
+    <div
+        class="answer"
+        onclick="checkAnswer(this, true, 'feedback3')">
+
+        B. Genetics
+
+    </div>
+
+
+    <div
+        class="answer"
+        onclick="checkAnswer(this, false, 'feedback3')">
+
+        C. Physiology
+
+    </div>
+
+
+    <div id="feedback3" class="feedback"></div>
+
+
+    <!-- QUESTION 4 -->
+
+    <p class="question">
+        4. Why can multiple health-science fields work together?
+    </p>
+
+
+    <div
+        class="answer"
+        onclick="checkAnswer(this, true, 'feedback4')">
+
+        A. Complex health questions can involve many different factors.
+
+    </div>
+
+
+    <div
+        class="answer"
+        onclick="checkAnswer(this, false, 'feedback4')">
+
+        B. Every field studies exactly the same thing.
+
+    </div>
+
+
+    <div
+        class="answer"
+        onclick="checkAnswer(this, false, 'feedback4')">
+
+        C. Scientific fields cannot work independently.
+
+    </div>
+
+
+    <div id="feedback4" class="feedback"></div>
+
+</section>
+
+
+<!-- =========================
+     QUICK REVIEW
+========================= -->
+
+<section class="section green-box">
+
+    <h2>🌸 Quick Review</h2>
+
+    <p>
+        <strong>Health science</strong> is a broad area that combines
+        scientific and healthcare fields to understand health,
+        disease, the human body, and healthcare.
+    </p>
+
+    <p>
+        Remember these three ideas:
+    </p>
+
+    <ul>
+
+        <li>
+            Health is broader than simply being free from disease.
+        </li>
+
+        <li>
+            Many different fields contribute to health science.
+        </li>
+
+        <li>
+            Research and evidence help scientists investigate
+            health-related questions.
+        </li>
+
+    </ul>
+
+</section>
+
+
+<!-- =========================
+     SOURCES
+========================= -->
+
+<section class="section">
+
+    <h2>📚 Sources & Further Reading</h2>
+
+    <p>
+        This lesson introduces concepts based on established
+        health-science and scientific-research resources.
+    </p>
+
+    <ul>
+
+        <li>
+            World Health Organization — Health and well-being
+        </li>
+
+        <li>
+            National Institutes of Health — Health research
+        </li>
+
+    </ul>
+
+    <p class="caption">
+        Sources will be expanded and linked as MedNotesLab's
+        reference library develops.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<div class="navigation">
+
+    <a
+        class="button"
+        href="https://mednoteslab.github.io/">
+
+        ← Home
+
+    </a>
+
+
+    <a
+        class="button"
+        href="lesson-2.html">
+
+        Next Lesson →
+
+    </a>
+
+</div>
+
+
+</main>
+
+
+<script>
+
+
+/* =========================
+   CLICKABLE DEFINITIONS
+========================= */
+
+function showDefinition(id) {
+
+    const box = document.getElementById(id);
+
+    if (box.style.display === "block") {
+
+        box.style.display = "none";
+
+    } else {
+
+        box.style.display = "block";
+
+    }
+
+}
+
+
+/* =========================
+   INTERACTIVE QUIZ
+========================= */
+
+function checkAnswer(element, correct, feedbackId) {
+
+    const feedback =
+        document.getElementById(feedbackId);
+
+    const answers =
+        element.parentElement.querySelectorAll(".answer");
+
+
+    answers.forEach(function(answer) {
+
+        answer.classList.remove("correct");
+        answer.classList.remove("wrong");
+
+    });
+
+
+    if (correct) {
+
+        element.classList.add("correct");
+
+        feedback.className =
+            "feedback correct-feedback";
+
+        feedback.style.display = "block";
+
+        feedback.innerHTML =
+            "✓ Correct! Great job! You understand this concept.";
+
+    } else {
+
+        element.classList.add("wrong");
+
+        feedback.className =
+            "feedback wrong-feedback";
+
+        feedback.style.display = "block";
+
+        feedback.innerHTML =
+            "✗ Not quite! Try again. Think about the many different areas included in health science.";
+
+    }
+
+}
+
+</script>
+
 
 </body>
+
 </html>
