@@ -1,1 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>MedNotesLab ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+    --pink: #e98eb3;
+    --pink-light: #fff0f6;
+    --pink-dark: #c85d89;
+    --text: #493c46;
+    --muted: #8c7b86;
+    --card: rgba(255,255,255,0.82);
+    --border: rgba(210,160,185,0.25);
+    --shadow: 0 12px 35px rgba(120,80,105,0.10);
+    --radius: 22px;
+    --font: "Nunito", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font);
+    color: var(--text);
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 10% 10%, #ffe4f0 0, transparent 25%),
+        radial-gradient(circle at 90% 15%, #e9e4ff 0, transparent 25%),
+        radial-gradient(circle at 80% 90%, #dff7f0 0, transparent 25%),
+        #fffafd;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* NON-PASTEL MODE */
+
+body.nonpastel {
+    background:
+        radial-gradient(circle at 10% 10%, #eeeeee 0, transparent 25%),
+        radial-gradient(circle at 90% 15%, #d8d8d8 0, transparent 25%),
+        #f5f5f5;
+}
+
+body.nonpastel .hero {
+    background: rgba(255,255,255,0.92);
+}
+
+body.nonpastel .course-card,
+body.nonpastel .about-card,
+body.nonpastel .stat-card,
+body.nonpastel .settings-panel {
+    background: rgba(255,255,255,0.94);
+}
+
+/* HEADER */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(18px);
+    background: rgba(255,250,253,0.78);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    max-width: 1150px;
+    margin: auto;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 800;
+    font-size: 1.25rem;
+}
+
+.logo-heart {
+    width: 38px;
+    height: 38px;
+    border-radius: 13px;
+    display: grid;
+    place-items: center;
+    background: #ffe1ed;
+    font-size: 1.2rem;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-btn {
+    border: none;
+    background: transparent;
+    padding: 9px 13px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.nav-btn:hover {
+    background: var(--pink-light);
+}
+
+/* MAIN */
+
+main {
+    max-width: 1150px;
+    margin: auto;
+    padding: 35px 20px 80px;
+}
+
+/* HERO */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 32px;
+    padding: 50px;
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(15px);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255,255,255,0.8);
+}
+
+.hero::after {
+    content: "🧬";
+    position: absolute;
+    right: 45px;
+    top: 30px;
+    font-size: 6rem;
+    opacity: 0.12;
+    transform: rotate(15deg);
+}
+
+.eyebrow {
+    color: var(--pink-dark);
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    line-height: 0.98;
+    margin: 10px 0 18px;
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    color: var(--pink-dark);
+}
+
+.hero p {
+    max-width: 650px;
+    color: var(--muted);
+    font-size: 1.08rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.primary-btn,
+.secondary-btn {
+    border: none;
+    border-radius: 14px;
+    padding: 12px 18px;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.primary-btn {
+    background: var(--pink);
+    color: white;
+    box-shadow: 0 7px 18px rgba(201,94,139,0.22);
+}
+
+.secondary-btn {
+    background: white;
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* STATS */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 20px 0;
+}
+
+.stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.stat-label {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 3px;
+}
+
+/* SEARCH */
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 40px 0 15px;
+}
+
+.section-title h2 {
+    margin: 0;
+    font-size: 1.65rem;
+}
+
+.search-box {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 16px 18px 16px 48px;
+    border-radius: 17px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.82);
+    outline: none;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--text);
+    box-shadow: var(--shadow);
+}
+
+.search-box input:focus {
+    border-color: var(--pink);
+}
+
+.search-icon {
+    position: absolute;
+    left: 17px;
+    top: 14px;
+    font-size: 1.1rem;
+}
+
+/* COURSES */
+
+.course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.course-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: 0.25s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-1px);
+}
+
+.course-header {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 21px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: left;
+    color: var(--text);
+}
+
+.course-number {
+    min-width: 48px;
+    height: 48px;
+    border-radius: 15px;
+    background: var(--pink-light);
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    color: var(--pink-dark);
+}
+
+.course-info {
+    flex: 1;
+}
+
+.course-info h3 {
+    margin: 0 0 3px;
+    font-size: 1.05rem;
+}
+
+.course-info p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.87rem;
+}
+
+.course-arrow {
+    font-size: 1.2rem;
+    transition: transform 0.25s ease;
+}
+
+.course-card.open .course-arrow {
+    transform: rotate(180deg);
+}
+
+.lessons {
+    display: none;
+    padding: 0 15px 15px;
+}
+
+.course-card.open .lessons {
+    display: block;
+}
+
+.lesson {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 15px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: var(--text);
+    margin-top: 5px;
+    transition: 0.2s ease;
+}
+
+.lesson:hover {
+    background: var(--pink-light);
+    transform: translateX(3px);
+}
+
+.lesson-number {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+    display: grid;
+    place-items: center;
+    background: #f5edf2;
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.lesson-title {
+    flex: 1;
+    font-weight: 600;
+}
+
+.lesson-check {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #dfcbd6;
+    background: white;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    color: transparent;
+    flex-shrink: 0;
+}
+
+.lesson.completed .lesson-check {
+    background: var(--pink);
+    border-color: var(--pink);
+    color: white;
+}
+
+.lesson.completed .lesson-title {
+    text-decoration: line-through;
+    opacity: 0.55;
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.about-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 25px;
+    box-shadow: var(--shadow);
+}
+
+.about-card h3 {
+    margin-top: 0;
+}
+
+.about-card p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.quote {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+/* SETTINGS */
+
+.settings-panel {
+    position: fixed;
+    right: 20px;
+    top: 75px;
+    width: min(330px, calc(100vw - 40px));
+    background: rgba(255,255,255,0.96);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 20px;
+    box-shadow: 0 20px 60px rgba(80,50,70,0.18);
+    z-index: 100;
+    display: none;
+}
+
+.settings-panel.show {
+    display: block;
+}
+
+.settings-panel h3 {
+    margin-top: 0;
+}
+
+.setting {
+    margin: 18px 0;
+}
+
+.setting label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.setting select,
+.setting button {
+    width: 100%;
+    padding: 11px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: white;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.close-settings {
+    position: absolute;
+    right: 14px;
+    top: 12px;
+    border: none;
+    background: transparent;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 35px 20px;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+
+    .hero {
+        padding: 32px 25px;
+    }
+
+    .hero::after {
+        right: 10px;
+        font-size: 4rem;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-btn span {
+        display: none;
+    }
+
+    main {
+        padding: 22px 14px 60px;
+    }
+
+    .course-header {
+        padding: 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+
+        <a href="#" class="logo">
+            <div class="logo-heart">♡</div>
+            <span>MedNotesLab</span>
+        </a>
+
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="scrollToCourses()">📚 <span>Courses</span></button>
+            <button class="nav-btn" onclick="toggleSettings()">⚙️ <span>Settings</span></button>
+        </div>
+
+    </nav>
+</header>
+
+
+<!-- SETTINGS -->
+
+<div class="settings-panel" id="settingsPanel">
+
+    <button class="close-settings" onclick="toggleSettings()">×</button>
+
+    <h3>⚙️ Customize MedNotesLab</h3>
+
+    <div class="setting">
+        <label>🎨 Background</label>
+
+        <select id="backgroundChoice" onchange="changeBackground(this.value)">
+            <option value="pastel">Pastel</option>
+            <option value="nonpastel">Non-pastel</option>
+        </select>
+    </div>
+
+    <div class="setting">
+        <label>🖋️ Font</label>
+
+        <select id="fontChoice" onchange="changeFont(this.value)">
+            <option value="Nunito">Nunito</option>
+            <option value="Quicksand">Quicksand</option>
+            <option value="DM Sans">DM Sans</option>
+        </select>
+    </div>
+
+    <div class="setting">
+        <label>✨ Progress</label>
+
+        <button onclick="resetProgress()">
+            Reset completed lessons
+        </button>
+    </div>
+
+</div>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="eyebrow">FREE HEALTH SCIENCE LEARNING</div>
+
+        <h1>
+            Welcome to<br>
+            <span>MedNotesLab ♡</span>
+        </h1>
+
+        <p>
+            A free place to learn about the human body, health science,
+            genetics, medicine, diseases, mental health, and medical research
+            — one lesson at a time.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="primary-btn" onclick="scrollToCourses()">
+                Start Learning ✦
+            </button>
+
+            <button class="secondary-btn" onclick="openFirstLesson()">
+                Begin Lesson 1 →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATS -->
+
+    <section class="stats">
+
+        <div class="stat-card">
+            <div class="stat-number">11</div>
+            <div class="stat-label">Courses</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-number">102</div>
+            <div class="stat-label">Lessons</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-number" id="progressNumber">0%</div>
+            <div class="stat-label">Your Progress</div>
+        </div>
+
+    </section>
+
+
+    <!-- COURSES -->
+
+    <section id="courses">
+
+        <div class="section-title">
+            <h2>📚 Explore the Courses</h2>
+        </div>
+
+        <div class="search-box">
+
+            <span class="search-icon">🔎</span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search a lesson... like DNA, brain, vaccines..."
+                oninput="searchLessons()"
+            >
+
+        </div>
+
+        <div class="course-list" id="courseList"></div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <div class="section-title">
+            <h2>♡ What is MedNotesLab?</h2>
+        </div>
+
+        <div class="about-grid">
+
+            <div class="about-card">
+
+                <h3>🧬 Learn health science your way</h3>
+
+                <p>
+                    MedNotesLab is a free educational project made to make
+                    health science easier and more organized to learn.
+                    Start with the foundations, explore cells and DNA,
+                    learn anatomy and physiology, then work your way toward
+                    medicine, diseases, mental health, and medical research.
+                </p>
+
+                <p>
+                    You don't have to finish everything at once.
+                    Pick a lesson, learn something new, and keep building
+                    your knowledge one step at a time.
+                </p>
+
+            </div>
+
+            <div class="about-card">
+
+                <div class="quote">
+                    “You don't have to know everything today.
+                    You just have to keep learning.”
+                </div>
+
+                <p>
+                    ♡ 102 lessons<br>
+                    ♡ 11 courses<br>
+                    ♡ Free to learn<br>
+                    ♡ Made for curious minds
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    Made with ♡ for curious minds · MedNotesLab
+</footer>
+
+
+<script>
+
+const courses = [
+
+{
+    number: 1,
+    title: "Foundations of Health Science",
+    description: "Start here and learn the basics of health science.",
+    lessons: [
+        "What Is Health Science?",
+        "Levels of Organization in the Body",
+        "Homeostasis",
+        "Basic Medical Terminology",
+        "Introduction to Scientific Research",
+        "How Medical Evidence Works"
+    ]
+},
+
+{
+    number: 2,
+    title: "Cells",
+    description: "Explore the tiny structures that make up living organisms.",
+    lessons: [
+        "What Is a Cell?",
+        "Cell Structures",
+        "Cell Membranes",
+        "Transport Across Cell Membranes",
+        "Cellular Energy",
+        "Cell Division",
+        "Cell Death",
+        "Tissues"
+    ]
+},
+
+{
+    number: 3,
+    title: "Genetics & DNA",
+    description: "Learn how DNA, genes, chromosomes, and inheritance work.",
+    lessons: [
+        "DNA",
+        "Genes",
+        "Chromosomes",
+        "RNA",
+        "Protein Synthesis",
+        "Mutations",
+        "Inheritance",
+        "Genetic Disorders",
+        "Gene Expression",
+        "Epigenetics",
+        "Genomics",
+        "Gene Editing"
+    ]
+},
+
+{
+    number: 4,
+    title: "Anatomy",
+    description: "Learn the structures and systems of the human body.",
+    lessons: [
+        "Anatomical Position & Directions",
+        "Skeletal System",
+        "Muscular System",
+        "Nervous System",
+        "Cardiovascular System",
+        "Respiratory System",
+        "Digestive System",
+        "Urinary System",
+        "Endocrine System",
+        "Immune System",
+        "Reproductive System",
+        "Integumentary System",
+        "The Five Senses"
+    ]
+},
+
+{
+    number: 5,
+    title: "Physiology",
+    description: "Discover how the body's systems actually work.",
+    lessons: [
+        "How the Heart Works",
+        "How Blood Moves",
+        "How We Breathe",
+        "How Digestion Works",
+        "How the Kidneys Work",
+        "How Hormones Work",
+        "How the Brain Communicates",
+        "How the Immune System Responds",
+        "Maintaining Homeostasis"
+    ]
+},
+
+{
+    number: 6,
+    title: "Microbiology",
+    description: "Meet bacteria, viruses, fungi, parasites, and more.",
+    lessons: [
+        "Bacteria",
+        "Viruses",
+        "Fungi",
+        "Parasites",
+        "Infection",
+        "Immune Response",
+        "Vaccines",
+        "Antibiotics & Resistance"
+    ]
+},
+
+{
+    number: 7,
+    title: "Disease & Pathophysiology",
+    description: "Understand what happens when the body becomes sick.",
+    lessons: [
+        "What Is Disease?",
+        "Inflammation",
+        "Infectious Diseases",
+        "Genetic Diseases",
+        "Cardiovascular Diseases",
+        "Respiratory Diseases",
+        "Neurological Diseases",
+        "Autoimmune Diseases",
+        "Cancer Biology",
+        "How Diseases Affect the Body"
+    ]
+},
+
+{
+    number: 8,
+    title: "Mental Health & Neuroscience",
+    description: "Explore the brain, emotions, behavior, and mental health.",
+    lessons: [
+        "The Brain",
+        "Neurotransmitters",
+        "Emotions",
+        "Stress",
+        "Sleep",
+        "Memory & Learning",
+        "Anxiety Disorders",
+        "Mood Disorders",
+        "ADHD",
+        "Trauma & the Brain",
+        "Mental Health Treatment",
+        "Mental Health & Physical Health"
+    ]
+},
+
+{
+    number: 9,
+    title: "Medicine",
+    description: "Learn the science behind medications and treatments.",
+    lessons: [
+        "What Is a Medication?",
+        "How Drugs Enter the Body",
+        "How Drugs Affect Cells",
+        "Drug Classes",
+        "Antibiotics",
+        "Pain Medicines",
+        "Medication Safety",
+        "Side Effects",
+        "Clinical Trials",
+        "How New Treatments Are Developed"
+    ]
+},
+
+{
+    number: 10,
+    title: "Medical Research",
+    description: "Learn how scientists study health and disease.",
+    lessons: [
+        "How Clinical Studies Work",
+        "Reading a Scientific Paper",
+        "Correlation vs. Causation",
+        "Medical Statistics",
+        "Epidemiology",
+        "Public Health",
+        "Medical Ethics",
+        "Evaluating Health Information"
+    ]
+},
+
+{
+    number: 11,
+    title: "Putting It Together",
+    description: "Use what you've learned to think through medical problems.",
+    lessons: [
+        "Medical Case Studies",
+        "Reading Medical Test Results",
+        "Connecting Symptoms to Body Systems",
+        "How Doctors Investigate Disease",
+        "Research Challenge",
+        "Final Medical Science Quiz"
+    ]
+}
+
+];
+
+let lessonNumber = 1;
+
+
+/* CREATE COURSES */
+
+function renderCourses(list = courses) {
+
+    const container = document.getElementById("courseList");
+
+    container.innerHTML = "";
+
+    let currentLessonNumber = 1;
+
+    list.forEach((course) => {
+
+        const card = document.createElement("div");
+
+        card.className = "course-card";
+
+        const header = document.createElement("button");
+
+        header.className = "course-header";
+
+        header.onclick = () => {
+            card.classList.toggle("open");
+        };
+
+        header.innerHTML = `
+            <div class="course-number">${course.number}</div>
+
+            <div class="course-info">
+                <h3>Course ${course.number} — ${course.title}</h3>
+                <p>${course.description}</p>
+            </div>
+
+            <div class="course-arrow">⌄</div>
+        `;
+
+        const lessonsContainer = document.createElement("div");
+
+        lessonsContainer.className = "lessons";
+
+        course.lessons.forEach((lesson) => {
+
+            const number = currentLessonNumber;
+
+            const lessonElement = document.createElement("div");
+
+            lessonElement.className = "lesson";
+
+            lessonElement.dataset.lesson = number;
+            lessonElement.dataset.title = lesson.toLowerCase();
+
+            lessonElement.innerHTML = `
+
+                <a
+                    href="lessons/lesson${number}.html"
+                    class="lesson-title"
+                >
+                    <span class="lesson-number">${number}</span>
+                    ${lesson}
+                </a>
+
+                <button
+                    class="lesson-check"
+                    onclick="toggleComplete(event, ${number})"
+                    aria-label="Mark lesson complete"
+                >
+                    ✓
+                </button>
+
+            `;
+
+            lessonsContainer.appendChild(lessonElement);
+
+            currentLessonNumber++;
+        });
+
+        card.appendChild(header);
+        card.appendChild(lessonsContainer);
+
+        container.appendChild(card);
+    });
+
+    updateProgress();
+}
+
+
+/* SEARCH */
+
+function searchLessons() {
+
+    const search = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const cards = document.querySelectorAll(".course-card");
+
+    cards.forEach(card => {
+
+        const lessons = card.querySelectorAll(".lesson");
+
+        let found = false;
+
+        lessons.forEach(lesson => {
+
+            const title = lesson.dataset.title;
+
+            if (title.includes(search)) {
+                lesson.style.display = "flex";
+                found = true;
+            } else {
+                lesson.style.display = search ? "none" : "flex";
+            }
+
+        });
+
+        card.style.display = found || search === "" ? "block" : "none";
+
+        if (search && found) {
+            card.classList.add("open");
+        }
+
+    });
+}
+
+
+/* COMPLETION */
+
+function toggleComplete(event, number) {
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    let completed =
+        JSON.parse(localStorage.getItem("mednotes_completed")) || [];
+
+    if (completed.includes(number)) {
+
+        completed = completed.filter(n => n !== number);
+
+    } else {
+
+        completed.push(number);
+
+    }
+
+    localStorage.setItem(
+        "mednotes_completed",
+        JSON.stringify(completed)
+    );
+
+    updateProgress();
+}
+
+
+/* UPDATE PROGRESS */
+
+function updateProgress() {
+
+    const completed =
+        JSON.parse(localStorage.getItem("mednotes_completed")) || [];
+
+    const percent =
+        Math.round((completed.length / 102) * 100);
+
+    document.getElementById("progressNumber").textContent =
+        percent + "%";
+
+    document.querySelectorAll(".lesson").forEach(lesson => {
+
+        const number = Number(lesson.dataset.lesson);
+
+        if (completed.includes(number)) {
+            lesson.classList.add("completed");
+        } else {
+            lesson.classList.remove("completed");
+        }
+
+    });
+}
+
+
+/* SETTINGS */
+
+function toggleSettings() {
+
+    document
+        .getElementById("settingsPanel")
+        .classList.toggle("show");
+
+}
+
+
+function changeBackground(value) {
+
+    if (value === "nonpastel") {
+        document.body.classList.add("nonpastel");
+    } else {
+        document.body.classList.remove("nonpastel");
+    }
+
+    localStorage.setItem("mednotes_background", value);
+}
+
+
+function changeFont(value) {
+
+    document.documentElement.style
+        .setProperty("--font", `"${value}", sans-serif`);
+
+    localStorage.setItem("mednotes_font", value);
+}
+
+
+/* RESET */
+
+function resetProgress() {
+
+    const answer = confirm(
+        "Reset all completed lessons?"
+    );
+
+    if (!answer) return;
+
+    localStorage.removeItem("mednotes_completed");
+
+    updateProgress();
+
+}
+
+
+/* NAVIGATION */
+
+function scrollToCourses() {
+
+    document
+        .getElementById("courses")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+function openFirstLesson() {
+
+    window.location.href =
+        "lessons/lesson1.html";
+
+}
+
+
+/* LOAD SAVED SETTINGS */
+
+function loadSettings() {
+
+    const background =
+        localStorage.getItem("mednotes_background") || "pastel";
+
+    const font =
+        localStorage.getItem("mednotes_font") || "Nunito";
+
+    document.getElementById("backgroundChoice").value =
+        background;
+
+    document.getElementById("fontChoice").value =
+        font;
+
+    changeBackground(background);
+    changeFont(font);
+
+}
+
+
+/* START */
+
+renderCourses();
+loadSettings();
+
+</script>
+
+</body>
+</html>
