@@ -1,24 +1,17 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Lesson 1 - What Is Health Science? | MedNotesLab</title>
+<title>Lesson 1 — What Is Health Science? | MedNotesLab</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-/* =========================
-   GENERAL
-========================= */
 
 * {
     box-sizing: border-box;
@@ -30,740 +23,501 @@ html {
 
 body {
     margin: 0;
-    background: #fff8fc;
-    color: #403940;
-    font-family: 'Nunito', sans-serif;
+    background: #fff7fc;
+    color: #403b4a;
+    font-family: "Nunito", sans-serif;
     line-height: 1.75;
 }
 
-h1, h2, h3 {
-    font-family: 'Quicksand', sans-serif;
-}
-
-button,
-.button {
-    font-family: 'Poppins', sans-serif;
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-.header {
-    background: linear-gradient(
-        135deg,
-        #fbdceb,
-        #e9def8,
-        #dff1fa
-    );
-
+header {
+    background: linear-gradient(135deg, #ffd9ec, #e9ddff, #dff4ff);
+    padding: 55px 20px 45px;
     text-align: center;
-    padding: 55px 20px;
-
-    border-bottom: 3px solid #ead0df;
+    border-bottom: 1px solid #eadced;
 }
 
-.lesson-number {
-    display: inline-block;
+.logo {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    color: #8f5aa8;
+    font-size: 15px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
 
-    background: white;
-    color: #a05d82;
+h1, h2, h3 {
+    font-family: "Quicksand", sans-serif;
+}
 
-    padding: 7px 17px;
-    border-radius: 25px;
+h1 {
+    font-size: clamp(32px, 6vw, 55px);
+    margin: 5px 0;
+    color: #503d60;
+}
 
-    font-family: 'Poppins', sans-serif;
+.subtitle {
+    max-width: 760px;
+    margin: 15px auto;
+    font-size: 17px;
+    color: #665d70;
+}
+
+.progress-area {
+    max-width: 700px;
+    margin: 28px auto 0;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
     font-size: 13px;
-    font-weight: 700;
-
-    margin-bottom: 12px;
-}
-
-.header h1 {
-    margin: 0;
-
-    color: #704d65;
-
-    font-size: 38px;
-}
-
-.header p {
-    color: #806b79;
-    font-size: 17px;
-}
-
-
-/* =========================
-   MAIN
-========================= */
-
-.container {
-    max-width: 920px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-
-/* =========================
-   CARDS
-========================= */
-
-.section {
-    background: white;
-
-    border: 1px solid #efdce7;
-    border-radius: 23px;
-
-    padding: 30px;
-    margin-bottom: 25px;
-
-    box-shadow:
-        0 7px 22px rgba(130, 80, 110, 0.07);
-}
-
-.section h2 {
-    margin-top: 0;
-    color: #704d65;
-    font-size: 26px;
-}
-
-
-/* =========================
-   PROGRESS
-========================= */
-
-.progress-card {
-    background: #fffafd;
-}
-
-.progress-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    color: #704d65;
-}
-
-.progress {
-    background: #eee8f4;
-    border-radius: 20px;
-    height: 15px;
-    overflow: hidden;
-    margin: 14px 0 8px;
-}
-
-.progress-bar {
-    width: 0%;
-    height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        #e5a8c6,
-        #bca2dd
-    );
-
-    border-radius: 20px;
-
-    transition: width .4s ease;
-}
-
-.progress-text {
-    color: #766b75;
-    font-size: 14px;
-}
-
-
-/* =========================
-   ROADMAP
-========================= */
-
-.course-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 22px;
-}
-
-.course-lesson {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-
-    padding: 17px;
-
-    background: #faf7fc;
-
-    border: 1px solid #eadfea;
-    border-radius: 17px;
-}
-
-.course-lesson.current {
-    background: #fff0f7;
-    border: 2px solid #e5b4cc;
-}
-
-.lesson-number-small {
-    min-width: 42px;
-    height: 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #e7d9f2;
-    color: #76558e;
-
-    border-radius: 13px;
-
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-}
-
-.current .lesson-number-small {
-    background: #e6b2ca;
-    color: white;
-}
-
-.course-lesson strong {
-    display: block;
-    color: #704d65;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 17px;
-}
-
-.course-lesson span {
-    display: block;
-    color: #756b73;
-    font-size: 14px;
-}
-
-
-/* =========================
-   LEARNING GOALS
-========================= */
-
-.learn {
-    background: #f7effc;
-    border-left: 7px solid #c99cda;
-}
-
-.learn li {
+    font-weight: 800;
+    color: #765c83;
     margin-bottom: 8px;
 }
 
-
-/* =========================
-   PASTEL BOXES
-========================= */
-
-.pink-box,
-.blue-box,
-.yellow-box,
-.green-box {
-    border-radius: 16px;
-    padding: 20px;
-    margin-top: 20px;
+.progress-track {
+    width: 100%;
+    height: 13px;
+    background: rgba(255,255,255,.7);
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.08);
 }
 
-.pink-box {
-    background: #fff0f7;
-    border-left: 6px solid #e4a8c6;
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #d98bb7, #a982d4);
+    border-radius: 50px;
+    transition: width .4s ease;
 }
 
-.blue-box {
-    background: #eef8ff;
-    border-left: 6px solid #96c9e8;
+.container {
+    width: min(1000px, 92%);
+    margin: 35px auto 80px;
 }
 
-.yellow-box {
-    background: #fff8e7;
-    border-left: 6px solid #e4c36e;
+.card {
+    background: white;
+    border: 1px solid #f0dfed;
+    border-radius: 25px;
+    padding: 30px;
+    margin: 25px 0;
+    box-shadow: 0 10px 30px rgba(113, 82, 125, .08);
 }
 
-.green-box {
-    background: #effaf3;
-    border-left: 6px solid #91cba7;
-}
-
-.label {
-    color: #a05d82;
-
-    font-family: 'Poppins', sans-serif;
+.section-number {
+    color: #b77aaa;
+    font-family: "Poppins", sans-serif;
     font-size: 13px;
-    font-weight: 700;
-
-    letter-spacing: .5px;
+    font-weight: 800;
+    letter-spacing: 2px;
 }
 
-
-/* =========================
-   CLICKABLE TERMS
-========================= */
-
-.term {
-    color: #9b5d80;
-    font-weight: 700;
-    text-decoration: underline dotted;
-    cursor: pointer;
+h2 {
+    color: #594463;
+    font-size: 30px;
+    margin: 5px 0 15px;
 }
 
-.definition-popup {
-    display: none;
-
-    background: #fff0f7;
-
-    border: 2px solid #e8bdd2;
-
-    border-radius: 15px;
-
-    padding: 16px;
-    margin-top: 12px;
+h3 {
+    color: #74527f;
+    font-size: 21px;
 }
 
-.definition-popup strong {
-    color: #9b5d80;
+p {
+    font-size: 16px;
 }
 
-
-/* =========================
-   DIAGRAM
-========================= */
-
-.diagram {
-    margin-top: 25px;
-
-    padding: 25px;
-
-    background: #faf8ff;
-
-    border: 2px solid #e5dcf0;
-
-    border-radius: 20px;
-
-    text-align: center;
+strong {
+    color: #694d75;
 }
 
-.diagram img {
-    max-width: 100%;
-    width: 650px;
-
-    border-radius: 15px;
-
-    margin: 10px auto;
-
-    display: block;
-}
-
-.caption {
-    font-size: 14px;
-    color: #766b75;
-}
-
-
-/* =========================
-   GRID CARDS
-========================= */
-
-.fields {
+.roadmap {
     display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 16px;
-
-    margin-top: 20px;
-}
-
-.field {
-    background: #fffafd;
-
-    border: 1px solid #ecdce7;
-
-    border-radius: 18px;
-
-    padding: 20px;
-}
-
-.field h3 {
-    margin-top: 0;
-    color: #76566c;
-}
-
-
-/* =========================
-   VOCABULARY
-========================= */
-
-.vocab {
-    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 12px;
 }
 
-.word {
-    background: #fcf9fd;
-
-    border: 1px solid #eadfea;
-
-    border-radius: 15px;
-
-    padding: 16px;
+.lesson-item {
+    padding: 17px;
+    border-radius: 18px;
+    background: #faf4fb;
+    border: 1px solid #eadcef;
 }
 
-
-/* =========================
-   QUIZ
-========================= */
-
-.quiz {
-    background: #f6f2ff;
-    border-left: 7px solid #a994d1;
+.lesson-item.active {
+    background: #f5e5f4;
+    border-color: #d9a9d2;
+    font-weight: 800;
 }
 
-.question {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    margin-top: 25px;
+.lesson-item.completed {
+    background: #e8f8ee;
+    border-color: #a9d7bb;
 }
 
-.answer {
-    background: white;
-
-    border: 2px solid #e2dcef;
-
-    border-radius: 13px;
-
-    padding: 13px 16px;
-
-    margin: 9px 0;
-
-    cursor: pointer;
-
-    transition: .2s;
+.goal-grid,
+.field-grid,
+.health-grid,
+.definition-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 15px;
 }
 
-.answer:hover {
-    background: #faf8ff;
-    transform: translateX(3px);
+.goal,
+.field,
+.health-box,
+.definition {
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid #eee0f0;
+    background: #fffafd;
 }
 
-.correct {
-    background: #e5f7eb !important;
-    border-color: #82bd96 !important;
+.goal {
+    background: #f9f0ff;
 }
 
-.wrong {
-    background: #ffe8ed !important;
-    border-color: #e2a0b1 !important;
+.health-box:nth-child(2) {
+    background: #eef8ff;
 }
 
-.feedback {
-    display: none;
-
-    padding: 13px;
-
-    border-radius: 12px;
-
-    margin-top: 10px;
-
-    font-weight: 600;
+.health-box:nth-child(3) {
+    background: #f1fff4;
 }
 
-.correct-feedback {
-    background: #e5f7eb;
-    color: #3c7650;
+.health-box:nth-child(4) {
+    background: #fff8e9;
 }
 
-.wrong-feedback {
-    background: #ffe8ed;
-    color: #914f62;
+.field:nth-child(2) {
+    background: #eef8ff;
 }
 
-
-/* =========================
-   FLASHCARDS
-========================= */
-
-.flashcard-area {
-    background: linear-gradient(
-        135deg,
-        #fff0f7,
-        #f5efff
-    );
-
-    border: 2px solid #ead8ed;
+.field:nth-child(3) {
+    background: #f7efff;
 }
 
-.flashcard {
-    min-height: 230px;
+.field:nth-child(4) {
+    background: #effcf3;
+}
 
+.field:nth-child(5) {
+    background: #fff5ec;
+}
+
+.field:nth-child(6) {
+    background: #eef8ff;
+}
+
+.field:nth-child(7) {
+    background: #f9efff;
+}
+
+.field:nth-child(8) {
+    background: #fff8e9;
+}
+
+.reading-header {
     display: flex;
     align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 30px;
-
-    background: white;
-
-    border-radius: 22px;
-
-    border: 2px solid #eadfea;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 8px 20px rgba(130, 80, 110, .08);
-
-    transition: .25s;
-}
-
-.flashcard:hover {
-    transform: translateY(-3px);
-}
-
-.flashcard h3 {
-    color: #704d65;
-    font-size: 25px;
-}
-
-.flashcard p {
-    color: #766b75;
-}
-
-.flashcard-controls {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 18px;
+    justify-content: space-between;
+    gap: 15px;
     flex-wrap: wrap;
 }
 
-.small-button {
-    border: none;
-
-    padding: 11px 17px;
-
-    border-radius: 13px;
-
-    cursor: pointer;
-
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-
-    background: #eadcf4;
-    color: #704d65;
+.reading-label {
+    display: inline-block;
+    background: #f2e5f8;
+    color: #805b8c;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
-.small-button:hover {
-    transform: translateY(-2px);
-}
-
-.flashcard-progress {
-    text-align: center;
-    margin-top: 12px;
-    color: #806b79;
-}
-
-
-/* =========================
-   FINAL TEST
-========================= */
-
-.test {
-    background: #fffaf0;
-    border-left: 7px solid #e4c36e;
-}
-
-.test-result {
-    display: none;
-
-    margin-top: 25px;
-
-    padding: 22px;
-
+.study-tip {
+    background: linear-gradient(135deg, #fff4c9, #fff9e8);
+    border: 1px solid #f0dda0;
+    padding: 17px 20px;
     border-radius: 18px;
+    margin: 18px 0;
+}
 
-    text-align: center;
+.passage {
+    background: #fffdfd;
+    border-left: 5px solid #d49bc5;
+    padding: 25px;
+    border-radius: 5px 20px 20px 5px;
+    margin-top: 20px;
+}
 
-    background: #effaf3;
+.passage p {
+    font-size: 17px;
+    line-height: 1.9;
+}
 
-    border: 2px solid #a7d3b4;
+mark {
+    background: #fff09b;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.key-ideas {
+    background: #f7f1ff;
+    border-radius: 20px;
+    padding: 20px 25px;
+    margin-top: 20px;
+}
+
+.key-ideas li {
+    margin: 8px 0;
+}
+
+.highlight-tools {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 15px 0;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    border-radius: 13px;
+    padding: 11px 16px;
+    transition: .2s;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+.primary {
+    background: #c987b7;
+    color: white;
+}
+
+.secondary {
+    background: #eee3f5;
+    color: #684d74;
+}
+
+.green {
+    background: #bfe5ca;
+    color: #3e7050;
 }
 
 .test-question {
-    margin-top: 25px;
+    background: #fbf8fd;
+    border: 1px solid #eadff0;
+    padding: 20px;
+    border-radius: 18px;
+    margin: 15px 0;
 }
 
-.test-answer {
-    background: white;
-
-    border: 2px solid #eadfea;
-
-    border-radius: 13px;
-
-    padding: 13px 16px;
-
-    margin: 8px 0;
-
-    cursor: pointer;
-}
-
-.test-answer.selected {
-    background: #f5edfb;
-    border-color: #bda4d5;
-}
-
-.submit-test {
-    margin-top: 22px;
-
-    border: none;
-
-    background: #c98eaf;
-    color: white;
-
-    padding: 14px 23px;
-
-    border-radius: 15px;
-
-    cursor: pointer;
-
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-}
-
-.submit-test:hover {
-    background: #b77a9d;
-}
-
-
-/* =========================
-   COMPLETE
-========================= */
-
-.complete {
-    display: none;
-
-    text-align: center;
-
-    background: linear-gradient(
-        135deg,
-        #effaf3,
-        #f7effc
-    );
-
-    border: 2px solid #b9d8c4;
-}
-
-.complete h2 {
-    color: #527c60;
-}
-
-
-/* =========================
-   NAVIGATION
-========================= */
-
-.navigation {
-    display: flex;
-
-    justify-content: space-between;
-
-    gap: 15px;
-
-    margin: 35px 0 20px;
-}
-
-.button {
-    background: #c98eaf;
-
-    color: white;
-
-    text-decoration: none;
-
-    padding: 13px 23px;
-
-    border-radius: 15px;
-
-    font-weight: 600;
-}
-
-.button:hover {
-    background: #b77a9d;
-}
-
-
-/* =========================
-   RESET
-========================= */
-
-.reset-progress {
+.option {
     display: block;
-
-    margin: 20px auto 50px;
-
-    background: transparent;
-
-    border: none;
-
-    color: #a47791;
-
-    cursor: pointer;
-
-    font-family: 'Nunito', sans-serif;
+    width: 100%;
+    text-align: left;
+    margin: 8px 0;
+    background: white;
+    color: #514957;
+    border: 1px solid #e3d9e7;
 }
 
+.option.correct {
+    background: #dff5e5;
+    border-color: #9bcfa9;
+}
 
-/* =========================
-   MOBILE
-========================= */
+.option.wrong {
+    background: #ffe5e5;
+    border-color: #e2aaaa;
+}
 
-@media (max-width: 650px) {
+.feedback {
+    font-weight: 800;
+    margin-top: 8px;
+}
 
-    .header h1 {
-        font-size: 29px;
+.flashcard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.flashcard {
+    min-height: 180px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flash-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 180px;
+    transition: transform .5s;
+    transform-style: preserve-3d;
+}
+
+.flashcard.flipped .flash-inner {
+    transform: rotateY(180deg);
+}
+
+.flash-front,
+.flash-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-height: 180px;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.flash-front {
+    background: #f8eafa;
+    color: #684875;
+    font-weight: 800;
+}
+
+.flash-back {
+    background: #eaf7ff;
+    color: #405d72;
+    transform: rotateY(180deg);
+}
+
+.definition {
+    cursor: pointer;
+}
+
+.definition-answer {
+    display: none;
+    margin-top: 10px;
+    color: #66586d;
+}
+
+.definition.open .definition-answer {
+    display: block;
+}
+
+.completion {
+    display: none;
+    text-align: center;
+    background: linear-gradient(135deg, #f0e6ff, #e7fff0);
+}
+
+.completion.show {
+    display: block;
+}
+
+.score {
+    font-size: 40px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    color: #895f98;
+}
+
+.sources a {
+    color: #7656a0;
+}
+
+.small {
+    font-size: 13px;
+    color: #7c7180;
+}
+
+.image-box {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.image-box img {
+    display: block;
+    max-width: 100%;
+    width: 760px;
+    max-height: 650px;
+    object-fit: contain;
+    margin: auto;
+    border-radius: 18px;
+    border: 1px solid #eadfea;
+    background: #fafafa;
+    padding: 10px;
+}
+
+.caption {
+    font-size: 13px;
+    color: #817784;
+    margin-top: 8px;
+}
+
+.checkpoint {
+    background: #eef8ff;
+    border: 1px solid #cfe5f2;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #8a7d8e;
+}
+
+@media (max-width: 600px) {
+    .card {
+        padding: 22px;
     }
 
-    .fields {
-        grid-template-columns: 1fr;
+    .passage {
+        padding: 18px;
     }
 
-    .section {
-        padding: 23px;
+    .passage p {
+        font-size: 16px;
     }
-
-    .navigation {
-        flex-direction: column;
-    }
-
-    .button {
-        text-align: center;
-    }
-
 }
 
 </style>
-
 </head>
-
 
 <body>
 
+<header>
 
-<!-- =========================
-     HEADER
-========================= -->
-
-<header class="header">
-
-    <div class="lesson-number">
-        LESSON 01
-    </div>
+    <div class="logo">MEDNOTESLAB</div>
 
     <h1>🩺 What Is Health Science?</h1>
 
-    <p>
-        Course 1 · Foundations of Health Science
-    </p>
+    <div class="subtitle">
+        Lesson 1 · Foundations of Health Science
+    </div>
+
+    <div class="progress-area">
+
+        <div class="progress-label">
+            <span id="progressText">0% complete</span>
+            <span>Lesson 1 of 6</span>
+        </div>
+
+        <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+    </div>
 
 </header>
 
@@ -771,134 +525,43 @@ button,
 <main class="container">
 
 
-<!-- =========================
-     SAVED PROGRESS
-========================= -->
+<!-- COURSE ROADMAP -->
 
-<section class="section progress-card">
+<section class="card">
 
-    <div class="progress-title">
-        📊 Your Lesson Progress
-    </div>
+    <div class="section-number">COURSE 1</div>
 
-    <div class="progress">
-        <div
-            id="progressBar"
-            class="progress-bar">
-        </div>
-    </div>
-
-    <div class="progress-text">
-        <span id="progressText">0%</span>
-        ·
-        <span id="progressDetails">
-            Start the lesson!
-        </span>
-    </div>
-
-</section>
-
-
-<!-- =========================
-     ROADMAP
-========================= -->
-
-<section class="section">
-
-    <h2>📚 Course 1 — Foundations of Health Science</h2>
+    <h2>Foundations of Health Science</h2>
 
     <p>
-        This course introduces the foundations you'll need before
-        studying cells, genetics, anatomy, disease, medicine,
-        and more.
+        This course builds the foundation you will need before studying cells,
+        genetics, anatomy, physiology, disease, medicine, and medical research.
     </p>
 
+    <div class="roadmap">
 
-    <div class="course-list">
-
-        <div class="course-lesson current">
-
-            <div class="lesson-number-small">01</div>
-
-            <div>
-                <strong>What Is Health Science?</strong>
-                <span>
-                    Learn what health science is and how different
-                    fields contribute to it.
-                </span>
-            </div>
-
+        <div class="lesson-item active">
+            01 · What Is Health Science?
         </div>
 
-
-        <div class="course-lesson">
-
-            <div class="lesson-number-small">02</div>
-
-            <div>
-                <strong>Levels of Organization in the Body</strong>
-                <span>
-                    Cells → tissues → organs → organ systems → organism.
-                </span>
-            </div>
-
+        <div class="lesson-item">
+            02 · Levels of Organization
         </div>
 
-
-        <div class="course-lesson">
-
-            <div class="lesson-number-small">03</div>
-
-            <div>
-                <strong>Homeostasis</strong>
-                <span>
-                    Learn how the body maintains stable internal conditions.
-                </span>
-            </div>
-
+        <div class="lesson-item">
+            03 · Homeostasis
         </div>
 
-
-        <div class="course-lesson">
-
-            <div class="lesson-number-small">04</div>
-
-            <div>
-                <strong>Basic Medical Terminology</strong>
-                <span>
-                    Learn common medical roots, prefixes, suffixes,
-                    and terminology.
-                </span>
-            </div>
-
+        <div class="lesson-item">
+            04 · Basic Medical Terminology
         </div>
 
-
-        <div class="course-lesson">
-
-            <div class="lesson-number-small">05</div>
-
-            <div>
-                <strong>Introduction to Scientific Research</strong>
-                <span>
-                    Learn how scientists ask questions and collect evidence.
-                </span>
-            </div>
-
+        <div class="lesson-item">
+            05 · Introduction to Scientific Research
         </div>
 
-
-        <div class="course-lesson">
-
-            <div class="lesson-number-small">06</div>
-
-            <div>
-                <strong>How Medical Evidence Works</strong>
-                <span>
-                    Learn how evidence is evaluated in health science.
-                </span>
-            </div>
-
+        <div class="lesson-item">
+            06 · How Medical Evidence Works
         </div>
 
     </div>
@@ -906,557 +569,794 @@ button,
 </section>
 
 
-<!-- =========================
-     LEARNING GOALS
-========================= -->
+<!-- LEARNING GOALS -->
 
-<section class="section learn">
+<section class="card">
 
-    <h2>🎀 What You'll Learn</h2>
+    <div class="section-number">BEFORE YOU BEGIN</div>
 
-    <ul>
+    <h2>What You Will Learn</h2>
 
-        <li>Explain what health science means.</li>
+    <div class="goal-grid">
 
-        <li>Describe what health includes.</li>
+        <div class="goal">
+            <strong>01</strong>
+            <p>Explain what health science is.</p>
+        </div>
 
-        <li>Identify major areas of health science.</li>
+        <div class="goal">
+            <strong>02</strong>
+            <p>Describe different dimensions of health.</p>
+        </div>
 
-        <li>Explain why different fields work together.</li>
+        <div class="goal">
+            <strong>03</strong>
+            <p>Identify major fields within health science.</p>
+        </div>
 
-        <li>Describe why scientific evidence matters.</li>
+        <div class="goal">
+            <strong>04</strong>
+            <p>Explain how health-science fields connect.</p>
+        </div>
 
-    </ul>
+        <div class="goal">
+            <strong>05</strong>
+            <p>Understand why scientific evidence matters in health.</p>
+        </div>
+
+        <div class="goal">
+            <strong>06</strong>
+            <p>Use important health-science vocabulary correctly.</p>
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- =========================
-     SECTION 1
-========================= -->
+<!-- READING TOOL -->
 
-<section
-    id="section1"
-    class="section lesson-section">
+<section class="card">
 
-    <h2>🔬 What Is Health Science?</h2>
-
-    <p>
-        Health science is a broad area of science that focuses on
-        understanding
-        <span
-            class="term"
-            onclick="showDefinition('health')">
-            health
-        </span>,
-        the human body, disease, healthcare, and the factors that
-        influence well-being.
-    </p>
+    <div class="reading-header">
+        <div>
+            <div class="section-number">STUDY TOOL</div>
+            <h2>How to Study the Passages</h2>
+        </div>
+    </div>
 
     <p>
-        Health science is not one single subject. It brings together
-        knowledge from many fields, including biology, chemistry,
-        psychology, genetics, medicine, public health, and scientific
-        research.
+        These passages are meant to be read like textbook sections.
+        You do not have to memorize every sentence. Instead, look for ideas
+        that explain <strong>what something is, how it works, why it matters,
+        and how it connects to other ideas.</strong>
     </p>
 
+    <div class="study-tip">
+        🖍️ <strong>Highlight important details:</strong>
+        Select a sentence or phrase inside a reading passage. A
+        <strong>Highlight</strong> button will appear. Click it to save
+        that section as a study highlight.
+    </div>
 
-    <div
-        id="health"
-        class="definition-popup">
+    <div class="study-tip">
+        💡 <strong>Study tip:</strong>
+        Try highlighting definitions, cause-and-effect relationships,
+        examples, and sentences that connect two concepts.
+    </div>
 
-        <strong>🌷 Health</strong>
+</section>
+
+
+<!-- PASSAGE 1 -->
+
+<section class="card" id="passage1">
+
+    <div class="section-number">READING 01</div>
+
+    <h2>What Is Health Science?</h2>
+
+    <div class="highlight-tools">
+        <button class="primary" onclick="highlightSelection()">🖍 Highlight Selected Text</button>
+        <button class="secondary" onclick="clearHighlights()">Clear My Highlights</button>
+    </div>
+
+    <div class="passage highlightable">
 
         <p>
-            A broad state of well-being involving physical,
-            mental, and social aspects of life.
+            <strong>Health science is the broad study of health, the human body,
+            disease, medicine, and the scientific processes used to understand
+            and improve health.</strong> It is not one single subject. Instead,
+            it is a collection of connected scientific and healthcare fields.
+            A person studying health science may eventually learn about cells,
+            organs, genetics, microorganisms, medications, mental health,
+            public health, medical research, and many other topics.
+        </p>
+
+        <p>
+            One reason health science is so broad is that the human body is
+            extremely interconnected. The body is made of many different
+            structures, but those structures do not operate independently.
+            Cells form tissues, tissues contribute to organs, and organs work
+            together in organ systems. At the same time, systems communicate
+            with one another through signals, chemicals, electrical activity,
+            blood flow, and other processes. Understanding one part of the body
+            often requires understanding how it interacts with other parts.
+        </p>
+
+        <p>
+            Health science also involves understanding <strong>health and
+            disease</strong>. Scientists and healthcare professionals study
+            what allows the body to function normally and what happens when
+            normal processes are disrupted. For example, researchers might
+            investigate how a particular virus enters cells, how the immune
+            system responds, why a genetic change affects a protein, or how a
+            medication interacts with its target. These questions can involve
+            several different areas of science at the same time.
+        </p>
+
+        <p>
+            Another important part of health science is <strong>evidence</strong>.
+            Health-related ideas should not simply be accepted because someone
+            says they are true. Researchers collect observations, perform
+            experiments or studies when appropriate, analyze data, and compare
+            findings with existing evidence. The goal is to build reliable
+            knowledge about how biological systems work and how health-related
+            questions can be investigated.
+        </p>
+
+        <p>
+            This means health science is both about <strong>learning the human
+            body</strong> and learning <strong>how we know what we know about
+            the human body.</strong> You will eventually study anatomy and
+            physiology, but you will also study genetics, microbiology,
+            research methods, statistics, disease processes, and medical
+            evidence. These subjects may look separate at first, but they
+            become much more connected as you learn more.
         </p>
 
     </div>
 
+    <div class="key-ideas">
 
-    <div class="pink-box">
+        <h3>⭐ Key Ideas</h3>
 
-        <div class="label">⭐ KEY IDEA</div>
+        <ul>
+            <li>Health science is a broad group of connected fields.</li>
+            <li>The human body is interconnected rather than a collection of isolated parts.</li>
+            <li>Health science studies both normal body function and disease.</li>
+            <li>Scientific evidence is important when investigating health questions.</li>
+            <li>Understanding health science includes understanding how scientific knowledge is produced.</li>
+        </ul>
+
+    </div>
+
+    <div class="checkpoint">
+
+        <strong>🔎 Check Your Understanding</strong>
 
         <p>
-            Health science is not just about doctors or hospitals.
-            It also involves understanding how the body works,
-            investigating disease, studying prevention, evaluating
-            treatments, and improving our understanding of health.
+            Why would studying only one organ usually be insufficient for
+            understanding the entire way that organ affects the body?
+        </p>
+
+        <button class="secondary"
+                onclick="toggleAnswer('answer1')">
+            Show an example answer
+        </button>
+
+        <p id="answer1" style="display:none;">
+            Because organs interact with other organs and body systems.
+            Their structure and function are influenced by processes happening
+            throughout the body.
         </p>
 
     </div>
 
-    <button
-        class="small-button"
-        onclick="completeSection(1)">
-
-        ✓ Mark Section Complete
-
-    </button>
-
 </section>
 
 
-<!-- =========================
-     SECTION 2
-========================= -->
+<!-- IMAGE 1 -->
 
-<section
-    id="section2"
-    class="section lesson-section">
+<section class="card">
 
-    <h2>🫀 Health Science & the Human Body</h2>
+    <div class="section-number">VISUAL STUDY</div>
 
-    <p>
-        One major part of health science is understanding the
-        structures that make up the human body. Scientists study
-        cells, tissues, organs, and body systems to understand
-        how they function together.
-    </p>
+    <h2>The Human Body as a System</h2>
 
-
-    <div class="diagram">
+    <div class="image-box">
 
         <img
-            src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Human_body_features.jpg"
-            alt="Human body anatomy diagram"
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Human%20Anatomy.png"
+            alt="Diagram showing major organs of the human body"
         >
 
-        <p class="caption">
-            🔎 Study the image: later lessons will explore
-            many of these structures in much greater detail.
-        </p>
+        <div class="caption">
+            Diagram of major organs in the human body.
+            Wikimedia Commons · CC0.
+        </div>
 
     </div>
 
+    <p>
+        When studying health science, remember that an image of an organ is
+        only showing one part of a much larger system. The heart, lungs,
+        kidneys, brain, digestive organs, blood vessels, and other structures
+        constantly interact with one another.
+    </p>
 
-    <div class="blue-box">
+</section>
 
-        <div class="label">🧠 THINK ABOUT IT</div>
+
+<!-- PASSAGE 2 -->
+
+<section class="card">
+
+    <div class="section-number">READING 02</div>
+
+    <h2>Understanding Health</h2>
+
+    <div class="highlight-tools">
+        <button class="primary" onclick="highlightSelection()">🖍 Highlight Selected Text</button>
+        <button class="secondary" onclick="clearHighlights()">Clear My Highlights</button>
+    </div>
+
+    <div class="passage highlightable">
 
         <p>
-            If you wanted to understand how oxygen gets from the
-            air you breathe into your bloodstream, which body
-            systems would you need to study?
+            The word <strong>health</strong> can sound simple, but health is
+            broader than simply “not being sick.” Human health involves many
+            aspects of life and can change over time. A person can experience
+            changes in physical condition, emotional state, relationships,
+            surroundings, or access to resources that influence health.
+        </p>
+
+        <p>
+            <strong>Physical health</strong> relates to the condition and
+            functioning of the body. It includes processes such as circulation,
+            breathing, digestion, movement, immune function, and the maintenance
+            of internal conditions. Physical health does not mean that a person
+            must have a perfectly functioning body at every moment. Bodies
+            naturally change, and illness or injury can occur. Studying physical
+            health means understanding how biological systems function and what
+            factors can affect them.
+        </p>
+
+        <p>
+            <strong>Mental health</strong> relates to emotional, psychological,
+            and cognitive well-being. The brain influences thoughts, emotions,
+            behavior, learning, memory, and communication. Mental and physical
+            processes are also connected. For example, the nervous and endocrine
+            systems can influence many physical processes, while physical
+            conditions can affect how a person feels and functions.
+        </p>
+
+        <p>
+            <strong>Social health</strong> involves relationships and interaction
+            with other people. Humans are social organisms, and relationships,
+            communication, support systems, and community environments can all
+            influence health. Social health is therefore relevant to health
+            science even though it cannot be reduced to a single organ or body
+            structure.
+        </p>
+
+        <p>
+            <strong>Environmental factors</strong> can also influence health.
+            Air quality, water, housing, workplace conditions, exposure to
+            hazards, access to nutritious food, and many other environmental
+            circumstances can affect people and communities. Public health
+            researchers often examine these larger factors because health does
+            not occur in isolation from the environment.
+        </p>
+
+        <p>
+            These dimensions should not be treated as completely separate boxes.
+            They can influence one another. A person's biological condition can
+            affect daily activities, while stress or environmental conditions
+            can influence biological processes. This interconnectedness is one
+            reason health science includes many different disciplines.
         </p>
 
     </div>
 
+    <div class="key-ideas">
 
-    <button
-        class="small-button"
-        onclick="completeSection(2)">
+        <h3>⭐ Key Ideas</h3>
 
-        ✓ Mark Section Complete
+        <ul>
+            <li>Health is broader than simply the absence of disease.</li>
+            <li>Physical, mental, social, and environmental factors can interact.</li>
+            <li>The brain and body communicate continuously.</li>
+            <li>Environmental conditions can affect individual and population health.</li>
+            <li>Health is multidimensional and interconnected.</li>
+        </ul>
 
-    </button>
+    </div>
 
 </section>
 
 
-<!-- =========================
-     SECTION 3
-========================= -->
+<!-- HEALTH DIMENSIONS -->
 
-<section
-    id="section3"
-    class="section lesson-section">
+<section class="card">
 
-    <h2>🌷 What Does "Health" Mean?</h2>
+    <div class="section-number">CONCEPT MAP</div>
 
-    <p>
-        It is easy to think of health as simply "not being sick."
-        However, health is broader than the absence of disease.
-    </p>
+    <h2>Dimensions of Health</h2>
 
-    <p>
-        Health can involve physical, mental, and social aspects
-        of well-being. Environmental and behavioral factors can
-        also influence health.
-    </p>
+    <div class="health-grid">
 
-
-    <div class="fields">
-
-        <div class="field">
-            <h3>🫀 Physical Health</h3>
+        <div class="health-box">
+            <h3>🫀 Physical</h3>
             <p>
-                Relates to the condition and functioning of
-                the body's physical structures and systems.
+                Body structures and processes such as circulation,
+                breathing, movement, digestion, and immune function.
             </p>
         </div>
 
-        <div class="field">
-            <h3>🧠 Mental Health</h3>
+        <div class="health-box">
+            <h3>🧠 Mental</h3>
             <p>
-                Relates to psychological and emotional well-being,
-                including thoughts, feelings, and behavior.
+                Emotional, psychological, cognitive, and behavioral processes.
             </p>
         </div>
 
-        <div class="field">
-            <h3>👥 Social Health</h3>
+        <div class="health-box">
+            <h3>🤝 Social</h3>
             <p>
-                Relates to relationships, interactions with
-                others, and social environments.
+                Relationships, communication, social support, and community.
             </p>
         </div>
 
-        <div class="field">
-            <h3>🌎 Environment</h3>
+        <div class="health-box">
+            <h3>🌎 Environmental</h3>
             <p>
-                A person's surroundings and environmental conditions
-                can influence health.
+                External conditions that can influence health and well-being.
             </p>
         </div>
 
     </div>
 
+</section>
 
-    <button
-        class="small-button"
-        onclick="completeSection(3)">
 
-        ✓ Mark Section Complete
+<!-- PASSAGE 3 -->
 
-    </button>
+<section class="card">
+
+    <div class="section-number">READING 03</div>
+
+    <h2>Anatomy, Physiology, and the Difference Between Structure and Function</h2>
+
+    <div class="highlight-tools">
+        <button class="primary" onclick="highlightSelection()">🖍 Highlight Selected Text</button>
+        <button class="secondary" onclick="clearHighlights()">Clear My Highlights</button>
+    </div>
+
+    <div class="passage highlightable">
+
+        <p>
+            Two of the most important subjects in health science are
+            <strong>anatomy</strong> and <strong>physiology</strong>.
+            Anatomy is the scientific study of body structures. Physiology is
+            the scientific study of how those structures function. The two
+            subjects are closely connected because the structure of something
+            often helps explain what it can do.
+        </p>
+
+        <p>
+            Anatomy can be studied at many different scales. <strong>Gross
+            anatomy</strong> examines structures that can generally be seen
+            without a microscope, such as organs and major body regions.
+            <strong>Microscopic anatomy</strong> examines structures that
+            require magnification. This includes <strong>cytology</strong>,
+            the study of cells, and <strong>histology</strong>, the study of
+            tissues.
+        </p>
+
+        <p>
+            Physiology asks a different type of question. Instead of asking
+            only “What is this structure?”, physiology asks questions such as
+            “What does this structure do?”, “How does it work?”, and “How does
+            it interact with other structures?” For example, anatomy can
+            describe the physical structure of the heart, while physiology can
+            explain how the heart contracts and moves blood through the
+            circulatory system.
+        </p>
+
+        <p>
+            Structure and function are therefore connected. Consider the human
+            hand. The arrangement of the bones, joints, muscles, tendons, and
+            nerves allows the hand to perform precise movements. The thumb's
+            position relative to the fingers contributes to the ability to
+            grasp and manipulate objects. Understanding the structure makes
+            the function easier to understand.
+        </p>
+
+        <p>
+            This relationship appears throughout biology. The shape of a cell
+            can help it perform its specialized function. The structure of a
+            blood vessel affects how blood moves through it. The organization
+            of nervous tissue allows neurons to communicate. As you continue
+            through MedNotesLab, you will repeatedly see the same pattern:
+            <strong>structure and function are connected.</strong>
+        </p>
+
+    </div>
+
+    <div class="key-ideas">
+
+        <h3>⭐ Key Ideas</h3>
+
+        <ul>
+            <li>Anatomy = structure.</li>
+            <li>Physiology = function.</li>
+            <li>Gross anatomy studies larger structures.</li>
+            <li>Microscopic anatomy studies structures requiring magnification.</li>
+            <li>Structure often helps explain function.</li>
+        </ul>
+
+    </div>
 
 </section>
 
 
-<!-- =========================
-     SECTION 4
-========================= -->
+<!-- IMAGE 2 -->
 
-<section
-    id="section4"
-    class="section lesson-section">
+<section class="card">
 
-    <h2>🧪 What Does "Science" Mean?</h2>
+    <div class="section-number">VISUAL STUDY</div>
 
-    <p>
-        Science is a systematic way of developing knowledge about
-        the natural world. Scientists ask questions, collect
-        evidence, analyze information, and evaluate explanations.
-    </p>
+    <h2>Body Regions</h2>
 
-    <div class="diagram">
+    <div class="image-box">
 
-        <h3>🔎 A Simplified Scientific Investigation</h3>
+        <img
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Regions%20of%20Human%20Body.jpg"
+            alt="Diagram showing regions of the human body"
+        >
 
-        <div class="fields">
-
-            <div class="field">
-                <h3>❓ Question</h3>
-                <p>What are we trying to understand?</p>
-            </div>
-
-            <div class="field">
-                <h3>🔬 Evidence</h3>
-                <p>What information can we collect?</p>
-            </div>
-
-            <div class="field">
-                <h3>📊 Analysis</h3>
-                <p>What does the evidence show?</p>
-            </div>
-
-            <div class="field">
-                <h3>📝 Conclusion</h3>
-                <p>What can we reasonably conclude?</p>
-            </div>
-
+        <div class="caption">
+            Anatomical regions of the human body.
+            Wikimedia Commons · OpenStax/Connexions.
         </div>
 
     </div>
 
-
-    <button
-        class="small-button"
-        onclick="completeSection(4)">
-
-        ✓ Mark Section Complete
-
-    </button>
+    <p>
+        Anatomical diagrams allow scientists and healthcare professionals to
+        communicate about structures using consistent terminology. You will
+        study anatomical position and directional terms in Lesson 4.
+    </p>
 
 </section>
 
 
-<!-- =========================
-     SECTION 5
-========================= -->
+<!-- PASSAGE 4 -->
 
-<section
-    id="section5"
-    class="section lesson-section">
+<section class="card">
 
-    <h2>🧬 Major Areas of Health Science</h2>
+    <div class="section-number">READING 04</div>
 
-    <p>
-        Health science contains many different fields. Each field
-        focuses on different questions about health and the body.
-    </p>
+    <h2>Major Fields of Health Science</h2>
+
+    <div class="highlight-tools">
+        <button class="primary" onclick="highlightSelection()">🖍 Highlight Selected Text</button>
+        <button class="secondary" onclick="clearHighlights()">Clear My Highlights</button>
+    </div>
+
+    <div class="passage highlightable">
+
+        <p>
+            Because health is complicated, health science contains many
+            specialized fields. Each field focuses on certain questions, but
+            the fields often overlap. A researcher studying a disease might
+            need information about cells, genetics, microorganisms, physiology,
+            medications, and population health at the same time.
+        </p>
+
+        <p>
+            <strong>Anatomy</strong> studies body structures, while
+            <strong>physiology</strong> studies how those structures function.
+            These subjects provide the foundation for understanding what the
+            body is made of and how it operates.
+        </p>
+
+        <p>
+            <strong>Genetics</strong> focuses on heredity and biological
+            information passed between generations. Modern genetics also
+            examines DNA, genes, gene expression, mutations, and how genetic
+            information contributes to biological traits and disease.
+        </p>
+
+        <p>
+            <strong>Microbiology</strong> studies microscopic organisms and
+            biological agents such as bacteria, fungi, and other microscopic
+            life forms. Microbiology is especially important for understanding
+            infectious disease and interactions between microorganisms and
+            their hosts.
+        </p>
+
+        <p>
+            <strong>Psychology and neuroscience</strong> examine behavior,
+            mental processes, and the nervous system from different
+            perspectives. Neuroscience focuses strongly on the nervous system,
+            including the brain, spinal cord, and communication between nerve
+            cells.
+        </p>
+
+        <p>
+            <strong>Pharmacology</strong> studies drugs and how substances
+            interact with biological systems. Researchers may investigate how
+            a drug reaches its target, how it produces an effect, and how the
+            body processes the substance.
+        </p>
+
+        <p>
+            <strong>Public health</strong> looks beyond one individual and
+            studies health at the population or community level. Public health
+            can involve disease prevention, environmental factors, health
+            behavior, epidemiology, and systems that influence communities.
+        </p>
+
+        <p>
+            <strong>Medical research</strong> uses scientific methods to
+            investigate health-related questions. Researchers may study basic
+            biological mechanisms, diseases, treatments, diagnostic methods,
+            prevention strategies, or population-level patterns.
+        </p>
+
+        <p>
+            The important idea is that these fields are connected rather than
+            isolated. A medical question may require multiple perspectives.
+            Understanding how those perspectives fit together is one of the
+            central skills you will develop throughout this course.
+        </p>
+
+    </div>
+
+    <div class="key-ideas">
+
+        <h3>⭐ Key Ideas</h3>
+
+        <ul>
+            <li>Health science contains many specialized fields.</li>
+            <li>Genetics studies heredity and biological information.</li>
+            <li>Microbiology studies microscopic organisms and biological agents.</li>
+            <li>Pharmacology studies how drugs interact with biological systems.</li>
+            <li>Public health studies health at the population and community level.</li>
+            <li>Medical research investigates health-related questions using scientific methods.</li>
+        </ul>
+
+    </div>
+
+</section>
 
 
-    <div class="fields">
+<!-- FIELD GRID -->
+
+<section class="card">
+
+    <div class="section-number">FIELD GUIDE</div>
+
+    <h2>Meet the Major Fields</h2>
+
+    <div class="field-grid">
 
         <div class="field">
             <h3>🦴 Anatomy</h3>
-            <p>
-                The study of body structures and how those structures
-                are organized.
-            </p>
+            <p>Study of body structures.</p>
         </div>
 
         <div class="field">
             <h3>⚙️ Physiology</h3>
-            <p>
-                The study of how living organisms and their parts
-                function.
-            </p>
+            <p>Study of how body structures function.</p>
         </div>
 
         <div class="field">
             <h3>🧬 Genetics</h3>
-            <p>
-                The study of genes, DNA, heredity, and genetic variation.
-            </p>
+            <p>Study of heredity, genes, and biological information.</p>
         </div>
 
         <div class="field">
             <h3>🦠 Microbiology</h3>
-            <p>
-                The study of microorganisms and their interactions
-                with living organisms.
-            </p>
+            <p>Study of microscopic organisms and biological agents.</p>
         </div>
 
         <div class="field">
-            <h3>🧠 Psychology</h3>
-            <p>
-                The study of behavior and mental processes.
-            </p>
-        </div>
-
-        <div class="field">
-            <h3>🌎 Public Health</h3>
-            <p>
-                The study and practice of protecting and improving
-                health at the population level.
-            </p>
+            <h3>🧠 Neuroscience</h3>
+            <p>Study of the nervous system and its functions.</p>
         </div>
 
         <div class="field">
             <h3>💊 Pharmacology</h3>
-            <p>
-                The study of how drugs and other substances interact
-                with living organisms.
-            </p>
+            <p>Study of drugs and their interactions with biological systems.</p>
+        </div>
+
+        <div class="field">
+            <h3>🌎 Public Health</h3>
+            <p>Study of health at population and community levels.</p>
         </div>
 
         <div class="field">
             <h3>🔬 Medical Research</h3>
-            <p>
-                Scientific investigation into health, disease,
-                prevention, diagnosis, and treatment.
-            </p>
+            <p>Scientific investigation of health-related questions.</p>
         </div>
 
     </div>
-
-
-    <button
-        class="small-button"
-        onclick="completeSection(5)">
-
-        ✓ Mark Section Complete
-
-    </button>
 
 </section>
 
 
-<!-- =========================
-     SECTION 6
-========================= -->
+<!-- PASSAGE 5 -->
 
-<section
-    id="section6"
-    class="section lesson-section">
+<section class="card">
 
-    <h2>🔗 How Do These Fields Connect?</h2>
+    <div class="section-number">READING 05</div>
 
-    <p>
-        Health problems can be complicated. A single question may
-        require information from several scientific fields.
-    </p>
+    <h2>How the Fields Connect</h2>
 
-
-    <div class="fields">
-
-        <div class="field">
-            <h3>🧬 Genetics</h3>
-            <p>
-                Could genetic factors contribute?
-            </p>
-        </div>
-
-        <div class="field">
-            <h3>🦠 Microbiology</h3>
-            <p>
-                Could microorganisms be involved?
-            </p>
-        </div>
-
-        <div class="field">
-            <h3>🫀 Physiology</h3>
-            <p>
-                How does the body respond?
-            </p>
-        </div>
-
-        <div class="field">
-            <h3>💊 Medicine</h3>
-            <p>
-                What treatments can be studied?
-            </p>
-        </div>
-
+    <div class="highlight-tools">
+        <button class="primary" onclick="highlightSelection()">🖍 Highlight Selected Text</button>
+        <button class="secondary" onclick="clearHighlights()">Clear My Highlights</button>
     </div>
 
-
-    <div class="yellow-box">
-
-        <div class="label">💡 REMEMBER</div>
+    <div class="passage highlightable">
 
         <p>
-            Different fields can provide different pieces of
-            the same scientific puzzle.
+            Imagine that researchers are investigating an infectious disease.
+            There is not one single question they need to answer. They may first
+            need to understand which microorganism causes the disease. That is
+            where microbiology becomes important. They may then investigate
+            how the microorganism enters cells and how those cells respond.
+            Cell biology and physiology can help answer those questions.
+        </p>
+
+        <p>
+            Researchers may also ask why some people are more susceptible than
+            others. Genetics could provide information about inherited
+            biological differences. The immune system and physiology could help
+            explain how the body responds after exposure. Neuroscience could
+            become relevant if the disease affects the nervous system.
+        </p>
+
+        <p>
+            If researchers are testing a medication, pharmacology becomes
+            important. Scientists need to understand how the medication
+            interacts with biological targets and how the body processes it.
+            Medical researchers may then design studies to determine whether
+            the treatment is effective and what potential risks or side effects
+            need to be investigated.
+        </p>
+
+        <p>
+            Public health researchers may approach the same disease from a
+            different level. Instead of focusing on one patient's cells, they
+            might examine how the disease spreads through a population,
+            identify risk factors, evaluate prevention strategies, or study
+            patterns of illness.
+        </p>
+
+        <p>
+            Notice what happened: the same health problem required information
+            from several scientific fields. This is called a
+            <strong>multidisciplinary approach</strong>. Complex health
+            questions often cannot be fully understood from one perspective.
+            Scientists and healthcare professionals therefore combine
+            different types of knowledge.
+        </p>
+
+        <p>
+            This is one of the biggest ideas in health science:
+            <strong>the human body is a connected system, and studying health
+            often requires connected areas of science.</strong> As you move
+            through MedNotesLab, you will keep returning to this idea.
         </p>
 
     </div>
 
+    <div class="key-ideas">
 
-    <button
-        class="small-button"
-        onclick="completeSection(6)">
+        <h3>⭐ Key Ideas</h3>
 
-        ✓ Mark Section Complete
+        <ul>
+            <li>Complex health questions often require multiple scientific fields.</li>
+            <li>Different fields can study the same disease from different perspectives.</li>
+            <li>Microbiology, genetics, physiology, pharmacology, and public health can overlap.</li>
+            <li>A multidisciplinary approach combines knowledge from multiple fields.</li>
+            <li>Health science is interconnected because the human body and health are interconnected.</li>
+        </ul>
 
-    </button>
+    </div>
 
 </section>
 
 
-<!-- =========================
-     VOCABULARY
-========================= -->
+<!-- VOCABULARY -->
 
-<section class="section">
+<section class="card">
 
-    <h2>📖 Key Vocabulary</h2>
+    <div class="section-number">DEFINITION STUDY</div>
+
+    <h2>Important Vocabulary</h2>
 
     <p>
-        Click a term to reveal its definition.
+        Click a term to reveal its definition. Try to define each term yourself
+        before opening the answer.
     </p>
 
+    <div class="definition-grid">
 
-    <div class="vocab">
-
-        <div class="word">
-
-            <span
-                class="term"
-                onclick="showDefinition('disease')">
-                Disease
-            </span>
-
-            <div
-                id="disease"
-                class="definition-popup">
-
-                <strong>Disease</strong>
-
-                <p>
-                    A condition that affects normal body structure
-                    or function.
-                </p>
-
+        <div class="definition" onclick="toggleDefinition(this)">
+            <strong>Health Science</strong>
+            <div class="definition-answer">
+                The broad study of health, the human body, disease, medicine,
+                and scientific approaches to health-related questions.
             </div>
-
         </div>
 
-
-        <div class="word">
-
-            <span
-                class="term"
-                onclick="showDefinition('evidence')">
-                Evidence
-            </span>
-
-            <div
-                id="evidence"
-                class="definition-popup">
-
-                <strong>Evidence</strong>
-
-                <p>
-                    Information or data used to investigate a
-                    question or evaluate an explanation.
-                </p>
-
+        <div class="definition" onclick="toggleDefinition(this)">
+            <strong>Anatomy</strong>
+            <div class="definition-answer">
+                The scientific study of body structures.
             </div>
-
         </div>
 
-
-        <div class="word">
-
-            <span
-                class="term"
-                onclick="showDefinition('research')">
-                Research
-            </span>
-
-            <div
-                id="research"
-                class="definition-popup">
-
-                <strong>Research</strong>
-
-                <p>
-                    A systematic process used to investigate
-                    questions and develop knowledge.
-                </p>
-
+        <div class="definition" onclick="toggleDefinition(this)">
+            <strong>Physiology</strong>
+            <div class="definition-answer">
+                The scientific study of how body structures function.
             </div>
-
         </div>
 
-
-        <div class="word">
-
-            <span
-                class="term"
-                onclick="showDefinition('multidisciplinary')">
-                Multidisciplinary
-            </span>
-
-            <div
-                id="multidisciplinary"
-                class="definition-popup">
-
-                <strong>Multidisciplinary</strong>
-
-                <p>
-                    Involving more than one field or area of study.
-                </p>
-
+        <div class="definition" onclick="toggleDefinition(this)">
+            <strong>Genetics</strong>
+            <div class="definition-answer">
+                The study of heredity, genes, and biological information.
             </div>
+        </div>
 
+        <div class="definition" onclick="toggleDefinition(this)">
+            <strong>Microbiology</strong>
+            <div class="definition-answer">
+                The study of microscopic organisms and biological agents.
+            </div>
+        </div>
+
+        <div class="definition" onclick="toggleDefinition(this)">
+            <strong>Pharmacology</strong>
+            <div class="definition-answer">
+                The study of drugs and how they interact with biological systems.
+            </div>
+        </div>
+
+        <div class="definition" onclick="toggleDefinition(this)">
+            <strong>Evidence</strong>
+            <div class="definition-answer">
+                Information or data used to support or evaluate a conclusion.
+            </div>
+        </div>
+
+        <div class="definition" onclick="toggleDefinition(this)">
+            <strong>Research</strong>
+            <div class="definition-answer">
+                A systematic process used to investigate questions and produce knowledge.
+            </div>
+        </div>
+
+        <div class="definition" onclick="toggleDefinition(this)">
+            <strong>Multidisciplinary</strong>
+            <div class="definition-answer">
+                Involving multiple areas of knowledge or expertise.
+            </div>
+        </div>
+
+        <div class="definition" onclick="toggleDefinition(this)">
+            <strong>Public Health</strong>
+            <div class="definition-answer">
+                The field focused on protecting and improving health at population
+                and community levels.
+            </div>
         </div>
 
     </div>
@@ -1464,496 +1364,847 @@ button,
 </section>
 
 
-<!-- =========================
-     PRACTICE QUIZ
-========================= -->
+<!-- PRACTICE QUIZ -->
 
-<section class="section quiz">
+<section class="card">
 
-    <h2>🧠 Practice Quiz</h2>
+    <div class="section-number">PRACTICE</div>
 
-    <p>
-        These questions help you review while learning.
-    </p>
-
-
-    <p class="question">
-        1. What does health science study?
-    </p>
-
-    <div
-        class="answer"
-        onclick="checkAnswer(this, false, 'feedback1')">
-        A. Only diseases
-    </div>
-
-    <div
-        class="answer"
-        onclick="checkAnswer(this, true, 'feedback1')">
-        B. Health, the human body, disease, healthcare, and related sciences
-    </div>
-
-    <div
-        class="answer"
-        onclick="checkAnswer(this, false, 'feedback1')">
-        C. Only medications
-    </div>
-
-    <div id="feedback1" class="feedback"></div>
-
-
-    <p class="question">
-        2. What does physiology study?
-    </p>
-
-    <div
-        class="answer"
-        onclick="checkAnswer(this, false, 'feedback2')">
-        A. How body structures are arranged
-    </div>
-
-    <div
-        class="answer"
-        onclick="checkAnswer(this, true, 'feedback2')">
-        B. How living structures function
-    </div>
-
-    <div
-        class="answer"
-        onclick="checkAnswer(this, false, 'feedback2')">
-        C. Only diseases
-    </div>
-
-    <div id="feedback2" class="feedback"></div>
-
-
-    <p class="question">
-        3. Which field studies genes and DNA?
-    </p>
-
-    <div
-        class="answer"
-        onclick="checkAnswer(this, false, 'feedback3')">
-        A. Anatomy
-    </div>
-
-    <div
-        class="answer"
-        onclick="checkAnswer(this, true, 'feedback3')">
-        B. Genetics
-    </div>
-
-    <div
-        class="answer"
-        onclick="checkAnswer(this, false, 'feedback3')">
-        C. Physiology
-    </div>
-
-    <div id="feedback3" class="feedback"></div>
-
-
-    <p class="question">
-        4. Why can multiple health-science fields work together?
-    </p>
-
-    <div
-        class="answer"
-        onclick="checkAnswer(this, true, 'feedback4')">
-        A. Complex health questions can involve many different factors.
-    </div>
-
-    <div
-        class="answer"
-        onclick="checkAnswer(this, false, 'feedback4')">
-        B. Every field studies exactly the same thing.
-    </div>
-
-    <div
-        class="answer"
-        onclick="checkAnswer(this, false, 'feedback4')">
-        C. Scientific fields cannot work independently.
-    </div>
-
-    <div id="feedback4" class="feedback"></div>
-
-</section>
-
-
-<!-- =========================
-     FLASHCARDS
-========================= -->
-
-<section class="section flashcard-area">
-
-    <h2>🗂️ Lesson 1 Flashcards</h2>
+    <h2>Check Your Understanding</h2>
 
     <p>
-        Test yourself before taking the final test.
-        Click the card to flip it.
+        These questions are practice only. They do not affect your final test score.
     </p>
 
+    <div class="test-question">
 
-    <div
-        id="flashcard"
-        class="flashcard"
-        onclick="flipCard()">
+        <strong>1. What is anatomy primarily concerned with?</strong>
 
-        <div>
-
-            <h3 id="flashcardText">
-                What is health science?
-            </h3>
-
-            <p>
-                Click to reveal the answer
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="flashcard-controls">
-
-        <button
-            class="small-button"
-            onclick="previousCard()">
-
-            ← Previous
-
+        <button class="option" onclick="practice(this, false)">
+            How medications are absorbed
         </button>
 
-        <button
-            class="small-button"
-            onclick="flipCard()">
-
-            Flip Card
-
+        <button class="option" onclick="practice(this, true)">
+            The structures of the body
         </button>
 
-        <button
-            class="small-button"
-            onclick="nextCard()">
-
-            Next →
-
+        <button class="option" onclick="practice(this, false)">
+            Population statistics only
         </button>
+
+        <div class="feedback"></div>
 
     </div>
 
 
-    <div
-        id="flashcardProgress"
-        class="flashcard-progress">
+    <div class="test-question">
 
-        Card 1 of 10
+        <strong>2. What is physiology primarily concerned with?</strong>
+
+        <button class="option" onclick="practice(this, false)">
+            Body structures only
+        </button>
+
+        <button class="option" onclick="practice(this, true)">
+            How body structures function
+        </button>
+
+        <button class="option" onclick="practice(this, false)">
+            Naming microorganisms
+        </button>
+
+        <div class="feedback"></div>
+
+    </div>
+
+
+    <div class="test-question">
+
+        <strong>3. Which field studies heredity and genes?</strong>
+
+        <button class="option" onclick="practice(this, false)">
+            Anatomy
+        </button>
+
+        <button class="option" onclick="practice(this, true)">
+            Genetics
+        </button>
+
+        <button class="option" onclick="practice(this, false)">
+            Pharmacology
+        </button>
+
+        <div class="feedback"></div>
+
+    </div>
+
+
+    <div class="test-question">
+
+        <strong>4. Why do health-science fields overlap?</strong>
+
+        <button class="option" onclick="practice(this, true)">
+            Because complex health questions can require multiple perspectives.
+        </button>
+
+        <button class="option" onclick="practice(this, false)">
+            Because every field studies exactly the same thing.
+        </button>
+
+        <button class="option" onclick="practice(this, false)">
+            Because anatomy and physiology are unrelated.
+        </button>
+
+        <div class="feedback"></div>
 
     </div>
 
 </section>
 
 
-<!-- =========================
-     FINAL TEST
-========================= -->
+<!-- FLASHCARDS -->
 
-<section class="section test">
+<section class="card">
 
-    <h2>📝 Lesson 1 Final Test</h2>
+    <div class="section-number">FLASHCARDS</div>
+
+    <h2>Study the Core Ideas</h2>
 
     <p>
-        This test checks your understanding of the entire lesson.
-        Choose one answer for each question, then submit your test.
+        Click a card to flip it. Try answering the question before revealing
+        the back.
+    </p>
+
+    <div class="flashcard-grid">
+
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flash-inner">
+                <div class="flash-front">What is health science?</div>
+                <div class="flash-back">
+                    The broad study of health, the body, disease, medicine,
+                    and scientific health questions.
+                </div>
+            </div>
+        </div>
+
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flash-inner">
+                <div class="flash-front">Anatomy vs. physiology?</div>
+                <div class="flash-back">
+                    Anatomy focuses on structure. Physiology focuses on function.
+                </div>
+            </div>
+        </div>
+
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flash-inner">
+                <div class="flash-front">What does genetics study?</div>
+                <div class="flash-back">
+                    Heredity, genes, and biological information.
+                </div>
+            </div>
+        </div>
+
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flash-inner">
+                <div class="flash-front">What does microbiology study?</div>
+                <div class="flash-back">
+                    Microscopic organisms and biological agents.
+                </div>
+            </div>
+        </div>
+
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flash-inner">
+                <div class="flash-front">What does pharmacology study?</div>
+                <div class="flash-back">
+                    Drugs and how they interact with biological systems.
+                </div>
+            </div>
+        </div>
+
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flash-inner">
+                <div class="flash-front">What is public health?</div>
+                <div class="flash-back">
+                    A field focused on health at population and community levels.
+                </div>
+            </div>
+        </div>
+
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flash-inner">
+                <div class="flash-front">What is evidence?</div>
+                <div class="flash-back">
+                    Information or data used to support or evaluate a conclusion.
+                </div>
+            </div>
+        </div>
+
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+            <div class="flash-inner">
+                <div class="flash-front">What does multidisciplinary mean?</div>
+                <div class="flash-back">
+                    Using knowledge from multiple areas of expertise.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL TEST -->
+
+<section class="card" id="finalTest">
+
+    <div class="section-number">FINAL TEST</div>
+
+    <h2>Lesson 1 Final Test</h2>
+
+    <p>
+        There are 10 questions. You need at least <strong>8/10</strong>
+        to pass the lesson.
     </p>
 
 
     <div class="test-question">
 
-        <strong>
-            1. Which statement best describes health science?
-        </strong>
+        <strong>1. Health science is best described as:</strong>
 
-        <div
-            class="test-answer"
-            onclick="selectTestAnswer(this, 1, 'A')">
-            A. It only studies diseases.
-        </div>
-
-        <div
-            class="test-answer"
-            onclick="selectTestAnswer(this, 1, 'B')">
-            B. It combines multiple fields to study health, the body,
-            disease, and healthcare.
-        </div>
-
-        <div
-            class="test-answer"
-            onclick="selectTestAnswer(this, 1, 'C')">
-            C. It only studies medications.
-        </div>
+        <button class="option" data-answer="false">One single branch of medicine</button>
+        <button class="option" data-answer="true">A broad group of connected health and scientific fields</button>
+        <button class="option" data-answer="false">The study of hospitals only</button>
 
     </div>
 
 
     <div class="test-question">
 
-        <strong>
-            2. Which field focuses on body structures?
-        </strong>
+        <strong>2. Anatomy focuses mainly on:</strong>
 
-        <div
-            class="test-answer"
-            onclick="selectTestAnswer(this, 2, 'A')">
-            A. Anatomy
-        </div>
-
-        <div
-            class="test-answer"
-            onclick="selectTestAnswer(this, 2, 'B')">
-            B. Physiology
-        </div>
-
-        <div
-            class="test-answer"
-            onclick="selectTestAnswer(this, 2, 'C')">
-            C. Genetics
-        </div>
+        <button class="option" data-answer="true">Structure</button>
+        <button class="option" data-answer="false">Population statistics</button>
+        <button class="option" data-answer="false">Drug dosage</button>
 
     </div>
 
 
     <div class="test-question">
 
-        <strong>
-            3. Which field studies genes and heredity?
-        </strong>
+        <strong>3. Physiology focuses mainly on:</strong>
 
-        <div
-            class="test-answer"
-            onclick="selectTestAnswer(this, 3, 'A')">
-            A. Psychology
-        </div>
-
-        <div
-            class="test-answer"
-            onclick="selectTestAnswer(this, 3, 'B')">
-            B. Genetics
-        </div>
-
-        <div
-            class="test-answer"
-            onclick="selectTestAnswer(this, 3, 'C')">
-            C. Anatomy
-        </div>
+        <button class="option" data-answer="false">Body naming systems</button>
+        <button class="option" data-answer="true">Function</button>
+        <button class="option" data-answer="false">Genetic inheritance only</button>
 
     </div>
 
 
     <div class="test-question">
 
-        <strong>
-            4. What is evidence?
-        </strong>
+        <strong>4. Which field studies genes and heredity?</strong>
 
-        <div
-            class="test-answer"
-            onclick="selectTestAnswer(this, 4, 'A')">
-            A. Information or data used to investigate a question.
-        </div>
-
-        <div
-            class="test-answer"
-            onclick="selectTestAnswer(this, 4, 'B')">
-            B. A personal guess.
-        </div>
-
-        <div
-            class="test-answer"
-            onclick="selectTestAnswer(this, 4, 'C')">
-            C. A type of body system.
-        </div>
+        <button class="option" data-answer="false">Microbiology</button>
+        <button class="option" data-answer="true">Genetics</button>
+        <button class="option" data-answer="false">Anatomy</button>
 
     </div>
 
 
     <div class="test-question">
 
-        <strong>
-            5. Why do health-science fields work together?
-        </strong>
+        <strong>5. Which field studies microscopic organisms?</strong>
 
-        <div
-            class="test-answer"
-            onclick="selectTestAnswer(this, 5, 'A')">
-            A. Because every field studies the exact same thing.
-        </div>
-
-        <div
-            class="test-answer"
-            onclick="selectTestAnswer(this, 5, 'B')">
-            B. Because complex health questions can involve many factors.
-        </div>
-
-        <div
-            class="test-answer"
-            onclick="selectTestAnswer(this, 5, 'C')">
-            C. Because individual fields cannot conduct research.
-        </div>
+        <button class="option" data-answer="true">Microbiology</button>
+        <button class="option" data-answer="false">Anatomy</button>
+        <button class="option" data-answer="false">Psychology</button>
 
     </div>
 
 
-    <button
-        class="submit-test"
-        onclick="submitTest()">
+    <div class="test-question">
 
+        <strong>6. Which field studies drugs and their biological effects?</strong>
+
+        <button class="option" data-answer="false">Genetics</button>
+        <button class="option" data-answer="true">Pharmacology</button>
+        <button class="option" data-answer="false">Anatomy</button>
+
+    </div>
+
+
+    <div class="test-question">
+
+        <strong>7. Public health mainly examines:</strong>
+
+        <button class="option" data-answer="false">Only one person's cells</button>
+        <button class="option" data-answer="true">Health at population and community levels</button>
+        <button class="option" data-answer="false">Only bones and muscles</button>
+
+    </div>
+
+
+    <div class="test-question">
+
+        <strong>8. Why are health-science fields interconnected?</strong>
+
+        <button class="option" data-answer="true">Because health questions can involve multiple biological and environmental processes</button>
+        <button class="option" data-answer="false">Because every field has exactly the same purpose</button>
+        <button class="option" data-answer="false">Because scientific evidence is unnecessary</button>
+
+    </div>
+
+
+    <div class="test-question">
+
+        <strong>9. What does evidence mean in science?</strong>
+
+        <button class="option" data-answer="false">A personal opinion</button>
+        <button class="option" data-answer="true">Information or data used to support or evaluate a conclusion</button>
+        <button class="option" data-answer="false">A prediction that has not been investigated</button>
+
+    </div>
+
+
+    <div class="test-question">
+
+        <strong>10. What does multidisciplinary mean?</strong>
+
+        <button class="option" data-answer="false">Using one field only</button>
+        <button class="option" data-answer="true">Using multiple areas of knowledge or expertise</button>
+        <button class="option" data-answer="false">Studying only diseases</button>
+
+    </div>
+
+
+    <button class="primary"
+            style="width:100%; margin-top:20px; font-size:17px;"
+            onclick="submitTest()">
         Submit Final Test
-
     </button>
 
-
-    <div
-        id="testResult"
-        class="test-result">
-
-        <h3 id="testScore"></h3>
-
-        <p id="testMessage"></p>
-
-    </div>
+    <div id="testResult" style="margin-top:20px;"></div>
 
 </section>
 
 
-<!-- =========================
-     COMPLETION
-========================= -->
+<!-- COMPLETION -->
 
-<section
-    id="completion"
-    class="section complete">
+<section class="card completion" id="completion">
 
-    <h2>🎉 Lesson 1 Complete!</h2>
+    <div class="section-number">LESSON COMPLETE</div>
+
+    <h2>🎉 You Finished Lesson 1!</h2>
+
+    <div class="score" id="finalScore"></div>
 
     <p>
-        You finished the Lesson 1 learning activities.
+        You now have the foundation for understanding the rest of
+        Foundations of Health Science.
     </p>
 
     <p>
-        Your progress has been saved in this browser.
+        Your lesson progress and highlights are saved in this browser.
     </p>
 
-    <a
-        class="button"
-        href="https://mednoteslab.github.io/">
-
-        Return to MedNotesLab
-
-    </a>
+    <button class="secondary" onclick="resetLesson()">
+        Reset Lesson Progress
+    </button>
 
 </section>
 
 
-<!-- =========================
-     SOURCES
-========================= -->
+<!-- SOURCES -->
 
-<section class="section">
+<section class="card sources">
 
-    <h2>📚 Sources & Further Reading</h2>
+    <div class="section-number">SOURCES & IMAGE CREDITS</div>
+
+    <h2>Where the Information Comes From</h2>
 
     <p>
-        This lesson introduces foundational concepts in health
-        science, anatomy, physiology, genetics, public health,
-        and scientific research.
+        MedNotesLab is an educational project. This lesson is written as
+        original educational material and is not a substitute for professional
+        medical advice.
     </p>
 
-    <ul>
+    <p>
+        Anatomy and physiology concepts were checked against OpenStax
+        Anatomy and Physiology resources.
+    </p>
 
-        <li>
-            World Health Organization — health and well-being resources
-        </li>
+    <p>
+        Human anatomy image:
+        <a href="https://commons.wikimedia.org/wiki/File:Human_Anatomy.png"
+           target="_blank">
+            Wikimedia Commons — Human Anatomy.png
+        </a>
+        · CC0
+    </p>
 
-        <li>
-            National Institutes of Health — health research resources
-        </li>
+    <p>
+        Body regions image:
+        <a href="https://commons.wikimedia.org/wiki/File:Regions_of_Human_Body.jpg"
+           target="_blank">
+            Wikimedia Commons — Regions of Human Body.jpg
+        </a>
+        · CC BY
+    </p>
 
-    </ul>
+    <p>
+        Educational reference:
+        <a href="https://openstax.org/books/anatomy-and-physiology/pages/1-1-overview-of-anatomy-and-physiology"
+           target="_blank">
+            OpenStax — Overview of Anatomy and Physiology
+        </a>
+    </p>
 
-    <p class="caption">
-        MedNotesLab is an educational project and is not a substitute
-        for professional medical advice.
+    <p>
+        Homeostasis will be covered thoroughly in Lesson 3.
     </p>
 
 </section>
-
-
-<!-- =========================
-     NAVIGATION
-========================= -->
-
-<div class="navigation">
-
-    <a
-        class="button"
-        href="https://mednoteslab.github.io/">
-
-        ← Home
-
-    </a>
-
-
-    <a
-        class="button"
-        href="lesson-2.html">
-
-        Next Lesson →
-
-    </a>
-
-</div>
-
-
-<button
-    class="reset-progress"
-    onclick="resetProgress()">
-
-    Reset Lesson 1 Progress
-
-</button>
 
 
 </main>
 
 
+<footer>
+    <strong>MedNotesLab</strong><br>
+    Learn the science. Understand the body.
+</footer>
+
+
 <script>
 
 /* =========================
-   SAVED PROGRESS
+   PROGRESS SYSTEM
 ========================= */
 
-const STORAGE_KEY = "mednoteslab_lesson1";
+const STORAGE_KEY = "mednoteslab_lesson1_v2";
 
-let savedData =
-    JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+let savedData = JSON.parse(
+    localStorage.getItem(STORAGE_KEY) || "{}"
+);
 
-        sections: [],
-        testCompleted: false,
-        testScore: 0
+if (!savedData.sections) {
+    savedData.sections = {};
+}
 
-    };
+if (!savedData.highlights) {
+    savedData.highlights = {};
+}
 
-
-function saveProgress() {
-
+function saveData() {
     localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify(savedData)
     );
+}
+
+
+/* =========================
+   HIGHLIGHT SYSTEM
+========================= */
+
+let currentSelection = null;
+
+document.addEventListener("mouseup", function() {
+
+    const selection = window.getSelection();
+
+    if (!selection || selection.rangeCount === 0) {
+        return;
+    }
+
+    const text = selection.toString().trim();
+
+    if (!text) {
+        return;
+    }
+
+    const range = selection.getRangeAt(0);
+
+    const passage = range.commonAncestorContainer.parentElement
+        ?.closest(".highlightable");
+
+    if (!passage) {
+        return;
+    }
+
+    currentSelection = range;
+
+    showHighlightButton(selection);
+
+});
+
+
+function showHighlightButton(selection) {
+
+    let button = document.getElementById("floatingHighlight");
+
+    if (!button) {
+
+        button = document.createElement("button");
+
+        button.id = "floatingHighlight";
+
+        button.textContent = "🖍 Highlight";
+
+        button.style.position = "fixed";
+        button.style.zIndex = "9999";
+        button.style.background = "#fff09b";
+        button.style.color = "#5f5232";
+        button.style.boxShadow = "0 5px 20px rgba(0,0,0,.15)";
+        button.style.padding = "10px 14px";
+
+        button.onclick = function() {
+            highlightSelection();
+            button.remove();
+        };
+
+        document.body.appendChild(button);
+    }
+
+    const rect = selection.getRangeAt(0).getBoundingClientRect();
+
+    button.style.left =
+        Math.max(10, rect.left + rect.width / 2 - 55) + "px";
+
+    button.style.top =
+        Math.max(10, rect.top - 48) + "px";
+}
+
+
+function highlightSelection() {
+
+    if (!currentSelection) {
+        const selection = window.getSelection();
+
+        if (!selection || selection.rangeCount === 0) {
+            return;
+        }
+
+        currentSelection = selection.getRangeAt(0);
+    }
+
+    try {
+
+        const mark = document.createElement("mark");
+
+        currentSelection.surroundContents(mark);
+
+        saveHighlights();
+
+        window.getSelection().removeAllRanges();
+
+        currentSelection = null;
+
+    } catch (error) {
+
+        alert(
+            "Try highlighting a smaller piece of text within one paragraph."
+        );
+
+    }
+
+}
+
+
+function saveHighlights() {
+
+    document.querySelectorAll(".highlightable").forEach(
+        (element, index) => {
+
+            savedData.highlights[index] = element.innerHTML;
+
+        }
+    );
+
+    saveData();
+}
+
+
+function loadHighlights() {
+
+    document.querySelectorAll(".highlightable").forEach(
+        (element, index) => {
+
+            if (savedData.highlights[index]) {
+
+                element.innerHTML =
+                    savedData.highlights[index];
+
+            }
+
+        }
+    );
+}
+
+
+function clearHighlights() {
+
+    if (!confirm("Clear all your saved highlights for this lesson?")) {
+        return;
+    }
+
+    document.querySelectorAll(".highlightable").forEach(
+        element => {
+
+            element.querySelectorAll("mark").forEach(mark => {
+
+                const parent = mark.parentNode;
+
+                while (mark.firstChild) {
+                    parent.insertBefore(mark.firstChild, mark);
+                }
+
+                parent.removeChild(mark);
+
+            });
+
+        }
+    );
+
+    savedData.highlights = {};
+
+    saveData();
+
+}
+
+
+/* =========================
+   SIMPLE ANSWERS
+========================= */
+
+function toggleAnswer(id) {
+
+    const element = document.getElementById(id);
+
+    if (element.style.display === "none") {
+        element.style.display = "block";
+    } else {
+        element.style.display = "none";
+    }
+
+}
+
+
+function toggleDefinition(element) {
+
+    element.classList.toggle("open");
+
+}
+
+
+/* =========================
+   PRACTICE QUESTIONS
+========================= */
+
+function practice(button, correct) {
+
+    const question = button.closest(".test-question");
+
+    question.querySelectorAll(".option").forEach(
+        option => {
+
+            option.disabled = true;
+
+        }
+    );
+
+    if (correct) {
+
+        button.classList.add("correct");
+
+        question.querySelector(".feedback").textContent =
+            "✓ Correct!";
+
+        question.querySelector(".feedback").style.color =
+            "#4d8a5b";
+
+    } else {
+
+        button.classList.add("wrong");
+
+        question.querySelector(".feedback").textContent =
+            "✗ Not quite. Review the passage and try the idea again.";
+
+        question.querySelector(".feedback").style.color =
+            "#a45454";
+
+    }
+
+}
+
+
+/* =========================
+   FINAL TEST
+========================= */
+
+function submitTest() {
+
+    const questions =
+        document.querySelectorAll("#finalTest .test-question");
+
+    let score = 0;
+
+    let answered = true;
+
+    questions.forEach(question => {
+
+        const selected =
+            question.querySelector(".option.selected");
+
+        if (!selected) {
+            answered = false;
+        }
+
+    });
+
+    if (!answered) {
+
+        alert("Please answer every question before submitting.");
+
+        return;
+
+    }
+
+    questions.forEach(question => {
+
+        const options =
+            question.querySelectorAll(".option");
+
+        options.forEach(option => {
+
+            option.disabled = true;
+
+            if (option.dataset.answer === "true") {
+
+                option.classList.add("correct");
+
+            }
+
+        });
+
+        const selected =
+            question.querySelector(".option.selected");
+
+        if (selected.dataset.answer === "true") {
+
+            score++;
+
+        } else {
+
+            selected.classList.add("wrong");
+
+        }
+
+    });
+
+
+    const result =
+        document.getElementById("testResult");
+
+    result.innerHTML =
+        "<strong>You scored " +
+        score +
+        "/10.</strong><br>" +
+        (
+            score >= 8
+            ? "🎉 You passed Lesson 1!"
+            : "Keep studying the passages and flashcards, then try again."
+        );
+
+    if (score >= 8) {
+
+        savedData.sections.finalTest = true;
+
+        document.getElementById("completion")
+            .classList.add("show");
+
+        document.getElementById("finalScore")
+            .textContent = score + "/10";
+
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: "smooth"
+        });
+
+    }
 
     updateProgress();
 
+    saveData();
+
 }
+
+
+/* Select final test answers */
+
+document.querySelectorAll(
+    "#finalTest .option"
+).forEach(button => {
+
+    button.addEventListener("click", function() {
+
+        const question =
+            this.closest(".test-question");
+
+        question.querySelectorAll(".option")
+            .forEach(option => {
+                option.classList.remove("selected");
+            });
+
+        this.classList.add("selected");
+
+    });
+
+});
+
+
+/* =========================
+   READING COMPLETION
+========================= */
+
+const readingSections = document.querySelectorAll(
+    ".highlightable"
+);
+
+readingSections.forEach((section, index) => {
+
+    const completionButton =
+        document.createElement("button");
+
+    completionButton.className = "green";
+
+    completionButton.style.marginTop = "20px";
+
+    completionButton.textContent =
+        savedData.sections["reading" + index]
+        ? "✓ Reading Completed"
+        : "Mark Reading as Complete";
+
+    completionButton.onclick = function() {
+
+        savedData.sections["reading" + index] = true;
+
+        this.textContent =
+            "✓ Reading Completed";
+
+        saveData();
+
+        updateProgress();
+
+    };
+
+    section.parentElement.appendChild(
+        completionButton
+    );
+
+});
 
 
 /* =========================
@@ -1962,401 +2213,33 @@ function saveProgress() {
 
 function updateProgress() {
 
-    let completedSections =
-        savedData.sections.length;
+    const total = 6;
 
-    let testDone =
-        savedData.testCompleted ? 1 : 0;
+    let completed = 0;
 
-    let totalSteps = 7;
+    Object.keys(savedData.sections).forEach(key => {
 
-    let completedSteps =
-        completedSections + testDone;
+        if (key.startsWith("reading") &&
+            savedData.sections[key]) {
 
-    let percentage =
-        Math.round(
-            (completedSteps / totalSteps) * 100
-        );
-
-
-    document.getElementById("progressBar").style.width =
-        percentage + "%";
-
-    document.getElementById("progressText").innerText =
-        percentage + "%";
-
-
-    if (percentage === 0) {
-
-        document.getElementById("progressDetails").innerText =
-            "Start the lesson!";
-
-    } else if (percentage < 100) {
-
-        document.getElementById("progressDetails").innerText =
-            completedSteps + " of " + totalSteps + " activities completed";
-
-    } else {
-
-        document.getElementById("progressDetails").innerText =
-            "Lesson complete! 🎉";
-
-        document.getElementById("completion").style.display =
-            "block";
-
-    }
-
-}
-
-
-/* =========================
-   COMPLETE SECTION
-========================= */
-
-function completeSection(number) {
-
-    if (!savedData.sections.includes(number)) {
-
-        savedData.sections.push(number);
-
-        saveProgress();
-
-    }
-
-}
-
-
-/* =========================
-   DEFINITIONS
-========================= */
-
-function showDefinition(id) {
-
-    const box =
-        document.getElementById(id);
-
-    if (box.style.display === "block") {
-
-        box.style.display = "none";
-
-    } else {
-
-        box.style.display = "block";
-
-    }
-
-}
-
-
-/* =========================
-   PRACTICE QUIZ
-========================= */
-
-function checkAnswer(
-    element,
-    correct,
-    feedbackId
-) {
-
-    const feedback =
-        document.getElementById(feedbackId);
-
-    const answers =
-        element.parentElement.querySelectorAll(".answer");
-
-
-    answers.forEach(function(answer) {
-
-        answer.classList.remove("correct");
-        answer.classList.remove("wrong");
-
-    });
-
-
-    if (correct) {
-
-        element.classList.add("correct");
-
-        feedback.className =
-            "feedback correct-feedback";
-
-        feedback.style.display =
-            "block";
-
-        feedback.innerHTML =
-            "✓ Correct! Great job!";
-
-    } else {
-
-        element.classList.add("wrong");
-
-        feedback.className =
-            "feedback wrong-feedback";
-
-        feedback.style.display =
-            "block";
-
-        feedback.innerHTML =
-            "✗ Not quite! Try again.";
-
-    }
-
-}
-
-
-/* =========================
-   FLASHCARDS
-========================= */
-
-const flashcards = [
-
-    {
-        front: "What is health science?",
-        back: "The study of health, the body, disease, healthcare, and related sciences."
-    },
-
-    {
-        front: "What does anatomy study?",
-        back: "The structures of living organisms."
-    },
-
-    {
-        front: "What does physiology study?",
-        back: "How living organisms and their parts function."
-    },
-
-    {
-        front: "What does genetics study?",
-        back: "Genes, DNA, heredity, and genetic variation."
-    },
-
-    {
-        front: "What does microbiology study?",
-        back: "Microorganisms and their interactions with living organisms."
-    },
-
-    {
-        front: "What is public health?",
-        back: "Protecting and improving health at the population level."
-    },
-
-    {
-        front: "What is evidence?",
-        back: "Information or data used to investigate a question."
-    },
-
-    {
-        front: "What is research?",
-        back: "A systematic process used to investigate questions and develop knowledge."
-    },
-
-    {
-        front: "What does multidisciplinary mean?",
-        back: "Involving more than one field or area of study."
-    },
-
-    {
-        front: "Why do health fields work together?",
-        back: "Complex health questions can involve many different factors."
-    }
-
-];
-
-
-let currentCard = 0;
-let showingAnswer = false;
-
-
-function displayFlashcard() {
-
-    const card =
-        flashcards[currentCard];
-
-    const text =
-        document.getElementById("flashcardText");
-
-    if (showingAnswer) {
-
-        text.innerText =
-            card.back;
-
-    } else {
-
-        text.innerText =
-            card.front;
-
-    }
-
-
-    document.getElementById(
-        "flashcardProgress"
-    ).innerText =
-        "Card " +
-        (currentCard + 1) +
-        " of " +
-        flashcards.length;
-
-}
-
-
-function flipCard() {
-
-    showingAnswer =
-        !showingAnswer;
-
-    displayFlashcard();
-
-}
-
-
-function nextCard() {
-
-    currentCard =
-        (currentCard + 1) %
-        flashcards.length;
-
-    showingAnswer = false;
-
-    displayFlashcard();
-
-}
-
-
-function previousCard() {
-
-    currentCard =
-        (currentCard - 1 + flashcards.length) %
-        flashcards.length;
-
-    showingAnswer = false;
-
-    displayFlashcard();
-
-}
-
-
-/* =========================
-   FINAL TEST
-========================= */
-
-const correctAnswers = {
-
-    1: "B",
-    2: "A",
-    3: "B",
-    4: "A",
-    5: "B"
-
-};
-
-
-let selectedAnswers = {};
-
-
-function selectTestAnswer(
-    element,
-    question,
-    answer
-) {
-
-    const allAnswers =
-        element.parentElement.querySelectorAll(
-            ".test-answer"
-        );
-
-
-    allAnswers.forEach(function(item) {
-
-        item.classList.remove("selected");
-
-    });
-
-
-    element.classList.add("selected");
-
-    selectedAnswers[question] =
-        answer;
-
-}
-
-
-function submitTest() {
-
-    let score = 0;
-
-
-    for (
-        let question = 1;
-        question <= 5;
-        question++
-    ) {
-
-        if (
-            selectedAnswers[question] ===
-            correctAnswers[question]
-        ) {
-
-            score++;
+            completed++;
 
         }
 
+    });
+
+    if (savedData.sections.finalTest) {
+        completed++;
     }
 
+    const percentage =
+        Math.round((completed / total) * 100);
 
-    const result =
-        document.getElementById("testResult");
+    document.getElementById("progressFill")
+        .style.width = percentage + "%";
 
-    const scoreText =
-        document.getElementById("testScore");
-
-    const message =
-        document.getElementById("testMessage");
-
-
-    result.style.display =
-        "block";
-
-
-    scoreText.innerText =
-        "You scored " +
-        score +
-        " / 5";
-
-
-    if (score === 5) {
-
-        message.innerText =
-            "Perfect score! 🎉 You really know your Lesson 1 material.";
-
-    } else if (score >= 4) {
-
-        message.innerText =
-            "Great job! Review anything you missed, then you're ready to continue.";
-
-    } else if (score >= 3) {
-
-        message.innerText =
-            "Nice work! A quick review of the lesson would help strengthen your understanding.";
-
-    } else {
-
-        message.innerText =
-            "Keep studying! Review the lesson and flashcards, then try the test again.";
-
-    }
-
-
-    if (score >= 4) {
-
-        savedData.testCompleted =
-            true;
-
-        savedData.testScore =
-            score;
-
-        saveProgress();
-
-    }
+    document.getElementById("progressText")
+        .textContent = percentage + "% complete";
 
 }
 
@@ -2365,23 +2248,17 @@ function submitTest() {
    RESET
 ========================= */
 
-function resetProgress() {
+function resetLesson() {
 
-    const confirmReset =
-        confirm(
-            "Reset all Lesson 1 progress?"
-        );
-
-
-    if (confirmReset) {
-
-        localStorage.removeItem(
-            STORAGE_KEY
-        );
-
-        location.reload();
-
+    if (!confirm(
+        "Reset all Lesson 1 progress and highlights?"
+    )) {
+        return;
     }
+
+    localStorage.removeItem(STORAGE_KEY);
+
+    location.reload();
 
 }
 
@@ -2390,13 +2267,12 @@ function resetProgress() {
    START
 ========================= */
 
-updateProgress();
+loadHighlights();
 
-displayFlashcard();
+updateProgress();
 
 </script>
 
-
 </body>
-
 </html>
+```
