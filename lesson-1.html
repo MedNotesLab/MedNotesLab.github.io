@@ -3,586 +3,745 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Lesson 1 - What Is Health Science? | MedNotesLab</title>
+<title>Lesson 1 - What Is Health Science? | MedNotesLab</title>
 
-    <!-- CUTE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap"
-        rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 
 
-    <style>
+<style>
 
-        * {
-            box-sizing: border-box;
-        }
+/* =========================
+   GENERAL
+========================= */
 
-        body {
-            margin: 0;
-            background: #fff8fc;
-            color: #403940;
-            font-family: 'Nunito', sans-serif;
-            line-height: 1.75;
-        }
+* {
+    box-sizing: border-box;
+}
 
+html {
+    scroll-behavior: smooth;
+}
 
-        /* =========================
-           HEADER
-        ========================= */
+body {
+    margin: 0;
+    background: #fff8fc;
+    color: #403940;
+    font-family: 'Nunito', sans-serif;
+    line-height: 1.75;
+}
 
-        .header {
-            background: linear-gradient(
-                135deg,
-                #fbdceb,
-                #e9def8,
-                #dff1fa
-            );
+h1, h2, h3 {
+    font-family: 'Quicksand', sans-serif;
+}
 
-            text-align: center;
-            padding: 55px 20px;
-            border-bottom: 3px solid #ead0df;
-        }
+button,
+.button {
+    font-family: 'Poppins', sans-serif;
+}
 
-        .lesson-number {
-            display: inline-block;
 
-            background: white;
-            color: #a05d82;
+/* =========================
+   HEADER
+========================= */
 
-            padding: 7px 17px;
-            border-radius: 25px;
+.header {
+    background: linear-gradient(
+        135deg,
+        #fbdceb,
+        #e9def8,
+        #dff1fa
+    );
 
-            font-family: 'Poppins', sans-serif;
-            font-size: 13px;
-            font-weight: 700;
+    text-align: center;
+    padding: 55px 20px;
 
-            margin-bottom: 12px;
-        }
+    border-bottom: 3px solid #ead0df;
+}
 
-        .header h1 {
-            margin: 0;
+.lesson-number {
+    display: inline-block;
 
-            color: #704d65;
+    background: white;
+    color: #a05d82;
 
-            font-family: 'Quicksand', sans-serif;
-            font-size: 38px;
-            font-weight: 700;
-        }
+    padding: 7px 17px;
+    border-radius: 25px;
 
-        .header p {
-            color: #806b79;
-            font-size: 17px;
-            margin-bottom: 0;
-        }
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
 
+    margin-bottom: 12px;
+}
 
-        /* =========================
-           MAIN CONTAINER
-        ========================= */
+.header h1 {
+    margin: 0;
 
-        .container {
-            max-width: 920px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+    color: #704d65;
 
+    font-size: 38px;
+}
 
-        /* =========================
-           GENERAL CARDS
-        ========================= */
+.header p {
+    color: #806b79;
+    font-size: 17px;
+}
 
-        .section {
-            background: white;
 
-            border: 1px solid #efdce7;
-            border-radius: 23px;
+/* =========================
+   MAIN
+========================= */
 
-            padding: 30px;
-            margin-bottom: 25px;
+.container {
+    max-width: 920px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
 
-            box-shadow:
-                0 7px 22px rgba(130, 80, 110, 0.07);
-        }
 
-        .section h2 {
-            margin-top: 0;
+/* =========================
+   CARDS
+========================= */
 
-            color: #704d65;
+.section {
+    background: white;
 
-            font-family: 'Quicksand', sans-serif;
-            font-size: 26px;
-        }
+    border: 1px solid #efdce7;
+    border-radius: 23px;
 
-        .section h3 {
-            color: #76566c;
-            font-family: 'Quicksand', sans-serif;
-        }
+    padding: 30px;
+    margin-bottom: 25px;
 
+    box-shadow:
+        0 7px 22px rgba(130, 80, 110, 0.07);
+}
 
-        /* =========================
-           COURSE PROGRESS
-        ========================= */
+.section h2 {
+    margin-top: 0;
+    color: #704d65;
+    font-size: 26px;
+}
 
-        .progress-title {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            color: #704d65;
-        }
 
-        .progress {
-            background: #eee8f4;
-            border-radius: 20px;
-            height: 13px;
-            overflow: hidden;
-            margin: 12px 0 8px;
-        }
+/* =========================
+   PROGRESS
+========================= */
 
-        .progress-bar {
-            width: 1%;
-            height: 100%;
+.progress-card {
+    background: #fffafd;
+}
 
-            background: linear-gradient(
-                90deg,
-                #e5a8c6,
-                #bca2dd
-            );
+.progress-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #704d65;
+}
 
-            border-radius: 20px;
-        }
+.progress {
+    background: #eee8f4;
+    border-radius: 20px;
+    height: 15px;
+    overflow: hidden;
+    margin: 14px 0 8px;
+}
 
+.progress-bar {
+    width: 0%;
+    height: 100%;
 
-        /* =========================
-           COURSE ROADMAP
-        ========================= */
+    background: linear-gradient(
+        90deg,
+        #e5a8c6,
+        #bca2dd
+    );
 
-        .course-roadmap {
-            background: #fffafd;
-        }
+    border-radius: 20px;
 
-        .course-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 22px;
-        }
+    transition: width .4s ease;
+}
 
-        .course-lesson {
-            display: flex;
-            align-items: flex-start;
+.progress-text {
+    color: #766b75;
+    font-size: 14px;
+}
 
-            gap: 15px;
 
-            padding: 17px;
+/* =========================
+   ROADMAP
+========================= */
 
-            background: #faf7fc;
+.course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.course-lesson {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
 
-            border: 1px solid #eadfea;
-            border-radius: 17px;
+    padding: 17px;
+
+    background: #faf7fc;
 
-            transition: 0.2s;
-        }
+    border: 1px solid #eadfea;
+    border-radius: 17px;
+}
 
-        .course-lesson:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 14px rgba(130, 80, 110, 0.08);
-        }
+.course-lesson.current {
+    background: #fff0f7;
+    border: 2px solid #e5b4cc;
+}
 
-        .course-lesson.current {
-            background: #fff0f7;
-            border: 2px solid #e5b4cc;
-        }
+.lesson-number-small {
+    min-width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e7d9f2;
+    color: #76558e;
 
-        .lesson-number-small {
-            min-width: 42px;
-            height: 42px;
+    border-radius: 13px;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
 
-            background: #e7d9f2;
-            color: #76558e;
+.current .lesson-number-small {
+    background: #e6b2ca;
+    color: white;
+}
 
-            border-radius: 13px;
+.course-lesson strong {
+    display: block;
+    color: #704d65;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 17px;
+}
 
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-        }
+.course-lesson span {
+    display: block;
+    color: #756b73;
+    font-size: 14px;
+}
 
-        .current .lesson-number-small {
-            background: #e6b2ca;
-            color: white;
-        }
 
-        .course-lesson strong {
-            display: block;
+/* =========================
+   LEARNING GOALS
+========================= */
 
-            color: #704d65;
+.learn {
+    background: #f7effc;
+    border-left: 7px solid #c99cda;
+}
 
-            font-family: 'Quicksand', sans-serif;
-            font-size: 17px;
-        }
+.learn li {
+    margin-bottom: 8px;
+}
 
-        .course-lesson span {
-            display: block;
 
-            color: #756b73;
-            font-size: 14px;
+/* =========================
+   PASTEL BOXES
+========================= */
 
-            margin-top: 3px;
-        }
+.pink-box,
+.blue-box,
+.yellow-box,
+.green-box {
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 20px;
+}
 
+.pink-box {
+    background: #fff0f7;
+    border-left: 6px solid #e4a8c6;
+}
 
-        /* =========================
-           LEARNING GOALS
-        ========================= */
+.blue-box {
+    background: #eef8ff;
+    border-left: 6px solid #96c9e8;
+}
 
-        .learn {
-            background: #f7effc;
-            border-left: 7px solid #c99cda;
-        }
+.yellow-box {
+    background: #fff8e7;
+    border-left: 6px solid #e4c36e;
+}
 
-        .learn li {
-            margin-bottom: 8px;
-        }
+.green-box {
+    background: #effaf3;
+    border-left: 6px solid #91cba7;
+}
 
+.label {
+    color: #a05d82;
 
-        /* =========================
-           PASTEL BOXES
-        ========================= */
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
 
-        .pink-box {
-            background: #fff0f7;
-            border-left: 6px solid #e4a8c6;
+    letter-spacing: .5px;
+}
 
-            border-radius: 16px;
 
-            padding: 20px;
-            margin-top: 20px;
-        }
+/* =========================
+   CLICKABLE TERMS
+========================= */
 
-        .blue-box {
-            background: #eef8ff;
-            border-left: 6px solid #96c9e8;
+.term {
+    color: #9b5d80;
+    font-weight: 700;
+    text-decoration: underline dotted;
+    cursor: pointer;
+}
 
-            border-radius: 16px;
+.definition-popup {
+    display: none;
 
-            padding: 20px;
-            margin-top: 20px;
-        }
+    background: #fff0f7;
 
-        .yellow-box {
-            background: #fff8e7;
-            border-left: 6px solid #e4c36e;
+    border: 2px solid #e8bdd2;
 
-            border-radius: 16px;
+    border-radius: 15px;
 
-            padding: 20px;
-            margin-top: 20px;
-        }
+    padding: 16px;
+    margin-top: 12px;
+}
 
-        .green-box {
-            background: #effaf3;
-            border-left: 6px solid #91cba7;
+.definition-popup strong {
+    color: #9b5d80;
+}
 
-            border-radius: 16px;
 
-            padding: 20px;
-            margin-top: 20px;
-        }
+/* =========================
+   DIAGRAM
+========================= */
 
-        .label {
-            color: #a05d82;
+.diagram {
+    margin-top: 25px;
 
-            font-family: 'Poppins', sans-serif;
-            font-size: 13px;
-            font-weight: 700;
+    padding: 25px;
 
-            letter-spacing: .5px;
-        }
+    background: #faf8ff;
 
+    border: 2px solid #e5dcf0;
 
-        /* =========================
-           CLICKABLE DEFINITIONS
-        ========================= */
+    border-radius: 20px;
 
-        .term {
-            color: #9b5d80;
+    text-align: center;
+}
 
-            font-weight: 700;
+.diagram img {
+    max-width: 100%;
+    width: 650px;
 
-            text-decoration: underline dotted;
+    border-radius: 15px;
 
-            cursor: pointer;
-        }
+    margin: 10px auto;
 
-        .term:hover {
-            color: #704d65;
-        }
+    display: block;
+}
 
-        .definition-popup {
-            display: none;
+.caption {
+    font-size: 14px;
+    color: #766b75;
+}
 
-            background: #fff0f7;
 
-            border: 2px solid #e8bdd2;
+/* =========================
+   GRID CARDS
+========================= */
 
-            border-radius: 15px;
+.fields {
+    display: grid;
 
-            padding: 16px;
+    grid-template-columns: repeat(2, 1fr);
 
-            margin-top: 12px;
-        }
+    gap: 16px;
 
-        .definition-popup strong {
-            color: #9b5d80;
-        }
+    margin-top: 20px;
+}
 
+.field {
+    background: #fffafd;
 
-        /* =========================
-           DIAGRAM / IMAGE
-        ========================= */
+    border: 1px solid #ecdce7;
 
-        .diagram {
-            margin-top: 25px;
+    border-radius: 18px;
 
-            padding: 25px;
+    padding: 20px;
+}
 
-            background: #faf8ff;
+.field h3 {
+    margin-top: 0;
+    color: #76566c;
+}
 
-            border: 2px solid #e5dcf0;
 
-            border-radius: 20px;
+/* =========================
+   VOCABULARY
+========================= */
 
-            text-align: center;
-        }
+.vocab {
+    display: grid;
+    gap: 12px;
+}
 
-        .diagram img {
-            max-width: 100%;
-            width: 650px;
+.word {
+    background: #fcf9fd;
 
-            border-radius: 15px;
+    border: 1px solid #eadfea;
 
-            margin: 10px auto;
+    border-radius: 15px;
 
-            display: block;
-        }
+    padding: 16px;
+}
 
-        .caption {
-            font-size: 14px;
-            color: #766b75;
-            margin-top: 12px;
-        }
 
+/* =========================
+   QUIZ
+========================= */
 
-        /* =========================
-           FIELD CARDS
-        ========================= */
+.quiz {
+    background: #f6f2ff;
+    border-left: 7px solid #a994d1;
+}
 
-        .fields {
-            display: grid;
+.question {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-top: 25px;
+}
 
-            grid-template-columns: repeat(2, 1fr);
+.answer {
+    background: white;
 
-            gap: 16px;
+    border: 2px solid #e2dcef;
 
-            margin-top: 20px;
-        }
+    border-radius: 13px;
 
-        .field {
-            background: #fffafd;
+    padding: 13px 16px;
 
-            border: 1px solid #ecdce7;
+    margin: 9px 0;
 
-            border-radius: 18px;
+    cursor: pointer;
 
-            padding: 20px;
+    transition: .2s;
+}
 
-            transition: 0.2s;
-        }
+.answer:hover {
+    background: #faf8ff;
+    transform: translateX(3px);
+}
 
-        .field:hover {
-            transform: translateY(-3px);
+.correct {
+    background: #e5f7eb !important;
+    border-color: #82bd96 !important;
+}
 
-            box-shadow:
-                0 5px 15px rgba(150,100,130,.10);
-        }
+.wrong {
+    background: #ffe8ed !important;
+    border-color: #e2a0b1 !important;
+}
 
-        .field h3 {
-            margin-top: 0;
-        }
+.feedback {
+    display: none;
 
+    padding: 13px;
 
-        /* =========================
-           VOCABULARY
-        ========================= */
+    border-radius: 12px;
 
-        .vocab {
-            display: grid;
-            gap: 12px;
-        }
+    margin-top: 10px;
 
-        .word {
-            background: #fcf9fd;
+    font-weight: 600;
+}
 
-            border: 1px solid #eadfea;
+.correct-feedback {
+    background: #e5f7eb;
+    color: #3c7650;
+}
 
-            border-radius: 15px;
+.wrong-feedback {
+    background: #ffe8ed;
+    color: #914f62;
+}
 
-            padding: 16px;
-        }
 
-        .word strong {
-            color: #9b5d80;
-        }
+/* =========================
+   FLASHCARDS
+========================= */
 
+.flashcard-area {
+    background: linear-gradient(
+        135deg,
+        #fff0f7,
+        #f5efff
+    );
 
-        /* =========================
-           QUIZ
-        ========================= */
+    border: 2px solid #ead8ed;
+}
 
-        .quiz {
-            background: #f6f2ff;
+.flashcard {
+    min-height: 230px;
 
-            border-left: 7px solid #a994d1;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        .question {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
+    text-align: center;
 
-            margin-top: 25px;
-        }
+    padding: 30px;
 
-        .answer {
-            background: white;
+    background: white;
 
-            border: 2px solid #e2dcef;
+    border-radius: 22px;
 
-            border-radius: 13px;
+    border: 2px solid #eadfea;
 
-            padding: 13px 16px;
+    cursor: pointer;
 
-            margin: 9px 0;
+    box-shadow:
+        0 8px 20px rgba(130, 80, 110, .08);
 
-            cursor: pointer;
+    transition: .25s;
+}
 
-            transition: 0.2s;
-        }
+.flashcard:hover {
+    transform: translateY(-3px);
+}
 
-        .answer:hover {
-            background: #faf8ff;
+.flashcard h3 {
+    color: #704d65;
+    font-size: 25px;
+}
 
-            transform: translateX(3px);
-        }
+.flashcard p {
+    color: #766b75;
+}
 
-        .correct {
-            background: #e5f7eb !important;
-            border-color: #82bd96 !important;
-        }
+.flashcard-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
 
-        .wrong {
-            background: #ffe8ed !important;
-            border-color: #e2a0b1 !important;
-        }
+.small-button {
+    border: none;
 
-        .feedback {
-            display: none;
+    padding: 11px 17px;
 
-            padding: 13px;
+    border-radius: 13px;
 
-            border-radius: 12px;
+    cursor: pointer;
 
-            margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 
-            font-weight: 600;
-        }
+    background: #eadcf4;
+    color: #704d65;
+}
 
-        .correct-feedback {
-            background: #e5f7eb;
-            color: #3c7650;
-        }
+.small-button:hover {
+    transform: translateY(-2px);
+}
 
-        .wrong-feedback {
-            background: #ffe8ed;
-            color: #914f62;
-        }
+.flashcard-progress {
+    text-align: center;
+    margin-top: 12px;
+    color: #806b79;
+}
 
 
-        /* =========================
-           NAVIGATION
-        ========================= */
+/* =========================
+   FINAL TEST
+========================= */
 
-        .navigation {
-            display: flex;
+.test {
+    background: #fffaf0;
+    border-left: 7px solid #e4c36e;
+}
 
-            justify-content: space-between;
+.test-result {
+    display: none;
 
-            gap: 15px;
+    margin-top: 25px;
 
-            margin: 35px 0 55px;
-        }
+    padding: 22px;
 
-        .button {
-            background: #c98eaf;
+    border-radius: 18px;
 
-            color: white;
+    text-align: center;
 
-            text-decoration: none;
+    background: #effaf3;
 
-            padding: 13px 23px;
+    border: 2px solid #a7d3b4;
+}
 
-            border-radius: 15px;
+.test-question {
+    margin-top: 25px;
+}
 
-            font-family: 'Poppins', sans-serif;
+.test-answer {
+    background: white;
 
-            font-weight: 600;
+    border: 2px solid #eadfea;
 
-            transition: 0.2s;
-        }
+    border-radius: 13px;
 
-        .button:hover {
-            background: #b77a9d;
+    padding: 13px 16px;
 
-            transform: translateY(-2px);
-        }
+    margin: 8px 0;
 
+    cursor: pointer;
+}
 
-        /* =========================
-           MOBILE
-        ========================= */
+.test-answer.selected {
+    background: #f5edfb;
+    border-color: #bda4d5;
+}
 
-        @media (max-width: 650px) {
+.submit-test {
+    margin-top: 22px;
 
-            .header h1 {
-                font-size: 29px;
-            }
+    border: none;
 
-            .fields {
-                grid-template-columns: 1fr;
-            }
+    background: #c98eaf;
+    color: white;
 
-            .section {
-                padding: 23px;
-            }
+    padding: 14px 23px;
 
-            .navigation {
-                flex-direction: column;
-            }
+    border-radius: 15px;
 
-            .button {
-                text-align: center;
-            }
+    cursor: pointer;
 
-        }
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
 
-    </style>
+.submit-test:hover {
+    background: #b77a9d;
+}
+
+
+/* =========================
+   COMPLETE
+========================= */
+
+.complete {
+    display: none;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #effaf3,
+        #f7effc
+    );
+
+    border: 2px solid #b9d8c4;
+}
+
+.complete h2 {
+    color: #527c60;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin: 35px 0 20px;
+}
+
+.button {
+    background: #c98eaf;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 13px 23px;
+
+    border-radius: 15px;
+
+    font-weight: 600;
+}
+
+.button:hover {
+    background: #b77a9d;
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+.reset-progress {
+    display: block;
+
+    margin: 20px auto 50px;
+
+    background: transparent;
+
+    border: none;
+
+    color: #a47791;
+
+    cursor: pointer;
+
+    font-family: 'Nunito', sans-serif;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    .header h1 {
+        font-size: 29px;
+    }
+
+    .fields {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 23px;
+    }
+
+    .navigation {
+        flex-direction: column;
+    }
+
+    .button {
+        text-align: center;
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -613,61 +772,60 @@
 
 
 <!-- =========================
-     PROGRESS
+     SAVED PROGRESS
 ========================= -->
 
-<section class="section">
+<section class="section progress-card">
 
     <div class="progress-title">
-        📖 Course Progress
+        📊 Your Lesson Progress
     </div>
 
     <div class="progress">
-        <div class="progress-bar"></div>
+        <div
+            id="progressBar"
+            class="progress-bar">
+        </div>
     </div>
 
-    <small>
-        Lesson 1 of 6 · Foundations of Health Science
-    </small>
+    <div class="progress-text">
+        <span id="progressText">0%</span>
+        ·
+        <span id="progressDetails">
+            Start the lesson!
+        </span>
+    </div>
 
 </section>
 
 
 <!-- =========================
-     COURSE ROADMAP
+     ROADMAP
 ========================= -->
 
-<section class="section course-roadmap">
+<section class="section">
 
     <h2>📚 Course 1 — Foundations of Health Science</h2>
 
     <p>
-        This course introduces the scientific foundations you'll need
-        before studying cells, genetics, anatomy, disease, medicine,
+        This course introduces the foundations you'll need before
+        studying cells, genetics, anatomy, disease, medicine,
         and more.
     </p>
 
 
     <div class="course-list">
 
-
         <div class="course-lesson current">
 
-            <div class="lesson-number-small">
-                01
-            </div>
+            <div class="lesson-number-small">01</div>
 
             <div>
-
-                <strong>
-                    What Is Health Science?
-                </strong>
-
+                <strong>What Is Health Science?</strong>
                 <span>
-                    You're here! Learn what health science is and
-                    how different fields contribute to it.
+                    Learn what health science is and how different
+                    fields contribute to it.
                 </span>
-
             </div>
 
         </div>
@@ -675,21 +833,13 @@
 
         <div class="course-lesson">
 
-            <div class="lesson-number-small">
-                02
-            </div>
+            <div class="lesson-number-small">02</div>
 
             <div>
-
-                <strong>
-                    Levels of Organization in the Body
-                </strong>
-
+                <strong>Levels of Organization in the Body</strong>
                 <span>
-                    Learn how the body is organized from cells
-                    to tissues, organs, organ systems, and the organism.
+                    Cells → tissues → organs → organ systems → organism.
                 </span>
-
             </div>
 
         </div>
@@ -697,21 +847,13 @@
 
         <div class="course-lesson">
 
-            <div class="lesson-number-small">
-                03
-            </div>
+            <div class="lesson-number-small">03</div>
 
             <div>
-
-                <strong>
-                    Homeostasis
-                </strong>
-
+                <strong>Homeostasis</strong>
                 <span>
-                    Learn how the body maintains stable internal
-                    conditions and responds to changes.
+                    Learn how the body maintains stable internal conditions.
                 </span>
-
             </div>
 
         </div>
@@ -719,21 +861,14 @@
 
         <div class="course-lesson">
 
-            <div class="lesson-number-small">
-                04
-            </div>
+            <div class="lesson-number-small">04</div>
 
             <div>
-
-                <strong>
-                    Basic Medical Terminology
-                </strong>
-
+                <strong>Basic Medical Terminology</strong>
                 <span>
-                    Learn common medical roots, prefixes,
-                    suffixes, and terminology.
+                    Learn common medical roots, prefixes, suffixes,
+                    and terminology.
                 </span>
-
             </div>
 
         </div>
@@ -741,21 +876,13 @@
 
         <div class="course-lesson">
 
-            <div class="lesson-number-small">
-                05
-            </div>
+            <div class="lesson-number-small">05</div>
 
             <div>
-
-                <strong>
-                    Introduction to Scientific Research
-                </strong>
-
+                <strong>Introduction to Scientific Research</strong>
                 <span>
-                    Learn how scientists ask questions, collect
-                    evidence, conduct studies, and communicate findings.
+                    Learn how scientists ask questions and collect evidence.
                 </span>
-
             </div>
 
         </div>
@@ -763,25 +890,16 @@
 
         <div class="course-lesson">
 
-            <div class="lesson-number-small">
-                06
-            </div>
+            <div class="lesson-number-small">06</div>
 
             <div>
-
-                <strong>
-                    How Medical Evidence Works
-                </strong>
-
+                <strong>How Medical Evidence Works</strong>
                 <span>
-                    Learn how medical evidence is evaluated and
-                    why evidence quality matters.
+                    Learn how evidence is evaluated in health science.
                 </span>
-
             </div>
 
         </div>
-
 
     </div>
 
@@ -796,31 +914,17 @@
 
     <h2>🎀 What You'll Learn</h2>
 
-    <p>
-        By the end of this lesson, you should be able to:
-    </p>
-
     <ul>
 
-        <li>
-            Explain what health science means.
-        </li>
+        <li>Explain what health science means.</li>
 
-        <li>
-            Describe what health includes.
-        </li>
+        <li>Describe what health includes.</li>
 
-        <li>
-            Identify major areas of health science.
-        </li>
+        <li>Identify major areas of health science.</li>
 
-        <li>
-            Explain why different fields work together.
-        </li>
+        <li>Explain why different fields work together.</li>
 
-        <li>
-            Describe why scientific evidence matters.
-        </li>
+        <li>Describe why scientific evidence matters.</li>
 
     </ul>
 
@@ -828,17 +932,21 @@
 
 
 <!-- =========================
-     WHAT IS HEALTH SCIENCE
+     SECTION 1
 ========================= -->
 
-<section class="section">
+<section
+    id="section1"
+    class="section lesson-section">
 
     <h2>🔬 What Is Health Science?</h2>
 
     <p>
         Health science is a broad area of science that focuses on
         understanding
-        <span class="term" onclick="showDefinition('health')">
+        <span
+            class="term"
+            onclick="showDefinition('health')">
             health
         </span>,
         the human body, disease, healthcare, and the factors that
@@ -848,17 +956,20 @@
     <p>
         Health science is not one single subject. It brings together
         knowledge from many fields, including biology, chemistry,
-        psychology, genetics, medicine, public health, and research.
+        psychology, genetics, medicine, public health, and scientific
+        research.
     </p>
 
 
-    <div id="health" class="definition-popup">
+    <div
+        id="health"
+        class="definition-popup">
 
         <strong>🌷 Health</strong>
 
         <p>
-            A broad state of well-being involving physical, mental,
-            and social aspects of a person's life.
+            A broad state of well-being involving physical,
+            mental, and social aspects of life.
         </p>
 
     </div>
@@ -866,9 +977,7 @@
 
     <div class="pink-box">
 
-        <div class="label">
-            ⭐ KEY IDEA
-        </div>
+        <div class="label">⭐ KEY IDEA</div>
 
         <p>
             Health science is not just about doctors or hospitals.
@@ -879,14 +988,24 @@
 
     </div>
 
+    <button
+        class="small-button"
+        onclick="completeSection(1)">
+
+        ✓ Mark Section Complete
+
+    </button>
+
 </section>
 
 
 <!-- =========================
-     HUMAN BODY IMAGE
+     SECTION 2
 ========================= -->
 
-<section class="section">
+<section
+    id="section2"
+    class="section lesson-section">
 
     <h2>🫀 Health Science & the Human Body</h2>
 
@@ -906,13 +1025,8 @@
         >
 
         <p class="caption">
-
-            <strong>🔎 Study the image:</strong>
-
-            Look at the different structures shown. Later in
-            MedNotesLab, we'll study many of these structures
-            individually and learn how they work.
-
+            🔎 Study the image: later lessons will explore
+            many of these structures in much greater detail.
         </p>
 
     </div>
@@ -920,9 +1034,7 @@
 
     <div class="blue-box">
 
-        <div class="label">
-            🧠 THINK ABOUT IT
-        </div>
+        <div class="label">🧠 THINK ABOUT IT</div>
 
         <p>
             If you wanted to understand how oxygen gets from the
@@ -932,14 +1044,25 @@
 
     </div>
 
+
+    <button
+        class="small-button"
+        onclick="completeSection(2)">
+
+        ✓ Mark Section Complete
+
+    </button>
+
 </section>
 
 
 <!-- =========================
-     WHAT DOES HEALTH MEAN
+     SECTION 3
 ========================= -->
 
-<section class="section">
+<section
+    id="section3"
+    class="section lesson-section">
 
     <h2>🌷 What Does "Health" Mean?</h2>
 
@@ -957,73 +1080,59 @@
 
     <div class="fields">
 
-
         <div class="field">
-
-            <h3>
-                🫀 Physical Health
-            </h3>
-
+            <h3>🫀 Physical Health</h3>
             <p>
                 Relates to the condition and functioning of
                 the body's physical structures and systems.
             </p>
-
         </div>
 
-
         <div class="field">
-
-            <h3>
-                🧠 Mental Health
-            </h3>
-
+            <h3>🧠 Mental Health</h3>
             <p>
                 Relates to psychological and emotional well-being,
                 including thoughts, feelings, and behavior.
             </p>
-
         </div>
 
-
         <div class="field">
-
-            <h3>
-                👥 Social Health
-            </h3>
-
+            <h3>👥 Social Health</h3>
             <p>
                 Relates to relationships, interactions with
                 others, and social environments.
             </p>
-
         </div>
-
 
         <div class="field">
-
-            <h3>
-                🌎 Environment
-            </h3>
-
+            <h3>🌎 Environment</h3>
             <p>
-                A person's surroundings and environmental
-                conditions can influence health.
+                A person's surroundings and environmental conditions
+                can influence health.
             </p>
-
         </div>
 
-
     </div>
+
+
+    <button
+        class="small-button"
+        onclick="completeSection(3)">
+
+        ✓ Mark Section Complete
+
+    </button>
 
 </section>
 
 
 <!-- =========================
-     WHAT IS SCIENCE
+     SECTION 4
 ========================= -->
 
-<section class="section">
+<section
+    id="section4"
+    class="section lesson-section">
 
     <h2>🧪 What Does "Science" Mean?</h2>
 
@@ -1033,61 +1142,55 @@
         evidence, analyze information, and evaluate explanations.
     </p>
 
-    <p>
-        In health science, this process can be used to investigate
-        questions about the human body, diseases, treatments,
-        behaviors, and populations.
-    </p>
-
-
     <div class="diagram">
 
-        <h3>
-            🔎 A Simplified Scientific Investigation
-        </h3>
+        <h3>🔎 A Simplified Scientific Investigation</h3>
 
         <div class="fields">
 
             <div class="field">
                 <h3>❓ Question</h3>
-                <p>
-                    What are we trying to understand?
-                </p>
+                <p>What are we trying to understand?</p>
             </div>
 
             <div class="field">
                 <h3>🔬 Evidence</h3>
-                <p>
-                    What information can we collect?
-                </p>
+                <p>What information can we collect?</p>
             </div>
 
             <div class="field">
                 <h3>📊 Analysis</h3>
-                <p>
-                    What does the evidence show?
-                </p>
+                <p>What does the evidence show?</p>
             </div>
 
             <div class="field">
                 <h3>📝 Conclusion</h3>
-                <p>
-                    What can we reasonably conclude?
-                </p>
+                <p>What can we reasonably conclude?</p>
             </div>
 
         </div>
 
     </div>
 
+
+    <button
+        class="small-button"
+        onclick="completeSection(4)">
+
+        ✓ Mark Section Complete
+
+    </button>
+
 </section>
 
 
 <!-- =========================
-     MAJOR AREAS
+     SECTION 5
 ========================= -->
 
-<section class="section">
+<section
+    id="section5"
+    class="section lesson-section">
 
     <h2>🧬 Major Areas of Health Science</h2>
 
@@ -1099,112 +1202,89 @@
 
     <div class="fields">
 
-
         <div class="field">
-
             <h3>🦴 Anatomy</h3>
-
             <p>
                 The study of body structures and how those structures
                 are organized.
             </p>
-
         </div>
 
-
         <div class="field">
-
             <h3>⚙️ Physiology</h3>
-
             <p>
                 The study of how living organisms and their parts
                 function.
             </p>
-
         </div>
 
-
         <div class="field">
-
             <h3>🧬 Genetics</h3>
-
             <p>
-                The study of genes, DNA, heredity, and genetic
-                variation.
+                The study of genes, DNA, heredity, and genetic variation.
             </p>
-
         </div>
 
-
         <div class="field">
-
             <h3>🦠 Microbiology</h3>
-
             <p>
                 The study of microorganisms and their interactions
                 with living organisms.
             </p>
-
         </div>
 
-
         <div class="field">
-
             <h3>🧠 Psychology</h3>
-
             <p>
                 The study of behavior and mental processes.
             </p>
-
         </div>
 
-
         <div class="field">
-
             <h3>🌎 Public Health</h3>
-
             <p>
                 The study and practice of protecting and improving
                 health at the population level.
             </p>
-
         </div>
 
-
         <div class="field">
-
             <h3>💊 Pharmacology</h3>
-
             <p>
                 The study of how drugs and other substances interact
                 with living organisms.
             </p>
-
         </div>
 
-
         <div class="field">
-
             <h3>🔬 Medical Research</h3>
-
             <p>
                 Scientific investigation into health, disease,
                 prevention, diagnosis, and treatment.
             </p>
-
         </div>
 
-
     </div>
+
+
+    <button
+        class="small-button"
+        onclick="completeSection(5)">
+
+        ✓ Mark Section Complete
+
+    </button>
 
 </section>
 
 
 <!-- =========================
-     HOW THEY CONNECT
+     SECTION 6
 ========================= -->
 
-<section class="section">
+<section
+    id="section6"
+    class="section lesson-section">
 
     <h2>🔗 How Do These Fields Connect?</h2>
 
@@ -1214,53 +1294,34 @@
     </p>
 
 
-    <div class="diagram">
+    <div class="fields">
 
-        <div class="fields">
+        <div class="field">
+            <h3>🧬 Genetics</h3>
+            <p>
+                Could genetic factors contribute?
+            </p>
+        </div>
 
-            <div class="field">
+        <div class="field">
+            <h3>🦠 Microbiology</h3>
+            <p>
+                Could microorganisms be involved?
+            </p>
+        </div>
 
-                <h3>🧬 Genetics</h3>
+        <div class="field">
+            <h3>🫀 Physiology</h3>
+            <p>
+                How does the body respond?
+            </p>
+        </div>
 
-                <p>
-                    Could genetic factors contribute?
-                </p>
-
-            </div>
-
-
-            <div class="field">
-
-                <h3>🦠 Microbiology</h3>
-
-                <p>
-                    Could microorganisms be involved?
-                </p>
-
-            </div>
-
-
-            <div class="field">
-
-                <h3>🫀 Physiology</h3>
-
-                <p>
-                    How does the body respond?
-                </p>
-
-            </div>
-
-
-            <div class="field">
-
-                <h3>💊 Medicine</h3>
-
-                <p>
-                    What treatments or approaches can be studied?
-                </p>
-
-            </div>
-
+        <div class="field">
+            <h3>💊 Medicine</h3>
+            <p>
+                What treatments can be studied?
+            </p>
         </div>
 
     </div>
@@ -1268,67 +1329,23 @@
 
     <div class="yellow-box">
 
-        <div class="label">
-            💡 REMEMBER
-        </div>
+        <div class="label">💡 REMEMBER</div>
 
         <p>
-            Different fields can provide different pieces of the
-            same scientific puzzle.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     REAL WORLD EXAMPLE
-========================= -->
-
-<section class="section">
-
-    <h2>🏥 Real-World Example</h2>
-
-    <p>
-        Imagine researchers are studying a disease that affects
-        the lungs.
-    </p>
-
-    <p>
-        They might study lung structure using
-        <span class="term" onclick="showDefinition('anatomy')">
-            anatomy
-        </span>,
-        investigate how lung function changes using
-        <span class="term" onclick="showDefinition('physiology')">
-            physiology
-        </span>,
-        investigate possible causes using microbiology or genetics,
-        and study potential treatments through medical research.
-    </p>
-
-
-    <div id="anatomy" class="definition-popup">
-
-        <strong>🦴 Anatomy</strong>
-
-        <p>
-            The study of the structures of living organisms.
+            Different fields can provide different pieces of
+            the same scientific puzzle.
         </p>
 
     </div>
 
 
-    <div id="physiology" class="definition-popup">
+    <button
+        class="small-button"
+        onclick="completeSection(6)">
 
-        <strong>⚙️ Physiology</strong>
+        ✓ Mark Section Complete
 
-        <p>
-            The study of how living organisms and their parts function.
-        </p>
-
-    </div>
+    </button>
 
 </section>
 
@@ -1348,7 +1365,6 @@
 
     <div class="vocab">
 
-
         <div class="word">
 
             <span
@@ -1357,7 +1373,9 @@
                 Disease
             </span>
 
-            <div id="disease" class="definition-popup">
+            <div
+                id="disease"
+                class="definition-popup">
 
                 <strong>Disease</strong>
 
@@ -1379,7 +1397,9 @@
                 Evidence
             </span>
 
-            <div id="evidence" class="definition-popup">
+            <div
+                id="evidence"
+                class="definition-popup">
 
                 <strong>Evidence</strong>
 
@@ -1401,7 +1421,9 @@
                 Research
             </span>
 
-            <div id="research" class="definition-popup">
+            <div
+                id="research"
+                class="definition-popup">
 
                 <strong>Research</strong>
 
@@ -1423,7 +1445,9 @@
                 Multidisciplinary
             </span>
 
-            <div id="multidisciplinary" class="definition-popup">
+            <div
+                id="multidisciplinary"
+                class="definition-popup">
 
                 <strong>Multidisciplinary</strong>
 
@@ -1435,171 +1459,120 @@
 
         </div>
 
-
     </div>
 
 </section>
 
 
 <!-- =========================
-     QUIZ
+     PRACTICE QUIZ
 ========================= -->
 
 <section class="section quiz">
 
-    <h2>🧠 Check Your Knowledge</h2>
+    <h2>🧠 Practice Quiz</h2>
 
     <p>
-        Choose an answer. You'll immediately see whether your
-        answer is correct.
+        These questions help you review while learning.
     </p>
 
-
-    <!-- QUESTION 1 -->
 
     <p class="question">
         1. What does health science study?
     </p>
 
-
     <div
         class="answer"
         onclick="checkAnswer(this, false, 'feedback1')">
-
         A. Only diseases
-
     </div>
-
 
     <div
         class="answer"
         onclick="checkAnswer(this, true, 'feedback1')">
-
-        B. Health, the human body, disease, healthcare,
-        and related sciences
-
+        B. Health, the human body, disease, healthcare, and related sciences
     </div>
-
 
     <div
         class="answer"
         onclick="checkAnswer(this, false, 'feedback1')">
-
         C. Only medications
-
     </div>
-
 
     <div id="feedback1" class="feedback"></div>
 
-
-    <!-- QUESTION 2 -->
 
     <p class="question">
         2. What does physiology study?
     </p>
 
-
     <div
         class="answer"
         onclick="checkAnswer(this, false, 'feedback2')">
-
         A. How body structures are arranged
-
     </div>
-
 
     <div
         class="answer"
         onclick="checkAnswer(this, true, 'feedback2')">
-
         B. How living structures function
-
     </div>
-
 
     <div
         class="answer"
         onclick="checkAnswer(this, false, 'feedback2')">
-
         C. Only diseases
-
     </div>
-
 
     <div id="feedback2" class="feedback"></div>
 
-
-    <!-- QUESTION 3 -->
 
     <p class="question">
         3. Which field studies genes and DNA?
     </p>
 
-
     <div
         class="answer"
         onclick="checkAnswer(this, false, 'feedback3')">
-
         A. Anatomy
-
     </div>
-
 
     <div
         class="answer"
         onclick="checkAnswer(this, true, 'feedback3')">
-
         B. Genetics
-
     </div>
-
 
     <div
         class="answer"
         onclick="checkAnswer(this, false, 'feedback3')">
-
         C. Physiology
-
     </div>
-
 
     <div id="feedback3" class="feedback"></div>
 
-
-    <!-- QUESTION 4 -->
 
     <p class="question">
         4. Why can multiple health-science fields work together?
     </p>
 
-
     <div
         class="answer"
         onclick="checkAnswer(this, true, 'feedback4')">
-
         A. Complex health questions can involve many different factors.
-
     </div>
-
 
     <div
         class="answer"
         onclick="checkAnswer(this, false, 'feedback4')">
-
         B. Every field studies exactly the same thing.
-
     </div>
-
 
     <div
         class="answer"
         onclick="checkAnswer(this, false, 'feedback4')">
-
         C. Scientific fields cannot work independently.
-
     </div>
-
 
     <div id="feedback4" class="feedback"></div>
 
@@ -1607,39 +1580,276 @@
 
 
 <!-- =========================
-     QUICK REVIEW
+     FLASHCARDS
 ========================= -->
 
-<section class="section green-box">
+<section class="section flashcard-area">
 
-    <h2>🌸 Quick Review</h2>
+    <h2>🗂️ Lesson 1 Flashcards</h2>
 
     <p>
-        <strong>Health science</strong> is a broad area that combines
-        scientific and healthcare fields to understand health,
-        disease, the human body, and healthcare.
+        Test yourself before taking the final test.
+        Click the card to flip it.
+    </p>
+
+
+    <div
+        id="flashcard"
+        class="flashcard"
+        onclick="flipCard()">
+
+        <div>
+
+            <h3 id="flashcardText">
+                What is health science?
+            </h3>
+
+            <p>
+                Click to reveal the answer
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="flashcard-controls">
+
+        <button
+            class="small-button"
+            onclick="previousCard()">
+
+            ← Previous
+
+        </button>
+
+        <button
+            class="small-button"
+            onclick="flipCard()">
+
+            Flip Card
+
+        </button>
+
+        <button
+            class="small-button"
+            onclick="nextCard()">
+
+            Next →
+
+        </button>
+
+    </div>
+
+
+    <div
+        id="flashcardProgress"
+        class="flashcard-progress">
+
+        Card 1 of 10
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FINAL TEST
+========================= -->
+
+<section class="section test">
+
+    <h2>📝 Lesson 1 Final Test</h2>
+
+    <p>
+        This test checks your understanding of the entire lesson.
+        Choose one answer for each question, then submit your test.
+    </p>
+
+
+    <div class="test-question">
+
+        <strong>
+            1. Which statement best describes health science?
+        </strong>
+
+        <div
+            class="test-answer"
+            onclick="selectTestAnswer(this, 1, 'A')">
+            A. It only studies diseases.
+        </div>
+
+        <div
+            class="test-answer"
+            onclick="selectTestAnswer(this, 1, 'B')">
+            B. It combines multiple fields to study health, the body,
+            disease, and healthcare.
+        </div>
+
+        <div
+            class="test-answer"
+            onclick="selectTestAnswer(this, 1, 'C')">
+            C. It only studies medications.
+        </div>
+
+    </div>
+
+
+    <div class="test-question">
+
+        <strong>
+            2. Which field focuses on body structures?
+        </strong>
+
+        <div
+            class="test-answer"
+            onclick="selectTestAnswer(this, 2, 'A')">
+            A. Anatomy
+        </div>
+
+        <div
+            class="test-answer"
+            onclick="selectTestAnswer(this, 2, 'B')">
+            B. Physiology
+        </div>
+
+        <div
+            class="test-answer"
+            onclick="selectTestAnswer(this, 2, 'C')">
+            C. Genetics
+        </div>
+
+    </div>
+
+
+    <div class="test-question">
+
+        <strong>
+            3. Which field studies genes and heredity?
+        </strong>
+
+        <div
+            class="test-answer"
+            onclick="selectTestAnswer(this, 3, 'A')">
+            A. Psychology
+        </div>
+
+        <div
+            class="test-answer"
+            onclick="selectTestAnswer(this, 3, 'B')">
+            B. Genetics
+        </div>
+
+        <div
+            class="test-answer"
+            onclick="selectTestAnswer(this, 3, 'C')">
+            C. Anatomy
+        </div>
+
+    </div>
+
+
+    <div class="test-question">
+
+        <strong>
+            4. What is evidence?
+        </strong>
+
+        <div
+            class="test-answer"
+            onclick="selectTestAnswer(this, 4, 'A')">
+            A. Information or data used to investigate a question.
+        </div>
+
+        <div
+            class="test-answer"
+            onclick="selectTestAnswer(this, 4, 'B')">
+            B. A personal guess.
+        </div>
+
+        <div
+            class="test-answer"
+            onclick="selectTestAnswer(this, 4, 'C')">
+            C. A type of body system.
+        </div>
+
+    </div>
+
+
+    <div class="test-question">
+
+        <strong>
+            5. Why do health-science fields work together?
+        </strong>
+
+        <div
+            class="test-answer"
+            onclick="selectTestAnswer(this, 5, 'A')">
+            A. Because every field studies the exact same thing.
+        </div>
+
+        <div
+            class="test-answer"
+            onclick="selectTestAnswer(this, 5, 'B')">
+            B. Because complex health questions can involve many factors.
+        </div>
+
+        <div
+            class="test-answer"
+            onclick="selectTestAnswer(this, 5, 'C')">
+            C. Because individual fields cannot conduct research.
+        </div>
+
+    </div>
+
+
+    <button
+        class="submit-test"
+        onclick="submitTest()">
+
+        Submit Final Test
+
+    </button>
+
+
+    <div
+        id="testResult"
+        class="test-result">
+
+        <h3 id="testScore"></h3>
+
+        <p id="testMessage"></p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     COMPLETION
+========================= -->
+
+<section
+    id="completion"
+    class="section complete">
+
+    <h2>🎉 Lesson 1 Complete!</h2>
+
+    <p>
+        You finished the Lesson 1 learning activities.
     </p>
 
     <p>
-        Remember these three ideas:
+        Your progress has been saved in this browser.
     </p>
 
-    <ul>
+    <a
+        class="button"
+        href="https://mednoteslab.github.io/">
 
-        <li>
-            Health is broader than simply being free from disease.
-        </li>
+        Return to MedNotesLab
 
-        <li>
-            Many different fields contribute to health science.
-        </li>
-
-        <li>
-            Research and evidence help scientists investigate
-            health-related questions.
-        </li>
-
-    </ul>
+    </a>
 
 </section>
 
@@ -1653,25 +1863,26 @@
     <h2>📚 Sources & Further Reading</h2>
 
     <p>
-        This lesson introduces concepts based on established
-        health-science and scientific-research resources.
+        This lesson introduces foundational concepts in health
+        science, anatomy, physiology, genetics, public health,
+        and scientific research.
     </p>
 
     <ul>
 
         <li>
-            World Health Organization — Health and well-being
+            World Health Organization — health and well-being resources
         </li>
 
         <li>
-            National Institutes of Health — Health research
+            National Institutes of Health — health research resources
         </li>
 
     </ul>
 
     <p class="caption">
-        Sources will be expanded and linked as MedNotesLab's
-        reference library develops.
+        MedNotesLab is an educational project and is not a substitute
+        for professional medical advice.
     </p>
 
 </section>
@@ -1703,19 +1914,126 @@
 </div>
 
 
+<button
+    class="reset-progress"
+    onclick="resetProgress()">
+
+    Reset Lesson 1 Progress
+
+</button>
+
+
 </main>
 
 
 <script>
 
+/* =========================
+   SAVED PROGRESS
+========================= */
+
+const STORAGE_KEY = "mednoteslab_lesson1";
+
+let savedData =
+    JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+
+        sections: [],
+        testCompleted: false,
+        testScore: 0
+
+    };
+
+
+function saveProgress() {
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(savedData)
+    );
+
+    updateProgress();
+
+}
+
 
 /* =========================
-   CLICKABLE DEFINITIONS
+   PROGRESS
+========================= */
+
+function updateProgress() {
+
+    let completedSections =
+        savedData.sections.length;
+
+    let testDone =
+        savedData.testCompleted ? 1 : 0;
+
+    let totalSteps = 7;
+
+    let completedSteps =
+        completedSections + testDone;
+
+    let percentage =
+        Math.round(
+            (completedSteps / totalSteps) * 100
+        );
+
+
+    document.getElementById("progressBar").style.width =
+        percentage + "%";
+
+    document.getElementById("progressText").innerText =
+        percentage + "%";
+
+
+    if (percentage === 0) {
+
+        document.getElementById("progressDetails").innerText =
+            "Start the lesson!";
+
+    } else if (percentage < 100) {
+
+        document.getElementById("progressDetails").innerText =
+            completedSteps + " of " + totalSteps + " activities completed";
+
+    } else {
+
+        document.getElementById("progressDetails").innerText =
+            "Lesson complete! 🎉";
+
+        document.getElementById("completion").style.display =
+            "block";
+
+    }
+
+}
+
+
+/* =========================
+   COMPLETE SECTION
+========================= */
+
+function completeSection(number) {
+
+    if (!savedData.sections.includes(number)) {
+
+        savedData.sections.push(number);
+
+        saveProgress();
+
+    }
+
+}
+
+
+/* =========================
+   DEFINITIONS
 ========================= */
 
 function showDefinition(id) {
 
-    const box = document.getElementById(id);
+    const box =
+        document.getElementById(id);
 
     if (box.style.display === "block") {
 
@@ -1731,10 +2049,14 @@ function showDefinition(id) {
 
 
 /* =========================
-   INTERACTIVE QUIZ
+   PRACTICE QUIZ
 ========================= */
 
-function checkAnswer(element, correct, feedbackId) {
+function checkAnswer(
+    element,
+    correct,
+    feedbackId
+) {
 
     const feedback =
         document.getElementById(feedbackId);
@@ -1758,10 +2080,11 @@ function checkAnswer(element, correct, feedbackId) {
         feedback.className =
             "feedback correct-feedback";
 
-        feedback.style.display = "block";
+        feedback.style.display =
+            "block";
 
         feedback.innerHTML =
-            "✓ Correct! Great job! You understand this concept.";
+            "✓ Correct! Great job!";
 
     } else {
 
@@ -1770,14 +2093,306 @@ function checkAnswer(element, correct, feedbackId) {
         feedback.className =
             "feedback wrong-feedback";
 
-        feedback.style.display = "block";
+        feedback.style.display =
+            "block";
 
         feedback.innerHTML =
-            "✗ Not quite! Try again. Think about the many different areas included in health science.";
+            "✗ Not quite! Try again.";
 
     }
 
 }
+
+
+/* =========================
+   FLASHCARDS
+========================= */
+
+const flashcards = [
+
+    {
+        front: "What is health science?",
+        back: "The study of health, the body, disease, healthcare, and related sciences."
+    },
+
+    {
+        front: "What does anatomy study?",
+        back: "The structures of living organisms."
+    },
+
+    {
+        front: "What does physiology study?",
+        back: "How living organisms and their parts function."
+    },
+
+    {
+        front: "What does genetics study?",
+        back: "Genes, DNA, heredity, and genetic variation."
+    },
+
+    {
+        front: "What does microbiology study?",
+        back: "Microorganisms and their interactions with living organisms."
+    },
+
+    {
+        front: "What is public health?",
+        back: "Protecting and improving health at the population level."
+    },
+
+    {
+        front: "What is evidence?",
+        back: "Information or data used to investigate a question."
+    },
+
+    {
+        front: "What is research?",
+        back: "A systematic process used to investigate questions and develop knowledge."
+    },
+
+    {
+        front: "What does multidisciplinary mean?",
+        back: "Involving more than one field or area of study."
+    },
+
+    {
+        front: "Why do health fields work together?",
+        back: "Complex health questions can involve many different factors."
+    }
+
+];
+
+
+let currentCard = 0;
+let showingAnswer = false;
+
+
+function displayFlashcard() {
+
+    const card =
+        flashcards[currentCard];
+
+    const text =
+        document.getElementById("flashcardText");
+
+    if (showingAnswer) {
+
+        text.innerText =
+            card.back;
+
+    } else {
+
+        text.innerText =
+            card.front;
+
+    }
+
+
+    document.getElementById(
+        "flashcardProgress"
+    ).innerText =
+        "Card " +
+        (currentCard + 1) +
+        " of " +
+        flashcards.length;
+
+}
+
+
+function flipCard() {
+
+    showingAnswer =
+        !showingAnswer;
+
+    displayFlashcard();
+
+}
+
+
+function nextCard() {
+
+    currentCard =
+        (currentCard + 1) %
+        flashcards.length;
+
+    showingAnswer = false;
+
+    displayFlashcard();
+
+}
+
+
+function previousCard() {
+
+    currentCard =
+        (currentCard - 1 + flashcards.length) %
+        flashcards.length;
+
+    showingAnswer = false;
+
+    displayFlashcard();
+
+}
+
+
+/* =========================
+   FINAL TEST
+========================= */
+
+const correctAnswers = {
+
+    1: "B",
+    2: "A",
+    3: "B",
+    4: "A",
+    5: "B"
+
+};
+
+
+let selectedAnswers = {};
+
+
+function selectTestAnswer(
+    element,
+    question,
+    answer
+) {
+
+    const allAnswers =
+        element.parentElement.querySelectorAll(
+            ".test-answer"
+        );
+
+
+    allAnswers.forEach(function(item) {
+
+        item.classList.remove("selected");
+
+    });
+
+
+    element.classList.add("selected");
+
+    selectedAnswers[question] =
+        answer;
+
+}
+
+
+function submitTest() {
+
+    let score = 0;
+
+
+    for (
+        let question = 1;
+        question <= 5;
+        question++
+    ) {
+
+        if (
+            selectedAnswers[question] ===
+            correctAnswers[question]
+        ) {
+
+            score++;
+
+        }
+
+    }
+
+
+    const result =
+        document.getElementById("testResult");
+
+    const scoreText =
+        document.getElementById("testScore");
+
+    const message =
+        document.getElementById("testMessage");
+
+
+    result.style.display =
+        "block";
+
+
+    scoreText.innerText =
+        "You scored " +
+        score +
+        " / 5";
+
+
+    if (score === 5) {
+
+        message.innerText =
+            "Perfect score! 🎉 You really know your Lesson 1 material.";
+
+    } else if (score >= 4) {
+
+        message.innerText =
+            "Great job! Review anything you missed, then you're ready to continue.";
+
+    } else if (score >= 3) {
+
+        message.innerText =
+            "Nice work! A quick review of the lesson would help strengthen your understanding.";
+
+    } else {
+
+        message.innerText =
+            "Keep studying! Review the lesson and flashcards, then try the test again.";
+
+    }
+
+
+    if (score >= 4) {
+
+        savedData.testCompleted =
+            true;
+
+        savedData.testScore =
+            score;
+
+        saveProgress();
+
+    }
+
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+function resetProgress() {
+
+    const confirmReset =
+        confirm(
+            "Reset all Lesson 1 progress?"
+        );
+
+
+    if (confirmReset) {
+
+        localStorage.removeItem(
+            STORAGE_KEY
+        );
+
+        location.reload();
+
+    }
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+updateProgress();
+
+displayFlashcard();
 
 </script>
 
