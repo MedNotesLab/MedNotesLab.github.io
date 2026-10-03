@@ -8,22 +8,40 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Comfortaa:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&family=Gaegu:wght@400;700&family=Josefin+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&family=Pacifico&family+Patrick+Hand&family=Quicksand:wght@400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Comfortaa:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
 :root{
+
     --bg:#fff6fb;
     --card:#ffffff;
     --text:#493c47;
     --muted:#8b7886;
+
     --primary:#ed82ad;
     --primary-dark:#d95d91;
+
     --soft:#ffe3ef;
     --border:#f4c8dc;
+
     --shadow:0 12px 30px rgba(205,120,160,.14);
+
     --radius:22px;
+
     --font:"Nunito",sans-serif;
+
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     box-sizing:border-box;
@@ -34,341 +52,463 @@ html{
 }
 
 body{
+
     margin:0;
+
     background:var(--bg);
+
     color:var(--text);
+
     font-family:var(--font);
+
     line-height:1.75;
+
 }
 
-/* =========================
-   TOP BAR
-========================= */
+
+/* =========================================================
+   TOP NAVIGATION
+========================================================= */
 
 .topbar{
+
     position:sticky;
+
     top:0;
+
     z-index:1000;
-    background:rgba(255,255,255,.92);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid var(--border);
-    padding:12px 20px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     gap:15px;
+
+    padding:12px 20px;
+
+    background:rgba(255,255,255,.94);
+
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid var(--border);
+
 }
+
 
 .brand{
+
     text-decoration:none;
+
     color:var(--text);
-    font-weight:800;
-    font-size:21px;
+
+    font-size:22px;
+
+    font-weight:900;
+
 }
+
 
 .brand span{
+
     color:var(--primary-dark);
+
 }
+
 
 .top-actions{
+
     display:flex;
-    gap:10px;
+
+    gap:8px;
+
 }
+
 
 .top-btn{
+
     border:none;
+
     background:var(--soft);
+
     color:var(--primary-dark);
-    border-radius:14px;
+
     padding:9px 14px;
-    cursor:pointer;
+
+    border-radius:14px;
+
     font-family:inherit;
-    font-weight:700;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    text-decoration:none;
+
 }
+
 
 .top-btn:hover{
+
     transform:translateY(-1px);
+
 }
 
-/* =========================
+
+/* =========================================================
    SETTINGS
-========================= */
+========================================================= */
 
 .settings{
+
     position:fixed;
+
+    top:72px;
+
     right:18px;
-    top:75px;
-    width:285px;
-    max-height:calc(100vh - 95px);
+
+    z-index:3000;
+
+    width:290px;
+
+    max-height:calc(100vh - 90px);
+
     overflow-y:auto;
-    background:white;
-    border:1px solid var(--border);
-    border-radius:24px;
-    box-shadow:0 20px 50px rgba(80,40,60,.18);
+
     padding:20px;
-    z-index:2000;
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:24px;
+
+    box-shadow:0 20px 55px rgba(70,30,50,.2);
+
     display:none;
+
 }
+
 
 .settings.open{
+
     display:block;
+
 }
+
 
 .settings h3{
-    margin:0 0 15px;
-    font-size:21px;
+
+    margin-top:0;
+
 }
+
 
 .setting-group{
-    margin-bottom:20px;
+
+    margin-bottom:22px;
+
 }
+
 
 .setting-group label{
+
     display:block;
-    font-size:13px;
-    font-weight:800;
+
     margin-bottom:8px;
+
     color:var(--muted);
+
+    font-size:12px;
+
+    font-weight:900;
+
     text-transform:uppercase;
-    letter-spacing:.5px;
+
 }
+
 
 .option-grid{
+
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:7px;
+
 }
+
 
 .option{
+
     border:1px solid var(--border);
-    background:#fff;
+
+    background:white;
+
     border-radius:11px;
+
     padding:8px 4px;
+
     cursor:pointer;
+
     font-family:inherit;
+
     font-size:12px;
-    font-weight:700;
+
+    font-weight:800;
+
 }
+
 
 .option.active{
+
     background:var(--soft);
+
     border-color:var(--primary);
+
     color:var(--primary-dark);
+
 }
 
-/* =========================
-   LAYOUT
-========================= */
+
+/* =========================================================
+   PAGE
+========================================================= */
 
 .page{
-    max-width:1100px;
+
+    width:min(1100px,100%);
+
     margin:auto;
+
     padding:35px 20px 70px;
+
 }
 
-/* =========================
+
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero{
-    background:linear-gradient(135deg,#ffe9f3,#f5eaff);
-    border:1px solid var(--border);
-    border-radius:30px;
-    padding:42px 35px;
-    box-shadow:var(--shadow);
-    margin-bottom:25px;
+
     position:relative;
+
     overflow:hidden;
+
+    padding:42px 35px;
+
+    margin-bottom:24px;
+
+    background:linear-gradient(
+        135deg,
+        #ffe8f2,
+        #f3eaff
+    );
+
+    border:1px solid var(--border);
+
+    border-radius:30px;
+
+    box-shadow:var(--shadow);
+
 }
+
 
 .hero::after{
+
     content:"🧬";
+
     position:absolute;
-    right:30px;
-    bottom:5px;
-    font-size:90px;
+
+    right:35px;
+
+    bottom:-10px;
+
+    font-size:100px;
+
     opacity:.12;
+
 }
+
 
 .course-label{
+
     display:inline-block;
-    background:white;
-    color:var(--primary-dark);
-    border-radius:30px;
+
     padding:7px 14px;
-    font-weight:800;
+
+    background:white;
+
+    color:var(--primary-dark);
+
+    border-radius:30px;
+
     font-size:13px;
-    margin-bottom:12px;
+
+    font-weight:900;
+
 }
+
 
 .hero h1{
-    margin:0;
-    font-size:clamp(34px,6vw,58px);
+
+    margin:12px 0 8px;
+
+    font-size:clamp(36px,6vw,60px);
+
     line-height:1.05;
-    letter-spacing:-1px;
+
 }
+
 
 .hero p{
-    max-width:720px;
+
+    max-width:760px;
+
+    color:#725f6c;
+
     font-size:17px;
-    color:#76636f;
+
 }
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
 
 .progress-wrap{
-    margin-top:20px;
+
+    margin-top:22px;
+
 }
+
 
 .progress-info{
+
     display:flex;
+
     justify-content:space-between;
-    font-size:13px;
-    font-weight:700;
+
     color:var(--muted);
+
+    font-size:13px;
+
+    font-weight:800;
+
     margin-bottom:7px;
+
 }
+
 
 .progress{
+
     height:11px;
-    background:white;
-    border-radius:20px;
+
     overflow:hidden;
+
+    background:white;
+
+    border-radius:30px;
+
 }
+
 
 .progress-bar{
-    height:100%;
+
     width:0%;
-    background:linear-gradient(90deg,var(--primary),#b995ed);
-    border-radius:20px;
-    transition:.3s;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        #b897ec
+    );
+
+    border-radius:30px;
+
+    transition:.35s;
+
 }
 
-/* =========================
-   CONTENT
-========================= */
 
-.card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-    padding:30px;
-    margin-bottom:22px;
-}
-
-.card h2{
-    margin-top:0;
-    font-size:29px;
-    line-height:1.25;
-}
-
-.card h3{
-    font-size:22px;
-    margin-top:28px;
-}
-
-.lead{
-    font-size:18px;
-    color:#675662;
-}
-
-.definition{
-    background:#fff4f8;
-    border-left:5px solid var(--primary);
-    padding:18px 20px;
-    border-radius:15px;
-    margin:20px 0;
-}
-
-.definition strong{
-    color:var(--primary-dark);
-}
-
-.tip{
-    background:#f3efff;
-    border:1px solid #ddd0fa;
-    padding:17px 20px;
-    border-radius:16px;
-    margin:20px 0;
-}
-
-.warning{
-    background:#fff7df;
-    border:1px solid #f1df9e;
-    padding:17px 20px;
-    border-radius:16px;
-    margin:20px 0;
-}
-
-ul,ol{
-    padding-left:25px;
-}
-
-li{
-    margin:7px 0;
-}
-
-/* =========================
-   IMAGES
-========================= */
-
-.lesson-image{
-    width:100%;
-    max-height:430px;
-    object-fit:cover;
-    border-radius:20px;
-    margin:20px 0 8px;
-    border:1px solid var(--border);
-}
-
-.caption{
-    text-align:center;
-    color:var(--muted);
-    font-size:13px;
-    margin-bottom:20px;
-}
-
-/* =========================
-   STUDY TOOLS
-========================= */
+/* =========================================================
+   STUDY TOOLBAR
+========================================================= */
 
 .study-toolbar{
+
     position:sticky;
-    top:64px;
+
+    top:65px;
+
     z-index:800;
-    background:rgba(255,255,255,.95);
-    backdrop-filter:blur(12px);
-    border:1px solid var(--border);
-    box-shadow:0 8px 25px rgba(80,40,60,.08);
-    border-radius:18px;
-    padding:11px;
-    margin-bottom:20px;
+
     display:flex;
-    flex-wrap:wrap;
+
     align-items:center;
+
+    flex-wrap:wrap;
+
     gap:7px;
+
+    padding:11px;
+
+    margin-bottom:20px;
+
+    background:rgba(255,255,255,.96);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    box-shadow:0 8px 25px rgba(80,40,60,.08);
+
 }
+
 
 .tool-label{
-    font-size:12px;
-    font-weight:800;
+
     color:var(--muted);
-    margin-right:3px;
+
+    font-size:12px;
+
+    font-weight:900;
+
 }
+
 
 .tool-btn{
-    border:1px solid #ddd;
-    background:white;
-    border-radius:10px;
+
     padding:7px 10px;
-    cursor:pointer;
+
+    border:1px solid #e3dbe0;
+
+    border-radius:10px;
+
+    background:white;
+
     font-family:inherit;
+
     font-size:12px;
-    font-weight:700;
+
+    font-weight:800;
+
+    cursor:pointer;
+
 }
 
+
 .tool-btn:hover{
+
     transform:translateY(-1px);
+
 }
+
 
 .yellow{
     background:#fff2a8;
@@ -390,254 +530,631 @@ li{
     background:#dfceff;
 }
 
-.annotated{
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.card{
+
+    padding:30px;
+
+    margin-bottom:22px;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+}
+
+
+.card h2{
+
+    margin-top:0;
+
+    font-size:30px;
+
+    line-height:1.25;
+
+}
+
+
+.card h3{
+
+    margin-top:28px;
+
+    font-size:22px;
+
+}
+
+
+.lead{
+
+    color:#675662;
+
+    font-size:18px;
+
+}
+
+
+.definition{
+
+    padding:18px 20px;
+
+    margin:20px 0;
+
+    background:#fff4f8;
+
+    border-left:5px solid var(--primary);
+
+    border-radius:15px;
+
+}
+
+
+.definition strong{
+
+    color:var(--primary-dark);
+
+}
+
+
+.tip{
+
+    padding:18px 20px;
+
+    margin:20px 0;
+
+    background:#f3efff;
+
+    border:1px solid #ddd0fa;
+
+    border-radius:16px;
+
+}
+
+
+.warning{
+
+    padding:18px 20px;
+
+    margin:20px 0;
+
+    background:#fff8df;
+
+    border:1px solid #f0df9e;
+
+    border-radius:16px;
+
+}
+
+
+li{
+
+    margin:7px 0;
+
+}
+
+
+/* =========================================================
+   IMAGES
+========================================================= */
+
+.lesson-image{
+
+    display:block;
+
+    width:100%;
+
+    max-height:440px;
+
+    object-fit:cover;
+
+    margin:22px 0 7px;
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+}
+
+
+.caption{
+
+    margin-bottom:20px;
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+}
+
+
+/* =========================================================
+   HIGHLIGHTS
+========================================================= */
+
+.highlight-yellow{
+    background:#fff2a8;
+}
+
+.highlight-pink{
+    background:#ffc8df;
+}
+
+.highlight-blue{
+    background:#c8e8ff;
+}
+
+.highlight-green{
+    background:#c9f3d2;
+}
+
+.highlight-purple{
+    background:#dfceff;
+}
+
+
+/* =========================================================
+   ANNOTATIONS
+========================================================= */
+
+.annotation{
+
     text-decoration-line:underline;
+
     text-decoration-style:dashed;
+
     text-decoration-thickness:2px;
+
     text-decoration-color:var(--primary-dark);
+
     text-underline-offset:4px;
-    cursor:pointer;
+
     background:rgba(237,130,173,.08);
+
     border-radius:4px;
-}
 
-.annotated:hover{
-    background:rgba(237,130,173,.22);
-}
-
-.annotation-badge{
-    font-size:11px;
-    margin-left:3px;
     cursor:pointer;
+
 }
 
-/* =========================
-   VOCAB
-========================= */
+
+.annotation:hover{
+
+    background:rgba(237,130,173,.22);
+
+}
+
+
+.annotation-icon{
+
+    display:inline-block;
+
+    margin-left:3px;
+
+    font-size:11px;
+
+}
+
+
+/* =========================================================
+   VOCABULARY
+========================================================= */
 
 .vocab-grid{
+
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
+
     gap:13px;
+
 }
+
 
 .vocab{
+
     padding:17px;
+
     background:#fff9fc;
+
     border:1px solid var(--border);
+
     border-radius:16px;
+
 }
+
 
 .vocab strong{
+
     color:var(--primary-dark);
+
 }
 
-/* =========================
+
+/* =========================================================
    QUIZ
-========================= */
+========================================================= */
 
 .question{
-    border:1px solid var(--border);
-    border-radius:17px;
+
     padding:20px;
+
     margin-bottom:15px;
+
+    border:1px solid var(--border);
+
+    border-radius:17px;
+
 }
+
 
 .question p{
-    font-weight:800;
+
     margin-top:0;
+
+    font-weight:900;
+
 }
+
 
 .answer{
+
     display:block;
+
     padding:10px 13px;
-    border:1px solid #eadde5;
-    border-radius:11px;
+
     margin:7px 0;
+
+    border:1px solid #eadde5;
+
+    border-radius:11px;
+
     cursor:pointer;
+
 }
+
 
 .answer:hover{
+
     background:#fff3f8;
+
 }
+
 
 .answer input{
+
     margin-right:8px;
+
 }
+
 
 .quiz-result{
+
     display:none;
+
     padding:17px;
-    border-radius:15px;
-    background:#f2edff;
+
     margin-top:15px;
-    font-weight:700;
-}
 
-/* =========================
-   NAVIGATION
-========================= */
+    background:#f2edff;
 
-.lesson-nav{
-    display:flex;
-    justify-content:space-between;
-    gap:15px;
-    margin-top:25px;
-}
+    border-radius:15px;
 
-.nav-btn{
-    text-decoration:none;
-    background:var(--primary);
-    color:white;
-    border-radius:16px;
-    padding:12px 20px;
     font-weight:800;
-    box-shadow:0 7px 15px rgba(217,93,145,.2);
+
 }
 
-.nav-btn.secondary{
-    background:white;
-    color:var(--primary-dark);
-    border:1px solid var(--border);
-}
 
-/* =========================
+/* =========================================================
    COMPLETE
-========================= */
+========================================================= */
 
 .complete-box{
+
     text-align:center;
-    background:linear-gradient(135deg,#fff0f7,#f3ecff);
+
+    background:linear-gradient(
+        135deg,
+        #fff0f7,
+        #f3ecff
+    );
+
 }
+
 
 .complete-btn{
-    border:none;
-    background:var(--primary);
-    color:white;
+
     padding:13px 24px;
+
+    border:none;
+
+    background:var(--primary);
+
+    color:white;
+
     border-radius:15px;
+
     font-family:inherit;
-    font-weight:800;
+
     font-size:15px;
+
+    font-weight:900;
+
     cursor:pointer;
+
 }
+
 
 .complete-btn.done{
-    background:#77bd8b;
+
+    background:#72b987;
+
 }
 
-/* =========================
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.lesson-nav{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+
+.nav-btn{
+
+    padding:12px 20px;
+
+    background:var(--primary);
+
+    color:white;
+
+    border-radius:16px;
+
+    text-decoration:none;
+
+    font-weight:900;
+
+}
+
+
+.nav-btn.secondary{
+
+    background:white;
+
+    color:var(--primary-dark);
+
+    border:1px solid var(--border);
+
+}
+
+
+/* =========================================================
    MODAL
-========================= */
+========================================================= */
 
 .modal-bg{
+
     position:fixed;
+
     inset:0;
-    background:rgba(45,25,38,.4);
-    backdrop-filter:blur(5px);
-    display:none;
-    align-items:center;
-    justify-content:center;
+
     z-index:5000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
     padding:20px;
+
+    background:rgba(45,25,38,.4);
+
+    backdrop-filter:blur(5px);
+
 }
+
 
 .modal-bg.show{
+
     display:flex;
+
 }
+
 
 .modal{
-    width:min(500px,100%);
-    background:white;
-    border-radius:24px;
+
+    width:min(520px,100%);
+
     padding:25px;
+
+    background:white;
+
+    border-radius:24px;
+
     box-shadow:0 25px 70px rgba(0,0,0,.25);
+
 }
+
 
 .modal h3{
+
     margin-top:0;
+
 }
+
+
+.selected-text{
+
+    padding:12px;
+
+    margin-bottom:12px;
+
+    background:#fff5f9;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    font-size:14px;
+
+}
+
 
 .modal textarea{
+
     width:100%;
+
     min-height:130px;
-    resize:vertical;
-    border:1px solid var(--border);
-    border-radius:14px;
+
     padding:13px;
+
+    resize:vertical;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
     font-family:inherit;
+
     outline:none;
+
 }
+
 
 .modal textarea:focus{
+
     border-color:var(--primary);
+
 }
+
 
 .modal-buttons{
+
     display:flex;
+
     justify-content:flex-end;
+
     gap:8px;
+
     margin-top:12px;
+
 }
+
 
 .modal-btn{
-    border:none;
-    border-radius:12px;
+
     padding:10px 16px;
-    cursor:pointer;
+
+    border:none;
+
+    border-radius:12px;
+
     font-family:inherit;
-    font-weight:800;
+
+    font-weight:900;
+
+    cursor:pointer;
+
 }
 
-.save{
-    background:var(--primary);
-    color:white;
-}
 
-.cancel{
+.modal-cancel{
+
     background:#f2edf0;
+
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+
+.modal-save{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:700px){
 
     .hero{
+
         padding:30px 22px;
+
     }
+
 
     .card{
+
         padding:22px;
+
     }
+
 
     .vocab-grid{
+
         grid-template-columns:1fr;
+
     }
+
 
     .settings{
-        right:10px;
+
         left:10px;
+
+        right:10px;
+
         width:auto;
+
     }
+
 
     .lesson-nav{
+
         flex-direction:column;
+
     }
 
+
     .nav-btn{
+
         text-align:center;
+
     }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
+
+<!-- =======================================================
      TOP BAR
-========================= -->
+======================================================= -->
 
 <header class="topbar">
 
@@ -646,53 +1163,114 @@ li{
     </a>
 
     <div class="top-actions">
-        <button class="top-btn" onclick="toggleSettings()">⚙️ Settings</button>
-        <a href="../index.html" class="top-btn">🏠 Home</a>
+
+        <button
+            class="top-btn"
+            onclick="toggleSettings()">
+            ⚙️ Settings
+        </button>
+
+        <a
+            href="../index.html"
+            class="top-btn">
+            🏠 Home
+        </a>
+
     </div>
 
 </header>
 
 
-<!-- =========================
-     SETTINGS
-========================= -->
+<!-- =======================================================
+     SETTINGS PANEL
+======================================================= -->
 
-<aside class="settings" id="settingsPanel">
+<aside
+    id="settingsPanel"
+    class="settings">
 
     <h3>🎀 Customize</h3>
 
+
     <div class="setting-group">
+
         <label>Theme</label>
 
         <div class="option-grid">
 
-            <button class="option active" data-theme="pink">🌸 Pink</button>
-            <button class="option" data-theme="lavender">💜 Lavender</button>
-            <button class="option" data-theme="blue">🩵 Blue</button>
-            <button class="option" data-theme="mint">🌿 Mint</button>
-            <button class="option" data-theme="peach">🍑 Peach</button>
-            <button class="option" data-theme="rose">🌹 Rose</button>
-            <button class="option" data-theme="sky">☁️ Sky</button>
-            <button class="option" data-theme="lilac">🪻 Lilac</button>
-            <button class="option" data-theme="dark">🌙 Dark</button>
+            <button class="option active" data-theme="pink">
+                🌸 Pink
+            </button>
+
+            <button class="option" data-theme="lavender">
+                💜 Lavender
+            </button>
+
+            <button class="option" data-theme="blue">
+                🩵 Blue
+            </button>
+
+            <button class="option" data-theme="mint">
+                🌿 Mint
+            </button>
+
+            <button class="option" data-theme="peach">
+                🍑 Peach
+            </button>
+
+            <button class="option" data-theme="rose">
+                🌹 Rose
+            </button>
+
+            <button class="option" data-theme="sky">
+                ☁️ Sky
+            </button>
+
+            <button class="option" data-theme="lilac">
+                🪻 Lilac
+            </button>
+
+            <button class="option" data-theme="dark">
+                🌙 Dark
+            </button>
 
         </div>
+
     </div>
 
 
     <div class="setting-group">
+
         <label>Font</label>
 
         <div class="option-grid">
 
-            <button class="option" data-font="Nunito">Nunito</button>
-            <button class="option" data-font="Comfortaa">Comfortaa</button>
-            <button class="option" data-font="Fredoka">Fredoka</button>
-            <button class="option" data-font="Quicksand">Quicksand</button>
-            <button class="option" data-font="Manrope">Manrope</button>
-            <button class="option" data-font="Montserrat">Montserrat</button>
+            <button class="option" data-font="Nunito">
+                Nunito
+            </button>
+
+            <button class="option" data-font="Comfortaa">
+                Comfortaa
+            </button>
+
+            <button class="option" data-font="Fredoka">
+                Fredoka
+            </button>
+
+            <button class="option" data-font="Quicksand">
+                Quicksand
+            </button>
+
+            <button class="option" data-font="Manrope">
+                Manrope
+            </button>
+
+            <button class="option" data-font="Montserrat">
+                Montserrat
+            </button>
 
         </div>
+
     </div>
 
 
@@ -700,8 +1278,13 @@ li{
 
         <label>Study Data</label>
 
-        <button class="option" style="width:100%" onclick="clearStudyData()">
+        <button
+            class="option"
+            style="width:100%"
+            onclick="clearStudyData()">
+
             🗑️ Clear Highlights & Notes
+
         </button>
 
     </div>
@@ -709,11 +1292,16 @@ li{
 </aside>
 
 
+<!-- =======================================================
+     MAIN
+======================================================= -->
+
 <main class="page">
 
-<!-- =========================
+
+<!-- =======================================================
      HERO
-========================= -->
+======================================================= -->
 
 <section class="hero">
 
@@ -721,24 +1309,38 @@ li{
         COURSE 1 • FOUNDATIONS OF HEALTH SCIENCE
     </div>
 
-    <h1>What Is Health Science?</h1>
+    <h1>
+        What Is Health Science?
+    </h1>
 
     <p>
-        Welcome to Lesson 1 of MedNotesLab! In this lesson, you'll learn what
-        health science actually means, why it matters, how different areas of
-        science work together, and how health science connects to real people,
-        medicine, research, and healthcare.
+        Welcome to your first MedNotesLab lesson! Learn what health science
+        means, how the human body works as a connected system, how different
+        scientific fields work together, and why evidence matters in medicine.
     </p>
+
 
     <div class="progress-wrap">
 
         <div class="progress-info">
-            <span>Lesson Progress</span>
-            <span id="progressText">0%</span>
+
+            <span>
+                Lesson Progress
+            </span>
+
+            <span id="progressText">
+                0%
+            </span>
+
         </div>
 
         <div class="progress">
-            <div class="progress-bar" id="progressBar"></div>
+
+            <div
+                id="progressBar"
+                class="progress-bar">
+            </div>
+
         </div>
 
     </div>
@@ -746,329 +1348,529 @@ li{
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      STUDY TOOLBAR
-========================= -->
+======================================================= -->
 
 <div class="study-toolbar">
 
-    <span class="tool-label">SELECT TEXT →</span>
+    <span class="tool-label">
+        SELECT TEXT →
+    </span>
 
-    <button class="tool-btn yellow" onclick="highlightSelection('yellow')">
+
+    <button
+        class="tool-btn yellow"
+        onclick="highlightSelection('yellow')">
         🟡 Highlight
     </button>
 
-    <button class="tool-btn pink" onclick="highlightSelection('pink')">
+
+    <button
+        class="tool-btn pink"
+        onclick="highlightSelection('pink')">
         🩷 Pink
     </button>
 
-    <button class="tool-btn blue" onclick="highlightSelection('blue')">
+
+    <button
+        class="tool-btn blue"
+        onclick="highlightSelection('blue')">
         🩵 Blue
     </button>
 
-    <button class="tool-btn green" onclick="highlightSelection('green')">
+
+    <button
+        class="tool-btn green"
+        onclick="highlightSelection('green')">
         💚 Green
     </button>
 
-    <button class="tool-btn purple" onclick="highlightSelection('purple')">
+
+    <button
+        class="tool-btn purple"
+        onclick="highlightSelection('purple')">
         💜 Purple
     </button>
 
-    <button class="tool-btn" onclick="removeHighlight()">
+
+    <button
+        class="tool-btn"
+        onclick="removeHighlight()">
         ✕ Unhighlight
     </button>
 
-    <button class="tool-btn" onclick="startAnnotation()">
+
+    <button
+        class="tool-btn"
+        onclick="startAnnotation()">
         📝 Annotate
+    </button>
+
+
+    <button
+        class="tool-btn"
+        onclick="removeAnnotation()">
+        🗑️ Remove Annotation
     </button>
 
 </div>
 
 
-<!-- =========================
-     SECTION 1
-========================= -->
+<!-- =======================================================
+     LESSON 1
+======================================================= -->
+
 
 <section class="card study-content">
 
-<h2>🌸 1. Start Here: What Is Health Science?</h2>
+<h2>
+    🌸 1. What Is Health Science?
+</h2>
 
 <p class="lead">
-Health science is the study of health, the human body, disease, medicine,
-healthcare, and the many scientific processes that help us understand and
-improve human health.
+
+Health science is the broad study of health, the human body, disease,
+medicine, healthcare, prevention, and the many factors that influence
+human well-being.
+
 </p>
 
-<p>
-Think about everything that has to happen to keep one person alive. Your heart
-has to pump blood. Your lungs have to exchange gases. Your digestive system
-has to break food down. Your kidneys have to filter your blood. Your immune
-system has to recognize harmful organisms. Your brain has to receive and
-process information.
-</p>
 
 <p>
-All of these processes are connected. That is one of the most important ideas
-in health science: <strong>the human body is not made of completely separate
-parts.</strong> It is a collection of systems that constantly communicate and
-work together.
+
+Think about everything happening inside your body right now.
+
+Your heart is pumping blood. Your lungs are exchanging gases. Your digestive
+system is processing nutrients. Your kidneys are filtering your blood.
+Your brain is receiving information. Your immune system is constantly
+monitoring for potential threats.
+
 </p>
+
+
+<p>
+
+None of these processes exist completely by themselves. Your body is made
+of systems that constantly communicate and depend on one another.
+
+</p>
+
 
 <div class="definition">
 
 <strong>Health science:</strong>
 
-A broad field of science that studies health, the human body, disease,
-medicine, healthcare, prevention, treatment, and the factors that influence
+A broad field of science that studies health, disease, the human body,
+medicine, healthcare, prevention, treatment, and factors that influence
 human well-being.
 
 </div>
 
+
 <p>
-Health science is also much bigger than becoming a doctor. Scientists,
-nurses, pharmacists, therapists, laboratory professionals, researchers,
-geneticists, public health professionals, psychologists, and many other people
-contribute to healthcare.
+
+Health science is also much larger than simply becoming a doctor.
+
+Doctors are one part of healthcare, but healthcare depends on thousands of
+different professionals and scientific fields.
+
 </p>
+
 
 <img
 class="lesson-image"
 src="https://images.pexels.com/photos/7723400/pexels-photo-7723400.jpeg?cs=srgb&dl=pexels-tara-winstead-7723400.jpg&fm=jpg"
-alt="Human anatomy model showing the skeleton and internal organs">
+alt="Human skeleton and internal organs">
+
 
 <div class="caption">
-Human anatomy model showing structures of the human body.
+
+Human anatomy model showing the skeleton and internal organs.
+
 </div>
+
 
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      SECTION 2
-========================= -->
+======================================================= -->
 
 <section class="card study-content">
 
-<h2>🫀 2. The Human Body Is One Big System</h2>
+<h2>
+    🫀 2. The Human Body Is One Connected System
+</h2>
+
 
 <p>
-One of the easiest ways to understand health science is to imagine your body
-as a giant network.
+
+One of the most important ideas in health science is that the human body
+is interconnected.
+
 </p>
 
-<p>
-Your heart does not work completely independently. It depends on the lungs to
-receive oxygen. The lungs depend on the nervous system and muscles to control
-breathing. The muscles need oxygen and nutrients delivered by the blood.
-The brain needs a constant supply of oxygen and glucose. The kidneys help
-control the composition of the blood that reaches all of these organs.
-</p>
 
 <p>
-This means that something affecting one part of the body can sometimes affect
-another part.
+
+Your heart depends on the lungs to supply oxygen to the blood.
+
+Your muscles depend on the cardiovascular system to deliver oxygen and
+nutrients.
+
+Your brain depends on a constant supply of oxygen and energy.
+
+Your kidneys help regulate the fluids and chemicals in the blood.
+
 </p>
+
+
+<p>
+
+This means that something affecting one part of the body can sometimes
+influence other parts.
+
+</p>
+
 
 <div class="tip">
 
 <strong>💡 Think about it:</strong>
 
-If the lungs cannot bring enough oxygen into the body, the cardiovascular
-system has less oxygen to deliver. The brain can also be affected because
-brain cells need oxygen to function normally.
+If the lungs are unable to exchange enough oxygen, the cardiovascular
+system has less oxygen to deliver to tissues. The brain can also be
+affected because brain cells require oxygen.
 
 </div>
 
-<p>
-Health scientists study these relationships so that they can understand what
-is happening inside the body and determine how different conditions may affect
-health.
-</p>
 
-<h3>Major body systems</h3>
+<h3>
+    Major Body Systems
+</h3>
+
 
 <ul>
-    <li><strong>Nervous system:</strong> communicates and processes information.</li>
-    <li><strong>Cardiovascular system:</strong> moves blood throughout the body.</li>
-    <li><strong>Respiratory system:</strong> helps exchange oxygen and carbon dioxide.</li>
-    <li><strong>Digestive system:</strong> breaks food down and absorbs nutrients.</li>
-    <li><strong>Urinary system:</strong> helps remove waste and regulate body fluids.</li>
-    <li><strong>Immune system:</strong> protects the body from harmful threats.</li>
-    <li><strong>Endocrine system:</strong> produces hormones that regulate body processes.</li>
-    <li><strong>Muscular system:</strong> allows movement and helps maintain posture.</li>
-    <li><strong>Skeletal system:</strong> provides support and protects organs.</li>
+
+<li>
+<strong>Nervous system:</strong>
+communicates and processes information.
+</li>
+
+<li>
+<strong>Cardiovascular system:</strong>
+moves blood throughout the body.
+</li>
+
+<li>
+<strong>Respiratory system:</strong>
+helps exchange oxygen and carbon dioxide.
+</li>
+
+<li>
+<strong>Digestive system:</strong>
+breaks food down and absorbs nutrients.
+</li>
+
+<li>
+<strong>Urinary system:</strong>
+helps remove waste and regulate body fluids.
+</li>
+
+<li>
+<strong>Immune system:</strong>
+protects the body from harmful threats.
+</li>
+
+<li>
+<strong>Endocrine system:</strong>
+uses hormones to regulate many body processes.
+</li>
+
+<li>
+<strong>Muscular system:</strong>
+allows movement and helps maintain posture.
+</li>
+
+<li>
+<strong>Skeletal system:</strong>
+supports the body and protects organs.
+</li>
+
 </ul>
 
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      SECTION 3
-========================= -->
+======================================================= -->
 
 <section class="card study-content">
 
-<h2>🔬 3. Why Is Health Science a Science?</h2>
+<h2>
+    🔬 3. Why Is Health Science a Science?
+</h2>
+
 
 <p>
-Health science uses the scientific method to investigate questions about
+
+Health science uses scientific methods to investigate questions about
 health and the human body.
+
 </p>
 
+
 <p>
-Scientists do not simply decide that something is true because it sounds
-reasonable. They collect evidence, make observations, conduct experiments or
-studies, analyze information, and compare results.
+
+Scientists do not simply decide something is true because it sounds
+reasonable.
+
+They collect evidence, make observations, conduct studies, analyze
+information, compare results, and communicate their findings.
+
 </p>
+
 
 <div class="definition">
 
 <strong>Scientific evidence:</strong>
 
-Information collected through systematic observation, measurement, research,
-experimentation, or other reliable scientific methods.
+Information collected through systematic observation, measurement,
+research, experimentation, or other reliable scientific methods.
 
 </div>
 
-<h3>The basic idea</h3>
+
+<h3>
+    The Scientific Process
+</h3>
+
 
 <ol>
-    <li>Ask a question.</li>
-    <li>Research what is already known.</li>
-    <li>Create a hypothesis or prediction.</li>
-    <li>Collect evidence.</li>
-    <li>Analyze the results.</li>
-    <li>Draw conclusions.</li>
-    <li>Share the findings so others can evaluate them.</li>
+
+<li>
+Ask a question.
+</li>
+
+<li>
+Research what is already known.
+</li>
+
+<li>
+Develop a hypothesis or prediction.
+</li>
+
+<li>
+Collect evidence.
+</li>
+
+<li>
+Analyze the results.
+</li>
+
+<li>
+Draw conclusions.
+</li>
+
+<li>
+Share the findings so other scientists can evaluate them.
+</li>
+
 </ol>
 
-<p>
-This process is extremely important in medicine because incorrect information
-can affect real people's health.
-</p>
 
 <div class="warning">
 
-<strong>⚠️ Important:</strong>
+<strong>⚠️ Remember:</strong>
 
-A health claim being popular online does not automatically make it scientifically
-supported. Health science relies on evidence rather than popularity.
+Something being popular online does not automatically make it scientifically
+supported.
+
+Health science depends on evidence.
 
 </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      SECTION 4
-========================= -->
+======================================================= -->
 
 <section class="card study-content">
 
-<h2>🧪 4. The Major Areas of Health Science</h2>
+<h2>
+    🧪 4. Major Areas of Health Science
+</h2>
+
 
 <p>
-Health science includes many different scientific fields. Each field asks
-different questions, but they often overlap.
+
+Health science includes many different fields.
+
+Each field asks different questions, but the fields often overlap.
+
 </p>
 
-<h3>Biology</h3>
+
+<h3>
+    Biology
+</h3>
 
 <p>
-Biology is the study of living things. It helps scientists understand cells,
-DNA, tissues, organs, organisms, and biological processes.
+
+Biology is the study of living organisms.
+
+It helps us understand cells, DNA, tissues, organs, organisms, and
+biological processes.
+
 </p>
 
-<h3>Anatomy</h3>
+
+<h3>
+    Anatomy
+</h3>
 
 <p>
-Anatomy is the study of the structures of the body.
+
+Anatomy focuses on the structures of the body.
+
 </p>
+
 
 <div class="definition">
-<strong>Anatomy:</strong> The study of body structures and where those
-structures are located.
+
+<strong>Anatomy:</strong>
+
+The study of body structures and where those structures are located.
+
 </div>
 
-<h3>Physiology</h3>
+
+<h3>
+    Physiology
+</h3>
 
 <p>
+
 Physiology focuses on how those structures function.
+
 </p>
+
 
 <div class="definition">
-<strong>Physiology:</strong> The study of how living organisms and their
-body parts function.
+
+<strong>Physiology:</strong>
+
+The study of how living organisms and their body parts function.
+
 </div>
 
-<h3>Genetics</h3>
+
+<h3>
+    Genetics
+</h3>
 
 <p>
-Genetics studies genes, DNA, heredity, and how biological characteristics can
-be passed from parents to offspring.
+
+Genetics studies genes, DNA, heredity, and biological variation.
+
 </p>
 
-<h3>Microbiology</h3>
+
+<h3>
+    Microbiology
+</h3>
 
 <p>
+
 Microbiology studies microscopic organisms and biological agents such as
 bacteria, fungi, and viruses.
+
 </p>
 
-<h3>Pharmacology</h3>
+
+<h3>
+    Pharmacology
+</h3>
 
 <p>
-Pharmacology studies drugs and how substances interact with living organisms.
+
+Pharmacology studies drugs and how substances interact with living
+organisms.
+
 </p>
 
-<h3>Psychology and neuroscience</h3>
+
+<h3>
+    Psychology and Neuroscience
+</h3>
 
 <p>
-Psychology studies behavior and mental processes, while neuroscience studies
-the nervous system and brain. These fields can overlap when scientists study
-how the brain influences behavior, emotions, learning, and health.
+
+Psychology studies behavior and mental processes.
+
+Neuroscience studies the nervous system and brain.
+
+These fields can overlap when researchers study memory, emotions,
+learning, behavior, and mental health.
+
 </p>
 
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      SECTION 5
-========================= -->
+======================================================= -->
 
 <section class="card study-content">
 
-<h2>🧬 5. Biology: The Foundation</h2>
+<h2>
+    🧬 5. Biology: A Foundation of Health Science
+</h2>
+
 
 <p>
-Biology is one of the foundations of health science because humans are living
-organisms.
+
+Biology is one of the foundations of health science because humans are
+living organisms.
+
 </p>
 
+
 <p>
-To understand disease, researchers often need to understand what normally
+
+To understand disease, scientists often need to understand what normally
 happens inside healthy cells and tissues first.
+
 </p>
 
-<p>
-For example, if scientists want to understand cancer, they need to understand
-how normal cells grow, communicate, divide, and eventually stop dividing.
-They can then investigate what changes when those processes become abnormal.
-</p>
 
 <p>
-This is why MedNotesLab begins with foundations. Learning individual facts is
-useful, but understanding how those facts connect makes later topics much
-easier.
+
+For example, if researchers want to understand cancer, they need to
+understand how normal cells grow, communicate, divide, and respond to
+their environment.
+
+They can then investigate what changes when those processes become
+abnormal.
+
 </p>
+
 
 <div class="tip">
 
-<strong>📌 Study strategy:</strong>
+<strong>📌 Study Strategy:</strong>
 
-When learning a new medical topic, ask yourself:
+When learning a medical topic, first ask:
+
 “What normally happens?”
+
 Then ask:
+
 “What changes when something goes wrong?”
 
 </div>
@@ -1076,63 +1878,96 @@ Then ask:
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      SECTION 6
-========================= -->
+======================================================= -->
 
 <section class="card study-content">
 
-<h2>🦴 6. Anatomy vs. Physiology</h2>
+<h2>
+    🦴 6. Anatomy vs. Physiology
+</h2>
+
 
 <p>
-Anatomy and physiology are closely connected, but they are not the same thing.
+
+Anatomy and physiology are closely connected, but they are not the same
+thing.
+
 </p>
+
 
 <div class="definition">
 
-<strong>Anatomy = structure</strong><br>
-What something is, what it looks like, where it is, and what it is connected to.
+<strong>Anatomy = structure</strong>
+
+<br><br>
+
+What something is, what it looks like, where it is located, and what it
+is connected to.
 
 </div>
 
+
 <div class="definition">
 
-<strong>Physiology = function</strong><br>
+<strong>Physiology = function</strong>
+
+<br><br>
+
 What something does and how it works.
 
 </div>
 
-<p>
-Imagine the heart. Anatomy would involve studying the heart's chambers,
-valves, walls, blood vessels, and location in the chest.
-</p>
 
 <p>
+
+Imagine the heart.
+
+Anatomy would involve studying the heart's chambers, valves, walls,
+blood vessels, and location in the chest.
+
+</p>
+
+
+<p>
+
 Physiology would involve studying how the heart contracts, how electrical
-signals coordinate the heartbeat, and how blood moves through the chambers.
+signals coordinate the heartbeat, and how blood moves through the heart.
+
 </p>
 
+
 <p>
-Structure and function are connected. The shape and organization of a body
-part often help it perform its job.
+
+Structure and function are connected.
+
+The shape and organization of a body part often help it perform its job.
+
 </p>
 
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      SECTION 7
-========================= -->
+======================================================= -->
 
 <section class="card study-content">
 
-<h2>🧬 7. Genetics and Health</h2>
+<h2>
+    🧬 7. Genetics and Health
+</h2>
+
 
 <p>
+
 Your body contains DNA, a molecule that stores biological information.
-Segments of DNA called genes provide instructions that influence many
-biological processes.
+
+Segments of DNA called genes contain information used by cells.
+
 </p>
+
 
 <div class="definition">
 
@@ -1141,6 +1976,7 @@ biological processes.
 A molecule that stores genetic information used by living organisms.
 
 </div>
+
 
 <div class="definition">
 
@@ -1151,271 +1987,465 @@ product, such as a protein or functional RNA.
 
 </div>
 
-<p>
-Genetics is important to health science because differences in genes can
-sometimes influence a person's traits, disease risk, or response to certain
-medications.
-</p>
 
 <p>
-However, genes are not the only factor affecting health. Environment,
-behavior, nutrition, infections, access to healthcare, and many other factors
-can also influence health outcomes.
+
+Genetics is important to health science because genetic differences can
+sometimes influence traits, disease risk, and responses to certain
+medications.
+
+</p>
+
+
+<p>
+
+However, genes are not the only factor affecting health.
+
+Environment, behavior, nutrition, infections, healthcare access, and many
+other factors can also influence health.
+
 </p>
 
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      SECTION 8
-========================= -->
+======================================================= -->
 
 <section class="card study-content">
 
-<h2>💊 8. Pharmacology and Medicine</h2>
+<h2>
+    💊 8. Pharmacology and Medicine
+</h2>
+
 
 <p>
-Medicine involves much more than knowing the names of medications.
-Scientists need to understand how drugs interact with cells, tissues, organs,
-and biological systems.
+
+Medicine involves much more than memorizing medication names.
+
+Scientists need to understand how substances interact with cells,
+tissues, organs, and biological systems.
+
 </p>
 
+
 <p>
-Pharmacology helps answer questions such as:
+
+Pharmacology can help answer questions such as:
+
 </p>
+
 
 <ul>
-    <li>How does a drug enter the body?</li>
-    <li>Where does it travel?</li>
-    <li>What does it interact with?</li>
-    <li>How does the body change or remove it?</li>
-    <li>What effects can it produce?</li>
+
+<li>
+How does a drug enter the body?
+</li>
+
+<li>
+Where does it travel?
+</li>
+
+<li>
+What does it interact with?
+</li>
+
+<li>
+How does the body change or remove it?
+</li>
+
+<li>
+What effects can it produce?
+</li>
+
 </ul>
 
+
 <p>
-Before many medical treatments become widely available, they go through
-research and clinical testing designed to evaluate their effects and safety.
+
+Many treatments are studied through research and clinical testing before
+they become widely available.
+
 </p>
 
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      SECTION 9
-========================= -->
+======================================================= -->
 
 <section class="card study-content">
 
-<h2>👩‍⚕️ 9. Health Science Careers</h2>
+<h2>
+    👩‍⚕️ 9. Health Science Careers
+</h2>
 
-<p>
-Health science includes an enormous number of careers.
-</p>
 
 <img
 class="lesson-image"
 src="https://images.pexels.com/photos/6129502/pexels-photo-6129502.jpeg?cs=srgb&dl=pexels-rdne-6129502.jpg&fm=jpg"
-alt="Healthcare professionals working together in a hospital">
+alt="Healthcare professionals working together">
+
 
 <div class="caption">
-Healthcare professionals working together in a hospital setting.
+
+Healthcare professionals working together in a hospital environment.
+
 </div>
 
-<ul>
-    <li>Physicians</li>
-    <li>Nurses</li>
-    <li>Pharmacists</li>
-    <li>Medical laboratory scientists</li>
-    <li>Physical therapists</li>
-    <li>Occupational therapists</li>
-    <li>Psychologists</li>
-    <li>Genetic counselors</li>
-    <li>Radiologic technologists</li>
-    <li>Public health professionals</li>
-    <li>Biomedical researchers</li>
-    <li>Epidemiologists</li>
-    <li>Respiratory therapists</li>
-    <li>Medical researchers</li>
-</ul>
 
 <p>
-Some professionals work directly with patients. Others work in laboratories,
-research institutions, public health organizations, universities, technology,
-or other areas.
+
+Health science includes an enormous number of careers.
+
+</p>
+
+
+<ul>
+
+<li>Physicians</li>
+
+<li>Nurses</li>
+
+<li>Pharmacists</li>
+
+<li>Medical laboratory scientists</li>
+
+<li>Physical therapists</li>
+
+<li>Occupational therapists</li>
+
+<li>Psychologists</li>
+
+<li>Genetic counselors</li>
+
+<li>Radiologic technologists</li>
+
+<li>Public health professionals</li>
+
+<li>Biomedical researchers</li>
+
+<li>Epidemiologists</li>
+
+<li>Respiratory therapists</li>
+
+<li>Medical researchers</li>
+
+</ul>
+
+
+<p>
+
+Some professionals work directly with patients.
+
+Others work in laboratories, research institutions, universities,
+technology, public health organizations, and many other settings.
+
 </p>
 
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      SECTION 10
-========================= -->
+======================================================= -->
 
 <section class="card study-content">
 
-<h2>🔗 10. How All These Fields Connect</h2>
+<h2>
+    🔗 10. How Everything Connects
+</h2>
+
 
 <p>
-The most important idea from this lesson is that health science is
+
+The biggest idea from this lesson is that health science is
 interconnected.
+
 </p>
 
-<p>
-Imagine a person develops a disease.
-</p>
 
 <p>
-A researcher might study the disease at the cellular level. A geneticist might
-investigate whether genetic factors are involved. An anatomist might study
-which organs are affected. A physiologist might investigate how those organs
-are functioning. A pharmacologist might study possible treatments. A physician
-might diagnose the patient. A pharmacist might help manage medications.
-Public health professionals might study how the disease affects a larger
-population.
+
+Imagine that a person develops a disease.
+
+A researcher might study the disease at the cellular level.
+
+A geneticist might investigate whether genetic factors are involved.
+
+An anatomist might study which organs are affected.
+
+A physiologist might investigate how those organs are functioning.
+
+A pharmacologist might study potential treatments.
+
+A physician might diagnose the patient.
+
+A pharmacist might help manage medications.
+
+Public health professionals might study how the disease affects larger
+populations.
+
 </p>
 
+
 <p>
-Each person is studying a different piece of the same larger problem.
+
+Everyone is studying a different part of the same larger problem.
+
 </p>
+
 
 <div class="tip">
 
-<strong>🌸 Big idea:</strong>
+<strong>🌸 Big Idea:</strong>
 
-Health science is not one single subject. It is a network of scientific
-fields that work together to understand, prevent, diagnose, and treat health
-problems.
+Health science is not one single subject.
+
+It is a network of scientific fields that work together to understand,
+prevent, diagnose, and treat health problems.
 
 </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      VOCABULARY
-========================= -->
+======================================================= -->
 
 <section class="card study-content">
 
-<h2>📖 11. Lesson 1 Vocabulary</h2>
+<h2>
+    📖 11. Lesson 1 Vocabulary
+</h2>
+
 
 <div class="vocab-grid">
 
+
 <div class="vocab">
+
 <strong>Health Science</strong>
+
 <br>
+
 The scientific study of health, disease, medicine, and healthcare.
+
 </div>
 
+
 <div class="vocab">
+
 <strong>Biology</strong>
+
 <br>
+
 The study of living organisms.
+
 </div>
 
+
 <div class="vocab">
+
 <strong>Anatomy</strong>
+
 <br>
+
 The study of body structures.
+
 </div>
 
+
 <div class="vocab">
+
 <strong>Physiology</strong>
+
 <br>
+
 The study of how body structures function.
+
 </div>
 
+
 <div class="vocab">
+
 <strong>Genetics</strong>
+
 <br>
+
 The study of genes, DNA, and heredity.
+
 </div>
 
+
 <div class="vocab">
+
 <strong>Microbiology</strong>
+
 <br>
+
 The study of microscopic organisms and biological agents.
+
 </div>
 
+
 <div class="vocab">
+
 <strong>Pharmacology</strong>
+
 <br>
+
 The study of drugs and their effects on living organisms.
+
 </div>
 
+
 <div class="vocab">
+
 <strong>Scientific Evidence</strong>
+
 <br>
-Information collected using reliable scientific methods.
+
+Information collected through reliable scientific methods.
+
 </div>
 
+
 <div class="vocab">
+
 <strong>Disease</strong>
+
 <br>
-A condition that negatively affects normal body structure or function.
+
+A condition that affects normal body structure or function.
+
 </div>
 
+
 <div class="vocab">
+
 <strong>Healthcare</strong>
+
 <br>
+
 Services and practices used to maintain, improve, or restore health.
+
 </div>
+
 
 </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      QUICK CHECK
-========================= -->
+======================================================= -->
 
 <section class="card study-content">
 
-<h2>🧠 12. Quick Check</h2>
+<h2>
+    🧠 12. Quick Check
+</h2>
 
-<p><strong>Try answering these without looking back.</strong></p>
+
+<p>
+Try answering these questions without looking back.
+</p>
+
 
 <ol>
-    <li>What is health science?</li>
-    <li>What is the difference between anatomy and physiology?</li>
-    <li>Why is biology important to health science?</li>
-    <li>What does genetics study?</li>
-    <li>Why is scientific evidence important in medicine?</li>
-    <li>Name three different health science careers.</li>
-    <li>Why do different health science fields need to work together?</li>
+
+<li>
+What is health science?
+</li>
+
+<li>
+What is the difference between anatomy and physiology?
+</li>
+
+<li>
+Why is biology important to health science?
+</li>
+
+<li>
+What does genetics study?
+</li>
+
+<li>
+Why is scientific evidence important in medicine?
+</li>
+
+<li>
+Name three health science careers.
+</li>
+
+<li>
+Why do different health science fields work together?
+</li>
+
 </ol>
 
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      QUIZ
-========================= -->
+======================================================= -->
 
 <section class="card study-content">
 
-<h2>🎀 13. Final Quiz</h2>
+<h2>
+    🎀 13. Final Quiz
+</h2>
+
 
 <form id="quizForm">
 
+
 <div class="question">
 
-<p>1. What does anatomy primarily study?</p>
+<p>
+1. What does anatomy primarily study?
+</p>
+
 
 <label class="answer">
-<input type="radio" name="q1" value="a">
+
+<input
+type="radio"
+name="q1"
+value="a">
+
 How the body functions
+
 </label>
 
+
 <label class="answer">
-<input type="radio" name="q1" value="b">
+
+<input
+type="radio"
+name="q1"
+value="b">
+
 Body structures
+
 </label>
 
+
 <label class="answer">
-<input type="radio" name="q1" value="c">
+
+<input
+type="radio"
+name="q1"
+value="c">
+
 Only diseases
+
 </label>
 
 </div>
@@ -1423,21 +2453,44 @@ Only diseases
 
 <div class="question">
 
-<p>2. What does physiology study?</p>
+<p>
+2. What does physiology study?
+</p>
+
 
 <label class="answer">
-<input type="radio" name="q2" value="a">
+
+<input
+type="radio"
+name="q2"
+value="a">
+
 How body structures function
+
 </label>
 
+
 <label class="answer">
-<input type="radio" name="q2" value="b">
+
+<input
+type="radio"
+name="q2"
+value="b">
+
 Only DNA
+
 </label>
 
+
 <label class="answer">
-<input type="radio" name="q2" value="c">
+
+<input
+type="radio"
+name="q2"
+value="c">
+
 Only medications
+
 </label>
 
 </div>
@@ -1445,21 +2498,44 @@ Only medications
 
 <div class="question">
 
-<p>3. What does genetics study?</p>
+<p>
+3. What does genetics study?
+</p>
+
 
 <label class="answer">
-<input type="radio" name="q3" value="a">
+
+<input
+type="radio"
+name="q3"
+value="a">
+
 Bones only
+
 </label>
 
+
 <label class="answer">
-<input type="radio" name="q3" value="b">
+
+<input
+type="radio"
+name="q3"
+value="b">
+
 Genes, DNA, and heredity
+
 </label>
 
+
 <label class="answer">
-<input type="radio" name="q3" value="c">
+
+<input
+type="radio"
+name="q3"
+value="c">
+
 Hospital equipment
+
 </label>
 
 </div>
@@ -1467,21 +2543,44 @@ Hospital equipment
 
 <div class="question">
 
-<p>4. Why is scientific evidence important?</p>
+<p>
+4. Why is scientific evidence important?
+</p>
+
 
 <label class="answer">
-<input type="radio" name="q4" value="a">
-It makes claims more reliable
+
+<input
+type="radio"
+name="q4"
+value="a">
+
+It helps make claims more reliable
+
 </label>
 
+
 <label class="answer">
-<input type="radio" name="q4" value="b">
+
+<input
+type="radio"
+name="q4"
+value="b">
+
 It makes every result perfect
+
 </label>
 
+
 <label class="answer">
-<input type="radio" name="q4" value="c">
+
+<input
+type="radio"
+name="q4"
+value="c">
+
 It eliminates the need for research
+
 </label>
 
 </div>
@@ -1489,143 +2588,251 @@ It eliminates the need for research
 
 <div class="question">
 
-<p>5. Which statement is true?</p>
+<p>
+5. Which statement is true?
+</p>
+
 
 <label class="answer">
-<input type="radio" name="q5" value="a">
+
+<input
+type="radio"
+name="q5"
+value="a">
+
 Health science is only about doctors
+
 </label>
 
+
 <label class="answer">
-<input type="radio" name="q5" value="b">
+
+<input
+type="radio"
+name="q5"
+value="b">
+
 Health science includes many interconnected fields
+
 </label>
 
+
 <label class="answer">
-<input type="radio" name="q5" value="c">
+
+<input
+type="radio"
+name="q5"
+value="c">
+
 Health science only studies diseases
+
 </label>
 
 </div>
 
-<button type="button" class="complete-btn" onclick="checkQuiz()">
+
+<button
+type="button"
+class="complete-btn"
+onclick="checkQuiz()">
+
 Check My Answers
+
 </button>
 
-<div class="quiz-result" id="quizResult"></div>
+
+<div
+id="quizResult"
+class="quiz-result">
+</div>
+
 
 </form>
 
 </section>
 
 
-<!-- =========================
-     TAKEAWAYS
-========================= -->
+<!-- =======================================================
+     KEY TAKEAWAYS
+======================================================= -->
 
 <section class="card study-content">
 
-<h2>🌷 14. Key Takeaways</h2>
+<h2>
+    🌷 14. Key Takeaways
+</h2>
+
 
 <ul>
-    <li>Health science is the broad study of health, disease, medicine, and healthcare.</li>
-    <li>The human body is made of interconnected systems.</li>
-    <li>Biology provides an important foundation for understanding health.</li>
-    <li>Anatomy focuses on structure.</li>
-    <li>Physiology focuses on function.</li>
-    <li>Genetics studies DNA, genes, and heredity.</li>
-    <li>Scientific evidence helps researchers make reliable conclusions.</li>
-    <li>Health science includes many different careers.</li>
-    <li>Different health science fields work together to understand health problems.</li>
+
+<li>
+Health science is the broad study of health, disease, medicine, and
+healthcare.
+</li>
+
+<li>
+The human body is made of interconnected systems.
+</li>
+
+<li>
+Biology is an important foundation for understanding health.
+</li>
+
+<li>
+Anatomy focuses on structure.
+</li>
+
+<li>
+Physiology focuses on function.
+</li>
+
+<li>
+Genetics studies DNA, genes, and heredity.
+</li>
+
+<li>
+Scientific evidence helps researchers make reliable conclusions.
+</li>
+
+<li>
+Health science includes many different careers.
+</li>
+
+<li>
+Different health science fields work together.
+</li>
+
 </ul>
 
 </section>
 
 
-<!-- =========================
-     COMPLETION
-========================= -->
+<!-- =======================================================
+     COMPLETE
+======================================================= -->
 
 <section class="card complete-box">
 
-<h2>🎀 Finish Lesson 1</h2>
+<h2>
+    🎀 Finish Lesson 1
+</h2>
+
 
 <p>
 You made it through your first MedNotesLab lesson!
 </p>
 
+
 <p>
-Complete the quiz and then mark this lesson as finished.
+Complete the quiz and then mark the lesson as finished.
 </p>
 
-<button class="complete-btn" id="completeButton" onclick="completeLesson()">
+
+<button
+id="completeButton"
+class="complete-btn"
+onclick="completeLesson()">
+
 Mark Lesson Complete ✓
+
 </button>
 
 </section>
 
 
-<!-- =========================
+<!-- =======================================================
      NAVIGATION
-========================= -->
+======================================================= -->
 
 <div class="lesson-nav">
 
-<a href="../index.html" class="nav-btn secondary">
+
+<a
+href="../index.html"
+class="nav-btn secondary">
+
 ← Back to Courses
+
 </a>
 
-<a href="lesson2.html" class="nav-btn">
+
+<a
+href="lesson2.html"
+class="nav-btn">
+
 Next Lesson →
+
 </a>
+
 
 </div>
+
 
 </main>
 
 
-<!-- =========================
+<!-- =======================================================
      ANNOTATION MODAL
-========================= -->
+======================================================= -->
 
-<div class="modal-bg" id="annotationModal">
+<div
+id="annotationModal"
+class="modal-bg">
+
 
 <div class="modal">
 
-<h3>📝 Add an Annotation</h3>
 
-<p style="color:var(--muted);font-size:14px;">
+<h3 id="modalTitle">
+    📝 Add an Annotation
+</h3>
+
+
+<p
+id="modalDescription"
+style="color:var(--muted);font-size:14px;">
+
 Your selected text will stay on the page and become underlined.
-Click it later to view your note.
+
 </p>
+
 
 <div
 id="selectedTextPreview"
-style="
-background:#fff5f9;
-border:1px solid var(--border);
-padding:12px;
-border-radius:12px;
-font-size:14px;
-margin-bottom:12px;
-">
+class="selected-text">
 </div>
+
 
 <textarea
 id="annotationInput"
-placeholder="Write your note here..."></textarea>
+placeholder="Write your note here...">
+</textarea>
+
 
 <div class="modal-buttons">
 
-<button class="modal-btn cancel" onclick="closeAnnotation()">
+
+<button
+class="modal-btn modal-cancel"
+onclick="closeAnnotationModal()">
+
 Cancel
+
 </button>
 
-<button class="modal-btn save" onclick="saveAnnotation()">
+
+<button
+id="modalSaveButton"
+class="modal-btn modal-save"
+onclick="saveNewAnnotation()">
+
 Save Annotation
+
 </button>
+
 
 </div>
+
 
 </div>
 
@@ -1635,44 +2842,65 @@ Save Annotation
 <script>
 
 /* =========================================================
-   MEDNOTESLAB LESSON 1
-   STUDY DATA
+   STORAGE
 ========================================================= */
 
-const STORAGE_KEY = "mednoteslab_lesson1_data";
+const STORAGE_KEY =
+"mednoteslab_lesson1_complete_study_data";
+
 
 let studyData = {
+
     highlights: [],
+
     annotations: {},
+
     completed: false
+
 };
 
-let annotationCounter = 0;
+
+let pendingRange = null;
+
+let editingAnnotationId = null;
 
 
 /* =========================================================
-   LOAD DATA
+   LOAD
 ========================================================= */
 
-function loadData(){
+function loadStudyData(){
 
     try{
 
-        const saved = localStorage.getItem(STORAGE_KEY);
+        const saved =
+        localStorage.getItem(STORAGE_KEY);
 
         if(saved){
-            const parsed = JSON.parse(saved);
+
+            const data =
+            JSON.parse(saved);
 
             studyData = {
-                highlights: parsed.highlights || [],
-                annotations: parsed.annotations || {},
-                completed: parsed.completed || false
+
+                highlights:
+                data.highlights || [],
+
+                annotations:
+                data.annotations || {},
+
+                completed:
+                data.completed || false
+
             };
+
         }
 
     }catch(error){
 
-        console.log("Could not load study data", error);
+        console.log(
+        "Could not load saved study data.",
+        error);
 
     }
 
@@ -1680,14 +2908,17 @@ function loadData(){
 
 
 /* =========================================================
-   SAVE DATA
+   SAVE
 ========================================================= */
 
-function saveData(){
+function saveStudyData(){
 
     localStorage.setItem(
+
         STORAGE_KEY,
+
         JSON.stringify(studyData)
+
     );
 
 }
@@ -1700,8 +2931,8 @@ function saveData(){
 function toggleSettings(){
 
     document
-        .getElementById("settingsPanel")
-        .classList.toggle("open");
+    .getElementById("settingsPanel")
+    .classList.toggle("open");
 
 }
 
@@ -1814,33 +3045,50 @@ const themes = {
 };
 
 
-function applyTheme(name){
+function applyTheme(themeName){
 
-    const theme = themes[name];
+    const theme =
+    themes[themeName];
 
-    if(!theme) return;
+    if(!theme){
+        return;
+    }
 
-    const root = document.documentElement;
 
-    root.style.setProperty("--bg",theme.bg);
-    root.style.setProperty("--card",theme.card);
-    root.style.setProperty("--text",theme.text);
-    root.style.setProperty("--muted",theme.muted);
-    root.style.setProperty("--primary",theme.primary);
-    root.style.setProperty("--primary-dark",theme.primaryDark);
-    root.style.setProperty("--soft",theme.soft);
-    root.style.setProperty("--border",theme.border);
+    const root =
+    document.documentElement;
+
+
+    Object.keys(theme).forEach(key => {
+
+        root.style.setProperty(
+            "--" + camelToKebab(key),
+            theme[key]
+        );
+
+    });
+
 
     localStorage.setItem(
         "mednoteslab_theme",
-        name
+        themeName
+    );
+
+}
+
+
+function camelToKebab(string){
+
+    return string.replace(
+        /[A-Z]/g,
+        letter => "-" + letter.toLowerCase()
     );
 
 }
 
 
 /* =========================================================
-   FONT
+   FONTS
 ========================================================= */
 
 function applyFont(font){
@@ -1862,34 +3110,54 @@ function applyFont(font){
    SETTINGS BUTTONS
 ========================================================= */
 
-document.querySelectorAll("[data-theme]").forEach(button => {
+document
+.querySelectorAll("[data-theme]")
+.forEach(button => {
 
-    button.addEventListener("click",function(){
+    button.addEventListener(
+    "click",
+    function(){
 
         document
-            .querySelectorAll("[data-theme]")
-            .forEach(btn => btn.classList.remove("active"));
+        .querySelectorAll("[data-theme]")
+        .forEach(btn =>
+            btn.classList.remove("active")
+        );
+
 
         this.classList.add("active");
 
-        applyTheme(this.dataset.theme);
+
+        applyTheme(
+            this.dataset.theme
+        );
 
     });
 
 });
 
 
-document.querySelectorAll("[data-font]").forEach(button => {
+document
+.querySelectorAll("[data-font]")
+.forEach(button => {
 
-    button.addEventListener("click",function(){
+    button.addEventListener(
+    "click",
+    function(){
 
         document
-            .querySelectorAll("[data-font]")
-            .forEach(btn => btn.classList.remove("active"));
+        .querySelectorAll("[data-font]")
+        .forEach(btn =>
+            btn.classList.remove("active")
+        );
+
 
         this.classList.add("active");
 
-        applyFont(this.dataset.font);
+
+        applyFont(
+            this.dataset.font
+        );
 
     });
 
@@ -1897,381 +3165,507 @@ document.querySelectorAll("[data-font]").forEach(button => {
 
 
 /* =========================================================
-   HIGHLIGHTING
+   GET SELECTED RANGE
 ========================================================= */
 
 function getSelectedRange(){
 
-    const selection = window.getSelection();
+    const selection =
+    window.getSelection();
 
-    if(!selection || selection.rangeCount === 0){
-        return null;
-    }
-
-    if(selection.isCollapsed){
-        return null;
-    }
-
-    const range = selection.getRangeAt(0);
-
-    const container = document.querySelector(".page");
-
-    if(!container.contains(range.commonAncestorContainer)){
-        return null;
-    }
-
-    return range;
-}
-
-
-function highlightSelection(color){
-
-    const range = getSelectedRange();
-
-    if(!range){
-
-        alert("Select some text first!");
-
-        return;
-
-    }
-
-    /*
-       Do not allow highlighting an existing annotation.
-    */
 
     if(
-        range.commonAncestorContainer.parentElement &&
-        range.commonAncestorContainer.parentElement.closest(".annotated")
+        !selection ||
+        selection.rangeCount === 0 ||
+        selection.isCollapsed
     ){
 
-        alert("That text already has an annotation.");
-
-        return;
+        return null;
 
     }
 
-    try{
 
-        const span = document.createElement("span");
+    const range =
+    selection.getRangeAt(0);
 
-        span.style.background =
-            getHighlightColor(color);
 
-        span.dataset.highlight =
-            color;
+    const page =
+    document.querySelector(".page");
 
-        range.surroundContents(span);
 
-        saveHighlightRecord(
-            span.textContent,
-            color
-        );
+    if(
+        !page.contains(
+            range.commonAncestorContainer
+        )
+    ){
 
-        window.getSelection().removeAllRanges();
-
-    }catch(error){
-
-        alert(
-            "Please select text within one paragraph at a time."
-        );
+        return null;
 
     }
 
-}
 
-
-function getHighlightColor(color){
-
-    const colors = {
-
-        yellow:"#fff2a8",
-        pink:"#ffc8df",
-        blue:"#c8e8ff",
-        green:"#c9f3d2",
-        purple:"#dfceff"
-
-    };
-
-    return colors[color] || colors.yellow;
-
-}
-
-
-function saveHighlightRecord(text,color){
-
-    studyData.highlights.push({
-        text:text,
-        color:color
-    });
-
-    saveData();
+    return range;
 
 }
 
 
 /* =========================================================
-   UNHIGHLIGHT
+   HIGHLIGHT
 ========================================================= */
 
-function removeHighlight(){
+function highlightSelection(color){
 
-    const range = getSelectedRange();
+    const range =
+    getSelectedRange();
+
 
     if(!range){
 
-        alert("Select highlighted text first!");
+        alert(
+        "Select some text first!"
+        );
 
         return;
 
     }
 
-    const elements = document.querySelectorAll(
-        "[data-highlight]"
+
+    /*
+       Prevent highlighting inside
+       an annotation.
+    */
+
+    const parent =
+    range.commonAncestorContainer.parentElement;
+
+
+    if(
+        parent &&
+        parent.closest(".annotation")
+    ){
+
+        alert(
+        "You cannot highlight inside an annotation."
+        );
+
+        return;
+
+    }
+
+
+    try{
+
+        const span =
+        document.createElement("span");
+
+
+        span.className =
+        "highlight-" + color;
+
+
+        span.dataset.highlight =
+        color;
+
+
+        const contents =
+        range.extractContents();
+
+
+        span.appendChild(
+        contents
+        );
+
+
+        range.insertNode(
+        span
+        );
+
+
+        studyData.highlights.push({
+
+            text:span.textContent,
+
+            color:color
+
+        });
+
+
+        saveStudyData();
+
+
+        window
+        .getSelection()
+        .removeAllRanges();
+
+
+    }catch(error){
+
+        alert(
+        "Please select text within one paragraph at a time."
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   REMOVE HIGHLIGHT
+========================================================= */
+
+function removeHighlight(){
+
+    const range =
+    getSelectedRange();
+
+
+    if(!range){
+
+        alert(
+        "Select highlighted text first!"
+        );
+
+        return;
+
+    }
+
+
+    const highlights =
+    document.querySelectorAll(
+    "[data-highlight]"
     );
 
-    let changed = false;
 
-    elements.forEach(element => {
+    let removed = false;
+
+
+    highlights.forEach(
+    highlight => {
 
         if(
-            range.intersectsNode(element)
+            range.intersectsNode(
+            highlight
+            )
         ){
 
             const parent =
-                element.parentNode;
+            highlight.parentNode;
 
-            while(element.firstChild){
+
+            while(
+            highlight.firstChild
+            ){
 
                 parent.insertBefore(
-                    element.firstChild,
-                    element
+                    highlight.firstChild,
+                    highlight
                 );
 
             }
 
-            parent.removeChild(element);
 
-            changed = true;
+            parent.removeChild(
+            highlight
+            );
+
+
+            removed = true;
 
         }
 
     });
 
-    if(changed){
 
-        rebuildHighlights();
+    if(removed){
+
+        rebuildHighlightStorage();
 
     }
 
-    window.getSelection().removeAllRanges();
 
-}
-
-
-function rebuildHighlights(){
-
-    const highlights = [];
-
-    document
-        .querySelectorAll("[data-highlight]")
-        .forEach(el => {
-
-            highlights.push({
-                text:el.textContent,
-                color:el.dataset.highlight
-            });
-
-        });
-
-    studyData.highlights = highlights;
-
-    saveData();
+    window
+    .getSelection()
+    .removeAllRanges();
 
 }
 
 
 /* =========================================================
-   ANNOTATION SYSTEM
+   REBUILD HIGHLIGHT STORAGE
 ========================================================= */
 
-let pendingAnnotationRange = null;
-let pendingAnnotationText = "";
+function rebuildHighlightStorage(){
 
+    const newHighlights = [];
+
+
+    document
+    .querySelectorAll("[data-highlight]")
+    .forEach(element => {
+
+        newHighlights.push({
+
+            text:
+            element.textContent,
+
+            color:
+            element.dataset.highlight
+
+        });
+
+    });
+
+
+    studyData.highlights =
+    newHighlights;
+
+
+    saveStudyData();
+
+}
+
+
+/* =========================================================
+   ANNOTATE
+========================================================= */
 
 function startAnnotation(){
 
-    const range = getSelectedRange();
+    const range =
+    getSelectedRange();
+
 
     if(!range){
 
-        alert("Select some text first!");
+        alert(
+        "Select some text first!"
+        );
 
         return;
 
     }
 
-    /*
-       Don't annotate text already annotated.
-    */
+
+    const parent =
+    range.commonAncestorContainer.parentElement;
+
 
     if(
-        range.commonAncestorContainer.parentElement &&
-        range.commonAncestorContainer.parentElement.closest(".annotated")
+        parent &&
+        parent.closest(".annotation")
     ){
 
-        alert("That text already has an annotation.");
+        alert(
+        "That text already has an annotation."
+        );
 
         return;
 
     }
 
-    pendingAnnotationRange =
-        range.cloneRange();
 
-    pendingAnnotationText =
-        range.toString().trim();
+    const selectedText =
+    range.toString().trim();
 
-    if(!pendingAnnotationText){
 
-        alert("Select some text first!");
+    if(!selectedText){
+
+        alert(
+        "Select some text first!"
+        );
 
         return;
 
     }
 
-    document
-        .getElementById("selectedTextPreview")
-        .textContent =
-        `"${pendingAnnotationText}"`;
+
+    pendingRange =
+    range.cloneRange();
+
+
+    editingAnnotationId =
+    null;
+
 
     document
-        .getElementById("annotationInput")
-        .value = "";
+    .getElementById(
+        "modalTitle"
+    )
+    .textContent =
+    "📝 Add an Annotation";
+
 
     document
-        .getElementById("annotationModal")
-        .classList.add("show");
+    .getElementById(
+        "modalDescription"
+    )
+    .textContent =
+    "Your selected text will stay visible and become underlined.";
+
+
+    document
+    .getElementById(
+        "selectedTextPreview"
+    )
+    .textContent =
+    `"${selectedText}"`;
+
+
+    document
+    .getElementById(
+        "annotationInput"
+    )
+    .value =
+    "";
+
+
+    document
+    .getElementById(
+        "modalSaveButton"
+    )
+    .textContent =
+    "Save Annotation";
+
+
+    document
+    .getElementById(
+        "annotationModal"
+    )
+    .classList.add("show");
 
 }
 
 
-function closeAnnotation(){
+/* =========================================================
+   SAVE NEW ANNOTATION
+========================================================= */
 
-    pendingAnnotationRange = null;
-    pendingAnnotationText = "";
+function saveNewAnnotation(){
 
-    document
-        .getElementById("annotationModal")
-        .classList.remove("show");
-
-}
-
-
-function saveAnnotation(){
-
-    if(
-        !pendingAnnotationRange ||
-        !pendingAnnotationText
-    ){
+    if(!pendingRange){
 
         return;
 
     }
+
 
     const note =
-        document
-        .getElementById("annotationInput")
-        .value
-        .trim();
+    document
+    .getElementById(
+        "annotationInput"
+    )
+    .value
+    .trim();
+
 
     if(!note){
 
-        alert("Write a note first!");
+        alert(
+        "Write a note first!"
+        );
 
         return;
 
     }
 
-    /*
-       Create a permanent ID.
-    */
+
+    const text =
+    pendingRange
+    .toString()
+    .trim();
+
+
+    if(!text){
+
+        return;
+
+    }
+
 
     const id =
-        "annotation_" +
-        Date.now() +
-        "_" +
-        Math.random()
-        .toString(36)
-        .slice(2,8);
+    "annotation_" +
+    Date.now() +
+    "_" +
+    Math.random()
+    .toString(36)
+    .substring(2,8);
+
 
     try{
 
-        const range =
-            pendingAnnotationRange;
-
         const span =
-            document.createElement("span");
+        document.createElement("span");
+
 
         span.className =
-            "annotated";
+        "annotation";
+
 
         span.dataset.annotationId =
-            id;
+        id;
 
-        /*
-           Extracting the contents means the original
-           selected words stay visible.
-        */
 
         const contents =
-            range.extractContents();
+        pendingRange.extractContents();
 
-        span.appendChild(contents);
 
-        /*
-           Small clickable note icon.
-        */
+        span.appendChild(
+        contents
+        );
 
-        const badge =
-            document.createElement("sup");
 
-        badge.className =
-            "annotation-badge";
+        const icon =
+        document.createElement("sup");
 
-        badge.textContent =
-            " 📝";
 
-        span.appendChild(badge);
+        icon.className =
+        "annotation-icon";
 
-        range.insertNode(span);
 
-        /*
-           Save the exact text and note.
-        */
+        icon.textContent =
+        "📝";
+
+
+        span.appendChild(
+        icon
+        );
+
+
+        pendingRange.insertNode(
+        span
+        );
+
 
         studyData.annotations[id] = {
 
-            text:pendingAnnotationText,
+            text:text,
 
             note:note
 
         };
 
-        saveData();
 
-        closeAnnotation();
+        saveStudyData();
 
-        window.getSelection().removeAllRanges();
 
-        attachAnnotationListeners();
+        closeAnnotationModal();
+
+
+        window
+        .getSelection()
+        .removeAllRanges();
+
+
+        attachAnnotationClicks();
+
 
     }catch(error){
 
         console.error(error);
 
+
         alert(
-            "Please select text within one paragraph at a time."
+        "Please select text within one paragraph at a time."
         );
 
     }
@@ -2280,104 +3674,453 @@ function saveAnnotation(){
 
 
 /* =========================================================
-   CLICK ANNOTATIONS
+   CLICK ANNOTATION
 ========================================================= */
 
-function attachAnnotationListeners(){
+function attachAnnotationClicks(){
 
     document
-        .querySelectorAll(".annotated")
-        .forEach(element => {
+    .querySelectorAll(".annotation")
+    .forEach(annotation => {
 
-            element.onclick = function(event){
+        annotation.onclick =
+        function(event){
 
-                event.stopPropagation();
-
-                const id =
-                    this.dataset.annotationId;
-
-                const annotation =
-                    studyData.annotations[id];
-
-                if(!annotation){
-
-                    return;
-
-                }
-
-                showAnnotation(
-                    annotation.text,
-                    annotation.note,
-                    id
-                );
-
-            };
-
-        });
-
-}
+            event.stopPropagation();
 
 
-function showAnnotation(text,note,id){
+            const id =
+            this.dataset.annotationId;
 
-    document
-        .getElementById("selectedTextPreview")
-        .textContent =
-        `"${text}"`;
 
-    document
-        .getElementById("annotationInput")
-        .value =
-        note;
+            const data =
+            studyData.annotations[id];
 
-    const modal =
-        document
-        .getElementById("annotationModal");
 
-    modal.classList.add("show");
-
-    /*
-       Temporarily change Save button behavior
-       so an existing note can be edited.
-    */
-
-    const saveButton =
-        modal.querySelector(".save");
-
-    saveButton.textContent =
-        "Save Changes";
-
-    saveButton.onclick =
-        function(){
-
-            const newNote =
-                document
-                .getElementById("annotationInput")
-                .value
-                .trim();
-
-            if(!newNote){
-
-                alert("Write a note first!");
+            if(!data){
 
                 return;
 
             }
 
-            studyData.annotations[id].note =
-                newNote;
 
-            saveData();
-
-            closeAnnotation();
-
-            saveButton.textContent =
-                "Save Annotation";
-
-            saveButton.onclick =
-                saveAnnotation;
+            openExistingAnnotation(
+                id,
+                data
+            );
 
         };
+
+    });
+
+}
+
+
+/* =========================================================
+   OPEN EXISTING ANNOTATION
+========================================================= */
+
+function openExistingAnnotation(
+id,
+data
+){
+
+    editingAnnotationId =
+    id;
+
+
+    pendingRange =
+    null;
+
+
+    document
+    .getElementById(
+        "modalTitle"
+    )
+    .textContent =
+    "📝 Your Annotation";
+
+
+    document
+    .getElementById(
+        "modalDescription"
+    )
+    .textContent =
+    "Edit your note or close this window.";
+
+
+    document
+    .getElementById(
+        "selectedTextPreview"
+    )
+    .textContent =
+    `"${data.text}"`;
+
+
+    document
+    .getElementById(
+        "annotationInput"
+    )
+    .value =
+    data.note;
+
+
+    document
+    .getElementById(
+        "modalSaveButton"
+    )
+    .textContent =
+    "Save Changes";
+
+
+    document
+    .getElementById(
+        "modalSaveButton"
+    )
+    .onclick =
+    saveEditedAnnotation;
+
+
+    document
+    .getElementById(
+        "annotationModal"
+    )
+    .classList.add("show");
+
+}
+
+
+/* =========================================================
+   SAVE EDITED ANNOTATION
+========================================================= */
+
+function saveEditedAnnotation(){
+
+    if(!editingAnnotationId){
+
+        return;
+
+    }
+
+
+    const note =
+    document
+    .getElementById(
+        "annotationInput"
+    )
+    .value
+    .trim();
+
+
+    if(!note){
+
+        alert(
+        "Write a note first!"
+        );
+
+        return;
+
+    }
+
+
+    studyData
+    .annotations
+    [editingAnnotationId]
+    .note =
+    note;
+
+
+    saveStudyData();
+
+
+    resetAnnotationModal();
+
+
+    alert(
+    "Annotation saved! 📝"
+    );
+
+}
+
+
+/* =========================================================
+   REMOVE ANNOTATION
+========================================================= */
+
+function removeAnnotation(){
+
+    /*
+       First try to find an annotation
+       from the current text selection.
+    */
+
+    const selection =
+    window.getSelection();
+
+
+    let annotation = null;
+
+
+    if(
+        selection &&
+        selection.rangeCount > 0 &&
+        !selection.isCollapsed
+    ){
+
+        const range =
+        selection.getRangeAt(0);
+
+
+        let node =
+        range.commonAncestorContainer;
+
+
+        if(
+            node.nodeType ===
+            Node.TEXT_NODE
+        ){
+
+            node =
+            node.parentElement;
+
+        }
+
+
+        if(node){
+
+            annotation =
+            node.closest(
+            ".annotation"
+            );
+
+        }
+
+
+        /*
+           If selection intersects an
+           annotation, use that one.
+        */
+
+        if(!annotation){
+
+            document
+            .querySelectorAll(
+            ".annotation"
+            )
+            .forEach(element => {
+
+                if(
+                    !annotation &&
+                    range.intersectsNode(
+                    element
+                    )
+                ){
+
+                    annotation =
+                    element;
+
+                }
+
+            });
+
+        }
+
+    }
+
+
+    /*
+       If nothing is selected, use the
+       annotation that was most recently
+       clicked.
+    */
+
+    if(
+        !annotation &&
+        lastClickedAnnotation
+    ){
+
+        annotation =
+        lastClickedAnnotation;
+
+    }
+
+
+    if(!annotation){
+
+        alert(
+        "Select or click an underlined annotation first!"
+        );
+
+        return;
+
+    }
+
+
+    const id =
+    annotation.dataset.annotationId;
+
+
+    const confirmed =
+    confirm(
+    "Remove this annotation? The original text will stay."
+    );
+
+
+    if(!confirmed){
+
+        return;
+
+    }
+
+
+    /*
+       Remove only the annotation wrapper.
+       The actual text remains.
+    */
+
+    const parent =
+    annotation.parentNode;
+
+
+    while(
+    annotation.firstChild
+    ){
+
+        const child =
+        annotation.firstChild;
+
+
+        /*
+           Remove the little 📝 icon.
+        */
+
+        if(
+            child.nodeType ===
+            Node.ELEMENT_NODE &&
+            child.classList.contains(
+            "annotation-icon"
+            )
+        ){
+
+            annotation.removeChild(
+            child
+            );
+
+            continue;
+
+        }
+
+
+        parent.insertBefore(
+        child,
+        annotation
+        );
+
+    }
+
+
+    parent.removeChild(
+    annotation
+    );
+
+
+    /*
+       Remove saved note.
+    */
+
+    if(
+        id &&
+        studyData.annotations[id]
+    ){
+
+        delete studyData.annotations[id];
+
+    }
+
+
+    saveStudyData();
+
+
+    lastClickedAnnotation =
+    null;
+
+
+    window
+    .getSelection()
+    .removeAllRanges();
+
+}
+
+
+/* =========================================================
+   LAST CLICKED ANNOTATION
+========================================================= */
+
+let lastClickedAnnotation =
+null;
+
+
+document.addEventListener(
+"click",
+function(event){
+
+    const annotation =
+    event.target.closest(
+    ".annotation"
+    );
+
+
+    if(annotation){
+
+        lastClickedAnnotation =
+        annotation;
+
+    }
+
+});
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeAnnotationModal(){
+
+    resetAnnotationModal();
+
+}
+
+
+function resetAnnotationModal(){
+
+    pendingRange =
+    null;
+
+
+    editingAnnotationId =
+    null;
+
+
+    const saveButton =
+    document
+    .getElementById(
+        "modalSaveButton"
+    );
+
+
+    saveButton.textContent =
+    "Save Annotation";
+
+
+    saveButton.onclick =
+    saveNewAnnotation;
+
+
+    document
+    .getElementById(
+        "annotationModal"
+    )
+    .classList.remove("show");
 
 }
 
@@ -2389,142 +4132,164 @@ function showAnnotation(text,note,id){
 function restoreAnnotations(){
 
     const annotations =
-        studyData.annotations;
+    studyData.annotations;
+
 
     Object.keys(annotations)
-        .forEach(id => {
+    .forEach(id => {
 
-            const data =
-                annotations[id];
+        const data =
+        annotations[id];
 
-            const found =
-                findTextNodeContaining(
-                    data.text
-                );
 
-            if(!found){
+        const found =
+        findText(data.text);
 
-                return;
 
-            }
+        if(!found){
 
-            /*
-               Don't double-wrap.
-            */
+            return;
 
-            if(
-                found.node.parentElement &&
-                found.node.parentElement.closest(".annotated")
-            ){
+        }
 
-                return;
 
-            }
+        const range =
+        document.createRange();
 
-            const range =
-                document.createRange();
 
-            range.setStart(
-                found.node,
-                found.start
-            );
+        range.setStart(
+        found.node,
+        found.start
+        );
 
-            range.setEnd(
-                found.node,
-                found.end
-            );
 
-            const span =
-                document.createElement("span");
+        range.setEnd(
+        found.node,
+        found.end
+        );
 
-            span.className =
-                "annotated";
 
-            span.dataset.annotationId =
-                id;
+        const span =
+        document.createElement(
+        "span"
+        );
 
-            const contents =
-                range.extractContents();
 
-            span.appendChild(contents);
+        span.className =
+        "annotation";
 
-            const badge =
-                document.createElement("sup");
 
-            badge.className =
-                "annotation-badge";
+        span.dataset.annotationId =
+        id;
 
-            badge.textContent =
-                " 📝";
 
-            span.appendChild(badge);
+        const contents =
+        range.extractContents();
 
-            range.insertNode(span);
 
-        });
+        span.appendChild(
+        contents
+        );
 
-    attachAnnotationListeners();
+
+        const icon =
+        document.createElement(
+        "sup"
+        );
+
+
+        icon.className =
+        "annotation-icon";
+
+
+        icon.textContent =
+        "📝";
+
+
+        span.appendChild(
+        icon
+        );
+
+
+        range.insertNode(
+        span
+        );
+
+    });
+
+
+    attachAnnotationClicks();
 
 }
 
 
-/*
-   Find text only inside actual lesson content.
-*/
+/* =========================================================
+   FIND TEXT
+========================================================= */
 
-function findTextNodeContaining(searchText){
+function findText(searchText){
 
     const root =
-        document.querySelector(".page");
+    document.querySelector(
+        ".page"
+    );
 
-    if(!root) return null;
 
     const walker =
-        document.createTreeWalker(
-            root,
-            NodeFilter.SHOW_TEXT,
-            {
+    document.createTreeWalker(
 
-                acceptNode:function(node){
+        root,
 
-                    /*
-                       Ignore scripts, styles, buttons,
-                       navigation, and already annotated text.
-                    */
+        NodeFilter.SHOW_TEXT,
 
-                    const parent =
-                        node.parentElement;
+        {
 
-                    if(!parent) {
+            acceptNode:function(node){
 
-                        return NodeFilter.FILTER_REJECT;
+                const parent =
+                node.parentElement;
 
-                    }
 
-                    if(
-                        parent.closest(
-                            "script,style,button,a,.annotated"
-                        )
-                    ){
+                if(!parent){
 
-                        return NodeFilter.FILTER_REJECT;
-
-                    }
-
-                    return NodeFilter.FILTER_ACCEPT;
+                    return NodeFilter.FILTER_REJECT;
 
                 }
 
+
+                if(
+                    parent.closest(
+                    "script,style,button,a,.annotation"
+                    )
+                ){
+
+                    return NodeFilter.FILTER_REJECT;
+
+                }
+
+
+                return NodeFilter.FILTER_ACCEPT;
+
             }
-        );
+
+        }
+
+    );
+
 
     let node;
 
-    while(node = walker.nextNode()){
+
+    while(
+    node =
+    walker.nextNode()
+    ){
 
         const index =
-            node.nodeValue
-            .indexOf(searchText);
+        node.nodeValue.indexOf(
+        searchText
+        );
+
 
         if(index !== -1){
 
@@ -2534,13 +4299,16 @@ function findTextNodeContaining(searchText){
 
                 start:index,
 
-                end:index + searchText.length
+                end:
+                index +
+                searchText.length
 
             };
 
         }
 
     }
+
 
     return null;
 
@@ -2556,25 +4324,34 @@ function checkQuiz(){
     const answers = {
 
         q1:"b",
+
         q2:"a",
+
         q3:"b",
+
         q4:"a",
+
         q5:"b"
 
     };
 
+
     let score = 0;
 
-    Object.keys(answers).forEach(question => {
+
+    Object.keys(answers)
+    .forEach(question => {
 
         const selected =
-            document.querySelector(
-                `input[name="${question}"]:checked`
-            );
+        document.querySelector(
+        `input[name="${question}"]:checked`
+        );
+
 
         if(
             selected &&
-            selected.value === answers[question]
+            selected.value ===
+            answers[question]
         ){
 
             score++;
@@ -2583,36 +4360,48 @@ function checkQuiz(){
 
     });
 
-    const result =
-        document.getElementById("quizResult");
-
-    result.style.display =
-        "block";
 
     const percentage =
-        Math.round(
-            (score / 5) * 100
-        );
+    Math.round(
+    score / 5 * 100
+    );
+
+
+    const result =
+    document.getElementById(
+    "quizResult"
+    );
+
+
+    result.style.display =
+    "block";
+
 
     result.innerHTML =
-        `🎀 You got <strong>${score}/5</strong> correct (${percentage}%).`;
+    `🎀 You got <strong>${score}/5</strong> correct (${percentage}%).`;
+
 
     if(score === 5){
 
         result.innerHTML +=
-            "<br>Perfect! You understood the main ideas from Lesson 1! 🧬";
-
-    }else if(score >= 3){
-
-        result.innerHTML +=
-            "<br>Nice job! Review the sections you missed and try again.";
-
-    }else{
-
-        result.innerHTML +=
-            "<br>Go back through the reading and try the quiz again.";
+        "<br><br>🌟 Perfect! You understood the main ideas from Lesson 1!";
 
     }
+
+    else if(score >= 3){
+
+        result.innerHTML +=
+        "<br><br>💗 Nice job! Review anything you missed and try again.";
+
+    }
+
+    else{
+
+        result.innerHTML +=
+        "<br><br>📖 Go back through the lesson and try the quiz again.";
+
+    }
+
 
     updateProgress();
 
@@ -2620,17 +4409,20 @@ function checkQuiz(){
 
 
 /* =========================================================
-   COMPLETION
+   COMPLETE LESSON
 ========================================================= */
 
 function completeLesson(){
 
     studyData.completed =
-        true;
+    true;
 
-    saveData();
+
+    saveStudyData();
+
 
     updateCompletion();
+
 
     updateProgress();
 
@@ -2640,17 +4432,21 @@ function completeLesson(){
 function updateCompletion(){
 
     const button =
-        document
-        .getElementById("completeButton");
+    document.getElementById(
+    "completeButton"
+    );
+
 
     if(
         studyData.completed
     ){
 
         button.textContent =
-            "✓ Lesson Completed";
+        "✓ Lesson Completed";
 
-        button.classList.add("done");
+        button.classList.add(
+        "done"
+        );
 
     }
 
@@ -2663,42 +4459,52 @@ function updateCompletion(){
 
 function updateProgress(){
 
-    let progress = 0;
+    let progress = 20;
 
-    if(studyData.completed){
+
+    if(
+        studyData.completed
+    ){
 
         progress = 100;
 
-    }else{
+    }
 
-        const quiz =
-            document
-            .getElementById("quizResult");
+    else{
+
+        const result =
+        document.getElementById(
+        "quizResult"
+        );
+
 
         if(
-            quiz &&
-            quiz.style.display === "block"
+            result &&
+            result.style.display ===
+            "block"
         ){
 
             progress = 75;
-
-        }else{
-
-            progress = 20;
 
         }
 
     }
 
-    document
-        .getElementById("progressBar")
-        .style.width =
-        progress + "%";
 
     document
-        .getElementById("progressText")
-        .textContent =
-        progress + "%";
+    .getElementById(
+    "progressBar"
+    )
+    .style.width =
+    progress + "%";
+
+
+    document
+    .getElementById(
+    "progressText"
+    )
+    .textContent =
+    progress + "%";
 
 }
 
@@ -2710,9 +4516,10 @@ function updateProgress(){
 function clearStudyData(){
 
     const confirmed =
-        confirm(
-            "Clear all highlights and annotations from Lesson 1?"
-        );
+    confirm(
+    "Clear all highlights, annotations, and completion data for Lesson 1?"
+    );
+
 
     if(!confirmed){
 
@@ -2720,9 +4527,11 @@ function clearStudyData(){
 
     }
 
+
     localStorage.removeItem(
-        STORAGE_KEY
+    STORAGE_KEY
     );
+
 
     location.reload();
 
@@ -2733,83 +4542,93 @@ function clearStudyData(){
    INITIALIZE
 ========================================================= */
 
-loadData();
+loadStudyData();
 
-
-/*
-   Restore saved theme.
-*/
 
 const savedTheme =
-    localStorage.getItem(
-        "mednoteslab_theme"
-    );
+localStorage.getItem(
+"mednoteslab_theme"
+);
+
 
 if(savedTheme){
 
-    applyTheme(savedTheme);
+    applyTheme(
+    savedTheme
+    );
+
 
     document
-        .querySelectorAll("[data-theme]")
-        .forEach(button => {
+    .querySelectorAll(
+    "[data-theme]"
+    )
+    .forEach(button => {
 
-            button.classList.toggle(
-                "active",
-                button.dataset.theme === savedTheme
-            );
+        button.classList.toggle(
+        "active",
+        button.dataset.theme ===
+        savedTheme
+        );
 
-        });
+    });
 
 }
 
 
-/*
-   Restore saved font.
-*/
-
 const savedFont =
-    localStorage.getItem(
-        "mednoteslab_font"
-    );
+localStorage.getItem(
+"mednoteslab_font"
+);
+
 
 if(savedFont){
 
-    applyFont(savedFont);
+    applyFont(
+    savedFont
+    );
+
 
     document
-        .querySelectorAll("[data-font]")
-        .forEach(button => {
+    .querySelectorAll(
+    "[data-font]"
+    )
+    .forEach(button => {
 
-            button.classList.toggle(
-                "active",
-                button.dataset.font === savedFont
-            );
+        button.classList.toggle(
+        "active",
+        button.dataset.font ===
+        savedFont
+        );
 
-        });
+    });
 
 }
 
 
 /*
-   Restore saved annotations after page loads.
+   Restore saved annotations
+   after the page is ready.
 */
 
 window.addEventListener(
-    "load",
+"load",
+function(){
+
+    setTimeout(
     function(){
 
-        setTimeout(function(){
+        restoreAnnotations();
 
-            restoreAnnotations();
+        updateCompletion();
 
-            updateCompletion();
+        updateProgress();
 
-            updateProgress();
+    },
+    100
+    );
 
-        },100);
+});
 
-    }
-);
 
 </script>
 
