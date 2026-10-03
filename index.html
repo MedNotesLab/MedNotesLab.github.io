@@ -1,1 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>About | MedStudy</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Nunito", sans-serif;
+            background: #fff7fb;
+            color: #4b3b45;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            width: 100%;
+            padding: 16px 7%;
+
+            background: rgba(255, 247, 251, 0.95);
+            backdrop-filter: blur(10px);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid #f5dce8;
+        }
+
+        .logo {
+            text-decoration: none;
+            font-family: "Baloo 2", sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: #e889b3;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6b5963;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #e889b3;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 430px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 70px 20px;
+
+            background:
+                radial-gradient(circle at 15% 20%, #ffddeb 0, transparent 25%),
+                radial-gradient(circle at 85% 30%, #f7d9eb 0, transparent 25%),
+                #fff7fb;
+        }
+
+        .small-title {
+            color: #e889b3;
+            font-weight: 800;
+            font-size: 17px;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-family: "Baloo 2", sans-serif;
+            font-size: clamp(48px, 7vw, 78px);
+            line-height: 1;
+            color: #4b3b45;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #e889b3;
+        }
+
+        .hero p {
+            max-width: 700px;
+            font-size: 19px;
+            line-height: 1.7;
+            color: #75636d;
+        }
+
+        /* MAIN */
+
+        main {
+            max-width: 1050px;
+            margin: auto;
+            padding: 70px 25px;
+        }
+
+        .section {
+            background: white;
+            border: 1px solid #f3dce7;
+            border-radius: 28px;
+            padding: 45px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(218, 139, 174, 0.08);
+        }
+
+        .section h2 {
+            font-family: "Baloo 2", sans-serif;
+            font-size: 34px;
+            color: #4b3b45;
+            margin-bottom: 15px;
+        }
+
+        .section h2 span {
+            color: #e889b3;
+        }
+
+        .section p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #6e5d66;
+        }
+
+        /* FEATURES */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature {
+            padding: 25px;
+            background: #fff4f9;
+            border-radius: 20px;
+            border: 1px solid #f4dce7;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #fbd7e7;
+            border-radius: 15px;
+
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            font-family: "Baloo 2", sans-serif;
+            font-size: 22px;
+            margin-bottom: 7px;
+        }
+
+        .feature p {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* COURSES */
+
+        .course-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .course {
+            padding: 18px 20px;
+            background: #fff7fb;
+            border: 1px solid #f3dce7;
+            border-radius: 16px;
+
+            font-weight: 700;
+            color: #5b4953;
+        }
+
+        .course span {
+            color: #e889b3;
+        }
+
+        /* HOW IT WORKS */
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        .step-number {
+            width: 55px;
+            height: 55px;
+
+            margin: 0 auto 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #e889b3;
+            color: white;
+
+            border-radius: 50%;
+
+            font-family: "Baloo 2", sans-serif;
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .step h3 {
+            font-family: "Baloo 2", sans-serif;
+            font-size: 22px;
+            margin-bottom: 7px;
+        }
+
+        .step p {
+            font-size: 15px;
+        }
+
+        /* DISCLAIMER */
+
+        .notice {
+            background: #fff0f6;
+            border: 1px solid #f2cadb;
+            border-radius: 22px;
+            padding: 25px;
+        }
+
+        .notice h3 {
+            font-family: "Baloo 2", sans-serif;
+            font-size: 23px;
+            margin-bottom: 8px;
+            color: #d875a1;
+        }
+
+        .notice p {
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* BUTTON */
+
+        .button-container {
+            text-align: center;
+            margin-top: 45px;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 15px 30px;
+
+            background: #e889b3;
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 50px;
+
+            font-weight: 800;
+            font-size: 16px;
+
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #d976a3;
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            border-top: 1px solid #f3dce7;
+            color: #8b7780;
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 750px) {
+
+            nav {
+                padding: 14px 5%;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+            .hero {
+                min-height: 380px;
+            }
+
+            .section {
+                padding: 30px 22px;
+            }
+
+            .features,
+            .steps,
+            .course-list {
+                grid-template-columns: 1fr;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <a href="index.html" class="logo">MedStudy ♡</a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#courses">Courses</a>
+            <a href="about.html">About</a>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="small-title">WELCOME TO MEDSTUDY ♡</div>
+
+        <h1>About <span>MedStudy</span></h1>
+
+        <p>
+            MedStudy is a free educational website designed to help you learn
+            medical science step by step, starting with the basics and
+            gradually building toward more advanced topics.
+        </p>
+
+    </section>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main>
+
+        <!-- WHAT IS MEDSTUDY -->
+
+        <section class="section">
+
+            <h2>What is <span>MedStudy?</span></h2>
+
+            <p>
+                MedStudy is a free online learning platform focused on
+                medical science. The goal is to make complicated science
+                topics easier to understand by organizing them into
+                structured courses and individual lessons.
+            </p>
+
+            <br>
+
+            <p>
+                Instead of trying to learn everything at once, you can work
+                through the material step by step, beginning with the
+                foundations of health science and eventually connecting
+                everything together through medicine, research, and medical
+                case studies.
+            </p>
+
+        </section>
+
+
+        <!-- WHAT YOU CAN LEARN -->
+
+        <section class="section">
+
+            <h2>What can you <span>learn?</span></h2>
+
+            <p>
+                MedStudy currently contains 11 courses with 102 lessons
+                covering different areas of medical science.
+            </p>
+
+            <div class="features">
+
+                <div class="feature">
+                    <div class="feature-icon">🧬</div>
+                    <h3>Understand Biology</h3>
+                    <p>
+                        Learn about cells, DNA, genetics, tissues, and
+                        how the body is organized.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🫀</div>
+                    <h3>Learn the Body</h3>
+                    <p>
+                        Explore anatomy and physiology, including the
+                        heart, brain, lungs, kidneys, and more.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🔬</div>
+                    <h3>Explore Medicine</h3>
+                    <p>
+                        Learn about diseases, medications, research,
+                        clinical studies, and medical science.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- COURSES -->
+
+        <section class="section">
+
+            <h2>The <span>Courses</span></h2>
+
+            <p>
+                The curriculum is organized into 11 courses that build on
+                one another.
+            </p>
+
+            <div class="course-list">
+
+                <div class="course"><span>01</span> Foundations of Health Science</div>
+                <div class="course"><span>02</span> Cells</div>
+                <div class="course"><span>03</span> Genetics & DNA</div>
+                <div class="course"><span>04</span> Anatomy</div>
+                <div class="course"><span>05</span> Physiology</div>
+                <div class="course"><span>06</span> Microbiology</div>
+                <div class="course"><span>07</span> Disease & Pathophysiology</div>
+                <div class="course"><span>08</span> Mental Health & Neuroscience</div>
+                <div class="course"><span>09</span> Medicine</div>
+                <div class="course"><span>10</span> Medical Research</div>
+                <div class="course"><span>11</span> Putting It Together</div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HOW IT WORKS -->
+
+        <section class="section">
+
+            <h2>How does it <span>work?</span></h2>
+
+            <p>
+                The idea is simple: learn one topic at a time and gradually
+                build your understanding of medical science.
+            </p>
+
+            <div class="steps">
+
+                <div class="step">
+
+                    <div class="step-number">1</div>
+
+                    <h3>Choose</h3>
+
+                    <p>
+                        Pick a course and start with the lesson you want
+                        to learn.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">2</div>
+
+                    <h3>Learn</h3>
+
+                    <p>
+                        Work through the lesson and understand the
+                        important concepts.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">3</div>
+
+                    <h3>Keep Going</h3>
+
+                    <p>
+                        Continue through the courses and connect what
+                        you learn together.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EDUCATIONAL NOTICE -->
+
+        <section class="section">
+
+            <div class="notice">
+
+                <h3>♡ Educational Purpose</h3>
+
+                <p>
+                    MedStudy is intended for educational purposes. The
+                    information on this website is designed to help you
+                    learn about medical science and should not be used as
+                    a substitute for professional medical advice,
+                    diagnosis, or treatment.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- BUTTON -->
+
+        <div class="button-container">
+
+            <a href="index.html" class="button">
+                ← Back to Home
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 MedStudy ♡
+        <br>
+        Learn. Understand. Discover.
+
+    </footer>
+
+</body>
+</html>
