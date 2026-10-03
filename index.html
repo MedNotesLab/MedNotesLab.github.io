@@ -5,1264 +5,1157 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MedNotesLab ♡</title>
+<title>MedNotesLab 🎀</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Comfortaa:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&family=Gaegu:wght@400;700&family=Josefin+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&family=Pacifico&family=Patrick+Hand&family=Quicksand:wght@400;500;600;700&family=Sacramento&family=Shantell+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Caveat:wght@400;500;600;700&family=Comfortaa:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@300;400;500;600;700&family=Gaegu:wght@300;400;700&family=Josefin+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800;900&family=Pacifico&family=Patrick+Hand&family=Poppins:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&family=Sacramento&family=Shantell+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-:root {
-    --main: #e78fb4;
-    --main-dark: #c76591;
-    --main-light: #ffeaf3;
-
-    --second: #c9b9ed;
-    --third: #b8dfd5;
-
-    --text: #4d4149;
-    --muted: #8e7d87;
-
-    --card: rgba(255,255,255,0.78);
-    --card-solid: #fffafd;
-
-    --border: rgba(190,145,170,0.22);
-
-    --shadow: 0 15px 40px rgba(112,75,99,0.10);
-
-    --font: "Nunito", sans-serif;
-
-    --radius: 25px;
+:root{
+    --bg:#fff6fb;
+    --bg2:#ffeef7;
+    --card:#ffffff;
+    --card2:#fff9fc;
+    --text:#4b3543;
+    --muted:#987f8e;
+    --primary:#ff72ad;
+    --primary2:#ff9ac6;
+    --secondary:#c9a7ff;
+    --accent:#7ddcf5;
+    --yellow:#ffe58c;
+    --green:#9de4bd;
+    --shadow:0 15px 40px rgba(198,110,155,.14);
+    --radius:28px;
+    --font:'Nunito',sans-serif;
 }
 
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:var(--font);
+    background:
+        radial-gradient(circle at 10% 10%, rgba(255,170,210,.22), transparent 25%),
+        radial-gradient(circle at 90% 20%, rgba(199,171,255,.18), transparent 25%),
+        radial-gradient(circle at 30% 90%, rgba(126,222,245,.15), transparent 25%),
+        var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    overflow-x:hidden;
+    transition:.4s ease;
+}
+
+body.night{
+    --bg:#191522;
+    --bg2:#241d30;
+    --card:#292235;
+    --card2:#211b2b;
+    --text:#f9edf6;
+    --muted:#c2aec0;
+    --shadow:0 15px 40px rgba(0,0,0,.28);
+}
+
+body.blue{
+    --primary:#67bff5;
+    --primary2:#91dcff;
+    --secondary:#9c9cff;
+    --bg:#f0faff;
+    --bg2:#e5f7ff;
+}
+
+body.lavender{
+    --primary:#ad87f7;
+    --primary2:#c9adff;
+    --secondary:#f0a7d8;
+    --bg:#faf5ff;
+    --bg2:#f1e9ff;
+}
+
+body.mint{
+    --primary:#63cda5;
+    --primary2:#91e2c2;
+    --secondary:#8acde8;
+    --bg:#f0fff9;
+    --bg2:#e3fff3;
+}
+
+body.peach{
+    --primary:#ff9a72;
+    --primary2:#ffb493;
+    --secondary:#ffc875;
+    --bg:#fff8f2;
+    --bg2:#ffefe4;
+}
+
+body.sunset{
+    --primary:#ff7898;
+    --primary2:#ffad76;
+    --secondary:#c18aff;
+    --bg:#fff4f0;
+    --bg2:#ffe9ec;
+}
+
+body.darkpink{
+    --primary:#ff6fae;
+    --primary2:#ff9cc9;
+    --secondary:#a77bff;
+    --bg:#201520;
+    --bg2:#2d1d2d;
+    --card:#302031;
+    --card2:#261a27;
+    --text:#fff0f7;
+    --muted:#c8aebe;
+}
+
+button,
+a{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+    border:0;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
 
 /* =========================
-   BASIC
+   FLOATING DECORATIONS
 ========================= */
 
-* {
-    box-sizing: border-box;
+#decorations{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    overflow:hidden;
 }
 
-html {
-    scroll-behavior: smooth;
+.float{
+    position:absolute;
+    opacity:.55;
+    animation:floatAround 7s ease-in-out infinite;
+    user-select:none;
 }
 
-body {
-    margin: 0;
-    color: var(--text);
-    font-family: var(--font);
-    min-height: 100vh;
-    overflow-x: hidden;
+.float:nth-child(1){top:12%;left:3%;font-size:25px;animation-delay:0s}
+.float:nth-child(2){top:22%;right:5%;font-size:20px;animation-delay:1s}
+.float:nth-child(3){top:48%;left:6%;font-size:17px;animation-delay:2s}
+.float:nth-child(4){top:67%;right:4%;font-size:27px;animation-delay:3s}
+.float:nth-child(5){top:83%;left:4%;font-size:21px;animation-delay:1.5s}
+.float:nth-child(6){top:35%;right:8%;font-size:18px;animation-delay:4s}
+.float:nth-child(7){top:91%;right:12%;font-size:18px;animation-delay:2.5s}
 
-    background:
-        radial-gradient(circle at 8% 8%, #ffddea 0, transparent 22%),
-        radial-gradient(circle at 92% 12%, #e5ddff 0, transparent 23%),
-        radial-gradient(circle at 75% 90%, #d9f5ed 0, transparent 25%),
-        radial-gradient(circle at 20% 80%, #fff0c9 0, transparent 18%),
-        #fffafd;
-
-    transition:
-        background 0.5s ease,
-        color 0.3s ease;
+@keyframes floatAround{
+    0%,100%{transform:translateY(0) rotate(-5deg)}
+    50%{transform:translateY(-18px) rotate(8deg)}
 }
-
 
 /* =========================
-   THEMES
+   TOP NAV
 ========================= */
 
-body.theme-pink {
-    background:
-        radial-gradient(circle at 5% 10%, #ffd7e8 0, transparent 25%),
-        radial-gradient(circle at 95% 20%, #f3d8e8 0, transparent 25%),
-        #fff7fb;
+.nav{
+    position:sticky;
+    top:14px;
+    z-index:50;
+    width:min(1180px,calc(100% - 30px));
+    margin:14px auto 0;
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(20px);
+    border:2px solid rgba(255,255,255,.85);
+    box-shadow:var(--shadow);
+    border-radius:25px;
+    padding:12px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
-body.theme-lavender {
-    background:
-        radial-gradient(circle at 10% 10%, #ddd3ff 0, transparent 28%),
-        radial-gradient(circle at 90% 15%, #f1dcff 0, transparent 28%),
-        #fbf9ff;
+body.night .nav,
+body.darkpink .nav{
+    background:rgba(40,31,48,.82);
+    border-color:rgba(255,255,255,.08);
 }
 
-body.theme-blue {
-    background:
-        radial-gradient(circle at 10% 10%, #cceeff 0, transparent 28%),
-        radial-gradient(circle at 90% 20%, #d8e6ff 0, transparent 28%),
-        #f8fcff;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    font-weight:900;
+    font-size:21px;
+    color:var(--primary);
 }
 
-body.theme-mint {
-    background:
-        radial-gradient(circle at 10% 10%, #c9f1e5 0, transparent 28%),
-        radial-gradient(circle at 90% 20%, #d9f5c9 0, transparent 28%),
-        #f8fffc;
+.logo-icon{
+    width:43px;
+    height:43px;
+    border-radius:15px;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(135deg,var(--primary2),var(--secondary));
+    color:white;
+    font-size:23px;
+    box-shadow:0 8px 20px rgba(255,114,173,.22);
 }
 
-body.theme-peach {
-    background:
-        radial-gradient(circle at 10% 10%, #ffddc9 0, transparent 28%),
-        radial-gradient(circle at 90% 20%, #ffe9ba 0, transparent 28%),
-        #fffaf5;
+.nav-links{
+    display:flex;
+    gap:6px;
+    align-items:center;
 }
 
-body.theme-dark {
-    --text: #eee7ed;
-    --muted: #b9abb5;
-    --card: rgba(37,31,39,0.85);
-    --card-solid: #29232c;
-    --border: rgba(255,255,255,0.08);
-    --shadow: 0 15px 45px rgba(0,0,0,0.25);
-
-    background:
-        radial-gradient(circle at 10% 10%, #493449 0, transparent 25%),
-        radial-gradient(circle at 90% 20%, #37334f 0, transparent 25%),
-        #19171b;
+.nav-links a,
+.nav-button{
+    padding:10px 14px;
+    border-radius:15px;
+    color:var(--muted);
+    font-weight:700;
+    background:transparent;
+    transition:.25s;
 }
 
-body.theme-dark header {
-    background: rgba(25,23,27,0.80);
+.nav-links a:hover,
+.nav-button:hover{
+    background:var(--bg2);
+    color:var(--primary);
+    transform:translateY(-2px);
 }
 
-body.theme-dark .secondary-btn,
-body.theme-dark .search-box input,
-body.theme-dark .setting select,
-body.theme-dark .setting button {
-    background: #302a32;
-    color: var(--text);
+.settings-btn{
+    width:44px;
+    height:44px;
+    border-radius:15px;
+    background:var(--bg2);
+    color:var(--primary);
+    font-size:20px;
+    transition:.3s;
 }
 
-body.theme-dark .lesson-number {
-    background: #39313b;
+.settings-btn:hover{
+    transform:rotate(25deg) scale(1.08);
 }
-
-
-/* =========================
-   DECORATIONS
-========================= */
-
-.decorations {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: -1;
-    overflow: hidden;
-}
-
-.decor {
-    position: absolute;
-    opacity: 0.55;
-    animation: float 6s ease-in-out infinite;
-    user-select: none;
-}
-
-.decor:nth-child(1) {
-    left: 3%;
-    top: 18%;
-    font-size: 25px;
-}
-
-.decor:nth-child(2) {
-    right: 5%;
-    top: 30%;
-    font-size: 30px;
-    animation-delay: 1s;
-}
-
-.decor:nth-child(3) {
-    left: 8%;
-    top: 62%;
-    font-size: 22px;
-    animation-delay: 2s;
-}
-
-.decor:nth-child(4) {
-    right: 9%;
-    top: 72%;
-    font-size: 25px;
-    animation-delay: 3s;
-}
-
-.decor:nth-child(5) {
-    left: 45%;
-    top: 8%;
-    font-size: 18px;
-    animation-delay: 1.5s;
-}
-
-.decor:nth-child(6) {
-    right: 30%;
-    top: 50%;
-    font-size: 17px;
-    animation-delay: 2.5s;
-}
-
-@keyframes float {
-    0%,100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-12px) rotate(5deg);
-    }
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-
-    backdrop-filter: blur(20px);
-
-    background: rgba(255,250,253,0.76);
-
-    border-bottom:
-        1px solid var(--border);
-}
-
-.navbar {
-    max-width: 1200px;
-    margin: auto;
-
-    padding: 13px 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    text-decoration: none;
-    color: var(--text);
-
-    display: flex;
-    align-items: center;
-    gap: 11px;
-
-    font-size: 1.25rem;
-    font-weight: 800;
-}
-
-.logo-icon {
-    width: 43px;
-    height: 43px;
-
-    border-radius: 15px;
-
-    display: grid;
-    place-items: center;
-
-    background:
-        linear-gradient(135deg,
-        #ffd8e9,
-        #e8dcff);
-
-    box-shadow:
-        0 8px 20px rgba(180,120,155,0.15);
-
-    font-size: 1.35rem;
-}
-
-.logo-text span {
-    color: var(--main-dark);
-}
-
-.nav-buttons {
-    display: flex;
-    gap: 7px;
-}
-
-.nav-button {
-    border: none;
-    background: transparent;
-
-    color: var(--text);
-
-    font-family: inherit;
-    font-weight: 700;
-
-    padding: 10px 13px;
-
-    border-radius: 14px;
-
-    cursor: pointer;
-
-    transition: 0.2s;
-}
-
-.nav-button:hover {
-    background: var(--main-light);
-    transform: translateY(-1px);
-}
-
-
-/* =========================
-   MAIN
-========================= */
-
-main {
-    max-width: 1200px;
-    margin: auto;
-    padding: 35px 20px 80px;
-}
-
 
 /* =========================
    HERO
 ========================= */
 
-.hero {
-    position: relative;
-
-    padding: 55px;
-
-    border-radius: 35px;
-
-    background: var(--card);
-
-    backdrop-filter: blur(18px);
-
-    border:
-        1px solid rgba(255,255,255,0.7);
-
-    box-shadow: var(--shadow);
-
-    overflow: hidden;
+.hero-wrap{
+    width:min(1180px,calc(100% - 30px));
+    margin:35px auto;
+    position:relative;
+    z-index:2;
 }
 
-.hero::before {
-    content: "♡";
-
-    position: absolute;
-
-    right: 90px;
-    top: 25px;
-
-    font-size: 7rem;
-
-    color: #f5bad2;
-
-    opacity: 0.18;
-
-    transform: rotate(12deg);
+.hero{
+    min-height:480px;
+    position:relative;
+    overflow:hidden;
+    border-radius:40px;
+    padding:65px;
+    background:
+        radial-gradient(circle at 90% 15%,rgba(255,255,255,.75),transparent 18%),
+        radial-gradient(circle at 10% 90%,rgba(255,255,255,.55),transparent 20%),
+        linear-gradient(135deg,var(--primary2),var(--secondary));
+    box-shadow:0 25px 60px rgba(188,117,180,.22);
 }
 
-.hero::after {
-    content: "🧬";
-
-    position: absolute;
-
-    right: 55px;
-    bottom: 25px;
-
-    font-size: 4rem;
-
-    opacity: 0.10;
-
-    transform: rotate(-10deg);
+.hero::before{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:rgba(255,255,255,.16);
+    right:-90px;
+    top:-100px;
 }
 
-.hero-sticker {
-    display: inline-flex;
-
-    align-items: center;
-    gap: 7px;
-
-    padding: 7px 13px;
-
-    border-radius: 50px;
-
-    background: var(--main-light);
-
-    color: var(--main-dark);
-
-    font-size: 0.8rem;
-
-    font-weight: 800;
+.hero::after{
+    content:"";
+    position:absolute;
+    width:190px;
+    height:190px;
+    border-radius:50%;
+    background:rgba(255,255,255,.13);
+    left:42%;
+    bottom:-100px;
 }
 
-.hero h1 {
-    margin: 17px 0 13px;
-
-    font-size: clamp(3rem, 7vw, 5rem);
-
-    line-height: 0.98;
-
-    letter-spacing: -3px;
+.hero-content{
+    max-width:690px;
+    position:relative;
+    z-index:3;
 }
 
-.hero h1 span {
-    color: var(--main-dark);
+.mini-label{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:9px 15px;
+    border-radius:999px;
+    background:rgba(255,255,255,.72);
+    color:#9b5479;
+    font-weight:800;
+    margin-bottom:20px;
 }
 
-.hero-description {
-    max-width: 670px;
-
-    color: var(--muted);
-
-    line-height: 1.75;
-
-    font-size: 1.08rem;
-
-    margin-bottom: 25px;
+.hero h1{
+    font-size:clamp(46px,7vw,82px);
+    line-height:.9;
+    letter-spacing:-3px;
+    color:white;
+    text-shadow:0 5px 0 rgba(140,83,129,.12);
+    margin-bottom:22px;
 }
 
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+.hero h1 span{
+    display:block;
+    font-family:'Pacifico',cursive;
+    font-size:.56em;
+    letter-spacing:0;
+}
+
+.hero p{
+    color:white;
+    font-size:18px;
+    line-height:1.7;
+    max-width:620px;
+    font-weight:600;
+    opacity:.95;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:30px;
 }
 
 .primary-btn,
-.secondary-btn {
-    border: none;
-
-    padding: 13px 19px;
-
-    border-radius: 15px;
-
-    font-family: inherit;
-
-    font-weight: 800;
-
-    cursor: pointer;
-
-    transition: 0.2s;
+.secondary-btn{
+    padding:15px 23px;
+    border-radius:18px;
+    font-weight:900;
+    transition:.25s;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
 }
 
-.primary-btn {
-    color: white;
-
-    background:
-        linear-gradient(135deg,
-        var(--main),
-        var(--main-dark));
-
-    box-shadow:
-        0 9px 22px rgba(200,95,140,0.22);
+.primary-btn{
+    background:white;
+    color:var(--primary);
+    box-shadow:0 10px 25px rgba(87,48,87,.13);
 }
 
-.secondary-btn {
-    background: white;
-
-    color: var(--text);
-
-    border: 1px solid var(--border);
+.secondary-btn{
+    background:rgba(255,255,255,.22);
+    color:white;
+    border:2px solid rgba(255,255,255,.5);
 }
 
 .primary-btn:hover,
-.secondary-btn:hover {
-    transform: translateY(-3px);
+.secondary-btn:hover{
+    transform:translateY(-4px) scale(1.02);
 }
 
+.hero-character{
+    position:absolute;
+    right:70px;
+    bottom:45px;
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    background:rgba(255,255,255,.23);
+    display:grid;
+    place-items:center;
+    font-size:120px;
+    animation:bob 4s ease-in-out infinite;
+    box-shadow:inset 0 0 30px rgba(255,255,255,.2);
+}
+
+@keyframes bob{
+    0%,100%{transform:translateY(0) rotate(-3deg)}
+    50%{transform:translateY(-12px) rotate(3deg)}
+}
 
 /* =========================
-   LITTLE NOTE
+   DASHBOARD
 ========================= */
 
-.cute-note {
-    margin-top: 20px;
-
-    display: inline-block;
-
-    padding: 10px 15px;
-
-    background: rgba(255,255,255,0.65);
-
-    border: 1px dashed #e2aec8;
-
-    border-radius: 15px;
-
-    color: var(--muted);
-
-    font-size: 0.88rem;
-
-    transform: rotate(-1deg);
+.dashboard{
+    width:min(1180px,calc(100% - 30px));
+    margin:0 auto 60px;
+    position:relative;
+    z-index:2;
 }
 
+.section-title{
+    text-align:center;
+    margin:70px 0 25px;
+}
+
+.section-title .tiny{
+    color:var(--primary);
+    font-size:14px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-size:38px;
+    margin-top:5px;
+}
+
+.section-title p{
+    color:var(--muted);
+    margin-top:6px;
+}
+
+/* stats */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:-20px;
+}
+
+.stat{
+    background:var(--card);
+    border:2px solid rgba(255,255,255,.85);
+    box-shadow:var(--shadow);
+    border-radius:25px;
+    padding:22px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    transition:.3s;
+}
+
+.stat:hover{
+    transform:translateY(-6px);
+}
+
+.stat-icon{
+    width:52px;
+    height:52px;
+    border-radius:18px;
+    display:grid;
+    place-items:center;
+    font-size:24px;
+    background:var(--bg2);
+}
+
+.stat strong{
+    font-size:24px;
+    display:block;
+}
+
+.stat span{
+    color:var(--muted);
+    font-size:13px;
+    font-weight:700;
+}
+
+/* progress */
+
+.progress-card{
+    margin-top:20px;
+    background:var(--card);
+    border-radius:28px;
+    padding:25px;
+    box-shadow:var(--shadow);
+    border:2px solid rgba(255,255,255,.8);
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:12px;
+    font-weight:800;
+}
+
+.progress-top span:last-child{
+    color:var(--primary);
+}
+
+.progress-bar{
+    height:15px;
+    background:var(--bg2);
+    border-radius:999px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    border-radius:999px;
+    background:linear-gradient(90deg,var(--primary),var(--secondary),var(--accent));
+    transition:1s ease;
+}
 
 /* =========================
-   STATS
+   CONTINUE CARD
 ========================= */
 
-.stats {
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 14px;
-
-    margin: 18px 0;
+.continue{
+    margin-top:20px;
+    padding:30px;
+    border-radius:30px;
+    background:
+        linear-gradient(135deg,rgba(255,255,255,.88),rgba(255,255,255,.5)),
+        var(--bg2);
+    box-shadow:var(--shadow);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    border:2px solid rgba(255,255,255,.8);
 }
 
-.stat {
-    background: var(--card);
-
-    border: 1px solid var(--border);
-
-    border-radius: var(--radius);
-
-    padding: 19px;
-
-    box-shadow: var(--shadow);
-
-    position: relative;
-
-    overflow: hidden;
+body.night .continue,
+body.darkpink .continue{
+    background:var(--card);
 }
 
-.stat::after {
-    content: "✦";
-
-    position: absolute;
-
-    right: 14px;
-    top: 10px;
-
-    opacity: 0.15;
-
-    font-size: 2rem;
+.continue-left{
+    display:flex;
+    gap:18px;
+    align-items:center;
 }
 
-.stat-icon {
-    font-size: 1.35rem;
+.book{
+    width:65px;
+    height:75px;
+    border-radius:10px 17px 17px 10px;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    display:grid;
+    place-items:center;
+    color:white;
+    font-size:30px;
+    box-shadow:8px 8px 0 rgba(180,130,200,.15);
 }
 
-.stat-number {
-    margin-top: 5px;
-
-    font-size: 1.7rem;
-
-    font-weight: 800;
+.continue small{
+    color:var(--primary);
+    font-weight:900;
 }
 
-.stat-label {
-    color: var(--muted);
-
-    font-size: 0.82rem;
+.continue h3{
+    font-size:22px;
+    margin:3px 0;
 }
 
-
-/* =========================
-   SECTION
-========================= */
-
-.section-heading {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 15px;
-
-    margin: 42px 0 16px;
+.continue p{
+    color:var(--muted);
 }
-
-.section-heading h2 {
-    margin: 0;
-
-    font-size: 1.75rem;
-}
-
-.section-heading p {
-    margin: 4px 0 0;
-
-    color: var(--muted);
-
-    font-size: 0.9rem;
-}
-
 
 /* =========================
    SEARCH
 ========================= */
 
-.search-area {
-    position: relative;
-
-    margin-bottom: 17px;
+.search-box{
+    max-width:650px;
+    margin:0 auto 30px;
+    position:relative;
 }
 
-.search-area input {
-    width: 100%;
-
-    padding: 17px 20px 17px 49px;
-
-    border-radius: 18px;
-
-    border: 1px solid var(--border);
-
-    background: var(--card);
-
-    color: var(--text);
-
-    outline: none;
-
-    font-family: inherit;
-
-    font-size: 1rem;
-
-    box-shadow: var(--shadow);
+.search-box input{
+    width:100%;
+    padding:18px 55px 18px 20px;
+    border-radius:20px;
+    border:2px solid transparent;
+    background:var(--card);
+    color:var(--text);
+    outline:none;
+    box-shadow:var(--shadow);
+    font-size:16px;
+    font-family:inherit;
+    transition:.25s;
 }
 
-.search-area input:focus {
-    border-color: var(--main);
+.search-box input:focus{
+    border-color:var(--primary2);
+    transform:translateY(-2px);
 }
 
-.search-symbol {
-    position: absolute;
-
-    left: 18px;
-    top: 14px;
-
-    font-size: 1.15rem;
+.search-icon{
+    position:absolute;
+    right:19px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:21px;
 }
-
 
 /* =========================
    COURSE CARDS
 ========================= */
 
-.course-list {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 14px;
+.courses{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
 }
 
-.course-card {
-    background: var(--card);
-
-    border: 1px solid var(--border);
-
-    border-radius: var(--radius);
-
-    box-shadow: var(--shadow);
-
-    overflow: hidden;
-
-    transition: 0.25s;
+.course{
+    background:var(--card);
+    border-radius:30px;
+    box-shadow:var(--shadow);
+    border:2px solid rgba(255,255,255,.8);
+    overflow:hidden;
+    transition:.35s;
 }
 
-.course-card:hover {
-    box-shadow:
-        0 18px 45px rgba(112,75,99,0.13);
+.course:hover{
+    transform:translateY(-5px);
 }
 
-.course-header {
-    width: 100%;
-
-    border: none;
-
-    background: transparent;
-
-    color: var(--text);
-
-    font-family: inherit;
-
-    padding: 21px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-    text-align: left;
-
-    cursor: pointer;
+.course-header{
+    padding:24px;
+    display:flex;
+    align-items:center;
+    gap:17px;
+    cursor:pointer;
 }
 
-.course-icon {
-    width: 53px;
-    height: 53px;
-
-    border-radius: 18px;
-
-    display: grid;
-    place-items: center;
-
-    background:
-        linear-gradient(135deg,
-        var(--main-light),
-        #f1e9ff);
-
-    font-size: 1.35rem;
-
-    flex-shrink: 0;
+.course-icon{
+    width:68px;
+    height:68px;
+    flex:none;
+    border-radius:22px;
+    display:grid;
+    place-items:center;
+    font-size:31px;
+    background:var(--bg2);
+    transition:.35s;
 }
 
-.course-info {
-    flex: 1;
+.course:hover .course-icon{
+    transform:rotate(-7deg) scale(1.08);
 }
 
-.course-info h3 {
-    margin: 0 0 4px;
-
-    font-size: 1.08rem;
+.course-info{
+    flex:1;
 }
 
-.course-info p {
-    margin: 0;
-
-    color: var(--muted);
-
-    font-size: 0.86rem;
+.course-number{
+    color:var(--primary);
+    font-size:12px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:1px;
 }
 
-.course-count {
-    color: var(--main-dark);
-
-    font-size: 0.78rem;
-
-    font-weight: 800;
-
-    background: var(--main-light);
-
-    padding: 6px 9px;
-
-    border-radius: 10px;
+.course-title{
+    font-size:20px;
+    font-weight:900;
+    margin:2px 0;
 }
 
-.course-arrow {
-    font-size: 1.1rem;
-
-    transition: transform 0.25s;
+.course-count{
+    color:var(--muted);
+    font-size:13px;
+    font-weight:700;
 }
 
-.course-card.open .course-arrow {
-    transform: rotate(180deg);
+.chevron{
+    width:36px;
+    height:36px;
+    border-radius:12px;
+    background:var(--bg2);
+    display:grid;
+    place-items:center;
+    transition:.3s;
+    color:var(--primary);
 }
 
+.course.open .chevron{
+    transform:rotate(180deg);
+}
+
+.lesson-list{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .45s ease;
+    padding:0 24px;
+}
+
+.course.open .lesson-list{
+    max-height:900px;
+    padding-bottom:22px;
+}
+
+.lesson{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    padding:12px 10px;
+    border-radius:15px;
+    transition:.25s;
+}
+
+.lesson:hover{
+    background:var(--bg2);
+    transform:translateX(5px);
+}
+
+.lesson-num{
+    width:31px;
+    height:31px;
+    border-radius:10px;
+    display:grid;
+    place-items:center;
+    background:var(--bg2);
+    color:var(--primary);
+    font-size:12px;
+    font-weight:900;
+    flex:none;
+}
+
+.lesson a{
+    flex:1;
+    font-weight:700;
+    font-size:14px;
+}
+
+.lesson-check{
+    width:27px;
+    height:27px;
+    border-radius:9px;
+    border:2px solid var(--primary2);
+    background:transparent;
+    color:white;
+    transition:.2s;
+}
+
+.lesson.done .lesson-check{
+    background:var(--primary);
+}
+
+.lesson.done a{
+    text-decoration:line-through;
+    opacity:.55;
+}
 
 /* =========================
-   LESSONS
+   FUN FACT
 ========================= */
 
-.lessons {
-    display: none;
-
-    padding:
-        0 15px 16px;
+.fact{
+    margin-top:30px;
+    padding:30px;
+    border-radius:30px;
+    background:linear-gradient(135deg,var(--yellow),#fff4c4);
+    color:#6f5a32;
+    position:relative;
+    overflow:hidden;
+    box-shadow:var(--shadow);
 }
 
-.course-card.open .lessons {
-    display: block;
+.fact::after{
+    content:"🧬";
+    position:absolute;
+    right:35px;
+    bottom:-25px;
+    font-size:100px;
+    opacity:.15;
 }
 
-.lesson {
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    padding: 11px 13px;
-
-    margin-top: 4px;
-
-    border-radius: 15px;
-
-    transition: 0.2s;
+.fact-label{
+    font-size:12px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:2px;
 }
 
-.lesson:hover {
-    background: var(--main-light);
-
-    transform: translateX(4px);
+.fact h3{
+    font-size:25px;
+    margin:5px 0;
 }
 
-.lesson-link {
-    flex: 1;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    text-decoration: none;
-
-    color: var(--text);
-
-    font-weight: 600;
+.fact p{
+    max-width:700px;
+    line-height:1.6;
 }
 
-.lesson-number {
-    width: 35px;
-    height: 35px;
+/* =========================
+   BADGES
+========================= */
 
-    border-radius: 11px;
-
-    background: #f5edf2;
-
-    display: grid;
-
-    place-items: center;
-
-    color: var(--muted);
-
-    font-size: 0.75rem;
-
-    font-weight: 800;
-
-    flex-shrink: 0;
+.badges{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
 }
 
-.lesson-title {
-    line-height: 1.3;
+.badge{
+    background:var(--card);
+    border-radius:25px;
+    padding:25px 15px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    border:2px solid rgba(255,255,255,.8);
+    transition:.3s;
 }
 
-.check {
-    width: 27px;
-    height: 27px;
-
-    border-radius: 50%;
-
-    border: 2px solid #dfcbd6;
-
-    background: white;
-
-    color: transparent;
-
-    cursor: pointer;
-
-    display: grid;
-
-    place-items: center;
-
-    flex-shrink: 0;
+.badge:hover{
+    transform:translateY(-6px) rotate(-1deg);
 }
 
-.lesson.completed .check {
-    background: var(--main);
-
-    border-color: var(--main);
-
-    color: white;
+.badge-icon{
+    font-size:42px;
+    margin-bottom:8px;
 }
 
-.lesson.completed .lesson-title {
-    opacity: 0.48;
-
-    text-decoration: line-through;
+.badge strong{
+    display:block;
 }
 
+.badge span{
+    color:var(--muted);
+    font-size:12px;
+}
 
 /* =========================
    ABOUT
 ========================= */
 
-.about-grid {
-    display: grid;
-
-    grid-template-columns:
-        1.35fr 1fr;
-
-    gap: 15px;
+.about{
+    margin-top:30px;
+    background:var(--card);
+    border-radius:32px;
+    padding:40px;
+    box-shadow:var(--shadow);
+    text-align:center;
 }
 
-.about-card {
-    background: var(--card);
-
-    border: 1px solid var(--border);
-
-    border-radius: var(--radius);
-
-    padding: 27px;
-
-    box-shadow: var(--shadow);
+.about-icon{
+    font-size:55px;
 }
 
-.about-card h3 {
-    margin-top: 0;
-
-    font-size: 1.25rem;
+.about h2{
+    margin:10px 0;
+    font-size:31px;
 }
 
-.about-card p {
-    color: var(--muted);
-
-    line-height: 1.75;
+.about p{
+    max-width:750px;
+    margin:auto;
+    line-height:1.8;
+    color:var(--muted);
 }
 
-.quote-box {
-    background:
-        linear-gradient(135deg,
-        var(--main-light),
-        #eee8ff);
-
-    border-radius: 19px;
-
-    padding: 20px;
-
-    font-weight: 700;
-
-    line-height: 1.6;
+.quote{
+    margin:25px auto 0;
+    max-width:650px;
+    padding:20px;
+    border-radius:20px;
+    background:var(--bg2);
+    color:var(--primary);
+    font-weight:800;
 }
-
-
-/* =========================
-   SETTINGS
-========================= */
-
-.settings-overlay {
-    position: fixed;
-
-    inset: 0;
-
-    background: rgba(60,40,55,0.18);
-
-    backdrop-filter: blur(3px);
-
-    z-index: 199;
-
-    display: none;
-}
-
-.settings-overlay.show {
-    display: block;
-}
-
-.settings-panel {
-    position: fixed;
-
-    right: 20px;
-    top: 72px;
-
-    width: min(390px, calc(100vw - 40px));
-
-    max-height: calc(100vh - 95px);
-
-    overflow-y: auto;
-
-    background: var(--card-solid);
-
-    border: 1px solid var(--border);
-
-    border-radius: 26px;
-
-    padding: 23px;
-
-    box-shadow:
-        0 25px 70px rgba(60,40,55,0.20);
-
-    z-index: 200;
-
-    display: none;
-
-    animation: pop 0.2s ease;
-}
-
-.settings-panel.show {
-    display: block;
-}
-
-@keyframes pop {
-    from {
-        opacity: 0;
-        transform: translateY(-8px) scale(0.98);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-.settings-top {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-}
-
-.settings-top h3 {
-    margin: 0;
-}
-
-.close-settings {
-    border: none;
-
-    background: var(--main-light);
-
-    color: var(--main-dark);
-
-    width: 34px;
-    height: 34px;
-
-    border-radius: 11px;
-
-    cursor: pointer;
-
-    font-size: 1.1rem;
-}
-
-.setting {
-    margin: 21px 0;
-}
-
-.setting-label {
-    display: block;
-
-    font-weight: 800;
-
-    margin-bottom: 9px;
-}
-
-.setting-description {
-    color: var(--muted);
-
-    font-size: 0.78rem;
-
-    margin-bottom: 9px;
-}
-
-.setting select,
-.setting-button {
-    width: 100%;
-
-    padding: 12px;
-
-    border-radius: 13px;
-
-    border: 1px solid var(--border);
-
-    background: white;
-
-    color: var(--text);
-
-    font-family: inherit;
-
-    cursor: pointer;
-}
-
-.theme-options {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap: 8px;
-}
-
-.theme-option {
-    border: 2px solid transparent;
-
-    padding: 10px 5px;
-
-    border-radius: 13px;
-
-    background: #fafafa;
-
-    cursor: pointer;
-
-    font-family: inherit;
-
-    font-size: 0.75rem;
-}
-
-.theme-option.active {
-    border-color: var(--main);
-
-    background: var(--main-light);
-}
-
-.theme-preview {
-    width: 100%;
-    height: 24px;
-
-    border-radius: 8px;
-
-    margin-bottom: 5px;
-}
-
-.pink-preview {
-    background: linear-gradient(135deg,#ffd4e6,#fff3f8);
-}
-
-.lavender-preview {
-    background: linear-gradient(135deg,#ddd3ff,#f7f0ff);
-}
-
-.blue-preview {
-    background: linear-gradient(135deg,#cceeff,#f2fbff);
-}
-
-.mint-preview {
-    background: linear-gradient(135deg,#c9f1e5,#f1fff9);
-}
-
-.peach-preview {
-    background: linear-gradient(135deg,#ffddc9,#fff6e9);
-}
-
-.dark-preview {
-    background: linear-gradient(135deg,#40313f,#19171b);
-}
-
-.decoration-options {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 7px;
-}
-
-.decoration-option {
-    border: 1px solid var(--border);
-
-    background: white;
-
-    border-radius: 12px;
-
-    padding: 8px 10px;
-
-    cursor: pointer;
-
-    font-size: 1rem;
-}
-
-.decoration-option.active {
-    border-color: var(--main);
-
-    background: var(--main-light);
-}
-
-.toggle-row {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 10px;
-}
-
-.toggle {
-    width: 48px;
-    height: 27px;
-
-    border-radius: 20px;
-
-    border: none;
-
-    background: #ddd;
-
-    cursor: pointer;
-
-    position: relative;
-}
-
-.toggle::after {
-    content: "";
-
-    width: 21px;
-    height: 21px;
-
-    background: white;
-
-    border-radius: 50%;
-
-    position: absolute;
-
-    top: 3px;
-    left: 3px;
-
-    transition: 0.2s;
-}
-
-.toggle.on {
-    background: var(--main);
-}
-
-.toggle.on::after {
-    left: 24px;
-}
-
 
 /* =========================
    FOOTER
 ========================= */
 
-footer {
-    text-align: center;
-
-    padding: 40px 20px;
-
-    color: var(--muted);
-
-    font-size: 0.83rem;
+footer{
+    text-align:center;
+    padding:50px 20px 70px;
+    color:var(--muted);
+    position:relative;
+    z-index:2;
 }
 
-.footer-heart {
-    color: var(--main-dark);
+footer strong{
+    color:var(--primary);
 }
 
+/* =========================
+   SETTINGS PANEL
+========================= */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(35,20,40,.35);
+    backdrop-filter:blur(5px);
+    z-index:100;
+    opacity:0;
+    pointer-events:none;
+    transition:.3s;
+}
+
+.overlay.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.settings-panel{
+    position:fixed;
+    top:0;
+    right:-430px;
+    width:min(420px,94vw);
+    height:100vh;
+    background:var(--card);
+    z-index:101;
+    box-shadow:-20px 0 60px rgba(0,0,0,.18);
+    padding:25px;
+    overflow-y:auto;
+    transition:.4s cubic-bezier(.68,-.3,.25,1.3);
+}
+
+.settings-panel.show{
+    right:0;
+}
+
+.settings-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.settings-head h2{
+    font-size:27px;
+}
+
+.close{
+    width:42px;
+    height:42px;
+    border-radius:14px;
+    background:var(--bg2);
+    color:var(--primary);
+    font-size:20px;
+}
+
+.setting{
+    margin-bottom:28px;
+}
+
+.setting h3{
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.option-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+}
+
+.option{
+    padding:11px 6px;
+    border-radius:14px;
+    background:var(--bg2);
+    color:var(--muted);
+    font-weight:800;
+    font-size:12px;
+    transition:.2s;
+    border:2px solid transparent;
+}
+
+.option:hover{
+    transform:translateY(-2px);
+}
+
+.option.active{
+    border-color:var(--primary);
+    color:var(--primary);
+}
+
+.color-option{
+    height:44px;
+    border-radius:14px;
+    border:3px solid transparent;
+    transition:.2s;
+}
+
+.color-option.active{
+    border-color:var(--text);
+    transform:scale(1.06);
+}
+
+.toggle-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:var(--bg2);
+    padding:13px 15px;
+    border-radius:15px;
+    font-weight:800;
+}
+
+.switch{
+    width:49px;
+    height:27px;
+    border-radius:999px;
+    background:#ccc;
+    position:relative;
+    cursor:pointer;
+}
+
+.switch::after{
+    content:"";
+    position:absolute;
+    width:21px;
+    height:21px;
+    border-radius:50%;
+    background:white;
+    top:3px;
+    left:3px;
+    transition:.25s;
+}
+
+.switch.on{
+    background:var(--primary);
+}
+
+.switch.on::after{
+    left:25px;
+}
+
+.reset{
+    width:100%;
+    padding:14px;
+    border-radius:16px;
+    background:var(--bg2);
+    color:var(--primary);
+    font-weight:900;
+}
+
+/* =========================
+   POPUP
+========================= */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translate(-50%,120px);
+    z-index:200;
+    background:var(--card);
+    padding:15px 22px;
+    border-radius:18px;
+    box-shadow:0 15px 40px rgba(0,0,0,.18);
+    font-weight:800;
+    color:var(--primary);
+    transition:.4s;
+}
+
+.toast.show{
+    transform:translate(-50%,0);
+}
 
 /* =========================
    RESPONSIVE
 ========================= */
 
-@media(max-width: 750px) {
+@media(max-width:900px){
 
-    .hero {
-        padding: 34px 25px;
+    .hero{
+        padding:45px 35px;
     }
 
-    .hero h1 {
-        letter-spacing: -2px;
+    .hero-character{
+        right:-35px;
+        opacity:.45;
     }
 
-    .stats {
-        grid-template-columns:
-            repeat(2,1fr);
+    .stats{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .about-grid {
-        grid-template-columns: 1fr;
+    .courses{
+        grid-template-columns:1fr;
     }
 
-    .course-count {
-        display: none;
-    }
-
-    .nav-button span {
-        display: none;
-    }
-
-    main {
-        padding:
-            23px 14px 60px;
+    .badges{
+        grid-template-columns:repeat(2,1fr);
     }
 
 }
 
-@media(max-width: 430px) {
+@media(max-width:600px){
 
-    .stats {
-        grid-template-columns: 1fr 1fr;
+    .nav{
+        width:calc(100% - 18px);
+        top:8px;
     }
 
-    .hero {
-        border-radius: 26px;
+    .nav-links{
+        display:none;
     }
 
-    .hero::before {
-        right: 20px;
-        font-size: 5rem;
+    .hero-wrap,
+    .dashboard{
+        width:calc(100% - 18px);
+    }
+
+    .hero{
+        min-height:540px;
+        padding:35px 25px;
+        border-radius:30px;
+    }
+
+    .hero h1{
+        font-size:52px;
+    }
+
+    .hero-character{
+        width:170px;
+        height:170px;
+        font-size:80px;
+        right:-20px;
+        bottom:25px;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stat{
+        padding:15px;
+    }
+
+    .stat-icon{
+        width:42px;
+        height:42px;
+        font-size:19px;
+    }
+
+    .stat strong{
+        font-size:19px;
+    }
+
+    .continue{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .section-title h2{
+        font-size:30px;
+    }
+
+    .about{
+        padding:28px 20px;
     }
 
 }
@@ -1270,167 +1163,1018 @@ footer {
 </style>
 </head>
 
-
 <body>
 
+<!-- FLOATING DECORATIONS -->
 
-<!-- =========================
-     DECORATIONS
-========================= -->
-
-<div class="decorations" id="decorations">
-
-    <div class="decor">♡</div>
-    <div class="decor">✦</div>
-    <div class="decor">🩷</div>
-    <div class="decor">🧬</div>
-    <div class="decor">✿</div>
-    <div class="decor">🫧</div>
-
+<div id="decorations">
+    <div class="float">🎀</div>
+    <div class="float">✦</div>
+    <div class="float">🌸</div>
+    <div class="float">🩷</div>
+    <div class="float">✨</div>
+    <div class="float">🧬</div>
+    <div class="float">♡</div>
 </div>
 
+<!-- NAVIGATION -->
 
-<!-- =========================
-     HEADER
-========================= -->
-
-<header>
-
-<nav class="navbar">
+<nav class="nav">
 
     <a href="#" class="logo">
-
-        <div class="logo-icon">
-            🩷
-        </div>
-
-        <div class="logo-text">
-            MedNotes<span>Lab</span>
-        </div>
-
+        <div class="logo-icon">🧬</div>
+        <span>MedNotesLab</span>
     </a>
 
-
-    <div class="nav-buttons">
-
-        <button
-            class="nav-button"
-            onclick="scrollToCourses()"
-        >
-            📚 <span>Courses</span>
-        </button>
-
-        <button
-            class="nav-button"
-            onclick="openSettings()"
-        >
-            ⚙️ <span>Settings</span>
-        </button>
-
+    <div class="nav-links">
+        <a href="#courses">Courses</a>
+        <a href="#badges">Badges</a>
+        <a href="#about">About</a>
     </div>
+
+    <button class="settings-btn" onclick="openSettings()">⚙️</button>
 
 </nav>
 
-</header>
+
+<!-- HERO -->
+
+<main>
+
+<section class="hero-wrap">
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <div class="mini-label">
+                ✨ YOUR LITTLE MEDICAL LAB
+            </div>
+
+            <h1>
+                MedNotesLab
+                <span>learn • explore • discover</span>
+            </h1>
+
+            <p>
+                A free little place to learn about the human body,
+                health science, genetics, medicine, diseases,
+                neuroscience and so much more. 🧬🩷
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="lessons/lesson1.html" class="primary-btn">
+                    ✨ Start Learning
+                </a>
+
+                <a href="#courses" class="secondary-btn">
+                    📚 Explore Courses
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-character">
+            🧪
+        </div>
+
+    </div>
+
+</section>
 
 
-<!-- =========================
-     SETTINGS
-========================= -->
+<!-- DASHBOARD -->
 
-<div
-    class="settings-overlay"
-    id="settingsOverlay"
-    onclick="closeSettings()"
-></div>
+<section class="dashboard">
 
+    <div class="stats">
 
-<div
-    class="settings-panel"
-    id="settingsPanel"
->
+        <div class="stat">
+            <div class="stat-icon">📚</div>
+            <div>
+                <strong>11</strong>
+                <span>Courses</span>
+            </div>
+        </div>
 
-    <div class="settings-top">
+        <div class="stat">
+            <div class="stat-icon">🧬</div>
+            <div>
+                <strong>102</strong>
+                <span>Lessons</span>
+            </div>
+        </div>
 
-        <h3>⚙️ Customize your space</h3>
+        <div class="stat">
+            <div class="stat-icon">⭐</div>
+            <div>
+                <strong id="xp">0</strong>
+                <span>XP Earned</span>
+            </div>
+        </div>
 
-        <button
-            class="close-settings"
-            onclick="closeSettings()"
-        >
-            ×
-        </button>
+        <div class="stat">
+            <div class="stat-icon">🔥</div>
+            <div>
+                <strong id="streak">0</strong>
+                <span>Study Streak</span>
+            </div>
+        </div>
 
     </div>
 
 
-    <!-- THEMES -->
+    <div class="progress-card">
+
+        <div class="progress-top">
+            <span>🌸 Your MedNotesLab Progress</span>
+            <span id="progressText">0%</span>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+    </div>
+
+
+    <!-- CONTINUE -->
+
+    <div class="continue">
+
+        <div class="continue-left">
+
+            <div class="book">🩺</div>
+
+            <div>
+                <small>START HERE</small>
+                <h3>What Is Health Science?</h3>
+                <p>Lesson 1 • Foundations of Health Science</p>
+            </div>
+
+        </div>
+
+        <a href="lessons/lesson1.html" class="primary-btn">
+            Begin → 
+        </a>
+
+    </div>
+
+
+    <!-- FUN FACT -->
+
+    <div class="fact">
+
+        <div class="fact-label">✨ Little Medical Fact</div>
+
+        <h3>Your body is always working.</h3>
+
+        <p>
+            Even while you're sleeping, your body is regulating temperature,
+            moving blood, repairing cells, processing information and
+            maintaining balance. This constant balancing process is called
+            <strong>homeostasis</strong>. 🧠
+        </p>
+
+    </div>
+
+
+    <!-- COURSES -->
+
+    <div class="section-title" id="courses">
+
+        <div class="tiny">🎀 your learning library</div>
+
+        <h2>Explore MedNotesLab</h2>
+
+        <p>Pick a course and start exploring ✨</p>
+
+    </div>
+
+
+    <div class="search-box">
+
+        <input
+            id="search"
+            type="text"
+            placeholder="🔍 Search lessons, courses, medicine..."
+            oninput="searchLessons()"
+        >
+
+        <span class="search-icon">🩷</span>
+
+    </div>
+
+
+    <div class="courses" id="courseContainer">
+
+
+        <!-- COURSE 1 -->
+
+        <div class="course">
+
+            <div class="course-header" onclick="toggleCourse(this)">
+
+                <div class="course-icon">🩺</div>
+
+                <div class="course-info">
+
+                    <div class="course-number">COURSE 01</div>
+
+                    <div class="course-title">
+                        Foundations of Health Science
+                    </div>
+
+                    <div class="course-count">
+                        6 lessons
+                    </div>
+
+                </div>
+
+                <div class="chevron">⌄</div>
+
+            </div>
+
+            <div class="lesson-list">
+
+                <div class="lesson">
+                    <div class="lesson-num">1</div>
+                    <a href="lessons/lesson1.html">What Is Health Science?</a>
+                    <button class="lesson-check" onclick="completeLesson(event,1)">✓</button>
+                </div>
+
+                <div class="lesson">
+                    <div class="lesson-num">2</div>
+                    <a href="lessons/lesson2.html">Levels of Organization in the Body</a>
+                    <button class="lesson-check" onclick="completeLesson(event,2)">✓</button>
+                </div>
+
+                <div class="lesson">
+                    <div class="lesson-num">3</div>
+                    <a href="lessons/lesson3.html">Homeostasis</a>
+                    <button class="lesson-check" onclick="completeLesson(event,3)">✓</button>
+                </div>
+
+                <div class="lesson">
+                    <div class="lesson-num">4</div>
+                    <a href="lessons/lesson4.html">Basic Medical Terminology</a>
+                    <button class="lesson-check" onclick="completeLesson(event,4)">✓</button>
+                </div>
+
+                <div class="lesson">
+                    <div class="lesson-num">5</div>
+                    <a href="lessons/lesson5.html">Introduction to Scientific Research</a>
+                    <button class="lesson-check" onclick="completeLesson(event,5)">✓</button>
+                </div>
+
+                <div class="lesson">
+                    <div class="lesson-num">6</div>
+                    <a href="lessons/lesson6.html">How Medical Evidence Works</a>
+                    <button class="lesson-check" onclick="completeLesson(event,6)">✓</button>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 2 -->
+
+        <div class="course">
+
+            <div class="course-header" onclick="toggleCourse(this)">
+
+                <div class="course-icon">🧫</div>
+
+                <div class="course-info">
+
+                    <div class="course-number">COURSE 02</div>
+
+                    <div class="course-title">Cells</div>
+
+                    <div class="course-count">8 lessons</div>
+
+                </div>
+
+                <div class="chevron">⌄</div>
+
+            </div>
+
+            <div class="lesson-list">
+
+                <script>
+                const course2 = [
+                    "What Is a Cell?",
+                    "Cell Structures",
+                    "Cell Membranes",
+                    "Transport Across Cell Membranes",
+                    "Cellular Energy",
+                    "Cell Division",
+                    "Cell Death",
+                    "Tissues"
+                ];
+
+                course2.forEach((name,i)=>{
+                    const n=i+7;
+                    document.write(`
+                    <div class="lesson">
+                        <div class="lesson-num">${n}</div>
+                        <a href="lessons/lesson${n}.html">${name}</a>
+                        <button class="lesson-check" onclick="completeLesson(event,${n})">✓</button>
+                    </div>
+                    `);
+                });
+                </script>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 3 -->
+
+        <div class="course">
+
+            <div class="course-header" onclick="toggleCourse(this)">
+
+                <div class="course-icon">🧬</div>
+
+                <div class="course-info">
+
+                    <div class="course-number">COURSE 03</div>
+
+                    <div class="course-title">Genetics & DNA</div>
+
+                    <div class="course-count">12 lessons</div>
+
+                </div>
+
+                <div class="chevron">⌄</div>
+
+            </div>
+
+            <div class="lesson-list">
+
+                <script>
+
+                const course3 = [
+                    "DNA",
+                    "Genes",
+                    "Chromosomes",
+                    "RNA",
+                    "Protein Synthesis",
+                    "Mutations",
+                    "Inheritance",
+                    "Genetic Disorders",
+                    "Gene Expression",
+                    "Epigenetics",
+                    "Genomics",
+                    "Gene Editing"
+                ];
+
+                course3.forEach((name,i)=>{
+                    const n=i+15;
+
+                    document.write(`
+                    <div class="lesson">
+                        <div class="lesson-num">${n}</div>
+                        <a href="lessons/lesson${n}.html">${name}</a>
+                        <button class="lesson-check" onclick="completeLesson(event,${n})">✓</button>
+                    </div>
+                    `);
+
+                });
+
+                </script>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 4 -->
+
+        <div class="course">
+
+            <div class="course-header" onclick="toggleCourse(this)">
+
+                <div class="course-icon">🫀</div>
+
+                <div class="course-info">
+
+                    <div class="course-number">COURSE 04</div>
+
+                    <div class="course-title">Anatomy</div>
+
+                    <div class="course-count">13 lessons</div>
+
+                </div>
+
+                <div class="chevron">⌄</div>
+
+            </div>
+
+            <div class="lesson-list">
+
+                <script>
+
+                const course4 = [
+                    "Anatomical Position & Directions",
+                    "Skeletal System",
+                    "Muscular System",
+                    "Nervous System",
+                    "Cardiovascular System",
+                    "Respiratory System",
+                    "Digestive System",
+                    "Urinary System",
+                    "Endocrine System",
+                    "Immune System",
+                    "Reproductive System",
+                    "Integumentary System",
+                    "The Five Senses"
+                ];
+
+                course4.forEach((name,i)=>{
+                    const n=i+27;
+
+                    document.write(`
+                    <div class="lesson">
+                        <div class="lesson-num">${n}</div>
+                        <a href="lessons/lesson${n}.html">${name}</a>
+                        <button class="lesson-check" onclick="completeLesson(event,${n})">✓</button>
+                    </div>
+                    `);
+
+                });
+
+                </script>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 5 -->
+
+        <div class="course">
+
+            <div class="course-header" onclick="toggleCourse(this)">
+
+                <div class="course-icon">💗</div>
+
+                <div class="course-info">
+
+                    <div class="course-number">COURSE 05</div>
+
+                    <div class="course-title">Physiology</div>
+
+                    <div class="course-count">9 lessons</div>
+
+                </div>
+
+                <div class="chevron">⌄</div>
+
+            </div>
+
+            <div class="lesson-list">
+
+                <script>
+
+                const course5 = [
+                    "How the Heart Works",
+                    "How Blood Moves",
+                    "How We Breathe",
+                    "How Digestion Works",
+                    "How the Kidneys Work",
+                    "How Hormones Work",
+                    "How the Brain Communicates",
+                    "How the Immune System Responds",
+                    "Maintaining Homeostasis"
+                ];
+
+                course5.forEach((name,i)=>{
+                    const n=i+40;
+
+                    document.write(`
+                    <div class="lesson">
+                        <div class="lesson-num">${n}</div>
+                        <a href="lessons/lesson${n}.html">${name}</a>
+                        <button class="lesson-check" onclick="completeLesson(event,${n})">✓</button>
+                    </div>
+                    `);
+
+                });
+
+                </script>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 6 -->
+
+        <div class="course">
+
+            <div class="course-header" onclick="toggleCourse(this)">
+
+                <div class="course-icon">🦠</div>
+
+                <div class="course-info">
+
+                    <div class="course-number">COURSE 06</div>
+
+                    <div class="course-title">Microbiology</div>
+
+                    <div class="course-count">8 lessons</div>
+
+                </div>
+
+                <div class="chevron">⌄</div>
+
+            </div>
+
+            <div class="lesson-list">
+
+                <script>
+
+                const course6 = [
+                    "Bacteria",
+                    "Viruses",
+                    "Fungi",
+                    "Parasites",
+                    "Infection",
+                    "Immune Response",
+                    "Vaccines",
+                    "Antibiotics & Resistance"
+                ];
+
+                course6.forEach((name,i)=>{
+                    const n=i+49;
+
+                    document.write(`
+                    <div class="lesson">
+                        <div class="lesson-num">${n}</div>
+                        <a href="lessons/lesson${n}.html">${name}</a>
+                        <button class="lesson-check" onclick="completeLesson(event,${n})">✓</button>
+                    </div>
+                    `);
+
+                });
+
+                </script>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 7 -->
+
+        <div class="course">
+
+            <div class="course-header" onclick="toggleCourse(this)">
+
+                <div class="course-icon">🩹</div>
+
+                <div class="course-info">
+
+                    <div class="course-number">COURSE 07</div>
+
+                    <div class="course-title">Disease & Pathophysiology</div>
+
+                    <div class="course-count">10 lessons</div>
+
+                </div>
+
+                <div class="chevron">⌄</div>
+
+            </div>
+
+            <div class="lesson-list">
+
+                <script>
+
+                const course7 = [
+                    "What Is Disease?",
+                    "Inflammation",
+                    "Infectious Diseases",
+                    "Genetic Diseases",
+                    "Cardiovascular Diseases",
+                    "Respiratory Diseases",
+                    "Neurological Diseases",
+                    "Autoimmune Diseases",
+                    "Cancer Biology",
+                    "How Diseases Affect the Body"
+                ];
+
+                course7.forEach((name,i)=>{
+                    const n=i+57;
+
+                    document.write(`
+                    <div class="lesson">
+                        <div class="lesson-num">${n}</div>
+                        <a href="lessons/lesson${n}.html">${name}</a>
+                        <button class="lesson-check" onclick="completeLesson(event,${n})">✓</button>
+                    </div>
+                    `);
+
+                });
+
+                </script>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 8 -->
+
+        <div class="course">
+
+            <div class="course-header" onclick="toggleCourse(this)">
+
+                <div class="course-icon">🧠</div>
+
+                <div class="course-info">
+
+                    <div class="course-number">COURSE 08</div>
+
+                    <div class="course-title">Mental Health & Neuroscience</div>
+
+                    <div class="course-count">12 lessons</div>
+
+                </div>
+
+                <div class="chevron">⌄</div>
+
+            </div>
+
+            <div class="lesson-list">
+
+                <script>
+
+                const course8 = [
+                    "The Brain",
+                    "Neurotransmitters",
+                    "Emotions",
+                    "Stress",
+                    "Sleep",
+                    "Memory & Learning",
+                    "Anxiety Disorders",
+                    "Mood Disorders",
+                    "ADHD",
+                    "Trauma & the Brain",
+                    "Mental Health Treatment",
+                    "Mental Health & Physical Health"
+                ];
+
+                course8.forEach((name,i)=>{
+                    const n=i+67;
+
+                    document.write(`
+                    <div class="lesson">
+                        <div class="lesson-num">${n}</div>
+                        <a href="lessons/lesson${n}.html">${name}</a>
+                        <button class="lesson-check" onclick="completeLesson(event,${n})">✓</button>
+                    </div>
+                    `);
+
+                });
+
+                </script>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 9 -->
+
+        <div class="course">
+
+            <div class="course-header" onclick="toggleCourse(this)">
+
+                <div class="course-icon">💊</div>
+
+                <div class="course-info">
+
+                    <div class="course-number">COURSE 09</div>
+
+                    <div class="course-title">Medicine</div>
+
+                    <div class="course-count">10 lessons</div>
+
+                </div>
+
+                <div class="chevron">⌄</div>
+
+            </div>
+
+            <div class="lesson-list">
+
+                <script>
+
+                const course9 = [
+                    "What Is a Medication?",
+                    "How Drugs Enter the Body",
+                    "How Drugs Affect Cells",
+                    "Drug Classes",
+                    "Antibiotics",
+                    "Pain Medicines",
+                    "Medication Safety",
+                    "Side Effects",
+                    "Clinical Trials",
+                    "How New Treatments Are Developed"
+                ];
+
+                course9.forEach((name,i)=>{
+                    const n=i+79;
+
+                    document.write(`
+                    <div class="lesson">
+                        <div class="lesson-num">${n}</div>
+                        <a href="lessons/lesson${n}.html">${name}</a>
+                        <button class="lesson-check" onclick="completeLesson(event,${n})">✓</button>
+                    </div>
+                    `);
+
+                });
+
+                </script>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 10 -->
+
+        <div class="course">
+
+            <div class="course-header" onclick="toggleCourse(this)">
+
+                <div class="course-icon">🔬</div>
+
+                <div class="course-info">
+
+                    <div class="course-number">COURSE 10</div>
+
+                    <div class="course-title">Medical Research</div>
+
+                    <div class="course-count">8 lessons</div>
+
+                </div>
+
+                <div class="chevron">⌄</div>
+
+            </div>
+
+            <div class="lesson-list">
+
+                <script>
+
+                const course10 = [
+                    "How Clinical Studies Work",
+                    "Reading a Scientific Paper",
+                    "Correlation vs. Causation",
+                    "Medical Statistics",
+                    "Epidemiology",
+                    "Public Health",
+                    "Medical Ethics",
+                    "Evaluating Health Information"
+                ];
+
+                course10.forEach((name,i)=>{
+                    const n=i+89;
+
+                    document.write(`
+                    <div class="lesson">
+                        <div class="lesson-num">${n}</div>
+                        <a href="lessons/lesson${n}.html">${name}</a>
+                        <button class="lesson-check" onclick="completeLesson(event,${n})">✓</button>
+                    </div>
+                    `);
+
+                });
+
+                </script>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 11 -->
+
+        <div class="course">
+
+            <div class="course-header" onclick="toggleCourse(this)">
+
+                <div class="course-icon">🏆</div>
+
+                <div class="course-info">
+
+                    <div class="course-number">COURSE 11</div>
+
+                    <div class="course-title">Putting It Together</div>
+
+                    <div class="course-count">6 lessons</div>
+
+                </div>
+
+                <div class="chevron">⌄</div>
+
+            </div>
+
+            <div class="lesson-list">
+
+                <script>
+
+                const course11 = [
+                    "Medical Case Studies",
+                    "Reading Medical Test Results",
+                    "Connecting Symptoms to Body Systems",
+                    "How Doctors Investigate Disease",
+                    "Research Challenge",
+                    "Final Medical Science Quiz"
+                ];
+
+                course11.forEach((name,i)=>{
+                    const n=i+97;
+
+                    document.write(`
+                    <div class="lesson">
+                        <div class="lesson-num">${n}</div>
+                        <a href="lessons/lesson${n}.html">${name}</a>
+                        <button class="lesson-check" onclick="completeLesson(event,${n})">✓</button>
+                    </div>
+                    `);
+
+                });
+
+                </script>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BADGES -->
+
+    <div class="section-title" id="badges">
+
+        <div class="tiny">🏆 little achievements</div>
+
+        <h2>Your Badge Shelf</h2>
+
+        <p>Keep learning to unlock them ✨</p>
+
+    </div>
+
+
+    <div class="badges">
+
+        <div class="badge">
+            <div class="badge-icon">🌱</div>
+            <strong>First Step</strong>
+            <span>Complete 1 lesson</span>
+        </div>
+
+        <div class="badge">
+            <div class="badge-icon">🧬</div>
+            <strong>Cell Explorer</strong>
+            <span>Complete 10 lessons</span>
+        </div>
+
+        <div class="badge">
+            <div class="badge-icon">🔬</div>
+            <strong>Little Scientist</strong>
+            <span>Complete 25 lessons</span>
+        </div>
+
+        <div class="badge">
+            <div class="badge-icon">🏆</div>
+            <strong>Medical Scholar</strong>
+            <span>Complete 50 lessons</span>
+        </div>
+
+    </div>
+
+
+    <!-- ABOUT -->
+
+    <div class="section-title" id="about">
+
+        <div class="tiny">🩷 about the lab</div>
+
+        <h2>Welcome to MedNotesLab</h2>
+
+    </div>
+
+
+    <div class="about">
+
+        <div class="about-icon">🧪</div>
+
+        <h2>A little place to learn big things.</h2>
+
+        <p>
+            MedNotesLab is a free educational project made to make
+            health science easier, more organized, and more fun to explore.
+            From cells and DNA to anatomy, medicine, diseases,
+            neuroscience and medical research, everything is organized
+            into lessons that you can explore at your own pace.
+        </p>
+
+        <div class="quote">
+            ✨ You don't have to know everything to start learning.
+            You just have to be curious.
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <strong>MedNotesLab 🧬</strong>
+
+    <br>
+
+    Made for curious minds who want to understand the human body. 🩷
+
+    <br><br>
+
+    <small>Learn • Explore • Discover • Repeat ✨</small>
+
+</footer>
+
+
+<!-- SETTINGS OVERLAY -->
+
+<div class="overlay" id="overlay" onclick="closeSettings()"></div>
+
+
+<!-- SETTINGS PANEL -->
+
+<aside class="settings-panel" id="settingsPanel">
+
+    <div class="settings-head">
+
+        <h2>🎀 Customize</h2>
+
+        <button class="close" onclick="closeSettings()">×</button>
+
+    </div>
+
+
+    <!-- COLOR -->
 
     <div class="setting">
 
-        <label class="setting-label">
-            🎨 Background
-        </label>
+        <h3>🎨 COLOR WORLD</h3>
 
-        <div class="setting-description">
-            Pick the vibe you want while studying.
-        </div>
+        <div class="option-grid">
 
-        <div class="theme-options">
+            <button class="color-option active"
+                style="background:linear-gradient(135deg,#ff9ac6,#c9a7ff)"
+                onclick="setTheme('pink',this)"></button>
 
-            <button
-                class="theme-option"
-                data-theme="pink"
-                onclick="setTheme('pink')"
-            >
-                <div class="theme-preview pink-preview"></div>
-                Pink
-            </button>
+            <button class="color-option"
+                style="background:linear-gradient(135deg,#91dcff,#9c9cff)"
+                onclick="setTheme('blue',this)"></button>
 
-            <button
-                class="theme-option"
-                data-theme="lavender"
-                onclick="setTheme('lavender')"
-            >
-                <div class="theme-preview lavender-preview"></div>
-                Lavender
-            </button>
+            <button class="color-option"
+                style="background:linear-gradient(135deg,#c9adff,#f0a7d8)"
+                onclick="setTheme('lavender',this)"></button>
 
-            <button
-                class="theme-option"
-                data-theme="blue"
-                onclick="setTheme('blue')"
-            >
-                <div class="theme-preview blue-preview"></div>
-                Blue
-            </button>
+            <button class="color-option"
+                style="background:linear-gradient(135deg,#91e2c2,#8acde8)"
+                onclick="setTheme('mint',this)"></button>
 
-            <button
-                class="theme-option"
-                data-theme="mint"
-                onclick="setTheme('mint')"
-            >
-                <div class="theme-preview mint-preview"></div>
-                Mint
-            </button>
+            <button class="color-option"
+                style="background:linear-gradient(135deg,#ffb493,#ffc875)"
+                onclick="setTheme('peach',this)"></button>
 
-            <button
-                class="theme-option"
-                data-theme="peach"
-                onclick="setTheme('peach')"
-            >
-                <div class="theme-preview peach-preview"></div>
-                Peach
-            </button>
+            <button class="color-option"
+                style="background:linear-gradient(135deg,#ff7898,#c18aff)"
+                onclick="setTheme('sunset',this)"></button>
 
-            <button
-                class="theme-option"
-                data-theme="dark"
-                onclick="setTheme('dark')"
-            >
-                <div class="theme-preview dark-preview"></div>
-                Night
-            </button>
+            <button class="color-option"
+                style="background:linear-gradient(135deg,#ff6fae,#a77bff)"
+                onclick="setTheme('darkpink',this)"></button>
+
+            <button class="color-option"
+                style="background:#191522"
+                onclick="setTheme('night',this)"></button>
 
         </div>
 
@@ -1441,44 +2185,28 @@ footer {
 
     <div class="setting">
 
-        <label class="setting-label">
-            🖋️ Font
-        </label>
+        <h3>🔤 FONT</h3>
 
-        <div class="setting-description">
-            Make the website feel more like you.
+        <div class="option-grid">
+
+            <button class="option" onclick="setFont('Nunito',this)">Nunito</button>
+            <button class="option" onclick="setFont('Fredoka',this)">Fredoka</button>
+            <button class="option" onclick="setFont('Baloo 2',this)">Baloo</button>
+            <button class="option" onclick="setFont('Comfortaa',this)">Comfortaa</button>
+            <button class="option" onclick="setFont('Quicksand',this)">Quicksand</button>
+            <button class="option" onclick="setFont('Poppins',this)">Poppins</button>
+            <button class="option" onclick="setFont('Manrope',this)">Manrope</button>
+            <button class="option" onclick="setFont('Montserrat',this)">Montserrat</button>
+            <button class="option" onclick="setFont('DM Sans',this)">DM Sans</button>
+            <button class="option" onclick="setFont('Josefin Sans',this)">Josefin</button>
+            <button class="option" onclick="setFont('Patrick Hand',this)">Handwritten</button>
+            <button class="option" onclick="setFont('Caveat',this)">Caveat</button>
+            <button class="option" onclick="setFont('Gaegu',this)">Gaegu</button>
+            <button class="option" onclick="setFont('Shantell Sans',this)">Shantell</button>
+            <button class="option" onclick="setFont('Pacifico',this)">Pacifico</button>
+            <button class="option" onclick="setFont('Sacramento',this)">Sacramento</button>
+
         </div>
-
-        <select
-            id="fontChoice"
-            onchange="setFont(this.value)"
-        >
-
-            <option value="Nunito">Nunito — soft</option>
-
-            <option value="Quicksand">Quicksand — rounded</option>
-
-            <option value="Comfortaa">Comfortaa — bubbly</option>
-
-            <option value="Fredoka">Fredoka — cute</option>
-
-            <option value="Baloo 2">Baloo 2 — playful</option>
-
-            <option value="DM Sans">DM Sans — clean</option>
-
-            <option value="Manrope">Manrope — modern</option>
-
-            <option value="Montserrat">Montserrat — polished</option>
-
-            <option value="Josefin Sans">Josefin Sans — elegant</option>
-
-            <option value="Patrick Hand">Patrick Hand — handwritten</option>
-
-            <option value="Gaegu">Gaegu — journal</option>
-
-            <option value="Shantell Sans">Shantell Sans — sketchy</option>
-
-        </select>
 
     </div>
 
@@ -1487,1231 +2215,646 @@ footer {
 
     <div class="setting">
 
-        <label class="setting-label">
-            ✨ Decorations
-        </label>
+        <h3>🌸 DECORATION STYLE</h3>
 
-        <div class="setting-description">
-            Choose what floats around your screen.
-        </div>
+        <div class="option-grid">
 
-        <div class="decoration-options">
+            <button class="option active" onclick="setDecor('cute',this)">🎀 Cute</button>
 
-            <button
-                class="decoration-option"
-                onclick="setDecoration('cute')"
-            >
-                ♡ ✦ 🩷
-            </button>
+            <button class="option" onclick="setDecor('medical',this)">🧬 Medical</button>
 
-            <button
-                class="decoration-option"
-                onclick="setDecoration('medical')"
-            >
-                🧬 🔬 🩺
-            </button>
+            <button class="option" onclick="setDecor('flowers',this)">🌸 Flowers</button>
 
-            <button
-                class="decoration-option"
-                onclick="setDecoration('flowers')"
-            >
-                🌸 🌷 ✿
-            </button>
+            <button class="option" onclick="setDecor('stars',this)">✨ Stars</button>
 
-            <button
-                class="decoration-option"
-                onclick="setDecoration('stars')"
-            >
-                ✦ ✧ ⋆
-            </button>
+            <button class="option" onclick="setDecor('hearts',this)">💗 Hearts</button>
 
-            <button
-                class="decoration-option"
-                onclick="setDecoration('mixed')"
-            >
-                ♡ 🧬 ✿
-            </button>
+            <button class="option" onclick="setDecor('mixed',this)">🌈 Mixed</button>
 
         </div>
 
     </div>
 
 
-    <!-- ANIMATION -->
+    <!-- ANIMATIONS -->
 
     <div class="setting">
+
+        <h3>✨ EFFECTS</h3>
 
         <div class="toggle-row">
 
-            <div>
+            <span>Floating decorations</span>
 
-                <div class="setting-label">
-                    🫧 Floating decorations
-                </div>
+            <div class="switch on" id="floatSwitch"
+                 onclick="toggleFloating()"></div>
 
-                <div class="setting-description">
-                    Let the little decorations move.
-                </div>
+        </div>
 
-            </div>
+        <br>
 
-            <button
-                class="toggle on"
-                id="animationToggle"
-                onclick="toggleAnimations()"
-            ></button>
+        <div class="toggle-row">
+
+            <span>Hover animations</span>
+
+            <div class="switch on" id="hoverSwitch"
+                 onclick="toggleHover()"></div>
 
         </div>
 
     </div>
 
 
-    <!-- RESET -->
+    <button class="reset" onclick="resetSettings()">
+        ↺ Reset Everything
+    </button>
 
-    <div class="setting">
+</aside>
 
-        <label class="setting-label">
-            ♻️ Reset
-        </label>
 
-        <button
-            class="setting-button"
-            onclick="resetEverything()"
-        >
-            Reset progress & settings
-        </button>
+<!-- TOAST -->
 
-    </div>
-
+<div class="toast" id="toast">
+    ✨ Settings saved!
 </div>
-
-
-<!-- =========================
-     MAIN
-========================= -->
-
-<main>
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-    <div class="hero-sticker">
-        🩺 FREE HEALTH SCIENCE LEARNING
-    </div>
-
-
-    <h1>
-        Welcome to<br>
-        <span>MedNotesLab ♡</span>
-    </h1>
-
-
-    <p class="hero-description">
-
-        A cute little place to learn about the human body,
-        cells, DNA, medicine, diseases, mental health,
-        research, and so much more — completely free.
-
-    </p>
-
-
-    <div class="hero-buttons">
-
-        <button
-            class="primary-btn"
-            onclick="scrollToCourses()"
-        >
-            Start Learning ✦
-        </button>
-
-        <button
-            class="secondary-btn"
-            onclick="startLesson()"
-        >
-            Begin Lesson 1 →
-        </button>
-
-    </div>
-
-
-    <div class="cute-note">
-        ♡ Learn at your own pace · one lesson at a time
-    </div>
-
-</section>
-
-
-<!-- STATS -->
-
-<section class="stats">
-
-    <div class="stat">
-
-        <div class="stat-icon">
-            📚
-        </div>
-
-        <div class="stat-number">
-            11
-        </div>
-
-        <div class="stat-label">
-            Courses
-        </div>
-
-    </div>
-
-
-    <div class="stat">
-
-        <div class="stat-icon">
-            🧬
-        </div>
-
-        <div class="stat-number">
-            102
-        </div>
-
-        <div class="stat-label">
-            Lessons
-        </div>
-
-    </div>
-
-
-    <div class="stat">
-
-        <div class="stat-icon">
-            ♡
-        </div>
-
-        <div
-            class="stat-number"
-            id="progressNumber"
-        >
-            0%
-        </div>
-
-        <div class="stat-label">
-            Completed
-        </div>
-
-    </div>
-
-
-    <div class="stat">
-
-        <div class="stat-icon">
-            ✦
-        </div>
-
-        <div
-            class="stat-number"
-            id="completedNumber"
-        >
-            0
-        </div>
-
-        <div class="stat-label">
-            Lessons finished
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- COURSES -->
-
-<section id="courses">
-
-    <div class="section-heading">
-
-        <div>
-
-            <h2>
-                📚 Your Learning Path
-            </h2>
-
-            <p>
-                102 lessons waiting for you ♡
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="search-area">
-
-        <span class="search-symbol">
-            🔎
-        </span>
-
-        <input
-            id="searchInput"
-            type="text"
-            placeholder="Search lessons... DNA, brain, vaccines, cells..."
-            oninput="searchLessons()"
-        >
-
-    </div>
-
-
-    <div
-        class="course-list"
-        id="courseList"
-    ></div>
-
-</section>
-
-
-<!-- ABOUT -->
-
-<section id="about">
-
-    <div class="section-heading">
-
-        <div>
-
-            <h2>
-                ♡ About MedNotesLab
-            </h2>
-
-            <p>
-                Why this little website exists
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="about-grid">
-
-
-        <div class="about-card">
-
-            <h3>
-                🧬 Learn. Explore. Understand.
-            </h3>
-
-            <p>
-
-                MedNotesLab is a free educational project
-                designed to make health science feel less
-                overwhelming and more fun to explore.
-
-            </p>
-
-            <p>
-
-                Start with the basics of health science,
-                then slowly move into cells, DNA, anatomy,
-                physiology, microbiology, diseases,
-                neuroscience, medicine, and research.
-
-            </p>
-
-            <p>
-
-                You don't have to know everything.
-                You don't even have to finish a whole course
-                in one day.
-
-                Just learn something new.
-
-            </p>
-
-        </div>
-
-
-        <div class="about-card">
-
-            <div class="quote-box">
-
-                ✦
-
-                <br><br>
-
-                “You don't have to know
-                everything today.
-
-                <br>
-
-                You just have to keep learning.”
-
-                <br><br>
-
-                ♡
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-</main>
-
-
-<footer>
-
-    Made with
-    <span class="footer-heart">♡</span>
-    for curious minds
-
-    <br>
-
-    MedNotesLab · Learn something new today ✦
-
-</footer>
-
 
 
 <script>
 
-/* =====================================
-   COURSE DATA
-===================================== */
+/* =========================
+   COURSE OPEN/CLOSE
+========================= */
 
-const courses = [
+function toggleCourse(header){
 
-{
-number: 1,
-title: "Foundations of Health Science",
-description: "Start with the foundations of health science.",
-icon: "🩺",
-lessons: [
-"What Is Health Science?",
-"Levels of Organization in the Body",
-"Homeostasis",
-"Basic Medical Terminology",
-"Introduction to Scientific Research",
-"How Medical Evidence Works"
-]
-},
+    const course = header.parentElement;
 
-{
-number: 2,
-title: "Cells",
-description: "Explore the tiny structures that make life possible.",
-icon: "🧫",
-lessons: [
-"What Is a Cell?",
-"Cell Structures",
-"Cell Membranes",
-"Transport Across Cell Membranes",
-"Cellular Energy",
-"Cell Division",
-"Cell Death",
-"Tissues"
-]
-},
+    document.querySelectorAll(".course").forEach(c=>{
 
-{
-number: 3,
-title: "Genetics & DNA",
-description: "Discover DNA, genes, chromosomes, and inheritance.",
-icon: "🧬",
-lessons: [
-"DNA",
-"Genes",
-"Chromosomes",
-"RNA",
-"Protein Synthesis",
-"Mutations",
-"Inheritance",
-"Genetic Disorders",
-"Gene Expression",
-"Epigenetics",
-"Genomics",
-"Gene Editing"
-]
-},
-
-{
-number: 4,
-title: "Anatomy",
-description: "Explore the structures of the human body.",
-icon: "🫀",
-lessons: [
-"Anatomical Position & Directions",
-"Skeletal System",
-"Muscular System",
-"Nervous System",
-"Cardiovascular System",
-"Respiratory System",
-"Digestive System",
-"Urinary System",
-"Endocrine System",
-"Immune System",
-"Reproductive System",
-"Integumentary System",
-"The Five Senses"
-]
-},
-
-{
-number: 5,
-title: "Physiology",
-description: "Learn how the body's systems actually work.",
-icon: "🫁",
-lessons: [
-"How the Heart Works",
-"How Blood Moves",
-"How We Breathe",
-"How Digestion Works",
-"How the Kidneys Work",
-"How Hormones Work",
-"How the Brain Communicates",
-"How the Immune System Responds",
-"Maintaining Homeostasis"
-]
-},
-
-{
-number: 6,
-title: "Microbiology",
-description: "Explore bacteria, viruses, fungi, parasites, and infection.",
-icon: "🦠",
-lessons: [
-"Bacteria",
-"Viruses",
-"Fungi",
-"Parasites",
-"Infection",
-"Immune Response",
-"Vaccines",
-"Antibiotics & Resistance"
-]
-},
-
-{
-number: 7,
-title: "Disease & Pathophysiology",
-description: "Understand what happens when the body becomes sick.",
-icon: "🔬",
-lessons: [
-"What Is Disease?",
-"Inflammation",
-"Infectious Diseases",
-"Genetic Diseases",
-"Cardiovascular Diseases",
-"Respiratory Diseases",
-"Neurological Diseases",
-"Autoimmune Diseases",
-"Cancer Biology",
-"How Diseases Affect the Body"
-]
-},
-
-{
-number: 8,
-title: "Mental Health & Neuroscience",
-description: "Explore the brain, emotions, behavior, and mental health.",
-icon: "🧠",
-lessons: [
-"The Brain",
-"Neurotransmitters",
-"Emotions",
-"Stress",
-"Sleep",
-"Memory & Learning",
-"Anxiety Disorders",
-"Mood Disorders",
-"ADHD",
-"Trauma & the Brain",
-"Mental Health Treatment",
-"Mental Health & Physical Health"
-]
-},
-
-{
-number: 9,
-title: "Medicine",
-description: "Learn the science behind medications and treatments.",
-icon: "💊",
-lessons: [
-"What Is a Medication?",
-"How Drugs Enter the Body",
-"How Drugs Affect Cells",
-"Drug Classes",
-"Antibiotics",
-"Pain Medicines",
-"Medication Safety",
-"Side Effects",
-"Clinical Trials",
-"How New Treatments Are Developed"
-]
-},
-
-{
-number: 10,
-title: "Medical Research",
-description: "Learn how scientists study health and disease.",
-icon: "📊",
-lessons: [
-"How Clinical Studies Work",
-"Reading a Scientific Paper",
-"Correlation vs. Causation",
-"Medical Statistics",
-"Epidemiology",
-"Public Health",
-"Medical Ethics",
-"Evaluating Health Information"
-]
-},
-
-{
-number: 11,
-title: "Putting It Together",
-description: "Use what you've learned to think through medical problems.",
-icon: "🧩",
-lessons: [
-"Medical Case Studies",
-"Reading Medical Test Results",
-"Connecting Symptoms to Body Systems",
-"How Doctors Investigate Disease",
-"Research Challenge",
-"Final Medical Science Quiz"
-]
-}
-
-];
-
-
-/* =====================================
-   RENDER COURSES
-===================================== */
-
-function renderCourses() {
-
-    const container =
-        document.getElementById("courseList");
-
-    container.innerHTML = "";
-
-    let lessonNumber = 1;
-
-    courses.forEach(course => {
-
-        const card =
-            document.createElement("div");
-
-        card.className = "course-card";
-
-
-        const header =
-            document.createElement("button");
-
-        header.className = "course-header";
-
-        header.onclick = () => {
-
-            card.classList.toggle("open");
-
-        };
-
-
-        header.innerHTML = `
-
-            <div class="course-icon">
-                ${course.icon}
-            </div>
-
-            <div class="course-info">
-
-                <h3>
-                    Course ${course.number}
-                    — ${course.title}
-                </h3>
-
-                <p>
-                    ${course.description}
-                </p>
-
-            </div>
-
-            <div class="course-count">
-                ${course.lessons.length} lessons
-            </div>
-
-            <div class="course-arrow">
-               ⌄
-            </div>
-
-        `;
-
-
-        const lessons =
-            document.createElement("div");
-
-        lessons.className = "lessons";
-
-
-        course.lessons.forEach(title => {
-
-            const number = lessonNumber;
-
-
-            const lesson =
-                document.createElement("div");
-
-            lesson.className = "lesson";
-
-            lesson.dataset.number = number;
-
-            lesson.dataset.title =
-                title.toLowerCase();
-
-
-            lesson.innerHTML = `
-
-                <a
-                    class="lesson-link"
-                    href="lessons/lesson${number}.html"
-                >
-
-                    <span class="lesson-number">
-                        ${number}
-                    </span>
-
-                    <span class="lesson-title">
-                        ${title}
-                    </span>
-
-                </a>
-
-
-                <button
-                    class="check"
-                    onclick="toggleComplete(event, ${number})"
-                    aria-label="Mark lesson complete"
-                >
-                    ✓
-                </button>
-
-            `;
-
-
-            lessons.appendChild(lesson);
-
-            lessonNumber++;
-
-        });
-
-
-        card.appendChild(header);
-
-        card.appendChild(lessons);
-
-        container.appendChild(card);
+        if(c !== course){
+            c.classList.remove("open");
+        }
 
     });
 
-
-    updateProgress();
+    course.classList.toggle("open");
 
 }
 
 
-/* =====================================
+/* =========================
+   LESSON COMPLETION
+========================= */
+
+let completed =
+    JSON.parse(localStorage.getItem("mednotes_completed") || "[]");
+
+
+function completeLesson(event,number){
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    if(!completed.includes(number)){
+
+        completed.push(number);
+
+        localStorage.setItem(
+            "mednotes_completed",
+            JSON.stringify(completed)
+        );
+
+        showToast("🌸 Lesson completed! +10 XP");
+
+    }else{
+
+        completed =
+            completed.filter(n=>n!==number);
+
+        localStorage.setItem(
+            "mednotes_completed",
+            JSON.stringify(completed)
+        );
+
+        showToast("Lesson marked incomplete");
+
+    }
+
+    updateProgress();
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+function updateProgress(){
+
+    const count = completed.length;
+
+    const percent =
+        Math.round((count / 102) * 100);
+
+    document.getElementById("progressText").textContent =
+        percent + "%";
+
+    document.getElementById("progressFill").style.width =
+        percent + "%";
+
+    document.getElementById("xp").textContent =
+        count * 10;
+
+    document.querySelectorAll(".lesson").forEach(lesson=>{
+
+        const button =
+            lesson.querySelector(".lesson-check");
+
+        if(!button) return;
+
+        const number =
+            Number(lesson.querySelector(".lesson-num").textContent);
+
+        if(completed.includes(number)){
+
+            lesson.classList.add("done");
+
+            button.textContent = "✓";
+
+        }else{
+
+            lesson.classList.remove("done");
+
+            button.textContent = "✓";
+
+        }
+
+    });
+
+}
+
+
+/* =========================
+   STREAK
+========================= */
+
+function updateStreak(){
+
+    const today =
+        new Date().toDateString();
+
+    const last =
+        localStorage.getItem("mednotes_last_day");
+
+    let streak =
+        Number(localStorage.getItem("mednotes_streak") || 0);
+
+    if(last !== today){
+
+        if(last){
+
+            const previous =
+                new Date(last);
+
+            const current =
+                new Date();
+
+            const difference =
+                Math.floor(
+                    (current-previous) /
+                    (1000*60*60*24)
+                );
+
+            if(difference === 1){
+
+                streak++;
+
+            }else{
+
+                streak = 1;
+
+            }
+
+        }else{
+
+            streak = 1;
+
+        }
+
+        localStorage.setItem(
+            "mednotes_last_day",
+            today
+        );
+
+        localStorage.setItem(
+            "mednotes_streak",
+            streak
+        );
+
+    }
+
+    document.getElementById("streak").textContent =
+        streak;
+
+}
+
+
+/* =========================
    SEARCH
-===================================== */
+========================= */
 
-function searchLessons() {
+function searchLessons(){
 
-    const query =
+    const search =
         document
-        .getElementById("searchInput")
+        .getElementById("search")
         .value
         .toLowerCase()
         .trim();
 
+    document.querySelectorAll(".course").forEach(course=>{
+
+        const text =
+            course.innerText.toLowerCase();
+
+        if(!search || text.includes(search)){
+
+            course.style.display="block";
+
+        }else{
+
+            course.style.display="none";
+
+        }
+
+    });
+
+}
+
+
+/* =========================
+   SETTINGS
+========================= */
+
+function openSettings(){
 
     document
-        .querySelectorAll(".course-card")
-        .forEach(card => {
+    .getElementById("settingsPanel")
+    .classList.add("show");
 
-            const lessons =
-                card.querySelectorAll(".lesson");
+    document
+    .getElementById("overlay")
+    .classList.add("show");
 
-            let found = false;
+}
 
+function closeSettings(){
 
-            lessons.forEach(lesson => {
+    document
+    .getElementById("settingsPanel")
+    .classList.remove("show");
 
-                const title =
-                    lesson.dataset.title;
-
-
-                if (
-                    title.includes(query)
-                    || query === ""
-                ) {
-
-                    lesson.style.display =
-                        "flex";
-
-                    if (query !== "") {
-                        found = true;
-                    }
-
-                } else {
-
-                    lesson.style.display =
-                        "none";
-
-                }
-
-            });
-
-
-            if (query === "") {
-
-                card.style.display =
-                    "block";
-
-            } else {
-
-                card.style.display =
-                    found ? "block" : "none";
-
-                if (found) {
-
-                    card.classList.add("open");
-
-                }
-
-            }
-
-        });
+    document
+    .getElementById("overlay")
+    .classList.remove("show");
 
 }
 
 
-/* =====================================
-   PROGRESS
-===================================== */
+/* =========================
+   THEMES
+========================= */
 
-function getCompleted() {
+function setTheme(theme,button){
 
-    return JSON.parse(
-        localStorage.getItem(
-            "mednotes_completed"
-        )
-    ) || [];
+    document.body.classList.remove(
+        "blue",
+        "lavender",
+        "mint",
+        "peach",
+        "sunset",
+        "darkpink",
+        "night"
+    );
 
-}
-
-
-function toggleComplete(event, number) {
-
-    event.preventDefault();
-
-    event.stopPropagation();
-
-
-    let completed =
-        getCompleted();
-
-
-    if (completed.includes(number)) {
-
-        completed =
-            completed.filter(
-                item => item !== number
-            );
-
-    } else {
-
-        completed.push(number);
-
+    if(theme !== "pink"){
+        document.body.classList.add(theme);
     }
 
-
-    localStorage.setItem(
-        "mednotes_completed",
-        JSON.stringify(completed)
-    );
-
-
-    updateProgress();
-
-}
-
-
-function updateProgress() {
-
-    const completed =
-        getCompleted();
-
-
-    const percentage =
-        Math.round(
-            (completed.length / 102) * 100
-        );
-
-
     document
-        .getElementById("progressNumber")
-        .textContent =
-        percentage + "%";
+    .querySelectorAll(".color-option")
+    .forEach(b=>b.classList.remove("active"));
 
-
-    document
-        .getElementById("completedNumber")
-        .textContent =
-        completed.length;
-
-
-    document
-        .querySelectorAll(".lesson")
-        .forEach(lesson => {
-
-            const number =
-                Number(
-                    lesson.dataset.number
-                );
-
-
-            if (
-                completed.includes(number)
-            ) {
-
-                lesson.classList.add(
-                    "completed"
-                );
-
-            } else {
-
-                lesson.classList.remove(
-                    "completed"
-                );
-
-            }
-
-        });
-
-}
-
-
-/* =====================================
-   SETTINGS PANEL
-===================================== */
-
-function openSettings() {
-
-    document
-        .getElementById("settingsPanel")
-        .classList.add("show");
-
-    document
-        .getElementById("settingsOverlay")
-        .classList.add("show");
-
-}
-
-
-function closeSettings() {
-
-    document
-        .getElementById("settingsPanel")
-        .classList.remove("show");
-
-    document
-        .getElementById("settingsOverlay")
-        .classList.remove("show");
-
-}
-
-
-/* =====================================
-   THEMES
-===================================== */
-
-function setTheme(theme) {
-
-    document.body.className =
-        document.body.className
-        .replace(/theme-\S+/g, "")
-        .trim();
-
-
-    document.body.classList.add(
-        "theme-" + theme
-    );
-
+    button.classList.add("active");
 
     localStorage.setItem(
         "mednotes_theme",
         theme
     );
 
-
-    document
-        .querySelectorAll(".theme-option")
-        .forEach(button => {
-
-            button.classList.toggle(
-                "active",
-                button.dataset.theme === theme
-            );
-
-        });
+    showToast("🎨 New color world!");
 
 }
 
 
-/* =====================================
-   FONT
-===================================== */
+/* =========================
+   FONTS
+========================= */
 
-function setFont(font) {
+function setFont(font,button){
 
     document.documentElement.style
-        .setProperty(
-            "--font",
-            `"${font}", sans-serif`
-        );
+    .setProperty(
+        "--font",
+        "'" + font + "', sans-serif"
+    );
 
+    document
+    .querySelectorAll(".option")
+    .forEach(b=>{
+
+        if(b.parentElement.previousElementSibling?.textContent === "🔤 FONT"){
+            b.classList.remove("active");
+        }
+
+    });
+
+    button.classList.add("active");
 
     localStorage.setItem(
         "mednotes_font",
         font
     );
 
+    showToast("🔤 Font changed!");
+
 }
 
 
-/* =====================================
+/* =========================
    DECORATIONS
-===================================== */
+========================= */
 
 const decorationSets = {
 
-cute: [
-    "♡","✦","🩷","🎀","♡","✧"
-],
+    cute:["🎀","♡","🩷","✨","🌸","🧸","💗"],
 
-medical: [
-    "🧬","🔬","🩺","🧫","🧠","🫀"
-],
+    medical:["🧬","🧪","🩺","💊","🔬","🫀","🧫"],
 
-flowers: [
-    "🌸","🌷","✿","🌼","🪷","🌸"
-],
+    flowers:["🌸","🌷","🌼","🌺","💐","🌻","🪻"],
 
-stars: [
-    "✦","✧","⋆","☆","✦","⋆"
-],
+    stars:["✦","✧","✨","⭐","🌟","💫","⋆"],
 
-mixed: [
-    "♡","🧬","✿","🫧","✦","🩷"
-]
+    hearts:["♡","♥","🩷","💗","💞","💕","💖"],
+
+    mixed:["🎀","🧬","🌸","✨","💗","🧪","⭐"]
 
 };
 
+function setDecor(type,button){
 
-function setDecoration(type) {
-
-    const set =
+    const items =
         decorationSets[type];
 
+    document
+    .querySelectorAll(".float")
+    .forEach((el,i)=>{
+
+        el.textContent =
+            items[i % items.length];
+
+    });
 
     document
-        .querySelectorAll(".decor")
-        .forEach((element, index) => {
+    .querySelectorAll(".option")
+    .forEach(b=>{
 
-            element.textContent =
-                set[index % set.length];
+        if(
+            b.parentElement.previousElementSibling?.textContent
+            === "🌸 DECORATION STYLE"
+        ){
 
-        });
+            b.classList.remove("active");
 
+        }
+
+    });
+
+    button.classList.add("active");
 
     localStorage.setItem(
-        "mednotes_decorations",
+        "mednotes_decor",
         type
     );
 
+    showToast("🌸 Decorations changed!");
+
 }
 
 
-/* =====================================
-   ANIMATIONS
-===================================== */
+/* =========================
+   FLOATING TOGGLE
+========================= */
 
-function toggleAnimations() {
+function toggleFloating(){
 
-    const toggle =
-        document.getElementById(
-            "animationToggle"
-        );
+    const switcher =
+        document.getElementById("floatSwitch");
 
+    const decorations =
+        document.getElementById("decorations");
 
-    toggle.classList.toggle("on");
+    switcher.classList.toggle("on");
 
+    const active =
+        switcher.classList.contains("on");
 
-    const enabled =
-        toggle.classList.contains("on");
-
-
-    document
-        .querySelectorAll(".decor")
-        .forEach(element => {
-
-            element.style.animation =
-                enabled
-                ? ""
-                : "none";
-
-        });
-
+    decorations.style.display =
+        active ? "block" : "none";
 
     localStorage.setItem(
-        "mednotes_animation",
-        enabled
+        "mednotes_floating",
+        active
     );
 
 }
 
 
-/* =====================================
+/* =========================
+   HOVER TOGGLE
+========================= */
+
+function toggleHover(){
+
+    const switcher =
+        document.getElementById("hoverSwitch");
+
+    switcher.classList.toggle("on");
+
+    const active =
+        switcher.classList.contains("on");
+
+    document.body.style.setProperty(
+        "--shadow",
+        active
+        ? "0 15px 40px rgba(198,110,155,.14)"
+        : "none"
+    );
+
+    localStorage.setItem(
+        "mednotes_hover",
+        active
+    );
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+let toastTimer;
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent =
+        message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer =
+        setTimeout(()=>{
+
+            toast.classList.remove("show");
+
+        },2200);
+
+}
+
+
+/* =========================
    RESET
-===================================== */
+========================= */
 
-function resetEverything() {
+function resetSettings(){
 
-    const answer =
-        confirm(
-            "Reset your progress and all MedNotesLab settings?"
-        );
-
-
-    if (!answer) return;
-
-
-    localStorage.removeItem(
-        "mednotes_completed"
-    );
-
-    localStorage.removeItem(
-        "mednotes_theme"
-    );
-
-    localStorage.removeItem(
-        "mednotes_font"
-    );
-
-    localStorage.removeItem(
-        "mednotes_decorations"
-    );
-
-    localStorage.removeItem(
-        "mednotes_animation"
-    );
-
+    localStorage.removeItem("mednotes_theme");
+    localStorage.removeItem("mednotes_font");
+    localStorage.removeItem("mednotes_decor");
+    localStorage.removeItem("mednotes_floating");
+    localStorage.removeItem("mednotes_hover");
 
     location.reload();
 
 }
 
 
-/* =====================================
-   NAVIGATION
-===================================== */
+/* =========================
+   LOAD SAVED SETTINGS
+========================= */
 
-function scrollToCourses() {
-
-    document
-        .getElementById("courses")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-
-}
-
-
-function startLesson() {
-
-    window.location.href =
-        "lessons/lesson1.html";
-
-}
-
-
-/* =====================================
-   LOAD SETTINGS
-===================================== */
-
-function loadSettings() {
+function loadSettings(){
 
     const theme =
-        localStorage.getItem(
-            "mednotes_theme"
-        ) || "pink";
+        localStorage.getItem("mednotes_theme");
+
+    if(theme){
+
+        document.body.classList.remove(
+            "blue",
+            "lavender",
+            "mint",
+            "peach",
+            "sunset",
+            "darkpink",
+            "night"
+        );
+
+        if(theme !== "pink"){
+            document.body.classList.add(theme);
+        }
+
+    }
 
 
     const font =
-        localStorage.getItem(
-            "mednotes_font"
-        ) || "Nunito";
+        localStorage.getItem("mednotes_font");
 
+    if(font){
 
-    const decorations =
-        localStorage.getItem(
-            "mednotes_decorations"
-        ) || "mixed";
-
-
-    const animation =
-        localStorage.getItem(
-            "mednotes_animation"
+        document.documentElement.style
+        .setProperty(
+            "--font",
+            "'" + font + "', sans-serif"
         );
 
-
-    setTheme(theme);
-
-    setFont(font);
-
-    setDecoration(decorations);
+    }
 
 
-    if (animation === "false") {
+    const decor =
+        localStorage.getItem("mednotes_decor");
 
-        const toggle =
-            document.getElementById(
-                "animationToggle"
-            );
+    if(decor){
 
-        toggle.classList.remove("on");
+        const items =
+            decorationSets[decor];
 
         document
-            .querySelectorAll(".decor")
-            .forEach(element => {
+        .querySelectorAll(".float")
+        .forEach((el,i)=>{
 
-                element.style.animation =
-                    "none";
+            el.textContent =
+                items[i % items.length];
 
-            });
+        });
+
+    }
+
+
+    const floating =
+        localStorage.getItem("mednotes_floating");
+
+    if(floating === "false"){
+
+        document
+        .getElementById("decorations")
+        .style.display="none";
+
+        document
+        .getElementById("floatSwitch")
+        .classList.remove("on");
+
+    }
+
+
+    const hover =
+        localStorage.getItem("mednotes_hover");
+
+    if(hover === "false"){
+
+        document.body.style
+        .setProperty("--shadow","none");
+
+        document
+        .getElementById("hoverSwitch")
+        .classList.remove("on");
 
     }
 
 }
 
 
-/* =====================================
-   START WEBSITE
-===================================== */
-
-renderCourses();
+/* =========================
+   START
+========================= */
 
 loadSettings();
+updateProgress();
+updateStreak();
 
 </script>
 
