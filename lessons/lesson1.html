@@ -1,11 +1,10 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Lesson 1 — What Is Health Science?  MedNotesLab</title>
+<title>Lesson 1 — What Is Health Science? | MedNotesLab</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,22 +24,6 @@
     --border:#f3c5d9;
     --shadow:0 12px 35px rgba(200,100,150,.13);
     --font:'Nunito',sans-serif;
-}
-
-*{
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:var(--font);
-    transition:.3s ease;
 }
 
 /* =========================
@@ -290,6 +273,26 @@ body[data-theme="midnight"]{
 }
 
 /* =========================
+   BASIC
+========================= */
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font);
+    transition:.3s ease;
+}
+
+/* =========================
    HEADER
 ========================= */
 
@@ -301,8 +304,7 @@ header{
     position:sticky;
     top:0;
     z-index:50;
-    background:color-mix(in srgb,var(--bg) 92%,transparent);
-    backdrop-filter:blur(15px);
+    background:var(--bg);
     border-bottom:1px solid var(--border);
 }
 
@@ -489,8 +491,8 @@ h1{
 .subtitle{
     color:var(--muted);
     font-size:19px;
-    max-width:750px;
-    line-height:1.7;
+    max-width:800px;
+    line-height:1.8;
 }
 
 .progress-wrap{
@@ -522,18 +524,14 @@ h1{
 }
 
 /* =========================
-   READING CARDS
+   READING
 ========================= */
-
-.reading-section{
-    margin-top:35px;
-}
 
 .card{
     background:var(--card);
     border:1px solid var(--border);
     border-radius:24px;
-    padding:30px;
+    padding:32px;
     margin:25px 0;
     box-shadow:var(--shadow);
 }
@@ -541,31 +539,30 @@ h1{
 .card h2{
     color:var(--primary);
     margin-top:0;
-    font-size:28px;
+    font-size:30px;
 }
 
 .card h3{
     color:var(--primary);
-    font-size:21px;
+    font-size:22px;
 }
 
 .card p{
     font-size:17px;
-    line-height:1.9;
-    color:var(--text);
+    line-height:1.95;
 }
 
-.card ul{
-    line-height:2;
+.card li{
     font-size:16px;
+    line-height:1.9;
 }
 
 .highlight-box{
     background:var(--accent);
     border-left:6px solid var(--primary);
-    padding:20px;
-    border-radius:15px;
-    margin:20px 0;
+    padding:22px;
+    border-radius:16px;
+    margin:25px 0;
 }
 
 .highlight-box strong{
@@ -576,26 +573,27 @@ h1{
     background:linear-gradient(135deg,var(--accent),var(--card));
     border:1px dashed var(--primary);
     border-radius:18px;
-    padding:20px;
-    margin:22px 0;
+    padding:22px;
+    margin:25px 0;
 }
 
 .fact-title{
     color:var(--primary);
     font-weight:800;
-    margin-bottom:6px;
+    font-size:18px;
+    margin-bottom:5px;
 }
 
 .definition{
     border:1px solid var(--border);
     border-radius:18px;
     padding:20px;
-    margin:13px 0;
+    margin:14px 0;
     background:var(--bg);
 }
 
 .definition-term{
-    font-size:19px;
+    font-size:20px;
     font-weight:800;
     color:var(--primary);
 }
@@ -605,32 +603,63 @@ h1{
 }
 
 /* =========================
-   IMAGE PLACEHOLDERS
+   IMAGES
 ========================= */
 
-.image-placeholder{
-    border:2px dashed var(--border);
-    background:var(--bg);
-    border-radius:22px;
-    min-height:220px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+.lesson-image{
+    margin:30px 0;
     text-align:center;
-    padding:30px;
-    margin:25px 0;
+}
+
+.lesson-image img{
+    width:100%;
+    max-width:900px;
+    max-height:620px;
+    object-fit:contain;
+    border-radius:22px;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    background:white;
+}
+
+.image-caption{
+    margin:10px auto 0;
     color:var(--muted);
+    font-size:13px;
+    max-width:750px;
 }
 
-.image-placeholder span{
-    font-size:42px;
-    margin-bottom:10px;
+/* =========================
+   HIGHLIGHT TOOL
+========================= */
+
+.highlight-tools{
+    position:fixed;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:80;
+    display:none;
+    background:var(--card);
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    border-radius:18px;
+    padding:8px;
 }
 
-.image-placeholder strong{
-    color:var(--primary);
-    font-size:18px;
+.highlight-tools.show{
+    display:flex;
+}
+
+.highlight-tools button{
+    border:none;
+    background:var(--accent);
+    color:var(--text);
+    border-radius:12px;
+    padding:10px 15px;
+    cursor:pointer;
+    font-family:inherit;
+    font-weight:700;
 }
 
 /* =========================
@@ -652,8 +681,8 @@ h1{
 .checkpoint-question{
     background:var(--card);
     border-radius:16px;
-    padding:18px;
-    margin:14px 0;
+    padding:20px;
+    margin:15px 0;
 }
 
 .checkpoint-question button{
@@ -669,7 +698,7 @@ h1{
 
 .answer{
     display:none;
-    margin-top:10px;
+    margin-top:12px;
     color:var(--primary);
     font-weight:700;
 }
@@ -700,12 +729,16 @@ h1{
     font-size:18px;
 }
 
+.vocab-card p{
+    font-size:15px;
+}
+
 /* =========================
    QUIZ
 ========================= */
 
 .quiz-question{
-    margin:25px 0;
+    margin:28px 0;
 }
 
 .quiz-option{
@@ -713,7 +746,7 @@ h1{
     width:100%;
     text-align:left;
     margin:8px 0;
-    padding:13px 16px;
+    padding:14px 16px;
     border:1px solid var(--border);
     background:var(--bg);
     color:var(--text);
@@ -726,6 +759,11 @@ h1{
     border-color:var(--primary);
 }
 
+.quiz-option.selected{
+    border:2px solid var(--primary);
+    background:var(--accent);
+}
+
 .quiz-option.correct{
     background:#dff6e8;
     border-color:#69b987;
@@ -734,15 +772,6 @@ h1{
 .quiz-option.wrong{
     background:#ffe1e1;
     border-color:#db7777;
-}
-
-.quiz-result{
-    display:none;
-    background:var(--accent);
-    padding:20px;
-    border-radius:18px;
-    font-weight:800;
-    margin-top:20px;
 }
 
 .quiz-submit{
@@ -754,6 +783,15 @@ h1{
     cursor:pointer;
     font-family:inherit;
     font-weight:800;
+}
+
+.quiz-result{
+    display:none;
+    background:var(--accent);
+    padding:20px;
+    border-radius:18px;
+    font-weight:800;
+    margin-top:20px;
 }
 
 /* =========================
@@ -847,8 +885,13 @@ h1{
 }
 
 @keyframes float{
-    0%,100%{transform:translateY(0) rotate(0deg)}
-    50%{transform:translateY(-15px) rotate(8deg)}
+    0%,100%{
+        transform:translateY(0) rotate(0deg);
+    }
+
+    50%{
+        transform:translateY(-15px) rotate(8deg);
+    }
 }
 
 .no-animation *{
@@ -864,6 +907,14 @@ h1{
 
     header{
         padding:15px;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    .back-btn{
+        display:none;
     }
 
     main{
@@ -887,6 +938,9 @@ h1{
         text-align:center;
     }
 
+    .lesson-image img{
+        max-height:500px;
+    }
 }
 
 </style>
@@ -903,14 +957,22 @@ h1{
 <a class="logo" href="../index.html">🩷 MedNotesLab</a>
 
 <div class="header-right">
-<a class="back-btn" href="../index.html">← Courses</a>
-<button class="settings-btn" onclick="openSettings()">⚙️ Customize</button>
+
+<a class="back-btn" href="../index.html">
+← Courses
+</a>
+
+<button class="settings-btn" onclick="openSettings()">
+⚙️ Customize
+</button>
+
 </div>
 
 </header>
 
+
 <!-- =========================
-     SETTINGS
+     SETTINGS PANEL
 ========================= -->
 
 <div class="settings-panel" id="settingsPanel">
@@ -922,6 +984,7 @@ h1{
 <p style="color:var(--muted)">
 Make MedNotesLab feel like YOUR study space.
 </p>
+
 
 <div class="setting-group">
 
@@ -953,7 +1016,9 @@ Make MedNotesLab feel like YOUR study space.
 <button class="theme-btn" data-theme="midnight">🌌 Midnight</button>
 
 </div>
+
 </div>
+
 
 <div class="setting-group">
 
@@ -980,21 +1045,37 @@ Make MedNotesLab feel like YOUR study space.
 
 </div>
 
+
 <div class="setting-group">
 
 <h3>✨ Decorations</h3>
 
 <div class="decoration-buttons">
 
-<button class="decoration-btn active" data-decoration="mixed">✨ Mixed</button>
-<button class="decoration-btn" data-decoration="cute">🎀 Cute</button>
-<button class="decoration-btn" data-decoration="medical">🩺 Medical</button>
-<button class="decoration-btn" data-decoration="flowers">🌸 Flowers</button>
-<button class="decoration-btn" data-decoration="stars">⭐ Stars</button>
+<button class="decoration-btn active" data-decoration="mixed">
+✨ Mixed
+</button>
+
+<button class="decoration-btn" data-decoration="cute">
+🎀 Cute
+</button>
+
+<button class="decoration-btn" data-decoration="medical">
+🩺 Medical
+</button>
+
+<button class="decoration-btn" data-decoration="flowers">
+🌸 Flowers
+</button>
+
+<button class="decoration-btn" data-decoration="stars">
+⭐ Stars
+</button>
 
 </div>
 
 </div>
+
 
 <div class="setting-group">
 
@@ -1006,6 +1087,7 @@ Make MedNotesLab feel like YOUR study space.
 
 </div>
 
+
 <div class="setting-group">
 
 <button class="reset-btn" onclick="resetSettings()">
@@ -1016,156 +1098,272 @@ Make MedNotesLab feel like YOUR study space.
 
 </div>
 
+
+<!-- =========================
+     HIGHLIGHT TOOL
+========================= -->
+
+<div class="highlight-tools" id="highlightTools">
+
+<button onclick="highlightSelection()">
+🖍️ Highlight Selected Text
+</button>
+
+</div>
+
+
 <!-- =========================
      MAIN LESSON
 ========================= -->
 
 <main>
 
-<span class="lesson-label">COURSE 1 • LESSON 1</span>
+<span class="lesson-label">
+COURSE 1 • LESSON 1
+</span>
 
-<h1>What Is Health Science? 🩷</h1>
+
+<h1>
+What Is Health Science? 🩷
+</h1>
+
 
 <p class="subtitle">
-Welcome to your very first MedNotesLab lesson! Before we learn about cells, DNA, organs, diseases, medicines, and the human body, we need to understand the field that connects all of those things together: <strong>health science.</strong>
+
+Welcome to MedNotesLab.
+
+Before we learn about cells, DNA, organs, diseases, medicines, genetics, and the human body, we first need to understand the huge field that connects all of those subjects together: <strong>health science</strong>.
+
+This lesson introduces what health science is, what it includes, why it matters, and how different scientific fields work together to help us understand human health.
+
 </p>
+
 
 <div class="progress-wrap">
 
 <div class="progress-top">
-<span>Course Progress</span>
-<span>Lesson 1 of 102</span>
+
+<span>
+Course Progress
+</span>
+
+<span>
+Lesson 1 of 102
+</span>
+
 </div>
 
 <div class="progress-bar">
+
 <div class="progress-fill"></div>
+
 </div>
 
 </div>
+
 
 <!-- =========================
-     READING 1
+     MAIN READING
 ========================= -->
 
-<section class="reading-section">
+<section class="card">
 
-<div class="card">
+<h2>
+📖 Start Here: What Is Health Science?
+</h2>
 
-<h2>📖 1. What Is Health Science?</h2>
-
-<p>
-<strong>Health science</strong> is the study of health, the human body, disease, medicine, and the many scientific processes that help us understand and improve human health.
-</p>
 
 <p>
-It is not just one subject. Health science combines knowledge from many different areas of science, including biology, chemistry, anatomy, physiology, genetics, microbiology, psychology, pharmacology, and medicine.
+
+Health science is the broad study of health, the human body, disease, prevention, treatment, and the scientific processes that help us understand how living organisms stay healthy or become ill. It is not one single subject. Instead, it is a collection of many different scientific fields that come together to answer questions about life and health.
+
 </p>
 
+
 <p>
-When scientists study how a virus infects a cell, when researchers investigate a new medicine, when doctors examine a patient's symptoms, and when public health professionals work to prevent disease, they are all using knowledge from health science.
+
+When you hear the words “health science,” you might immediately think about doctors, hospitals, medicine, or nurses. Those things are certainly part of health science, but the field is much larger than that. Health science also includes the study of cells, tissues, organs, DNA, microorganisms, chemicals, medications, behavior, mental health, nutrition, public health, medical research, and much more.
+
 </p>
+
+
+<p>
+
+Imagine that scientists want to understand why a person becomes sick. There usually is not one simple answer. Maybe a microorganism entered the body. Maybe the person's immune system reacted to it. Maybe certain genes affected their risk. Maybe their environment played a role. Maybe a chemical reaction inside their cells changed. Maybe a medication could help treat the condition.
+
+</p>
+
+
+<p>
+
+Answering that one question could require knowledge from microbiology, immunology, genetics, biology, chemistry, physiology, pharmacology, and medicine. This is one of the most important ideas in health science: <strong>different areas of science work together.</strong>
+
+</p>
+
 
 <div class="highlight-box">
 
-<strong>⭐ Main Idea</strong>
+<strong>⭐ The Big Idea</strong>
 
 <p>
-Health science is a broad field that uses science and evidence to understand the human body, protect health, prevent disease, diagnose problems, and develop treatments.
+
+Health science is the study and application of scientific knowledge to understand health, the human body, disease, prevention, diagnosis, treatment, and the factors that affect human well-being.
+
 </p>
 
 </div>
+
+
+<p>
+
+Throughout MedNotesLab, you will gradually build your understanding of these subjects. We will start with the foundations and eventually move into cells, DNA, anatomy, physiology, microorganisms, diseases, mental health, medicine, medical research, and medical case studies.
+
+</p>
+
+
+</section>
+
+
+<!-- =========================
+     IMAGE 1
+========================= -->
+
+<section class="card">
+
+<h2>
+🧍 The Human Body Is One Big System
+</h2>
+
+
+<p>
+
+One reason health science is so interesting is that the human body is not made of completely separate parts. Everything is connected.
+
+Your cells form tissues. Tissues form organs. Organs work together in organ systems. Organ systems communicate with one another to keep the body functioning.
+
+</p>
+
+
+<div class="lesson-image">
+
+<img
+src="https://images.pexels.com/photos/7723400/pexels-photo-7723400.jpeg?cs=srgb&dl=pexels-tara-winstead-7723400.jpg&fm=jpg"
+alt="Educational anatomical model showing the human skeleton, muscles, and organs"
+>
+
+<p class="image-caption">
+
+Educational anatomy model from Pexels. This image helps visualize how different structures exist together within the human body.
+
+</p>
+
+</div>
+
+
+<p>
+
+For example, your respiratory system brings oxygen into your body. Your cardiovascular system transports oxygen through the blood. Your cells use that oxygen to help produce energy. Your nervous system helps coordinate many of the body's activities, while your endocrine system uses hormones to send chemical messages.
+
+</p>
+
+
+<p>
+
+None of these systems works completely alone. They constantly communicate and influence one another. Understanding health therefore requires us to understand both individual parts and the relationships between those parts.
+
+</p>
+
 
 <div class="fact-box">
 
-<div class="fact-title">💡 Think About It</div>
+<div class="fact-title">
+💡 Think About It
+</div>
 
 <p>
-Your body is constantly doing thousands of things without you consciously controlling them. Your heart beats, your lungs exchange gases, your cells use energy, your immune system watches for threats, and your brain processes information. Health science helps us understand how all of these systems work together.
+
+If one body system changes, could that affect another system?
+
+Absolutely. The body is interconnected, which is why medical professionals often have to look at several possible causes when investigating a health problem.
+
 </p>
 
 </div>
 
-</div>
+</section>
+
 
 <!-- =========================
-     READING 2
+     SECTION 2
 ========================= -->
 
-<div class="card">
+<section class="card">
 
-<h2>🧠 2. Why Does Health Science Matter?</h2>
+<h2>
+🔬 Why Is Health Science a Science?
+</h2>
+
 
 <p>
-Understanding health science allows people to make better decisions about health and allows scientists and healthcare professionals to solve problems involving the human body.
+
+Health science uses many of the same principles found throughout science. Scientists ask questions, make observations, collect information, create hypotheses, perform investigations, analyze results, and use evidence to develop explanations.
+
 </p>
 
+
 <p>
-For example, imagine that a person develops a bacterial infection. Health science can help us understand what caused the infection, how bacteria interact with cells, how the immune system responds, which treatments might work, and how the infection could potentially be prevented in the future.
+
+This matters because health information can have real consequences. If someone makes a claim about a disease, medication, treatment, or health behavior, we need a way to determine whether that claim is supported by reliable evidence.
+
 </p>
 
+
 <p>
-Health science also plays a major role in preventing illness. Researchers can identify risk factors for diseases, study how diseases spread, develop vaccines, improve medical technology, and investigate healthier ways for people to live.
+
+For example, imagine someone posts online that a certain product can completely prevent a disease. A scientific approach would not simply accept the claim because it sounds convincing. Researchers would ask questions such as: What evidence supports it? How was the evidence collected? Were enough people studied? Was there a comparison group? Could something else explain the results? Have other researchers found similar results?
+
 </p>
 
-<h3>Health science helps us:</h3>
-
-<ul>
-<li>Understand how the human body works</li>
-<li>Identify and study diseases</li>
-<li>Develop medicines and treatments</li>
-<li>Prevent illness and injury</li>
-<li>Improve medical technology</li>
-<li>Study genetics and inherited conditions</li>
-<li>Understand mental and physical health</li>
-<li>Improve public health</li>
-<li>Investigate new medical questions</li>
-</ul>
-
-</div>
-
-<!-- =========================
-     READING 3
-========================= -->
-
-<div class="card">
-
-<h2>🔬 3. Health Science Is Connected to Many Sciences</h2>
 
 <p>
-One of the most important things to understand about health science is that it does not exist separately from other sciences.
+
+This is why evidence is such an important word in health science. Good scientific conclusions are based on observations and data rather than simply on opinions or guesses.
+
 </p>
 
-<p>
-A single medical question can require knowledge from several scientific fields at once.
-</p>
 
-<h3>For example...</h3>
+<div class="highlight-box">
 
-<p>
-Suppose scientists want to understand why a particular medication works.
-</p>
+<strong>🔎 Evidence Matters</strong>
 
 <p>
-They may need <strong>biology</strong> to understand the cells involved, <strong>chemistry</strong> to understand the drug's molecular structure, <strong>physiology</strong> to understand how the body responds, <strong>pharmacology</strong> to understand how the medication acts in the body, and <strong>statistics</strong> to analyze results from clinical studies.
-</p>
 
-<p>
-This is why health science is such a large field. Many different areas of knowledge work together to answer questions about health.
+Health science depends on evidence because decisions about health should be based on the best available scientific information rather than unsupported claims.
+
 </p>
 
 </div>
 
+</section>
+
+
 <!-- =========================
-     READING 4
+     SECTION 3
 ========================= -->
 
-<div class="card">
+<section class="card">
 
-<h2>🧬 4. Major Areas of Health Science</h2>
+<h2>
+🧬 The Major Areas of Health Science
+</h2>
+
 
 <p>
-Health science includes many different fields. You will learn about several of them throughout MedNotesLab.
+
+Health science contains many different fields. Each field focuses on a particular part of health or biology, but they frequently overlap.
+
 </p>
+
 
 <div class="vocab-grid">
 
@@ -1176,7 +1374,7 @@ Health science includes many different fields. You will learn about several of t
 
 <div class="vocab-card">
 <strong>🦴 Anatomy</strong>
-<p>The study of body structures.</p>
+<p>The study of the structures of the body.</p>
 </div>
 
 <div class="vocab-card">
@@ -1185,13 +1383,13 @@ Health science includes many different fields. You will learn about several of t
 </div>
 
 <div class="vocab-card">
-<strong>🦠 Microbiology</strong>
-<p>The study of microscopic organisms and infectious agents.</p>
+<strong>🧬 Genetics</strong>
+<p>The study of genes, DNA, heredity, and biological variation.</p>
 </div>
 
 <div class="vocab-card">
-<strong>🧬 Genetics</strong>
-<p>The study of genes, DNA, heredity, and variation.</p>
+<strong>🦠 Microbiology</strong>
+<p>The study of microorganisms such as bacteria and fungi.</p>
 </div>
 
 <div class="vocab-card">
@@ -1200,193 +1398,490 @@ Health science includes many different fields. You will learn about several of t
 </div>
 
 <div class="vocab-card">
-<strong>🧠 Neuroscience</strong>
-<p>The study of the nervous system and brain.</p>
-</div>
-
-<div class="vocab-card">
-<strong>🧪 Biochemistry</strong>
-<p>The study of chemical processes occurring in living organisms.</p>
-</div>
-
-<div class="vocab-card">
-<strong>🌎 Public Health</strong>
-<p>The science of protecting and improving the health of populations.</p>
-</div>
-
-<div class="vocab-card">
 <strong>🧠 Psychology</strong>
 <p>The scientific study of behavior and mental processes.</p>
 </div>
 
+<div class="vocab-card">
+<strong>🌎 Public Health</strong>
+<p>The field focused on protecting the health of communities and populations.</p>
 </div>
 
-<!-- IMAGE 1 -->
-<div class="image-placeholder">
+<div class="vocab-card">
+<strong>🧪 Biochemistry</strong>
+<p>The study of chemical processes occurring inside living organisms.</p>
+</div>
 
-<span>🖼️</span>
+<div class="vocab-card">
+<strong>🧠 Neuroscience</strong>
+<p>The study of the nervous system and brain.</p>
+</div>
 
-<strong>IMAGE TO ADD HERE</strong>
+</div>
+
 
 <p>
-Add a diagram showing the major areas of health science and how they connect.
+
+These fields may look separate on paper, but in real scientific research they often overlap. A researcher studying a genetic disease might use genetics to examine DNA, biochemistry to study proteins, cell biology to understand what happens inside cells, and physiology to understand how the condition affects the body.
+
 </p>
 
-<p>
-<strong>Suggested image:</strong> A cute educational mind-map with “Health Science” in the center and branches for Biology, Anatomy, Physiology, Genetics, Microbiology, Pharmacology, Psychology, Public Health, etc.
-</p>
 
-</div>
+</section>
 
-</div>
 
 <!-- =========================
-     READING 5
+     SECTION 4
 ========================= -->
 
-<div class="card">
+<section class="card">
 
-<h2>🏥 5. Health Science Careers</h2>
+<h2>
+🧪 Biology: The Foundation
+</h2>
 
-<p>
-Health science includes many different careers. Not everyone who works in health science is a doctor or nurse.
-</p>
-
-<p>
-Healthcare systems depend on people with many different skills. Some professionals work directly with patients, while others work in laboratories, research facilities, pharmacies, public health organizations, universities, technology companies, or other settings.
-</p>
-
-<h3>Examples of health science careers include:</h3>
-
-<ul>
-<li>Physicians</li>
-<li>Nurses</li>
-<li>Pharmacists</li>
-<li>Medical researchers</li>
-<li>Medical laboratory scientists</li>
-<li>Physical therapists</li>
-<li>Occupational therapists</li>
-<li>Psychologists</li>
-<li>Genetic counselors</li>
-<li>Epidemiologists</li>
-<li>Public health professionals</li>
-<li>Radiologic technologists</li>
-<li>Respiratory therapists</li>
-<li>Biomedical scientists</li>
-</ul>
-
-<div class="highlight-box">
-
-<strong>💗 Important:</strong>
 
 <p>
-There is no single “health science career.” The field is huge, which means people can find careers that match different interests, strengths, and personalities.
+
+Biology is the study of life. Because health science is concerned with living organisms, biology provides one of its most important foundations.
+
 </p>
 
-</div>
-
-<!-- IMAGE 2 -->
-
-<div class="image-placeholder">
-
-<span>🖼️</span>
-
-<strong>IMAGE TO ADD HERE</strong>
 
 <p>
-Add an illustration showing different healthcare and health-science professionals.
+
+Biologists study organisms at many different levels. They may investigate individual molecules, cells, tissues, organs, entire organisms, populations, or ecosystems.
+
 </p>
+
 
 <p>
-<strong>Suggested image:</strong> A cute educational illustration showing a doctor, nurse, pharmacist, scientist, psychologist, laboratory worker, and other health professionals.
+
+In later MedNotesLab lessons, we will focus heavily on biological organization. You will learn how tiny structures such as molecules and cells eventually contribute to larger structures such as tissues, organs, and organ systems.
+
 </p>
 
-</div>
-
-</div>
-
-<!-- =========================
-     READING 6
-========================= -->
-
-<div class="card">
-
-<h2>🌎 6. Health Science in Everyday Life</h2>
-
-<p>
-You do not have to work in healthcare to interact with health science.
-</p>
-
-<p>
-Every day, people make decisions involving sleep, nutrition, exercise, medications, hygiene, mental health, safety, and disease prevention.
-</p>
-
-<p>
-Understanding health science can help people evaluate health information instead of automatically believing everything they see online.
-</p>
-
-<p>
-For example, someone might see a social media post claiming that a certain food, supplement, medicine, or routine can “cure” a disease. Health science gives us tools for asking better questions:
-</p>
-
-<ul>
-<li>Where did this information come from?</li>
-<li>Is there scientific evidence supporting the claim?</li>
-<li>Was the study performed properly?</li>
-<li>How many people were studied?</li>
-<li>Could something else explain the results?</li>
-<li>Do other reliable studies show similar results?</li>
-</ul>
 
 <div class="fact-box">
 
-<div class="fact-title">🔎 Coming Later in MedNotesLab</div>
-
-<p>
-You will eventually learn how medical research works, how clinical studies are designed, how statistics are used, how to read scientific papers, and how to evaluate health information.
-</p>
-
+<div class="fact-title">
+🧫 Important Connection
 </div>
 
-</div>
-
-<!-- =========================
-     READING 7
-========================= -->
-
-<div class="card">
-
-<h2>🧩 7. How Everything Connects</h2>
-
 <p>
-Health science becomes especially interesting when we stop looking at body systems as completely separate things.
+
+If you understand basic biology, later topics such as genetics, disease, microbiology, and medicine become much easier to understand.
+
 </p>
-
-<p>
-Your body is a connected system. Your nervous system communicates with other parts of your body. Your cardiovascular system transports oxygen and nutrients. Your respiratory system brings oxygen into the body and removes carbon dioxide. Your digestive system provides nutrients. Your immune system protects against threats.
-</p>
-
-<p>
-These systems constantly interact with one another.
-</p>
-
-<p>
-This is one reason why later lessons will move from small structures, such as cells and DNA, toward larger systems, diseases, medicines, research, and eventually medical case studies.
-</p>
-
-<div class="highlight-box">
-
-<strong>🩷 MedNotesLab Big Picture</strong>
-
-<p>
-We are going to start with the foundations and gradually build toward understanding how the pieces of human health fit together.
-</p>
-
-</div>
 
 </div>
 
 </section>
+
+
+<!-- =========================
+     SECTION 5
+========================= -->
+
+<section class="card">
+
+<h2>
+🦴 Anatomy vs. Physiology
+</h2>
+
+
+<p>
+
+Two words you will see constantly throughout health science are <strong>anatomy</strong> and <strong>physiology</strong>.
+
+</p>
+
+
+<p>
+
+Anatomy focuses on <strong>structure</strong>. It asks questions such as: What does an organ look like? Where is it located? What structures make it up? How are different body parts arranged?
+
+</p>
+
+
+<p>
+
+Physiology focuses on <strong>function</strong>. It asks questions such as: How does the heart pump blood? How do the lungs exchange gases? How do the kidneys filter the blood? How do neurons communicate?
+
+</p>
+
+
+<div class="highlight-box">
+
+<strong>🧠 Easy Way to Remember</strong>
+
+<p>
+
+<strong>Anatomy = structure.</strong><br>
+<strong>Physiology = function.</strong>
+
+</p>
+
+</div>
+
+
+<p>
+
+The two subjects are closely connected. Structure often influences function. For example, the structure of the lungs allows them to perform their role in exchanging gases. To fully understand the body, scientists and healthcare professionals often need to understand both anatomy and physiology.
+
+</p>
+
+</section>
+
+
+<!-- =========================
+     SECTION 6
+========================= -->
+
+<section class="card">
+
+<h2>
+🧬 Genetics and Health
+</h2>
+
+
+<p>
+
+Genetics is another major part of health science. Genetics focuses on genes, DNA, heredity, and variation between organisms.
+
+</p>
+
+
+<p>
+
+Genes contain biological information that helps cells produce proteins and perform their functions. Differences in genes can contribute to differences between individuals. Some genetic changes can also increase the likelihood of certain diseases or health conditions.
+
+</p>
+
+
+<p>
+
+Genetics does not mean that every health outcome is completely determined by DNA. Many traits and health conditions involve complicated interactions between genes, environment, behavior, and other biological factors.
+
+</p>
+
+
+<p>
+
+Later in MedNotesLab, we will explore DNA, genes, chromosomes, RNA, protein synthesis, mutations, inheritance, genetic disorders, gene expression, epigenetics, genomics, and gene editing.
+
+</p>
+
+</section>
+
+
+<!-- =========================
+     SECTION 7
+========================= -->
+
+<section class="card">
+
+<h2>
+🦠 Microbiology and Disease
+</h2>
+
+
+<p>
+
+Microbiology is the study of microscopic organisms and biological agents. This includes organisms such as bacteria and fungi, along with other microscopic infectious agents.
+
+</p>
+
+
+<p>
+
+Some microorganisms can cause disease. Others are harmless or beneficial. In fact, microorganisms live on and inside the human body and can interact with us in many different ways.
+
+</p>
+
+
+<p>
+
+Understanding microorganisms is important for understanding infection, immunity, vaccines, antibiotics, and disease prevention.
+
+</p>
+
+
+<p>
+
+Later in this course, you will learn how bacteria and viruses differ, how infections develop, how the immune system responds, how vaccines work, and why antibiotic resistance is an important medical problem.
+
+</p>
+
+</section>
+
+
+<!-- =========================
+     SECTION 8
+========================= -->
+
+<section class="card">
+
+<h2>
+💊 Pharmacology and Medicine
+</h2>
+
+
+<p>
+
+Pharmacology is the study of drugs and how they interact with living organisms. It helps scientists understand what medications do, how they affect cells, how they enter the body, and how the body processes them.
+
+</p>
+
+
+<p>
+
+Developing a medication is much more complicated than simply discovering that a substance has an effect. Researchers need to study whether a treatment works, what dose is appropriate, what side effects may occur, and whether the potential benefits outweigh the risks.
+
+</p>
+
+
+<p>
+
+This is why medical research and clinical trials are important. New treatments need to be carefully studied before researchers can determine how useful and safe they may be.
+
+</p>
+
+
+<div class="highlight-box">
+
+<strong>💊 Remember</strong>
+
+<p>
+
+A medicine is not simply “something that makes you better.” Scientists study how treatments work, how effective they are, what risks they have, and how they should be used.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     SECTION 9
+========================= -->
+
+<section class="card">
+
+<h2>
+🧠 Psychology and Neuroscience
+</h2>
+
+
+<p>
+
+Health is not only physical. Human thoughts, emotions, behavior, memory, stress, sleep, and mental health are also important areas of health science.
+
+</p>
+
+
+<p>
+
+Psychology studies behavior and mental processes. Neuroscience focuses on the nervous system, including the brain and its communication with the rest of the body.
+
+</p>
+
+
+<p>
+
+These fields overlap with medicine because mental and physical health can influence one another. The brain communicates with the rest of the body through complex biological systems, and experiences such as stress and lack of sleep can affect many aspects of health.
+
+</p>
+
+
+<p>
+
+Later in MedNotesLab, we will explore the brain, neurotransmitters, emotions, stress, sleep, memory, mental health disorders, trauma, and mental health treatment.
+
+</p>
+
+</section>
+
+
+<!-- =========================
+     SECTION 10
+========================= -->
+
+<section class="card">
+
+<h2>
+🌎 Public Health
+</h2>
+
+
+<p>
+
+Public health looks beyond individual patients and considers the health of groups, communities, and populations.
+
+</p>
+
+
+<p>
+
+A doctor might focus on treating one person's illness. Public health professionals may ask a different question: How can we prevent this illness from affecting thousands or millions of people?
+
+</p>
+
+
+<p>
+
+Public health can involve disease prevention, health education, environmental health, vaccination programs, epidemiology, health policy, community health, and access to healthcare.
+
+</p>
+
+
+<p>
+
+This means that health science can operate at many different levels. Some professionals work directly with individual patients, while others work to improve health across entire communities.
+
+</p>
+
+</section>
+
+
+<!-- =========================
+     IMAGE 2
+========================= -->
+
+<section class="card">
+
+<h2>
+🏥 Health Science Careers
+</h2>
+
+
+<p>
+
+Health science includes an enormous variety of careers. Doctors and nurses are important parts of healthcare, but they are only a small part of the larger health-science world.
+
+</p>
+
+
+<div class="lesson-image">
+
+<img
+src="https://images.pexels.com/photos/6129502/pexels-photo-6129502.jpeg?cs=srgb&dl=pexels-rdne-6129502.jpg&fm=jpg"
+alt="Group of healthcare professionals in a hospital"
+>
+
+<p class="image-caption">
+
+A diverse group of healthcare professionals. Photo from Pexels.
+
+</p>
+
+</div>
+
+
+<p>
+
+Some people work directly with patients. Others work in laboratories, research facilities, pharmacies, universities, public health organizations, medical technology companies, or other settings.
+
+</p>
+
+
+<h3>
+Some health science careers include:
+</h3>
+
+<ul>
+
+<li>Physician</li>
+<li>Nurse</li>
+<li>Pharmacist</li>
+<li>Medical laboratory scientist</li>
+<li>Biomedical researcher</li>
+<li>Psychologist</li>
+<li>Genetic counselor</li>
+<li>Epidemiologist</li>
+<li>Physical therapist</li>
+<li>Occupational therapist</li>
+<li>Respiratory therapist</li>
+<li>Radiologic technologist</li>
+<li>Public health professional</li>
+<li>Medical researcher</li>
+
+</ul>
+
+
+<p>
+
+The important thing to remember is that health science is not one career. It is a huge field with many different paths.
+
+</p>
+
+
+<div class="fact-box">
+
+<div class="fact-title">
+💗 There Is No Single Health Science Career
+</div>
+
+<p>
+
+Someone who loves biology might enjoy laboratory research. Someone interested in helping patients might prefer a clinical career. Someone fascinated by medications might explore pharmacy or pharmacology. Someone interested in communities might enjoy public health.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     SECTION 11
+========================= -->
+
+<section class="card">
+
+<h2>
+🔗 How All These Fields Connect
+</h2>
+
+
+<p>
+
+Now imagine that researchers are investigating a new infectious disease.
+
+First, microbiologists might study the organism responsible for the infection. Cell biologists could investigate how it interacts with human cells. Immunologists could study how the immune system responds. Anatomists and physiologists could examine which organs are affected. Geneticists might investigate whether certain genetic differences influence a person's response. Pharmacologists could investigate potential treatments.
+
+</p>
+
+
+<p>
+
+Researchers would then need statistics to analyze their results. Clinical researchers could study treatments in people. Public health professionals could investigate how the disease spreads through communities. Healthcare professionals could use the resulting knowledge to diagnose and care for patients.
+
+</p>
+
+
+<p>
+
+That single example involves many areas of health science.
+
+</p>
+
+
+<div class="highlight-box">
+
+<strong>🩷 This Is the Point of MedNotesLab</strong>
+
+<p>
+
+You are not learning 102 completely unrelated lessons. You are building a connected understanding of health science piece by piece.
+
+</p>
+
+</div>
+
+</section>
+
 
 <!-- =========================
      DEFINITIONS
@@ -1394,170 +1889,300 @@ We are going to start with the foundations and gradually build toward understand
 
 <section class="card">
 
-<h2>📚 Lesson 1 Definitions</h2>
+<h2>
+📚 Lesson 1 Vocabulary
+</h2>
+
+
+<div class="definition">
+
+<div class="definition-term">
+Health Science
+</div>
 
 <p>
-These are some of the most important words from this lesson. You can come back to this section whenever you need a quick review.
+The broad field that uses scientific knowledge to understand, protect, and improve human health.
 </p>
 
+</div>
+
+
 <div class="definition">
 
-<div class="definition-term">Health Science</div>
+<div class="definition-term">
+Biology
+</div>
 
-<p>The broad field that uses scientific knowledge to understand, protect, and improve human health.</p>
+<p>
+The study of living organisms and life processes.
+</p>
 
 </div>
 
+
 <div class="definition">
 
-<div class="definition-term">Medicine</div>
+<div class="definition-term">
+Anatomy
+</div>
 
-<p>The field concerned with preventing, diagnosing, treating, and managing disease and health conditions.</p>
+<p>
+The study of body structures.
+</p>
 
 </div>
 
+
 <div class="definition">
 
-<div class="definition-term">Anatomy</div>
+<div class="definition-term">
+Physiology
+</div>
 
-<p>The study of the structures of the body.</p>
+<p>
+The study of how living organisms and their body parts function.
+</p>
 
 </div>
 
+
 <div class="definition">
 
-<div class="definition-term">Physiology</div>
+<div class="definition-term">
+Genetics
+</div>
 
-<p>The study of how living organisms and their body parts function.</p>
+<p>
+The study of genes, DNA, heredity, and biological variation.
+</p>
 
 </div>
 
+
 <div class="definition">
 
-<div class="definition-term">Genetics</div>
+<div class="definition-term">
+Microbiology
+</div>
 
-<p>The study of genes, heredity, DNA, and variation in living organisms.</p>
+<p>
+The study of microorganisms and microscopic biological processes.
+</p>
 
 </div>
 
+
 <div class="definition">
 
-<div class="definition-term">Microbiology</div>
+<div class="definition-term">
+Pharmacology
+</div>
 
-<p>The study of microorganisms and other microscopic biological agents.</p>
+<p>
+The study of drugs and how they interact with living organisms.
+</p>
 
 </div>
 
+
 <div class="definition">
 
-<div class="definition-term">Pharmacology</div>
+<div class="definition-term">
+Public Health
+</div>
 
-<p>The study of drugs and how they interact with living organisms.</p>
+<p>
+The field focused on protecting and improving the health of populations and communities.
+</p>
 
 </div>
 
+
 <div class="definition">
 
-<div class="definition-term">Public Health</div>
+<div class="definition-term">
+Evidence
+</div>
 
-<p>The field focused on protecting and improving the health of populations and communities.</p>
+<p>
+Information or data used to support, evaluate, or challenge a scientific claim.
+</p>
 
 </div>
 
+
 <div class="definition">
 
-<div class="definition-term">Evidence</div>
+<div class="definition-term">
+Disease
+</div>
 
-<p>Information or data used to support or evaluate a scientific claim or conclusion.</p>
+<p>
+A condition that negatively affects the normal structure or function of an organism.
+</p>
 
 </div>
 
+
 <div class="definition">
 
-<div class="definition-term">Disease</div>
+<div class="definition-term">
+Healthcare
+</div>
 
-<p>A condition that negatively affects the normal structure or function of an organism.</p>
+<p>
+The organized prevention, diagnosis, treatment, and management of health conditions.
+</p>
 
 </div>
 
 </section>
 
+
 <!-- =========================
-     CHECKPOINT
+     QUICK CHECK
 ========================= -->
 
 <section class="checkpoint">
 
-<h2>🧠 Quick Check</h2>
+<h2>
+🧠 Quick Check
+</h2>
 
-<p>Test yourself before moving on.</p>
+<p>
+Test yourself before taking the final quiz.
+</p>
+
 
 <div class="checkpoint-question">
 
-<strong>1. Is health science only the study of doctors and hospitals?</strong>
+<strong>
+1. Is health science only about doctors?
+</strong>
 
 <br>
 
-<button onclick="showAnswer('a1')">Yes</button>
-<button onclick="showAnswer('a1')">No</button>
+<button onclick="showAnswer('a1')">
+Yes
+</button>
+
+<button onclick="showAnswer('a1')">
+No
+</button>
 
 <div class="answer" id="a1">
-Correct! Health science includes many different fields, careers, and areas of research.
+
+Correct! Health science includes many different scientific fields and careers.
+
 </div>
 
 </div>
+
 
 <div class="checkpoint-question">
 
-<strong>2. Which field studies body structures?</strong>
+<strong>
+2. What does anatomy study?
+</strong>
 
 <br>
 
-<button onclick="showAnswer('a2')">Anatomy</button>
-<button onclick="showAnswer('a2')">Psychology</button>
-<button onclick="showAnswer('a2')">Pharmacology</button>
+<button onclick="showAnswer('a2')">
+Body structures
+</button>
+
+<button onclick="showAnswer('a2')">
+Medications
+</button>
+
+<button onclick="showAnswer('a2')">
+Behavior
+</button>
 
 <div class="answer" id="a2">
-Correct! Anatomy is the study of body structures.
+
+Correct! Anatomy focuses on structure.
+
 </div>
 
 </div>
+
 
 <div class="checkpoint-question">
 
-<strong>3. Why are multiple sciences used in health science?</strong>
+<strong>
+3. What does physiology study?
+</strong>
 
 <br>
 
-<button onclick="showAnswer('a3')">Because health involves many connected processes</button>
-<button onclick="showAnswer('a3')">Because biology is not useful</button>
+<button onclick="showAnswer('a3')">
+How body parts function
+</button>
+
+<button onclick="showAnswer('a3')">
+Only DNA
+</button>
 
 <div class="answer" id="a3">
-Correct! Human health involves many connected biological, chemical, physical, and behavioral processes.
+
+Correct! Physiology focuses on function.
+
+</div>
+
+</div>
+
+
+<div class="checkpoint-question">
+
+<strong>
+4. Why do different sciences work together in health science?
+</strong>
+
+<br>
+
+<button onclick="showAnswer('a4')">
+Because human health involves many connected processes
+</button>
+
+<button onclick="showAnswer('a4')">
+Because science cannot answer questions
+</button>
+
+<div class="answer" id="a4">
+
+Correct! Health is complicated, so researchers often need knowledge from multiple scientific fields.
+
 </div>
 
 </div>
 
 </section>
 
+
 <!-- =========================
-     QUIZ
+     FINAL QUIZ
 ========================= -->
 
 <section class="card">
 
-<h2>📝 Lesson 1 Quiz</h2>
+<h2>
+📝 Lesson 1 Final Quiz
+</h2>
 
 <p>
-Choose the best answer for each question.
+Choose one answer for each question, then click “Check My Answers.”
 </p>
+
 
 <div class="quiz-question">
 
-<strong>1. What is health science?</strong>
+<strong>
+1. What is health science?
+</strong>
 
 <button class="quiz-option" data-correct="true">
-A. A field that studies health using knowledge from many sciences
+A. A broad field that uses science to understand and improve health
 </button>
 
 <button class="quiz-option">
@@ -1570,9 +2195,12 @@ C. Only the study of medicine
 
 </div>
 
+
 <div class="quiz-question">
 
-<strong>2. What does anatomy study?</strong>
+<strong>
+2. What does anatomy focus on?
+</strong>
 
 <button class="quiz-option">
 A. Behavior
@@ -1588,16 +2216,19 @@ C. Medications
 
 </div>
 
+
 <div class="quiz-question">
 
-<strong>3. What does physiology study?</strong>
+<strong>
+3. What does physiology focus on?
+</strong>
 
 <button class="quiz-option" data-correct="true">
-A. How body parts function
+A. How body structures function
 </button>
 
 <button class="quiz-option">
-B. Only DNA
+B. Only genes
 </button>
 
 <button class="quiz-option">
@@ -1606,9 +2237,12 @@ C. Only microorganisms
 
 </div>
 
+
 <div class="quiz-question">
 
-<strong>4. Which field studies genes and heredity?</strong>
+<strong>
+4. Which field studies genes and heredity?
+</strong>
 
 <button class="quiz-option" data-correct="true">
 A. Genetics
@@ -1619,36 +2253,105 @@ B. Anatomy
 </button>
 
 <button class="quiz-option">
-C. Radiology
+C. Pharmacology
 </button>
 
 </div>
+
 
 <div class="quiz-question">
 
-<strong>5. Why is health science interdisciplinary?</strong>
+<strong>
+5. What does microbiology study?
+</strong>
 
 <button class="quiz-option">
-A. Because scientists never work together
+A. Only bones
 </button>
 
 <button class="quiz-option" data-correct="true">
-B. Because many different sciences contribute to understanding health
+B. Microorganisms and microscopic biological processes
 </button>
 
 <button class="quiz-option">
-C. Because health has nothing to do with biology
+C. Only mental health
 </button>
 
 </div>
+
+
+<div class="quiz-question">
+
+<strong>
+6. What does pharmacology study?
+</strong>
+
+<button class="quiz-option">
+A. Body structures
+</button>
+
+<button class="quiz-option" data-correct="true">
+B. Drugs and how they interact with living organisms
+</button>
+
+<button class="quiz-option">
+C. Communities
+</button>
+
+</div>
+
+
+<div class="quiz-question">
+
+<strong>
+7. Why is evidence important in health science?
+</strong>
+
+<button class="quiz-option" data-correct="true">
+A. It helps scientists evaluate whether claims are supported
+</button>
+
+<button class="quiz-option">
+B. It makes opinions automatically true
+</button>
+
+<button class="quiz-option">
+C. It eliminates the need for research
+</button>
+
+</div>
+
+
+<div class="quiz-question">
+
+<strong>
+8. What does public health primarily focus on?
+</strong>
+
+<button class="quiz-option">
+A. Only treating one individual
+</button>
+
+<button class="quiz-option" data-correct="true">
+B. Protecting and improving the health of populations and communities
+</button>
+
+<button class="quiz-option">
+C. Only studying bones
+</button>
+
+</div>
+
 
 <button class="quiz-submit" onclick="finishQuiz()">
 Check My Answers ✨
 </button>
 
+
 <div class="quiz-result" id="quizResult"></div>
 
 </section>
+
 
 <!-- =========================
      KEY TAKEAWAYS
@@ -1656,46 +2359,90 @@ Check My Answers ✨
 
 <section class="card">
 
-<h2>⭐ Lesson 1 Key Takeaways</h2>
+<h2>
+⭐ Lesson 1 Key Takeaways
+</h2>
 
 <ul>
 
-<li>Health science is a broad field focused on understanding and improving human health.</li>
+<li>
+Health science is a broad field focused on understanding and improving human health.
+</li>
 
-<li>It combines many areas of science, including biology, anatomy, physiology, genetics, microbiology, pharmacology, psychology, and public health.</li>
+<li>
+Health science combines many different areas of science.
+</li>
 
-<li>Health science helps us understand the body, study disease, develop treatments, and prevent illness.</li>
+<li>
+Biology provides an important foundation for understanding living systems.
+</li>
 
-<li>Many different careers are part of health science.</li>
+<li>
+Anatomy focuses on structure, while physiology focuses on function.
+</li>
 
-<li>Scientific evidence is important when evaluating health information.</li>
+<li>
+Genetics helps us understand DNA, genes, heredity, and variation.
+</li>
 
-<li>The human body is made of interconnected systems that work together.</li>
+<li>
+Microbiology helps us understand microorganisms and infectious disease.
+</li>
+
+<li>
+Pharmacology helps us understand drugs and their effects.
+</li>
+
+<li>
+Psychology and neuroscience help us understand behavior, mental processes, and the nervous system.
+</li>
+
+<li>
+Public health focuses on protecting the health of populations and communities.
+</li>
+
+<li>
+Evidence is essential for evaluating health and medical claims.
+</li>
+
+<li>
+Many different careers are part of health science.
+</li>
 
 </ul>
 
+
 <div class="highlight-box">
 
-<strong>🩷 Remember:</strong>
+<strong>
+🩷 Remember This:
+</strong>
 
 <p>
-Health science is not just one subject. It is a huge collection of scientific fields working together to understand life, health, disease, and the human body.
+
+Health science is not just one subject and it is not just one career. It is a huge network of scientific fields that work together to help us understand life, health, disease, prevention, and treatment.
+
 </p>
 
 </div>
 
 </section>
 
+
 <!-- =========================
-     COMPLETE
+     COMPLETION
 ========================= -->
 
 <div class="complete-box">
 
-<h2>🎀 Finished Lesson 1?</h2>
+<h2>
+🎀 Finished Lesson 1?
+</h2>
 
 <p>
-If you understand the main ideas and completed the quiz, mark this lesson as complete!
+
+If you finished the readings and quiz, mark this lesson as complete!
+
 </p>
 
 <button class="complete-btn" onclick="completeLesson()">
@@ -1703,10 +2450,13 @@ If you understand the main ideas and completed the quiz, mark this lesson as com
 </button>
 
 <div class="complete-message" id="completeMessage">
-🎉 Lesson 1 completed! Great job!
+
+🎉 Lesson 1 completed! You finished your first MedNotesLab lesson!
+
 </div>
 
 </div>
+
 
 <!-- =========================
      NAVIGATION
@@ -1719,12 +2469,13 @@ If you understand the main ideas and completed the quiz, mark this lesson as com
 </a>
 
 <a class="nav-btn next" href="lesson2.html">
-Next Lesson → 
+Next Lesson →
 </a>
 
 </div>
 
 </main>
+
 
 <script>
 
@@ -1734,17 +2485,32 @@ Next Lesson →
 
 const body = document.body;
 
+
 function openSettings(){
-    document.getElementById("settingsPanel").classList.add("open");
+
+    document
+    .getElementById("settingsPanel")
+    .classList.add("open");
+
 }
+
 
 function closeSettings(){
-    document.getElementById("settingsPanel").classList.remove("open");
+
+    document
+    .getElementById("settingsPanel")
+    .classList.remove("open");
+
 }
 
-/* THEMES */
 
-document.querySelectorAll(".theme-btn").forEach(button => {
+/* =========================
+   THEMES
+========================= */
+
+document
+.querySelectorAll(".theme-btn")
+.forEach(button => {
 
     button.addEventListener("click", () => {
 
@@ -1752,10 +2518,16 @@ document.querySelectorAll(".theme-btn").forEach(button => {
 
         body.dataset.theme = theme;
 
-        localStorage.setItem("mednotes-theme",theme);
+        localStorage.setItem(
+            "mednotes-theme",
+            theme
+        );
 
-        document.querySelectorAll(".theme-btn")
-        .forEach(btn => btn.classList.remove("active"));
+        document
+        .querySelectorAll(".theme-btn")
+        .forEach(btn =>
+            btn.classList.remove("active")
+        );
 
         button.classList.add("active");
 
@@ -1763,9 +2535,14 @@ document.querySelectorAll(".theme-btn").forEach(button => {
 
 });
 
-/* FONTS */
 
-const fontSelect = document.getElementById("fontSelect");
+/* =========================
+   FONT
+========================= */
+
+const fontSelect =
+document.getElementById("fontSelect");
+
 
 fontSelect.addEventListener("change", () => {
 
@@ -1781,18 +2558,28 @@ fontSelect.addEventListener("change", () => {
 
 });
 
-/* DECORATIONS */
+
+/* =========================
+   DECORATIONS
+========================= */
 
 const decorationButtons =
-document.querySelectorAll(".decoration-btn[data-decoration]");
+document.querySelectorAll(
+    ".decoration-btn[data-decoration]"
+);
+
 
 decorationButtons.forEach(button => {
 
     button.addEventListener("click", () => {
 
-        const type = button.dataset.decoration;
+        const type =
+        button.dataset.decoration;
 
-        localStorage.setItem("mednotes-decoration",type);
+        localStorage.setItem(
+            "mednotes-decoration",
+            type
+        );
 
         decorationButtons.forEach(btn =>
             btn.classList.remove("active")
@@ -1806,54 +2593,74 @@ decorationButtons.forEach(button => {
 
 });
 
+
 function updateDecorations(type){
 
     const decorations =
     document.querySelectorAll(".decor");
 
+
     if(type === "cute"){
+
         decorations[0].textContent="🎀";
         decorations[1].textContent="♡";
         decorations[2].textContent="🧸";
+
     }
 
     else if(type === "medical"){
+
         decorations[0].textContent="🩺";
         decorations[1].textContent="🧬";
         decorations[2].textContent="💊";
+
     }
 
     else if(type === "flowers"){
+
         decorations[0].textContent="🌸";
         decorations[1].textContent="🌷";
         decorations[2].textContent="🌼";
+
     }
 
     else if(type === "stars"){
+
         decorations[0].textContent="⭐";
         decorations[1].textContent="✨";
         decorations[2].textContent="🌟";
+
     }
 
     else{
+
         decorations[0].textContent="✦";
         decorations[1].textContent="♡";
         decorations[2].textContent="✿";
+
     }
 
 }
 
-/* ANIMATION */
+
+/* =========================
+   ANIMATION
+========================= */
 
 const animationToggle =
 document.getElementById("animationToggle");
 
+
 animationToggle.addEventListener("click", () => {
 
-    document.body.classList.toggle("no-animation");
+    document.body.classList.toggle(
+        "no-animation"
+    );
 
     const off =
-    document.body.classList.contains("no-animation");
+    document.body.classList.contains(
+        "no-animation"
+    );
 
     localStorage.setItem(
         "mednotes-animation",
@@ -1861,11 +2668,16 @@ animationToggle.addEventListener("click", () => {
     );
 
     animationToggle.textContent =
-    off ? "⏸️ Animations Off" : "✨ Animations On";
+    off
+    ? "⏸️ Animations Off"
+    : "✨ Animations On";
 
 });
 
-/* RESET */
+
+/* =========================
+   RESET
+========================= */
 
 function resetSettings(){
 
@@ -1878,16 +2690,22 @@ function resetSettings(){
 
 }
 
-/* LOAD SETTINGS */
+
+/* =========================
+   LOAD SAVED SETTINGS
+========================= */
 
 const savedTheme =
 localStorage.getItem("mednotes-theme");
 
+
 if(savedTheme){
 
-    body.dataset.theme=savedTheme;
+    body.dataset.theme =
+    savedTheme;
 
-    document.querySelectorAll(".theme-btn")
+    document
+    .querySelectorAll(".theme-btn")
     .forEach(button => {
 
         button.classList.toggle(
@@ -1906,21 +2724,31 @@ else{
 
 }
 
+
 const savedFont =
 localStorage.getItem("mednotes-font");
+
 
 if(savedFont){
 
     document.documentElement
     .style
-    .setProperty("--font",savedFont);
+    .setProperty(
+        "--font",
+        savedFont
+    );
 
-    fontSelect.value=savedFont;
+    fontSelect.value =
+    savedFont;
 
 }
 
+
 const savedDecoration =
-localStorage.getItem("mednotes-decoration");
+localStorage.getItem(
+    "mednotes-decoration"
+);
+
 
 if(savedDecoration){
 
@@ -1928,26 +2756,107 @@ if(savedDecoration){
 
         button.classList.toggle(
             "active",
-            button.dataset.decoration === savedDecoration
+            button.dataset.decoration ===
+            savedDecoration
         );
 
     });
 
-    updateDecorations(savedDecoration);
+    updateDecorations(
+        savedDecoration
+    );
 
 }
 
+
 const savedAnimation =
-localStorage.getItem("mednotes-animation");
+localStorage.getItem(
+    "mednotes-animation"
+);
+
 
 if(savedAnimation === "off"){
 
-    document.body.classList.add("no-animation");
+    document.body.classList.add(
+        "no-animation"
+    );
 
     animationToggle.textContent =
     "⏸️ Animations Off";
 
 }
+
+
+/* =========================
+   TEXT HIGHLIGHTING
+========================= */
+
+let selectedRange = null;
+
+document.addEventListener("mouseup", () => {
+
+    const selection =
+    window.getSelection();
+
+    if(
+        selection &&
+        !selection.isCollapsed &&
+        selection.toString().trim().length > 0
+    ){
+
+        selectedRange =
+        selection.getRangeAt(0);
+
+        document
+        .getElementById("highlightTools")
+        .classList.add("show");
+
+    }
+
+});
+
+
+function highlightSelection(){
+
+    if(!selectedRange){
+        return;
+    }
+
+    const mark =
+    document.createElement("mark");
+
+    mark.style.background =
+    "#fff09a";
+
+    mark.style.borderRadius =
+    "4px";
+
+    mark.style.padding =
+    "1px 3px";
+
+    try{
+
+        selectedRange.surroundContents(mark);
+
+    }
+    catch(error){
+
+        alert(
+            "Please highlight text within one paragraph at a time."
+        );
+
+    }
+
+    window.getSelection().removeAllRanges();
+
+    document
+    .getElementById("highlightTools")
+    .classList.remove("show");
+
+    selectedRange = null;
+
+}
+
 
 /* =========================
    CHECKPOINT ANSWERS
@@ -1961,91 +2870,172 @@ function showAnswer(id){
 
 }
 
+
 /* =========================
    QUIZ
 ========================= */
 
 const quizOptions =
-document.querySelectorAll(".quiz-option");
+document.querySelectorAll(
+    ".quiz-option"
+);
+
 
 quizOptions.forEach(option => {
 
-    option.addEventListener("click", () => {
+    option.addEventListener(
+        "click",
+        () => {
 
-        const question =
-        option.parentElement;
+            const question =
+            option.parentElement;
+
+            question
+            .querySelectorAll(".quiz-option")
+            .forEach(btn => {
+
+                btn.classList.remove(
+                    "selected"
+                );
+
+                btn.classList.remove(
+                    "correct"
+                );
+
+                btn.classList.remove(
+                    "wrong"
+                );
+
+            });
+
+            option.classList.add(
+                "selected"
+            );
+
+        }
+    );
+
+});
+
+
+function finishQuiz(){
+
+    const questions =
+    document.querySelectorAll(
+        ".quiz-question"
+    );
+
+    let score = 0;
+
+
+    questions.forEach(question => {
+
+        const selected =
+        question.querySelector(
+            ".selected"
+        );
+
 
         question
         .querySelectorAll(".quiz-option")
         .forEach(btn => {
 
-            btn.classList.remove("correct");
-            btn.classList.remove("wrong");
+            btn.classList.remove(
+                "correct"
+            );
+
+            btn.classList.remove(
+                "wrong"
+            );
 
         });
 
-        if(option.dataset.correct === "true"){
 
-            option.classList.add("correct");
+        if(selected){
 
-        }
-        else{
+            if(
+                selected.dataset.correct ===
+                "true"
+            ){
 
-            option.classList.add("wrong");
+                selected.classList.add(
+                    "correct"
+                );
+
+                score++;
+
+            }
+            else{
+
+                selected.classList.add(
+                    "wrong"
+                );
+
+                const correct =
+                question.querySelector(
+                    '[data-correct="true"]'
+                );
+
+                if(correct){
+
+                    correct.classList.add(
+                        "correct"
+                    );
+
+                }
+
+            }
 
         }
 
     });
 
-});
-
-function finishQuiz(){
-
-    const questions =
-    document.querySelectorAll(".quiz-question");
-
-    let score=0;
-
-    questions.forEach(question => {
-
-        const selected =
-        question.querySelector(".correct");
-
-        if(selected &&
-           selected.dataset.correct === "true"){
-
-            score++;
-
-        }
-
-    });
 
     const result =
-    document.getElementById("quizResult");
+    document.getElementById(
+        "quizResult"
+    );
 
-    result.style.display="block";
+
+    result.style.display =
+    "block";
+
 
     if(score === questions.length){
 
         result.innerHTML =
         "🎉 PERFECT SCORE! You got " +
-        score + "/" +
+        score +
+        "/" +
         questions.length +
         "!";
+
+    }
+
+    else if(score >= 6){
+
+        result.innerHTML =
+        "🌟 Great job! You got " +
+        score +
+        "/" +
+        questions.length +
+        "! Review anything you missed and try again.";
 
     }
 
     else{
 
         result.innerHTML =
-        "✨ You got " +
-        score + "/" +
+        "💗 You got " +
+        score +
+        "/" +
         questions.length +
-        ". Review the lesson and try again!";
+        ". Review the readings and try again!";
 
     }
 
 }
+
 
 /* =========================
    COMPLETION
@@ -2059,30 +3049,34 @@ function completeLesson(){
     );
 
     document
-    .getElementById("completeMessage")
-    .style.display="block";
-
-    updateProgress();
-
-}
-
-function updateProgress(){
-
-    if(localStorage.getItem("lesson1-complete") === "true"){
-
-        document
-        .querySelector(".progress-fill")
-        .style.width="1%";
-
-    }
-
-}
-
-if(localStorage.getItem("lesson1-complete") === "true"){
+    .getElementById(
+        "completeMessage"
+    )
+    .style.display =
+    "block";
 
     document
-    .getElementById("completeMessage")
-    .style.display="block";
+    .querySelector(
+        ".progress-fill"
+    )
+    .style.width =
+    "1%";
+
+}
+
+
+if(
+    localStorage.getItem(
+        "lesson1-complete"
+    ) === "true"
+){
+
+    document
+    .getElementById(
+        "completeMessage"
+    )
+    .style.display =
+    "block";
 
 }
 
@@ -2090,4 +3084,3 @@ if(localStorage.getItem("lesson1-complete") === "true"){
 
 </body>
 </html>
-```
