@@ -1,1 +1,943 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>MedStudy</title>
+
+    <!-- Cute rounded fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #fff8fc;
+            color: #4d3b48;
+            font-family: "Nunito", sans-serif;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            width: 100%;
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 248, 252, 0.95);
+            border-bottom: 1px solid #f5dce9;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            font-family: "Baloo 2", cursive;
+            font-size: 29px;
+            font-weight: 700;
+            color: #e978a8;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: #f4a4c4;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #765c6b;
+            font-weight: 700;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #e978a8;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: 95px 20px 90px;
+            background:
+                radial-gradient(circle at 10% 20%, #ffdced 0, transparent 22%),
+                radial-gradient(circle at 90% 10%, #ffeaf4 0, transparent 24%),
+                linear-gradient(180deg, #fff8fc 0%, #fff3f9 100%);
+        }
+
+        .decor {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0.55;
+        }
+
+        .decor.one {
+            top: 65px;
+            left: 10%;
+            transform: rotate(-15deg);
+        }
+
+        .decor.two {
+            top: 125px;
+            right: 12%;
+            transform: rotate(15deg);
+        }
+
+        .decor.three {
+            bottom: 45px;
+            left: 17%;
+        }
+
+        .decor.four {
+            bottom: 55px;
+            right: 18%;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #ffe1ee;
+            color: #d96496;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-family: "Baloo 2", cursive;
+            font-size: clamp(48px, 7vw, 82px);
+            line-height: 0.95;
+            color: #d85f91;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: #f29fc2;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #806b77;
+        }
+
+        .start-button {
+            display: inline-block;
+            margin-top: 32px;
+            padding: 15px 34px;
+            border-radius: 50px;
+            background: #e978a8;
+            color: white;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 17px;
+            box-shadow: 0 10px 25px rgba(233, 120, 168, 0.25);
+            transition: 0.2s;
+        }
+
+        .start-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 30px rgba(233, 120, 168, 0.32);
+        }
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            padding: 30px 7%;
+            background: white;
+            border-bottom: 1px solid #f5e2eb;
+        }
+
+        .stat {
+            min-width: 155px;
+            padding: 17px 25px;
+            background: #fff5fa;
+            border: 1px solid #f4dce8;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+            font-family: "Baloo 2", cursive;
+            font-size: 27px;
+            color: #db6797;
+        }
+
+        .stat span {
+            color: #8b7480;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* =========================
+           COURSES SECTION
+        ========================= */
+
+        .courses-section {
+            padding: 80px 7%;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-heading h2 {
+            font-family: "Baloo 2", cursive;
+            color: #d45f90;
+            font-size: 48px;
+            margin-bottom: 5px;
+        }
+
+        .section-heading p {
+            color: #8b7480;
+            font-size: 16px;
+        }
+
+        /* =========================
+           COURSE CARD
+        ========================= */
+
+        .course {
+            background: white;
+            border: 1px solid #f0dce7;
+            border-radius: 28px;
+            margin-bottom: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(190, 120, 150, 0.07);
+            transition: 0.2s;
+        }
+
+        .course:hover {
+            box-shadow: 0 12px 30px rgba(190, 120, 150, 0.12);
+        }
+
+        .course-header {
+            padding: 25px 28px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: linear-gradient(90deg, #fff2f8, #fff9fc);
+        }
+
+        .course-number {
+            width: 54px;
+            height: 54px;
+            flex-shrink: 0;
+            border-radius: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f7a6c5;
+            color: white;
+            font-family: "Baloo 2", cursive;
+            font-size: 23px;
+            font-weight: 700;
+        }
+
+        .course-title {
+            flex: 1;
+        }
+
+        .course-title h3 {
+            font-family: "Baloo 2", cursive;
+            color: #5b4652;
+            font-size: 25px;
+            line-height: 1.1;
+        }
+
+        .course-title p {
+            color: #9b8490;
+            font-size: 13px;
+            margin-top: 3px;
+            font-weight: 700;
+        }
+
+        .lesson-count {
+            background: #ffe6f0;
+            color: #d46494;
+            border-radius: 20px;
+            padding: 7px 13px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        /* =========================
+           LESSONS
+        ========================= */
+
+        .lessons {
+            padding: 8px 20px 22px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 9px;
+        }
+
+        .lesson {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 13px 15px;
+            border-radius: 15px;
+            background: #fffafd;
+            border: 1px solid #f7e7ef;
+            text-decoration: none;
+            color: #62505a;
+            transition: 0.18s;
+        }
+
+        .lesson:hover {
+            background: #fff0f7;
+            border-color: #f3c7db;
+            transform: translateX(3px);
+        }
+
+        .lesson-number {
+            min-width: 32px;
+            height: 32px;
+            border-radius: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffe1ed;
+            color: #d86696;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .lesson-name {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* =========================
+           BOTTOM CTA
+        ========================= */
+
+        .bottom-card {
+            margin: 20px auto 80px;
+            max-width: 1100px;
+            padding: 55px 25px;
+            border-radius: 32px;
+            text-align: center;
+            background: linear-gradient(135deg, #ffe4f0, #fff1f7);
+            border: 1px solid #f3d2e0;
+        }
+
+        .bottom-card h2 {
+            font-family: "Baloo 2", cursive;
+            font-size: 42px;
+            color: #d45f90;
+            margin-bottom: 7px;
+        }
+
+        .bottom-card p {
+            color: #806a76;
+            margin-bottom: 24px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            background: #fff;
+            border-top: 1px solid #f3dfe8;
+            color: #9a818d;
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: #df719f;
+            font-family: "Baloo 2", cursive;
+            font-size: 18px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            .nav-links {
+                gap: 13px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 75px 20px 70px;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .courses-section {
+                padding: 60px 5%;
+            }
+
+            .section-heading h2 {
+                font-size: 40px;
+            }
+
+            .course-header {
+                padding: 20px;
+            }
+
+            .course-title h3 {
+                font-size: 20px;
+            }
+
+            .lesson-count {
+                display: none;
+            }
+
+            .lessons {
+                grid-template-columns: 1fr;
+                padding: 8px 14px 18px;
+            }
+
+            .decor {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+        <div class="logo">Med<span>Study</span> ♡</div>
+
+        <div class="nav-links">
+            <a href="#courses">Courses</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="decor one">♡</div>
+        <div class="decor two">✦</div>
+        <div class="decor three">♡</div>
+        <div class="decor four">✧</div>
+
+        <div class="hero-badge">♡ YOUR MEDICAL SCIENCE JOURNEY</div>
+
+        <h1>
+            Learn Medicine<br>
+            <span>Step by Step</span>
+        </h1>
+
+        <p>
+            Explore the human body, cells, genetics, diseases,
+            medicine, research, and so much more through
+            simple, organized lessons.
+        </p>
+
+        <a href="#courses" class="start-button">
+            START LEARNING →
+        </a>
+
+    </section>
+
+
+    <!-- =========================
+         STATS
+    ========================= -->
+
+    <section class="stats">
+
+        <div class="stat">
+            <strong>11</strong>
+            <span>Courses</span>
+        </div>
+
+        <div class="stat">
+            <strong>102</strong>
+            <span>Lessons</span>
+        </div>
+
+        <div class="stat">
+            <strong>♡</strong>
+            <span>Learn at Your Pace</span>
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         COURSES
+    ========================= -->
+
+    <main class="courses-section" id="courses">
+
+        <div class="section-heading">
+            <h2>Your Learning Path</h2>
+            <p>Start with the foundations and work your way through medical science.</p>
+        </div>
+
+
+        <!-- COURSE 1 -->
+
+        <div class="course">
+
+            <div class="course-header">
+                <div class="course-number">01</div>
+
+                <div class="course-title">
+                    <h3>Foundations of Health Science</h3>
+                    <p>Build your medical science foundation</p>
+                </div>
+
+                <div class="lesson-count">6 LESSONS</div>
+            </div>
+
+            <div class="lessons">
+
+                <a href="#" class="lesson">
+                    <span class="lesson-number">01</span>
+                    <span class="lesson-name">What Is Health Science?</span>
+                </a>
+
+                <a href="#" class="lesson">
+                    <span class="lesson-number">02</span>
+                    <span class="lesson-name">Levels of Organization in the Body</span>
+                </a>
+
+                <a href="#" class="lesson">
+                    <span class="lesson-number">03</span>
+                    <span class="lesson-name">Homeostasis</span>
+                </a>
+
+                <a href="#" class="lesson">
+                    <span class="lesson-number">04</span>
+                    <span class="lesson-name">Basic Medical Terminology</span>
+                </a>
+
+                <a href="#" class="lesson">
+                    <span class="lesson-number">05</span>
+                    <span class="lesson-name">Introduction to Scientific Research</span>
+                </a>
+
+                <a href="#" class="lesson">
+                    <span class="lesson-number">06</span>
+                    <span class="lesson-name">How Medical Evidence Works</span>
+                </a>
+
+            </div>
+        </div>
+
+
+        <!-- COURSE 2 -->
+
+        <div class="course">
+
+            <div class="course-header">
+                <div class="course-number">02</div>
+
+                <div class="course-title">
+                    <h3>Cells</h3>
+                    <p>Explore the building blocks of life</p>
+                </div>
+
+                <div class="lesson-count">8 LESSONS</div>
+            </div>
+
+            <div class="lessons">
+
+                <a href="#" class="lesson"><span class="lesson-number">07</span><span class="lesson-name">What Is a Cell?</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">08</span><span class="lesson-name">Cell Structures</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">09</span><span class="lesson-name">Cell Membranes</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">10</span><span class="lesson-name">Transport Across Cell Membranes</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">11</span><span class="lesson-name">Cellular Energy</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">12</span><span class="lesson-name">Cell Division</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">13</span><span class="lesson-name">Cell Death</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">14</span><span class="lesson-name">Tissues</span></a>
+
+            </div>
+        </div>
+
+
+        <!-- COURSE 3 -->
+
+        <div class="course">
+
+            <div class="course-header">
+                <div class="course-number">03</div>
+
+                <div class="course-title">
+                    <h3>Genetics & DNA</h3>
+                    <p>Discover how genetic information works</p>
+                </div>
+
+                <div class="lesson-count">12 LESSONS</div>
+            </div>
+
+            <div class="lessons">
+
+                <a href="#" class="lesson"><span class="lesson-number">15</span><span class="lesson-name">DNA</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">16</span><span class="lesson-name">Genes</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">17</span><span class="lesson-name">Chromosomes</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">18</span><span class="lesson-name">RNA</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">19</span><span class="lesson-name">Protein Synthesis</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">20</span><span class="lesson-name">Mutations</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">21</span><span class="lesson-name">Inheritance</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">22</span><span class="lesson-name">Genetic Disorders</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">23</span><span class="lesson-name">Gene Expression</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">24</span><span class="lesson-name">Epigenetics</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">25</span><span class="lesson-name">Genomics</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">26</span><span class="lesson-name">Gene Editing</span></a>
+
+            </div>
+        </div>
+
+
+        <!-- COURSE 4 -->
+
+        <div class="course">
+
+            <div class="course-header">
+                <div class="course-number">04</div>
+
+                <div class="course-title">
+                    <h3>Anatomy</h3>
+                    <p>Learn the structures of the human body</p>
+                </div>
+
+                <div class="lesson-count">13 LESSONS</div>
+            </div>
+
+            <div class="lessons">
+
+                <a href="#" class="lesson"><span class="lesson-number">27</span><span class="lesson-name">Anatomical Position & Directions</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">28</span><span class="lesson-name">Skeletal System</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">29</span><span class="lesson-name">Muscular System</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">30</span><span class="lesson-name">Nervous System</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">31</span><span class="lesson-name">Cardiovascular System</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">32</span><span class="lesson-name">Respiratory System</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">33</span><span class="lesson-name">Digestive System</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">34</span><span class="lesson-name">Urinary System</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">35</span><span class="lesson-name">Endocrine System</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">36</span><span class="lesson-name">Immune System</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">37</span><span class="lesson-name">Reproductive System</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">38</span><span class="lesson-name">Integumentary System</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">39</span><span class="lesson-name">The Five Senses</span></a>
+
+            </div>
+        </div>
+
+
+        <!-- COURSE 5 -->
+
+        <div class="course">
+
+            <div class="course-header">
+                <div class="course-number">05</div>
+
+                <div class="course-title">
+                    <h3>Physiology</h3>
+                    <p>Understand how the body works</p>
+                </div>
+
+                <div class="lesson-count">9 LESSONS</div>
+            </div>
+
+            <div class="lessons">
+
+                <a href="#" class="lesson"><span class="lesson-number">40</span><span class="lesson-name">How the Heart Works</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">41</span><span class="lesson-name">How Blood Moves</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">42</span><span class="lesson-name">How We Breathe</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">43</span><span class="lesson-name">How Digestion Works</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">44</span><span class="lesson-name">How the Kidneys Work</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">45</span><span class="lesson-name">How Hormones Work</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">46</span><span class="lesson-name">How the Brain Communicates</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">47</span><span class="lesson-name">How the Immune System Responds</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">48</span><span class="lesson-name">Maintaining Homeostasis</span></a>
+
+            </div>
+        </div>
+
+
+        <!-- COURSE 6 -->
+
+        <div class="course">
+
+            <div class="course-header">
+                <div class="course-number">06</div>
+
+                <div class="course-title">
+                    <h3>Microbiology</h3>
+                    <p>Explore microorganisms and infection</p>
+                </div>
+
+                <div class="lesson-count">8 LESSONS</div>
+            </div>
+
+            <div class="lessons">
+
+                <a href="#" class="lesson"><span class="lesson-number">49</span><span class="lesson-name">Bacteria</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">50</span><span class="lesson-name">Viruses</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">51</span><span class="lesson-name">Fungi</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">52</span><span class="lesson-name">Parasites</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">53</span><span class="lesson-name">Infection</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">54</span><span class="lesson-name">Immune Response</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">55</span><span class="lesson-name">Vaccines</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">56</span><span class="lesson-name">Antibiotics & Resistance</span></a>
+
+            </div>
+        </div>
+
+
+        <!-- COURSE 7 -->
+
+        <div class="course">
+
+            <div class="course-header">
+                <div class="course-number">07</div>
+
+                <div class="course-title">
+                    <h3>Disease & Pathophysiology</h3>
+                    <p>Learn how diseases affect the body</p>
+                </div>
+
+                <div class="lesson-count">10 LESSONS</div>
+            </div>
+
+            <div class="lessons">
+
+                <a href="#" class="lesson"><span class="lesson-number">57</span><span class="lesson-name">What Is Disease?</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">58</span><span class="lesson-name">Inflammation</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">59</span><span class="lesson-name">Infectious Diseases</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">60</span><span class="lesson-name">Genetic Diseases</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">61</span><span class="lesson-name">Cardiovascular Diseases</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">62</span><span class="lesson-name">Respiratory Diseases</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">63</span><span class="lesson-name">Neurological Diseases</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">64</span><span class="lesson-name">Autoimmune Diseases</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">65</span><span class="lesson-name">Cancer Biology</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">66</span><span class="lesson-name">How Diseases Affect the Body</span></a>
+
+            </div>
+        </div>
+
+
+        <!-- COURSE 8 -->
+
+        <div class="course">
+
+            <div class="course-header">
+                <div class="course-number">08</div>
+
+                <div class="course-title">
+                    <h3>Mental Health & Neuroscience</h3>
+                    <p>Explore the brain, behavior, and mental health</p>
+                </div>
+
+                <div class="lesson-count">12 LESSONS</div>
+            </div>
+
+            <div class="lessons">
+
+                <a href="#" class="lesson"><span class="lesson-number">67</span><span class="lesson-name">The Brain</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">68</span><span class="lesson-name">Neurotransmitters</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">69</span><span class="lesson-name">Emotions</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">70</span><span class="lesson-name">Stress</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">71</span><span class="lesson-name">Sleep</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">72</span><span class="lesson-name">Memory & Learning</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">73</span><span class="lesson-name">Anxiety Disorders</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">74</span><span class="lesson-name">Mood Disorders</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">75</span><span class="lesson-name">ADHD</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">76</span><span class="lesson-name">Trauma & the Brain</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">77</span><span class="lesson-name">Mental Health Treatment</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">78</span><span class="lesson-name">Mental Health & Physical Health</span></a>
+
+            </div>
+        </div>
+
+
+        <!-- COURSE 9 -->
+
+        <div class="course">
+
+            <div class="course-header">
+                <div class="course-number">09</div>
+
+                <div class="course-title">
+                    <h3>Medicine</h3>
+                    <p>Learn how medications and treatments work</p>
+                </div>
+
+                <div class="lesson-count">10 LESSONS</div>
+            </div>
+
+            <div class="lessons">
+
+                <a href="#" class="lesson"><span class="lesson-number">79</span><span class="lesson-name">What Is a Medication?</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">80</span><span class="lesson-name">How Drugs Enter the Body</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">81</span><span class="lesson-name">How Drugs Affect Cells</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">82</span><span class="lesson-name">Drug Classes</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">83</span><span class="lesson-name">Antibiotics</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">84</span><span class="lesson-name">Pain Medicines</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">85</span><span class="lesson-name">Medication Safety</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">86</span><span class="lesson-name">Side Effects</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">87</span><span class="lesson-name">Clinical Trials</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">88</span><span class="lesson-name">How New Treatments Are Developed</span></a>
+
+            </div>
+        </div>
+
+
+        <!-- COURSE 10 -->
+
+        <div class="course">
+
+            <div class="course-header">
+                <div class="course-number">10</div>
+
+                <div class="course-title">
+                    <h3>Medical Research</h3>
+                    <p>Learn how medical knowledge is discovered</p>
+                </div>
+
+                <div class="lesson-count">8 LESSONS</div>
+            </div>
+
+            <div class="lessons">
+
+                <a href="#" class="lesson"><span class="lesson-number">89</span><span class="lesson-name">How Clinical Studies Work</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">90</span><span class="lesson-name">Reading a Scientific Paper</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">91</span><span class="lesson-name">Correlation vs. Causation</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">92</span><span class="lesson-name">Medical Statistics</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">93</span><span class="lesson-name">Epidemiology</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">94</span><span class="lesson-name">Public Health</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">95</span><span class="lesson-name">Medical Ethics</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">96</span><span class="lesson-name">Evaluating Health Information</span></a>
+
+            </div>
+        </div>
+
+
+        <!-- COURSE 11 -->
+
+        <div class="course">
+
+            <div class="course-header">
+                <div class="course-number">11</div>
+
+                <div class="course-title">
+                    <h3>Putting It Together</h3>
+                    <p>Apply everything you've learned</p>
+                </div>
+
+                <div class="lesson-count">6 LESSONS</div>
+            </div>
+
+            <div class="lessons">
+
+                <a href="#" class="lesson"><span class="lesson-number">97</span><span class="lesson-name">Medical Case Studies</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">98</span><span class="lesson-name">Reading Medical Test Results</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">99</span><span class="lesson-name">Connecting Symptoms to Body Systems</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">100</span><span class="lesson-name">How Doctors Investigate Disease</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">101</span><span class="lesson-name">Research Challenge</span></a>
+                <a href="#" class="lesson"><span class="lesson-number">102</span><span class="lesson-name">Final Medical Science Quiz</span></a>
+
+            </div>
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         BOTTOM SECTION
+    ========================= -->
+
+    <section class="bottom-card" id="about">
+
+        <h2>Ready to start learning? ♡</h2>
+
+        <p>
+            102 lessons. 11 courses. One medical science journey.
+        </p>
+
+        <a href="#courses" class="start-button">
+            EXPLORE COURSES →
+        </a>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+        <strong>MedStudy ♡</strong>
+        <br>
+        Learn something new every day.
+    </footer>
+
+
+</body>
+</html>
+```
