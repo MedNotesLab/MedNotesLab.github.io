@@ -3491,6 +3491,7 @@ function updateProgress() {
 
 /* =========================================================
    QUIZ
+   FIXED SO IT STILL WORKS AFTER STUDY HTML IS RESTORED
 ========================================================= */
 
 const correctAnswers = {
@@ -3502,9 +3503,176 @@ const correctAnswers = {
 };
 
 
-document
-    .getElementById("quizSubmit")
-    .addEventListener("click", () => {
+/*
+    IMPORTANT:
+
+    The lesson saves and restores studyContent.innerHTML.
+
+    That means the quiz button can be replaced when the
+    saved lesson is restored.
+
+    Instead of attaching the click directly to the button,
+    we listen on studyContent itself.
+
+    This keeps the quiz working even after highlights,
+    annotations, or saved lesson HTML are restored.
+*/
+
+studyContent.addEventListener(
+    "click",
+    event => {
+
+        const quizButton =
+            event.target.closest("#quizSubmit");
+
+        if (!quizButton) {
+            return;
+        }
+
+
+        let score = 0;
+
+        let answered = 0;
+
+
+        Object.keys(correctAnswers)
+            .forEach(question => {
+
+                const selected =
+                    studyContent.querySelector(
+                        `input[name="${question}"]:checked`
+                    );
+
+
+                if (selected) {
+
+                    answered++;
+
+
+                    if (
+                        selected.value ===
+                        correctAnswers[question]
+                    ) {
+
+                        score++;
+
+                    }
+
+                }
+
+            });
+
+
+        /*
+            Make sure every question has an answer.
+        */
+
+        if (answered < 5) {
+
+            const missing =
+                5 - answered;
+
+
+            const result =
+                studyContent.querySelector(
+                    "#quizResult"
+                );
+
+
+            result.className =
+                "quiz-result try";
+
+
+            result.textContent =
+                `You still have ${missing} question${missing === 1 ? "" : "s"} to answer.`;
+
+
+            return;
+
+        }
+
+
+        /*
+            Save the score.
+        */
+
+        lessonData.quizScore =
+            score;
+
+
+        /*
+            4/5 or higher completes the quiz milestone.
+        */
+
+        if (score >= 4) {
+
+            lessonData.quizCompleted =
+                true;
+
+        } else {
+
+            lessonData.quizCompleted =
+                false;
+
+        }
+
+
+        saveData();
+
+        updateProgress();
+
+
+        const result =
+            studyContent.querySelector(
+                "#quizResult"
+            );
+
+
+        /*
+            Quiz feedback.
+        */
+
+        if (score === 5) {
+
+            result.className =
+                "quiz-result good";
+
+            result.textContent =
+                "🎉 5/5! Perfect! You really understand the lesson.";
+
+
+        } else if (score >= 4) {
+
+            result.className =
+                "quiz-result good";
+
+            result.textContent =
+                `✨ ${score}/5! Great job! The quiz milestone is complete.`;
+
+
+        } else {
+
+            result.className =
+                "quiz-result try";
+
+            result.textContent =
+                `You got ${score}/5. Review the lesson and try again. You need 4/5 to complete the quiz milestone.`;
+
+        }
+
+
+        /*
+            Save again so the quiz result/progress stays
+            consistent when leaving the page.
+        */
+
+        lessonData.studyHTML =
+            studyContent.innerHTML;
+
+        saveData();
+
+    }
+);
 
         let score = 0;
 
