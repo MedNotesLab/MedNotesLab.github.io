@@ -2669,31 +2669,130 @@ function restoreStudyHTML() {
 
 /* =========================================================
    SELECTION
+   iPHONE / SAFARI FIX
 ========================================================= */
 
-function getSelectedRange() {
+let savedSelectionRange = null;
 
-    const selection =
-        window.getSelection();
+
+/*
+    iPhone Safari can remove the visible text selection
+    when the user taps a toolbar button.
+
+    This remembers the selection BEFORE Safari removes it,
+    so Highlight / Annotate / Unhighlight can still use it.
+*/
+
+function rememberSelection() {
+
+    const selection = window.getSelection();
 
     if (!selection || selection.rangeCount === 0) {
-        return null;
+        return;
     }
 
     if (selection.isCollapsed) {
-        return null;
+        return;
     }
 
-    const range =
-        selection.getRangeAt(0);
+    const range = selection.getRangeAt(0);
 
     if (!studyContent.contains(range.commonAncestorContainer)) {
-        return null;
+        return;
     }
 
-    return range;
+    savedSelectionRange = range.cloneRange();
+
 }
 
+
+/*
+    Watch for the blue text selection handles appearing.
+*/
+
+document.addEventListener(
+    "selectionchange",
+    () => {
+
+        rememberSelection();
+
+    }
+);
+
+
+/*
+    Get the current selection.
+
+    If Safari has already removed it because the user
+    tapped a toolbar button, use the saved copy instead.
+*/
+
+function getSelectedRange() {
+
+    const selection = window.getSelection();
+
+    if (
+        selection &&
+        selection.rangeCount > 0 &&
+        !selection.isCollapsed
+    ) {
+
+        const range = selection.getRangeAt(0);
+
+        if (
+            studyContent.contains(
+                range.commonAncestorContainer
+            )
+        ) {
+
+            savedSelectionRange =
+                range.cloneRange();
+
+            return range;
+
+        }
+
+    }
+
+
+    /*
+        iPhone Safari fallback
+    */
+
+    if (savedSelectionRange) {
+
+        try {
+
+            if (
+                studyContent.contains(
+                    savedSelectionRange.commonAncestorContainer
+                )
+            ) {
+
+                return savedSelectionRange.cloneRange();
+
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Could not restore saved selection:",
+                error
+            );
+
+        }
+
+    }
+
+    return null;
+
+}
+
+
+/*
+    Remove the visible selection after the action
+    has been completed.
+*/
 
 function clearSelection() {
 
@@ -2701,15 +2800,62 @@ function clearSelection() {
         window.getSelection();
 
     if (selection) {
+
         selection.removeAllRanges();
+
     }
+
+    savedSelectionRange = null;
 
 }
 
 
-/* =========================================================
-   CHECK EXISTING STUDY MARKUP
-========================================================= */
+/*
+    IMPORTANT iPHONE FIX
+
+    Save the selection BEFORE Safari processes the
+    toolbar button tap.
+
+    pointerdown happens before click, which gives us
+    the selection before Safari collapses it.
+*/
+
+document
+    .querySelectorAll(
+        '[data-highlight], #unhighlightButton, #annotateButton, #removeAnnotationButton'
+    )
+    .forEach(button => {
+
+        button.addEventListener(
+            "pointerdown",
+            () => {
+
+                rememberSelection();
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        /*
+            Extra fallback specifically for iPhone/iPad.
+        */
+
+        button.addEventListener(
+            "touchstart",
+            () => {
+
+                rememberSelection();
+
+            },
+            {
+                passive: true
+            }
+        );
+
+    });
 
 function selectionTouchesStudyMarkup(range) {
 
