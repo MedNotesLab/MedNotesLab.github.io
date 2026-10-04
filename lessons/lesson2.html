@@ -1,0 +1,3339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lesson 2 — Levels of Organization in the Body | MedNotesLab</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Comfortaa:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&family=Gaegu:wght@400;700&family=Josefin+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=Pacifico&family+Patrick+Hand&family=Quicksand:wght@400;500;600;700&family=Sacramento&family=Shantell+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --pink: #ff78ad;
+    --pink-dark: #e95d97;
+    --pink-light: #ffe5f0;
+
+    --lavender: #a78bfa;
+    --blue: #70b7ff;
+    --mint: #72d9b0;
+    --peach: #ffb38a;
+
+    --bg: #fff8fc;
+    --card: #ffffff;
+    --text: #45384d;
+    --muted: #827586;
+    --border: #f1dce7;
+
+    --shadow: 0 12px 35px rgba(180, 112, 148, 0.12);
+
+    --font: "Nunito", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(255,120,173,.10), transparent 25%),
+        radial-gradient(circle at 90% 20%, rgba(167,139,250,.10), transparent 25%),
+        radial-gradient(circle at 50% 100%, rgba(114,217,176,.08), transparent 30%),
+        var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    transition: background .3s ease, color .3s ease;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* =========================
+   THEMES
+========================= */
+
+body.theme-pink {
+    --pink: #ff78ad;
+    --pink-dark: #e95d97;
+    --pink-light: #ffe5f0;
+    --bg: #fff8fc;
+    --card: #ffffff;
+    --text: #45384d;
+    --muted: #827586;
+    --border: #f1dce7;
+}
+
+body.theme-lavender {
+    --pink: #a78bfa;
+    --pink-dark: #8667df;
+    --pink-light: #eee9ff;
+    --bg: #faf8ff;
+    --card: #ffffff;
+    --text: #40394d;
+    --muted: #777084;
+    --border: #e6def9;
+}
+
+body.theme-blue {
+    --pink: #70b7ff;
+    --pink-dark: #4e98e8;
+    --pink-light: #e5f3ff;
+    --bg: #f7fbff;
+    --card: #ffffff;
+    --text: #354250;
+    --muted: #71808e;
+    --border: #dbeaf7;
+}
+
+body.theme-mint {
+    --pink: #72d9b0;
+    --pink-dark: #4cbc91;
+    --pink-light: #e4faf1;
+    --bg: #f7fffb;
+    --card: #ffffff;
+    --text: #354b43;
+    --muted: #71827c;
+    --border: #d8f0e6;
+}
+
+body.theme-peach {
+    --pink: #ffb38a;
+    --pink-dark: #eb8f63;
+    --pink-light: #fff0e8;
+    --bg: #fffaf7;
+    --card: #ffffff;
+    --text: #4b403a;
+    --muted: #84766e;
+    --border: #f5dfd1;
+}
+
+body.theme-rose {
+    --pink: #e8799f;
+    --pink-dark: #c95d83;
+    --pink-light: #fbe5ed;
+    --bg: #fff8fa;
+    --card: #ffffff;
+    --text: #493a41;
+    --muted: #837279;
+    --border: #f0d8e1;
+}
+
+body.theme-sky {
+    --pink: #68c5e8;
+    --pink-dark: #45a9ce;
+    --pink-light: #e3f8ff;
+    --bg: #f7fdff;
+    --card: #ffffff;
+    --text: #35444b;
+    --muted: #728087;
+    --border: #d7edf4;
+}
+
+body.theme-lilac {
+    --pink: #c08cf2;
+    --pink-dark: #9f67d4;
+    --pink-light: #f1e7fc;
+    --bg: #fcf9ff;
+    --card: #ffffff;
+    --text: #45394f;
+    --muted: #7d7185;
+    --border: #e9ddf3;
+}
+
+body.theme-dark {
+    --pink: #ff83b6;
+    --pink-dark: #e8689d;
+    --pink-light: #3b2935;
+    --bg: #17141b;
+    --card: #211c25;
+    --text: #f5edf3;
+    --muted: #b7aab5;
+    --border: #392f3c;
+    --shadow: 0 12px 35px rgba(0,0,0,.25);
+}
+
+body.theme-dark {
+    background:
+        radial-gradient(circle at 10% 10%, rgba(255,120,173,.08), transparent 25%),
+        radial-gradient(circle at 90% 20%, rgba(167,139,250,.08), transparent 25%),
+        var(--bg);
+}
+
+/* =========================
+   FLOATING DECORATIONS
+========================= */
+
+.decorations {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.float {
+    position: absolute;
+    opacity: .28;
+    animation: floatAround 8s ease-in-out infinite;
+}
+
+.float:nth-child(1) {
+    top: 12%;
+    left: 3%;
+    font-size: 28px;
+}
+
+.float:nth-child(2) {
+    top: 25%;
+    right: 5%;
+    font-size: 22px;
+    animation-delay: 1s;
+}
+
+.float:nth-child(3) {
+    top: 55%;
+    left: 5%;
+    font-size: 20px;
+    animation-delay: 2s;
+}
+
+.float:nth-child(4) {
+    bottom: 15%;
+    right: 7%;
+    font-size: 30px;
+    animation-delay: 3s;
+}
+
+.float:nth-child(5) {
+    bottom: 35%;
+    left: 9%;
+    font-size: 18px;
+    animation-delay: 4s;
+}
+
+@keyframes floatAround {
+    0%,100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(8deg);
+    }
+}
+
+body.no-animation * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(16px);
+    background: color-mix(in srgb, var(--card) 88%, transparent);
+    border-bottom: 1px solid var(--border);
+}
+
+.topbar-inner {
+    max-width: 1250px;
+    margin: auto;
+    padding: 13px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    text-decoration: none;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 1.15rem;
+}
+
+.logo-heart {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: var(--pink-light);
+    color: var(--pink-dark);
+}
+
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon-btn {
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    font-size: 18px;
+    transition: .2s;
+}
+
+.icon-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--pink);
+}
+
+/* =========================
+   SETTINGS
+========================= */
+
+.settings-panel {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    width: 300px;
+    max-height: calc(100vh - 90px);
+    overflow-y: auto;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+    z-index: 200;
+    display: none;
+}
+
+.settings-panel.open {
+    display: block;
+    animation: popIn .2s ease;
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px) scale(.98);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.settings-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.settings-title h3 {
+    margin: 0;
+}
+
+.close-settings {
+    border: 0;
+    background: var(--pink-light);
+    color: var(--pink-dark);
+    border-radius: 10px;
+    width: 32px;
+    height: 32px;
+}
+
+.setting-group {
+    margin-bottom: 20px;
+}
+
+.setting-group label {
+    display: block;
+    font-size: .82rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.theme-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+}
+
+.theme-btn {
+    border: 2px solid transparent;
+    border-radius: 11px;
+    padding: 8px 5px;
+    font-size: .75rem;
+    color: var(--text);
+    background: var(--pink-light);
+}
+
+.theme-btn.active {
+    border-color: var(--pink);
+}
+
+.font-select {
+    width: 100%;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    border-radius: 12px;
+    padding: 10px;
+    outline: none;
+}
+
+.reset-btn {
+    width: 100%;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    padding: 11px;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main {
+    max-width: 1050px;
+    margin: auto;
+    padding: 35px 20px 80px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 22px;
+}
+
+.back-link:hover {
+    color: var(--pink-dark);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.lesson-hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: var(--shadow);
+    margin-bottom: 25px;
+}
+
+.lesson-hero::after {
+    content: "🧬";
+    position: absolute;
+    right: 35px;
+    bottom: 5px;
+    font-size: 130px;
+    opacity: .07;
+    transform: rotate(12deg);
+}
+
+.course-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--pink-light);
+    color: var(--pink-dark);
+    padding: 7px 13px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: .82rem;
+    margin-bottom: 15px;
+}
+
+.lesson-number {
+    color: var(--pink-dark);
+    font-weight: 800;
+    font-size: .95rem;
+}
+
+.lesson-hero h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    line-height: 1;
+    margin: 7px 0 15px;
+    letter-spacing: -1.5px;
+}
+
+.lesson-hero p {
+    max-width: 760px;
+    color: var(--muted);
+    font-size: 1.08rem;
+    line-height: 1.75;
+}
+
+.progress-area {
+    margin-top: 25px;
+    max-width: 650px;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 7px;
+    font-size: .85rem;
+    font-weight: 800;
+    color: var(--muted);
+}
+
+.progress-track {
+    height: 12px;
+    background: var(--pink-light);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--pink), var(--lavender));
+    transition: width .4s ease;
+}
+
+/* =========================
+   STUDY TOOLBAR
+========================= */
+
+.study-toolbar {
+    position: sticky;
+    top: 68px;
+    z-index: 50;
+    background: color-mix(in srgb, var(--card) 94%, transparent);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 10px;
+    margin-bottom: 24px;
+    box-shadow: 0 7px 22px rgba(0,0,0,.06);
+}
+
+.toolbar-inner {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.toolbar-title {
+    font-size: .8rem;
+    font-weight: 800;
+    color: var(--muted);
+    padding: 0 7px;
+    margin-right: 2px;
+}
+
+.tool-btn {
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    border-radius: 10px;
+    padding: 8px 11px;
+    font-size: .82rem;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.tool-btn:hover {
+    transform: translateY(-1px);
+    border-color: var(--pink);
+}
+
+.tool-btn.active {
+    border-color: var(--pink);
+    background: var(--pink-light);
+}
+
+.tool-btn.highlight-yellow {
+    background: #fff5a8;
+}
+
+.tool-btn.highlight-pink {
+    background: #ffc1dc;
+}
+
+.tool-btn.highlight-blue {
+    background: #b9ddff;
+}
+
+.tool-btn.highlight-green {
+    background: #b9efd9;
+}
+
+.tool-btn.highlight-purple {
+    background: #d8c5ff;
+}
+
+body.theme-dark .tool-btn.highlight-yellow,
+body.theme-dark .tool-btn.highlight-pink,
+body.theme-dark .tool-btn.highlight-blue,
+body.theme-dark .tool-btn.highlight-green,
+body.theme-dark .tool-btn.highlight-purple {
+    color: #302832;
+}
+
+.toolbar-divider {
+    width: 1px;
+    height: 28px;
+    background: var(--border);
+    margin: 0 3px;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.lesson-search {
+    margin-bottom: 25px;
+}
+
+.search-wrap {
+    position: relative;
+}
+
+.search-wrap span {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search-input {
+    width: 100%;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    border-radius: 15px;
+    padding: 13px 15px 13px 42px;
+    outline: none;
+    box-shadow: 0 5px 18px rgba(0,0,0,.03);
+}
+
+.search-input:focus {
+    border-color: var(--pink);
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.study-content {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: clamp(24px, 5vw, 50px);
+    box-shadow: var(--shadow);
+}
+
+.study-section {
+    margin-bottom: 52px;
+    scroll-margin-top: 145px;
+}
+
+.study-section:last-child {
+    margin-bottom: 0;
+}
+
+.section-tag {
+    display: inline-block;
+    background: var(--pink-light);
+    color: var(--pink-dark);
+    border-radius: 999px;
+    padding: 5px 11px;
+    font-size: .75rem;
+    font-weight: 800;
+    margin-bottom: 9px;
+}
+
+.study-section h2 {
+    font-size: clamp(1.55rem, 4vw, 2.2rem);
+    margin: 0 0 15px;
+    line-height: 1.2;
+}
+
+.study-section h3 {
+    margin-top: 28px;
+    font-size: 1.25rem;
+}
+
+.study-section p,
+.study-section li {
+    line-height: 1.9;
+    font-size: 1rem;
+}
+
+.study-section p {
+    margin: 13px 0;
+}
+
+.study-section ul,
+.study-section ol {
+    padding-left: 24px;
+}
+
+.study-section li {
+    margin-bottom: 8px;
+}
+
+.definition-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 22px 0;
+}
+
+.definition-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 18px;
+}
+
+.definition-card strong {
+    color: var(--pink-dark);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.info-box {
+    border-left: 5px solid var(--pink);
+    background: var(--pink-light);
+    border-radius: 0 18px 18px 0;
+    padding: 18px 20px;
+    margin: 22px 0;
+}
+
+.info-box strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.fact-box {
+    background: linear-gradient(135deg, var(--pink-light), var(--card));
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 24px 0;
+}
+
+.fact-box .fact-title {
+    font-weight: 900;
+    color: var(--pink-dark);
+    margin-bottom: 6px;
+}
+
+.image-card {
+    margin: 28px 0;
+    overflow: hidden;
+    border-radius: 22px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+}
+
+.image-card img {
+    width: 100%;
+    display: block;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.image-caption {
+    padding: 12px 16px;
+    color: var(--muted);
+    font-size: .8rem;
+}
+
+.vocab {
+    display: grid;
+    gap: 10px;
+}
+
+.vocab-item {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+}
+
+.vocab-item strong {
+    color: var(--pink-dark);
+}
+
+.takeaway-list {
+    display: grid;
+    gap: 11px;
+    list-style: none;
+    padding: 0 !important;
+}
+
+.takeaway-list li {
+    padding: 15px 17px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+}
+
+.takeaway-list li::before {
+    content: "✓";
+    color: var(--pink-dark);
+    font-weight: 900;
+    margin-right: 9px;
+}
+
+/* =========================
+   STUDY MARKUP
+========================= */
+
+.study-highlight {
+    border-radius: 4px;
+    padding: 1px 2px;
+    cursor: pointer;
+}
+
+.study-highlight.yellow {
+    background: #fff39a;
+}
+
+.study-highlight.pink {
+    background: #ffc0dc;
+}
+
+.study-highlight.blue {
+    background: #b9dcff;
+}
+
+.study-highlight.green {
+    background: #b9eed7;
+}
+
+.study-highlight.purple {
+    background: #d8c6ff;
+}
+
+.study-annotation {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--pink-dark);
+    text-decoration-thickness: 2px;
+    cursor: pointer;
+    background: color-mix(in srgb, var(--pink-light) 55%, transparent);
+    border-radius: 3px;
+    padding: 1px 2px;
+}
+
+.study-annotation:hover {
+    background: var(--pink-light);
+}
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 22px;
+    margin-top: 22px;
+}
+
+.question {
+    margin-bottom: 27px;
+}
+
+.question:last-child {
+    margin-bottom: 0;
+}
+
+.question-title {
+    font-weight: 800;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.answer-option {
+    display: block;
+    padding: 11px 13px;
+    margin: 7px 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--card);
+    transition: .15s;
+}
+
+.answer-option:hover {
+    border-color: var(--pink);
+}
+
+.answer-option input {
+    margin-right: 8px;
+}
+
+.quiz-submit {
+    border: 0;
+    background: var(--pink);
+    color: white;
+    padding: 13px 20px;
+    border-radius: 13px;
+    font-weight: 800;
+    font-size: .95rem;
+}
+
+.quiz-submit:hover {
+    background: var(--pink-dark);
+}
+
+.quiz-result {
+    margin-top: 15px;
+    font-weight: 800;
+}
+
+.quiz-result.good {
+    color: #31956d;
+}
+
+.quiz-result.try {
+    color: var(--pink-dark);
+}
+
+/* =========================
+   COMPLETE
+========================= */
+
+.finish-box {
+    text-align: center;
+    background: linear-gradient(135deg, var(--pink-light), var(--card));
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    padding: 35px 20px;
+    margin-top: 40px;
+}
+
+.finish-box h2 {
+    margin-top: 0;
+}
+
+.complete-btn {
+    border: 0;
+    background: var(--pink);
+    color: white;
+    padding: 14px 23px;
+    border-radius: 14px;
+    font-weight: 900;
+    font-size: 1rem;
+}
+
+.complete-btn.completed {
+    background: #5ebd91;
+}
+
+.lesson-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.nav-btn {
+    text-decoration: none;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    padding: 13px 18px;
+    border-radius: 14px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.nav-btn:hover {
+    border-color: var(--pink);
+    transform: translateY(-2px);
+}
+
+.nav-btn.next {
+    background: var(--pink);
+    color: white;
+    border-color: var(--pink);
+}
+
+/* =========================
+   MODALS
+========================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(30,20,30,.45);
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 500;
+}
+
+.modal-overlay.open {
+    display: flex;
+}
+
+.modal {
+    width: min(520px, 100%);
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    padding: 25px;
+    box-shadow: 0 25px 80px rgba(0,0,0,.2);
+}
+
+.modal h3 {
+    margin-top: 0;
+}
+
+.modal textarea {
+    width: 100%;
+    min-height: 130px;
+    resize: vertical;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    border-radius: 15px;
+    padding: 13px;
+    outline: none;
+}
+
+.modal textarea:focus {
+    border-color: var(--pink);
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 9px;
+    margin-top: 15px;
+}
+
+.modal-btn {
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    padding: 10px 15px;
+    border-radius: 11px;
+    font-weight: 800;
+}
+
+.modal-btn.primary {
+    border-color: var(--pink);
+    background: var(--pink);
+    color: white;
+}
+
+.modal-btn.danger {
+    color: #d65370;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 25px;
+    transform: translate(-50%, 20px);
+    background: var(--text);
+    color: var(--card);
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-size: .85rem;
+    font-weight: 700;
+    opacity: 0;
+    pointer-events: none;
+    transition: .25s;
+    z-index: 1000;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    color: var(--muted);
+    padding: 35px 20px;
+    font-size: .85rem;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .topbar-inner {
+        padding: 10px 14px;
+    }
+
+    .main {
+        padding: 25px 12px 60px;
+    }
+
+    .lesson-hero {
+        padding: 28px 22px;
+        border-radius: 24px;
+    }
+
+    .lesson-hero h1 {
+        font-size: 2.35rem;
+    }
+
+    .study-content {
+        padding: 24px 18px;
+        border-radius: 22px;
+    }
+
+    .definition-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vocab-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .study-toolbar {
+        top: 62px;
+    }
+
+    .toolbar-title {
+        width: 100%;
+    }
+
+    .tool-btn {
+        flex: 1 1 auto;
+    }
+
+    .toolbar-divider {
+        display: none;
+    }
+
+    .lesson-navigation {
+        flex-direction: column;
+    }
+
+    .nav-btn {
+        text-align: center;
+    }
+
+    .settings-panel {
+        left: 12px;
+        right: 12px;
+        width: auto;
+    }
+}
+
+</style>
+</head>
+
+<body class="theme-pink">
+
+<div class="decorations" id="decorations">
+    <div class="float">✦</div>
+    <div class="float">♡</div>
+    <div class="float">🧬</div>
+    <div class="float">✧</div>
+    <div class="float">🩺</div>
+</div>
+
+<!-- =========================
+     TOP BAR
+========================= -->
+
+<header class="topbar">
+    <div class="topbar-inner">
+
+        <a href="../index.html" class="logo">
+            <span class="logo-heart">♡</span>
+            <span>MedNotesLab</span>
+        </a>
+
+        <div class="top-actions">
+            <button class="icon-btn" id="settingsButton" title="Settings">⚙️</button>
+        </div>
+
+    </div>
+</header>
+
+<!-- =========================
+     SETTINGS
+========================= -->
+
+<aside class="settings-panel" id="settingsPanel">
+
+    <div class="settings-title">
+        <h3>Customize ✨</h3>
+        <button class="close-settings" id="closeSettings">×</button>
+    </div>
+
+    <div class="setting-group">
+
+        <label>Theme</label>
+
+        <div class="theme-grid">
+
+            <button class="theme-btn" data-theme="pink">🌸 Pink</button>
+            <button class="theme-btn" data-theme="lavender">💜 Lavender</button>
+            <button class="theme-btn" data-theme="blue">🩵 Blue</button>
+
+            <button class="theme-btn" data-theme="mint">🌿 Mint</button>
+            <button class="theme-btn" data-theme="peach">🍑 Peach</button>
+            <button class="theme-btn" data-theme="rose">🌹 Rose</button>
+
+            <button class="theme-btn" data-theme="sky">☁️ Sky</button>
+            <button class="theme-btn" data-theme="lilac">🪻 Lilac</button>
+            <button class="theme-btn" data-theme="dark">🌙 Dark</button>
+
+        </div>
+
+    </div>
+
+    <div class="setting-group">
+
+        <label>Font</label>
+
+        <select class="font-select" id="fontSelect">
+
+            <option value="Nunito">Nunito</option>
+            <option value="Comfortaa">Comfortaa</option>
+            <option value="Fredoka">Fredoka</option>
+            <option value="Baloo 2">Baloo 2</option>
+            <option value="DM Sans">DM Sans</option>
+            <option value="Quicksand">Quicksand</option>
+            <option value="Montserrat">Montserrat</option>
+            <option value="Manrope">Manrope</option>
+            <option value="Josefin Sans">Josefin Sans</option>
+            <option value="Patrick Hand">Patrick Hand</option>
+            <option value="Gaegu">Gaegu</option>
+
+        </select>
+
+    </div>
+
+    <div class="setting-group">
+
+        <label>Animation</label>
+
+        <button class="reset-btn" id="animationButton">
+            ✨ Turn Animations Off
+        </button>
+
+    </div>
+
+    <button class="reset-btn" id="resetSettings">
+        Reset Settings
+    </button>
+
+</aside>
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="main">
+
+    <a href="../index.html" class="back-link">
+        ← Back to MedNotesLab
+    </a>
+
+    <!-- HERO -->
+
+    <section class="lesson-hero">
+
+        <div class="course-label">
+            🧬 Course 1 · Foundations of Health Science
+        </div>
+
+        <div class="lesson-number">
+            LESSON 2 OF 102
+        </div>
+
+        <h1>Levels of Organization in the Body</h1>
+
+        <p>
+            In this lesson, we will zoom in and out through the human body,
+            starting with tiny chemical building blocks and ending with the entire
+            organism. Understanding these levels makes anatomy, physiology, disease,
+            and medicine much easier to understand.
+        </p>
+
+        <div class="progress-area">
+
+            <div class="progress-label">
+                <span>Lesson progress</span>
+                <span id="progressText">0%</span>
+            </div>
+
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- STUDY TOOLBAR -->
+
+    <div class="study-toolbar">
+
+        <div class="toolbar-inner">
+
+            <span class="toolbar-title">
+                📝 Study tools
+            </span>
+
+            <button class="tool-btn highlight-yellow" data-highlight="yellow">
+                🟡 Highlight
+            </button>
+
+            <button class="tool-btn highlight-pink" data-highlight="pink">
+                🩷 Pink
+            </button>
+
+            <button class="tool-btn highlight-blue" data-highlight="blue">
+                🩵 Blue
+            </button>
+
+            <button class="tool-btn highlight-green" data-highlight="green">
+                💚 Green
+            </button>
+
+            <button class="tool-btn highlight-purple" data-highlight="purple">
+                💜 Purple
+            </button>
+
+            <button class="tool-btn" id="unhighlightButton">
+                ✕ Unhighlight
+            </button>
+
+            <div class="toolbar-divider"></div>
+
+            <button class="tool-btn" id="annotateButton">
+                📝 Annotate
+            </button>
+
+            <button class="tool-btn" id="removeAnnotationButton">
+                🗑️ Remove Annotation
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- SEARCH -->
+
+    <div class="lesson-search">
+
+        <div class="search-wrap">
+
+            <span>🔎</span>
+
+            <input
+                class="search-input"
+                id="lessonSearch"
+                type="search"
+                placeholder="Search this lesson..."
+                autocomplete="off"
+            >
+
+        </div>
+
+    </div>
+
+    <!-- =========================
+         STUDY CONTENT
+    ========================= -->
+
+    <article class="study-content" id="studyContent">
+
+        <!-- INTRO -->
+        <section class="study-section" data-section="intro">
+            <span class="section-tag">01 · Introduction</span>
+            <h2>Why Do We Study Levels of Organization?</h2>
+
+            <p data-block="intro-1">
+                The human body looks like one complete organism, but it is actually
+                made from many layers of organization. Tiny particles and molecules
+                form larger structures, larger structures form cells, cells form
+                tissues, tissues form organs, and organs work together in organ systems.
+            </p>
+
+            <p data-block="intro-2">
+                Scientists use these levels to organize the enormous amount of
+                information involved in studying the body. Instead of seeing the body
+                as one giant thing, we can zoom in to examine a molecule or cell, then
+                zoom out to understand how that small part contributes to a tissue,
+                organ, organ system, and the whole person.
+            </p>
+
+            <p data-block="intro-3">
+                A useful way to remember the basic sequence is: chemical → cellular →
+                tissue → organ → organ system → organism. Each level builds on the
+                level before it, while also interacting with the levels around it.
+            </p>
+
+            <div class="info-box">
+                <strong>💡 Simple definition</strong>
+                Levels of organization are the different structural levels used to
+                describe how the human body is built, from chemicals to the complete organism.
+            </div>
+
+            <div class="definition-grid">
+                <div class="definition-card"><strong>Chemical level</strong> Atoms and molecules that make up living matter.</div>
+                <div class="definition-card"><strong>Cellular level</strong> Cells, the smallest units that can carry out all basic functions of life.</div>
+                <div class="definition-card"><strong>Tissue level</strong> Groups of similar cells working together.</div>
+                <div class="definition-card"><strong>Organ level</strong> Two or more tissue types working together to perform specific functions.</div>
+            </div>
+        </section>
+
+        <!-- BIG PICTURE -->
+        <section class="study-section" data-section="big-picture">
+            <span class="section-tag">02 · The Big Picture</span>
+            <h2>From Tiny Building Blocks to the Whole Body</h2>
+
+            <p data-block="big-1">
+                Think of the body like a very detailed building. A building has raw
+                materials, individual rooms, larger sections, and the entire structure.
+                The human body has a similar hierarchy, although its parts are living,
+                constantly changing, and communicating with one another.
+            </p>
+
+            <div class="fact-box">
+                <div class="fact-title">🧠 The sequence</div>
+                Chemical → Cell → Tissue → Organ → Organ System → Organism
+            </div>
+
+            <p data-block="big-2">
+                The levels are not completely separate boxes. A molecule can affect a
+                cell, a cell can affect a tissue, and a change in an organ can affect an
+                entire organ system. This is why medical problems can sometimes have
+                effects far beyond the place where they begin.
+            </p>
+
+            <div class="image-card">
+                <img src="https://images.pexels.com/photos/7723400/pexels-photo-7723400.jpeg?cs=srgb&dl=pexels-tara-winstead-7723400.jpg&fm=jpg" alt="Human anatomy and internal organs" loading="lazy">
+                <div class="image-caption">The body's structures are organized into connected levels rather than existing as isolated parts.</div>
+            </div>
+        </section>
+
+        <!-- CHEMICAL -->
+        <section class="study-section" data-section="chemical">
+            <span class="section-tag">03 · Chemical Level</span>
+            <h2>1. The Chemical Level</h2>
+
+            <p data-block="chemical-1">
+                The chemical level is the smallest level of organization usually used
+                when describing the human body. It includes atoms and molecules. Atoms
+                are the basic units of elements, while molecules form when atoms are
+                joined together. Elements such as oxygen, carbon, hydrogen, nitrogen,
+                calcium, and phosphorus are especially important in the body.
+            </p>
+
+            <p data-block="chemical-2">
+                Water is a major example of a molecule found throughout the body. Other
+                important molecules include glucose, lipids, proteins, and nucleic acids
+                such as DNA and RNA. These molecules participate in the chemical reactions
+                that keep cells alive.
+            </p>
+
+            <h3>Why does this level matter?</h3>
+            <p data-block="chemical-3">
+                Many medical processes begin at the chemical level. A medication may
+                interact with a specific molecule. A genetic mutation can change the
+                instructions for making a protein. A change in blood glucose involves
+                chemical molecules that cells use for energy.
+            </p>
+
+            <div class="info-box">
+                <strong>🔬 Key idea</strong>
+                Even though atoms and molecules are incredibly small, their behavior
+                can influence cells, tissues, organs, and the entire body.
+            </div>
+        </section>
+
+        <!-- CELLULAR -->
+        <section class="study-section" data-section="cellular">
+            <span class="section-tag">04 · Cellular Level</span>
+            <h2>2. The Cellular Level</h2>
+
+            <p data-block="cellular-1">
+                The cellular level focuses on cells. A cell is the smallest unit that
+                can independently carry out the basic processes needed for life. Human
+                cells contain structures called organelles that perform specialized jobs.
+            </p>
+
+            <p data-block="cellular-2">
+                Not every cell in the body looks or behaves the same way. A neuron is
+                specialized for communication, a muscle cell is specialized for contraction,
+                and a red blood cell is specialized for transporting oxygen. Their different
+                structures help them perform different functions.
+            </p>
+
+            <div class="definition-grid">
+                <div class="definition-card"><strong>Cell membrane</strong> Controls what enters and leaves the cell.</div>
+                <div class="definition-card"><strong>Nucleus</strong> Stores most of a cell's DNA and helps control cell activity.</div>
+                <div class="definition-card"><strong>Mitochondria</strong> Carry out major steps involved in producing usable cellular energy.</div>
+                <div class="definition-card"><strong>Ribosomes</strong> Build proteins using instructions carried by RNA.</div>
+            </div>
+
+            <div class="fact-box">
+                <div class="fact-title">🧫 Remember</div>
+                Cells are not simply tiny versions of the whole body. Different cell types are specialized for different jobs.
+            </div>
+        </section>
+
+        <!-- TISSUE -->
+        <section class="study-section" data-section="tissue">
+            <span class="section-tag">05 · Tissue Level</span>
+            <h2>3. The Tissue Level</h2>
+
+            <p data-block="tissue-1">
+                A tissue is a group of cells organized to perform a particular function.
+                The cells in a tissue are often similar in structure, although tissues
+                can also contain supporting material and more than one cell type.
+            </p>
+
+            <p data-block="tissue-2">
+                The four major tissue types in the human body are epithelial, connective,
+                muscle, and nervous tissue. Each type has characteristic structures and
+                functions.
+            </p>
+
+            <h3>Four major tissue types</h3>
+            <ul data-block="tissue-list">
+                <li><strong>Epithelial tissue:</strong> covers body surfaces and lines many internal structures.</li>
+                <li><strong>Connective tissue:</strong> supports, connects, protects, or stores materials in the body.</li>
+                <li><strong>Muscle tissue:</strong> contracts to produce movement or force.</li>
+                <li><strong>Nervous tissue:</strong> communicates using electrical and chemical signals.</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>💗 Example</strong>
+                Cardiac muscle tissue contains specialized muscle cells that work together
+                to help the heart contract.
+            </div>
+        </section>
+
+        <!-- ORGAN -->
+        <section class="study-section" data-section="organ">
+            <span class="section-tag">06 · Organ Level</span>
+            <h2>4. The Organ Level</h2>
+
+            <p data-block="organ-1">
+                An organ is a structure made from at least two tissue types that work
+                together to perform one or more specific functions. Organs can have
+                complex shapes because different regions may contain different tissues.
+            </p>
+
+            <p data-block="organ-2">
+                The heart is an organ. It contains several tissue types, including
+                muscle tissue, connective tissue, epithelial tissue, and nervous tissue.
+                Together, these tissues allow the heart to contract, conduct electrical
+                signals, receive blood, and help move blood through the circulatory system.
+            </p>
+
+            <p data-block="organ-3">
+                Other organs include the lungs, stomach, liver, kidneys, brain, skin,
+                and many others. Each organ has a structure that is closely connected
+                to what it does.
+            </p>
+
+            <div class="fact-box">
+                <div class="fact-title">🫀 Structure + function</div>
+                In anatomy, we study what an organ looks like and where its structures are.
+                In physiology, we study how those structures work.
+            </div>
+        </section>
+
+        <!-- ORGAN SYSTEM -->
+        <section class="study-section" data-section="organ-system">
+            <span class="section-tag">07 · Organ Systems</span>
+            <h2>5. The Organ System Level</h2>
+
+            <p data-block="system-1">
+                An organ system is a group of organs that work together to perform major
+                functions for the body. For example, the digestive system includes organs
+                that help break down food, absorb nutrients, and move material through the
+                digestive tract.
+            </p>
+
+            <p data-block="system-2">
+                Organ systems do not operate independently. The cardiovascular system
+                transports oxygen and nutrients. The respiratory system brings oxygen into
+                the body and removes carbon dioxide. The nervous and endocrine systems help
+                coordinate and regulate many processes.
+            </p>
+
+            <h3>Examples of organ systems</h3>
+            <ul data-block="system-list">
+                <li>Nervous system</li>
+                <li>Cardiovascular system</li>
+                <li>Respiratory system</li>
+                <li>Digestive system</li>
+                <li>Urinary system</li>
+                <li>Endocrine system</li>
+                <li>Muscular system</li>
+                <li>Skeletal system</li>
+                <li>Immune and lymphatic system</li>
+                <li>Reproductive system</li>
+                <li>Integumentary system</li>
+            </ul>
+        </section>
+
+        <!-- ORGANISM -->
+        <section class="study-section" data-section="organism">
+            <span class="section-tag">08 · Organism Level</span>
+            <h2>6. The Organism Level</h2>
+
+            <p data-block="organism-1">
+                The organism level represents the complete living individual. For a human,
+                that means all of the cells, tissues, organs, and organ systems functioning
+                together as one living person.
+            </p>
+
+            <p data-block="organism-2">
+                At this level, we can ask questions about the body as a whole. Is the person
+                maintaining a stable internal environment? Can the organ systems meet the
+                body's demands? How does the person respond to exercise, illness, stress,
+                infection, or changes in the environment?
+            </p>
+
+            <div class="info-box">
+                <strong>🌎 The whole organism</strong>
+                The organism is not just a collection of separate parts. Its systems interact
+                continuously, creating a living whole that can respond to its environment.
+            </div>
+        </section>
+
+        <!-- CONNECTIONS -->
+        <section class="study-section" data-section="connections">
+            <span class="section-tag">09 · Connections</span>
+            <h2>How the Levels Connect</h2>
+
+            <p data-block="connections-1">
+                The levels of organization form a hierarchy, but the body is dynamic.
+                Information, nutrients, oxygen, hormones, electrical signals, and waste
+                products move between levels constantly.
+            </p>
+
+            <p data-block="connections-2">
+                Consider muscle contraction. Molecules such as ATP provide usable energy
+                for cellular processes. Muscle cells use that energy to contract. Groups
+                of muscle cells form muscle tissue. Muscle tissue is part of organs such
+                as the heart, and muscles work with other organs and systems to create
+                movement and maintain body functions.
+            </p>
+
+            <div class="fact-box">
+                <div class="fact-title">🔗 Think in both directions</div>
+                A change can travel upward through the levels, but higher-level conditions
+                can also change what happens at lower levels.
+            </div>
+        </section>
+
+        <!-- DIGESTIVE EXAMPLE -->
+        <section class="study-section" data-section="example">
+            <span class="section-tag">10 · Worked Example</span>
+            <h2>Following One Example Through the Levels</h2>
+
+            <p data-block="example-1">
+                Let's follow the digestive system to see how the levels fit together.
+                Food contains molecules that the body can break down and use. Digestive
+                cells and tissues work together inside organs such as the stomach and
+                small intestine. Those organs work as part of the digestive system.
+            </p>
+
+            <ol data-block="example-list">
+                <li><strong>Chemical:</strong> Nutrients such as glucose, amino acids, and fatty acids.</li>
+                <li><strong>Cellular:</strong> Specialized cells lining the digestive tract and other digestive cells.</li>
+                <li><strong>Tissue:</strong> Epithelial, connective, muscle, and nervous tissues in digestive organs.</li>
+                <li><strong>Organ:</strong> Stomach, liver, pancreas, small intestine, and other digestive organs.</li>
+                <li><strong>Organ system:</strong> The digestive system works together to process food and absorb nutrients.</li>
+                <li><strong>Organism:</strong> The person's entire body uses those nutrients for energy, growth, repair, and other functions.</li>
+            </ol>
+
+            <p data-block="example-2">
+                This example shows why learning one level can help explain another. If an
+                organ is not functioning correctly, the tissues and cells inside it may be
+                affected. If cells cannot perform an important job, the organ's function
+                may change as well.
+            </p>
+        </section>
+
+        <!-- MEDICAL IMPORTANCE -->
+        <section class="study-section" data-section="medical">
+            <span class="section-tag">11 · Medical Importance</span>
+            <h2>Why Doctors and Scientists Use These Levels</h2>
+
+            <p data-block="medical-1">
+                Different medical specialties often focus on different levels of organization.
+                A cell biologist may study what happens inside a cell. A pathologist may
+                examine tissues. An anatomist may study organs and body structures. A
+                physician may need to connect findings from many levels to understand a
+                patient's condition.
+            </p>
+
+            <p data-block="medical-2">
+                Diseases can also be described at different levels. A genetic change may
+                begin at the molecular level, alter a protein, change cell behavior, damage
+                tissue, affect an organ, and eventually produce symptoms that involve the
+                whole person. Not every disease follows exactly this sequence, but the model
+                helps scientists organize cause-and-effect relationships.
+            </p>
+
+            <div class="info-box">
+                <strong>🩺 Medical thinking</strong>
+                Understanding a patient's health often means connecting what is happening
+                at the microscopic level with what can be observed in the whole person.
+            </div>
+        </section>
+
+        <!-- VOCABULARY -->
+        <section class="study-section" data-section="vocabulary">
+            <span class="section-tag">12 · Vocabulary</span>
+            <h2>Important Terms</h2>
+
+            <div class="definition-grid">
+                <div class="definition-card"><strong>Atom</strong> A basic unit of an element.</div>
+                <div class="definition-card"><strong>Molecule</strong> Two or more atoms chemically bonded together.</div>
+                <div class="definition-card"><strong>Cell</strong> The basic living unit of the body.</div>
+                <div class="definition-card"><strong>Tissue</strong> A group of organized cells that performs a function.</div>
+                <div class="definition-card"><strong>Organ</strong> A body structure made of multiple tissues working together.</div>
+                <div class="definition-card"><strong>Organ system</strong> A group of organs working together.</div>
+                <div class="definition-card"><strong>Organism</strong> A complete living individual.</div>
+                <div class="definition-card"><strong>Hierarchy</strong> An arrangement in levels from simpler or smaller units to more complex ones.</div>
+            </div>
+        </section>
+
+        <!-- QUICK CHECK -->
+        <section class="study-section" data-section="quick-check">
+            <span class="section-tag">13 · Quick Check</span>
+            <h2>Can You Put the Levels in Order?</h2>
+
+            <p data-block="quick-1">
+                Before taking the final quiz, see if you can reconstruct the sequence without
+                looking back at the lesson. Start with the smallest level and move toward the
+                complete living person.
+            </p>
+
+            <div class="info-box">
+                <strong>✨ Memory trick</strong>
+                Chemistry builds cells. Cells build tissues. Tissues build organs. Organs
+                work together in systems. Systems work together in an organism.
+            </div>
+
+            <p data-block="quick-2">
+                Remember that this model is a way of organizing biological complexity. The
+                body is constantly interacting across levels, so the boundaries are useful
+                for studying but do not mean that each level works alone.
+            </p>
+        </section>
+
+        <!-- FINAL QUIZ -->
+        <section class="study-section" data-section="quiz">
+            <span class="section-tag">14 · Final Quiz</span>
+            <h2>🧠 Lesson 2 Quiz</h2>
+
+            <div class="quiz-box">
+
+                <div class="quiz-question">
+                    <p><strong>1. Which level includes atoms and molecules?</strong></p>
+                    <label><input type="radio" name="q1" value="a"> A. Tissue</label>
+                    <label><input type="radio" name="q1" value="b"> B. Chemical</label>
+                    <label><input type="radio" name="q1" value="c"> C. Organ</label>
+                    <label><input type="radio" name="q1" value="d"> D. Organ system</label>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>2. Which sequence is correctly ordered from smaller to larger?</strong></p>
+                    <label><input type="radio" name="q2" value="a"> A. Cell → Tissue → Organ → Organ system</label>
+                    <label><input type="radio" name="q2" value="b"> B. Organ → Cell → Tissue → Organism</label>
+                    <label><input type="radio" name="q2" value="c"> C. Tissue → Chemical → Organ → Cell</label>
+                    <label><input type="radio" name="q2" value="d"> D. Organ system → Organ → Tissue → Cell</label>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>3. What is a tissue?</strong></p>
+                    <label><input type="radio" name="q3" value="a"> A. A complete organism</label>
+                    <label><input type="radio" name="q3" value="b"> B. A group of organized cells performing a function</label>
+                    <label><input type="radio" name="q3" value="c"> C. A single atom</label>
+                    <label><input type="radio" name="q3" value="d"> D. A group of unrelated organ systems</label>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>4. Which level includes multiple organs working together?</strong></p>
+                    <label><input type="radio" name="q4" value="a"> A. Cellular</label>
+                    <label><input type="radio" name="q4" value="b"> B. Organ system</label>
+                    <label><input type="radio" name="q4" value="c"> C. Chemical</label>
+                    <label><input type="radio" name="q4" value="d"> D. Tissue</label>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>5. What does the organism level represent?</strong></p>
+                    <label><input type="radio" name="q5" value="a"> A. One type of molecule</label>
+                    <label><input type="radio" name="q5" value="b"> B. One tissue type</label>
+                    <label><input type="radio" name="q5" value="c"> C. The complete living individual</label>
+                    <label><input type="radio" name="q5" value="d"> D. A single organ</label>
+                </div>
+
+                <button class="quiz-submit" id="quizSubmit">Check My Answers</button>
+                <div class="quiz-result" id="quizResult"></div>
+            </div>
+        </section>
+
+        <!-- TAKEAWAYS -->
+        <section class="study-section" data-section="takeaways">
+            <span class="section-tag">15 · Key Takeaways</span>
+            <h2>What You Should Remember</h2>
+            <ul class="takeaway-list" data-block="takeaways-list">
+                <li>The human body can be organized into levels of increasing complexity.</li>
+                <li>The basic sequence is chemical → cellular → tissue → organ → organ system → organism.</li>
+                <li>Atoms and molecules make up the chemical level.</li>
+                <li>Cells are the basic living units of the body.</li>
+                <li>Tissues are organized groups of cells that perform functions.</li>
+                <li>Organs contain multiple tissue types working together.</li>
+                <li>Organ systems contain organs that cooperate to perform major functions.</li>
+                <li>The organism is the complete living individual.</li>
+                <li>Changes at one level can influence other levels.</li>
+                <li>Medical science uses these levels to connect microscopic processes with whole-body health.</li>
+            </ul>
+        </section>
+
+    </article>
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+
+        <a href="../index.html" class="nav-btn">
+            ← Course Home
+        </a>
+
+        <a href="lesson3.html" class="nav-btn next">
+            Lesson 3 →
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+    Made with ♡ for curious minds · MedNotesLab
+</footer>
+
+<!-- =========================
+     ANNOTATION MODAL
+========================= -->
+
+<div class="modal-overlay" id="annotationModal">
+
+    <div class="modal">
+
+        <h3 id="annotationModalTitle">
+            📝 Add Annotation
+        </h3>
+
+        <p id="annotationSelectedText"
+           style="color:var(--muted);font-size:.9rem;">
+        </p>
+
+        <textarea
+            id="annotationInput"
+            placeholder="Write your note here..."
+        ></textarea>
+
+        <div class="modal-buttons">
+
+            <button
+                class="modal-btn danger"
+                id="deleteAnnotationModal"
+                style="display:none;"
+            >
+                🗑️ Remove
+            </button>
+
+            <button
+                class="modal-btn"
+                id="cancelAnnotation"
+            >
+                Cancel
+            </button>
+
+            <button
+                class="modal-btn primary"
+                id="saveAnnotation"
+            >
+                Save Annotation
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+/* =========================================================
+   MEDNOTESLAB LESSON 1
+   STABLE STORAGE SYSTEM
+========================================================= */
+
+const STORAGE_KEY = "mednoteslab_lesson2_v1";
+
+/*
+    Everything for this lesson is stored in ONE object.
+
+    Important:
+    - Study markup is saved as HTML.
+    - Progress is stored separately.
+    - Settings are stored separately.
+*/
+
+const defaultData = {
+    version: 2,
+    completed: false,
+    quizCompleted: false,
+    quizScore: 0,
+    studyHTML: null,
+    settings: {
+        theme: "pink",
+        font: "Nunito",
+        animations: true
+    }
+};
+
+let lessonData = loadData();
+
+let activeHighlightColor = "yellow";
+
+let editingAnnotationId = null;
+
+let annotationTarget = null;
+
+
+/* =========================================================
+   STORAGE
+========================================================= */
+
+function loadData() {
+
+    try {
+
+        const saved = localStorage.getItem(STORAGE_KEY);
+
+        if (!saved) {
+            return structuredClone(defaultData);
+        }
+
+        const parsed = JSON.parse(saved);
+
+        return {
+            ...structuredClone(defaultData),
+            ...parsed,
+            settings: {
+                ...structuredClone(defaultData.settings),
+                ...(parsed.settings || {})
+            }
+        };
+
+    } catch (error) {
+
+        console.error("Could not load Lesson 1 data:", error);
+
+        return structuredClone(defaultData);
+    }
+}
+
+
+function saveData() {
+
+    try {
+
+        localStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify(lessonData)
+        );
+
+    } catch (error) {
+
+        console.error("Could not save Lesson 1 data:", error);
+
+        showToast("Your browser could not save the study data.");
+
+    }
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+let toastTimer;
+
+function showToast(message) {
+
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    }, 2200);
+}
+
+
+/* =========================================================
+   SETTINGS
+========================================================= */
+
+const settingsButton =
+    document.getElementById("settingsButton");
+
+const settingsPanel =
+    document.getElementById("settingsPanel");
+
+const closeSettings =
+    document.getElementById("closeSettings");
+
+settingsButton.addEventListener("click", () => {
+
+    settingsPanel.classList.toggle("open");
+
+});
+
+closeSettings.addEventListener("click", () => {
+
+    settingsPanel.classList.remove("open");
+
+});
+
+
+document.addEventListener("click", (event) => {
+
+    if (
+        settingsPanel.classList.contains("open") &&
+        !settingsPanel.contains(event.target) &&
+        !settingsButton.contains(event.target)
+    ) {
+
+        settingsPanel.classList.remove("open");
+
+    }
+
+});
+
+
+function applySettings() {
+
+    document.body.className = "";
+
+    document.body.classList.add(
+        `theme-${lessonData.settings.theme}`
+    );
+
+    if (!lessonData.settings.animations) {
+
+        document.body.classList.add("no-animation");
+
+    }
+
+    document.documentElement.style.setProperty(
+        "--font",
+        `"${lessonData.settings.font}", sans-serif`
+    );
+
+    document
+        .querySelectorAll(".theme-btn")
+        .forEach(button => {
+
+            button.classList.toggle(
+                "active",
+                button.dataset.theme === lessonData.settings.theme
+            );
+
+        });
+
+    document.getElementById("fontSelect").value =
+        lessonData.settings.font;
+
+    document.getElementById("animationButton").textContent =
+        lessonData.settings.animations
+            ? "✨ Turn Animations Off"
+            : "✨ Turn Animations On";
+}
+
+
+document
+    .querySelectorAll(".theme-btn")
+    .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            lessonData.settings.theme =
+                button.dataset.theme;
+
+            saveData();
+            applySettings();
+
+        });
+
+    });
+
+
+document
+    .getElementById("fontSelect")
+    .addEventListener("change", event => {
+
+        lessonData.settings.font =
+            event.target.value;
+
+        saveData();
+        applySettings();
+
+    });
+
+
+document
+    .getElementById("animationButton")
+    .addEventListener("click", () => {
+
+        lessonData.settings.animations =
+            !lessonData.settings.animations;
+
+        saveData();
+        applySettings();
+
+    });
+
+
+document
+    .getElementById("resetSettings")
+    .addEventListener("click", () => {
+
+        lessonData.settings =
+            structuredClone(defaultData.settings);
+
+        saveData();
+        applySettings();
+
+        showToast("Settings reset ✨");
+
+    });
+
+
+/* =========================================================
+   STUDY HTML STORAGE
+========================================================= */
+
+/*
+    This is the biggest fix.
+
+    Instead of trying to remember where text was by searching
+    for words after refresh, we save the actual lesson content
+    INCLUDING the highlight and annotation elements.
+
+    Therefore:
+
+    highlight → save
+    leave page → return
+    saved HTML → restored exactly
+*/
+
+const studyContent =
+    document.getElementById("studyContent");
+
+
+function saveStudyHTML() {
+
+    lessonData.studyHTML =
+        studyContent.innerHTML;
+
+    saveData();
+
+}
+
+
+function restoreStudyHTML() {
+
+    if (!lessonData.studyHTML) {
+        return;
+    }
+
+    studyContent.innerHTML =
+        lessonData.studyHTML;
+
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+/*
+    iPhone Safari can collapse the blue text selection when the
+    user taps a toolbar button. Desktop browsers usually keep the
+    selection available, which is why the old version worked on PC
+    but could say "Select some text first" on iPhone.
+
+    We keep a clone of the most recent valid selection. The toolbar
+    can then use that saved range if Safari has already collapsed
+    the live selection.
+*/
+
+let savedSelectionRange = null;
+
+
+function rememberSelection() {
+
+    const selection =
+        window.getSelection();
+
+    if (!selection || selection.rangeCount === 0) {
+        return;
+    }
+
+    if (selection.isCollapsed) {
+        return;
+    }
+
+    const range =
+        selection.getRangeAt(0);
+
+    if (!studyContent.contains(range.commonAncestorContainer)) {
+        return;
+    }
+
+    if (!range.toString().trim()) {
+        return;
+    }
+
+    savedSelectionRange =
+        range.cloneRange();
+
+}
+
+
+/*
+    selectionchange fires while the user is dragging the blue
+    handles on iPhone/iPad as well as when selecting with a mouse.
+*/
+
+document.addEventListener("selectionchange", () => {
+
+    rememberSelection();
+
+});
+
+
+function getSelectedRange() {
+
+    const selection =
+        window.getSelection();
+
+    /*
+        First use the live browser selection when it still exists.
+    */
+
+    if (selection && selection.rangeCount > 0 && !selection.isCollapsed) {
+
+        const range =
+            selection.getRangeAt(0);
+
+        if (
+            studyContent.contains(range.commonAncestorContainer) &&
+            range.toString().trim()
+        ) {
+
+            savedSelectionRange =
+                range.cloneRange();
+
+            return range;
+
+        }
+
+    }
+
+    /*
+        If Safari collapsed the selection after the toolbar was
+        touched, return the saved copy instead.
+    */
+
+    if (savedSelectionRange) {
+
+        if (
+            studyContent.contains(
+                savedSelectionRange.commonAncestorContainer
+            ) &&
+            savedSelectionRange.toString().trim()
+        ) {
+
+            return savedSelectionRange.cloneRange();
+
+        }
+
+    }
+
+    return null;
+}
+
+
+function clearSelection() {
+
+    const selection =
+        window.getSelection();
+
+    if (selection) {
+        selection.removeAllRanges();
+    }
+
+    savedSelectionRange = null;
+
+}
+
+
+/* =========================================================
+   IPHONE / TOUCH TOOLBAR SELECTION PROTECTION
+========================================================= */
+
+/*
+    pointerdown and touchstart happen before the button click.
+    Saving the range here catches the selection before iPhone Safari
+    moves focus to the toolbar and collapses the blue selection.
+*/
+
+document
+    .querySelectorAll(
+        '[data-highlight], #unhighlightButton, #annotateButton, #removeAnnotationButton'
+    )
+    .forEach(button => {
+
+        button.addEventListener(
+            "pointerdown",
+            () => {
+                rememberSelection();
+            },
+            { passive: true }
+        );
+
+        button.addEventListener(
+            "touchstart",
+            () => {
+                rememberSelection();
+            },
+            { passive: true }
+        );
+
+    });
+
+
+/* =========================================================
+   CHECK EXISTING STUDY MARKUP
+========================================================= */
+
+function selectionTouchesStudyMarkup(range) {
+
+    const fragment =
+        range.cloneContents();
+
+    return !!fragment.querySelector(
+        ".study-highlight, .study-annotation"
+    );
+}
+
+
+/* =========================================================
+   HIGHLIGHTING
+========================================================= */
+
+function highlightSelection(color) {
+
+    const range = getSelectedRange();
+
+    if (!range) {
+
+        showToast("Select some text first ✨");
+
+        return;
+    }
+
+    if (selectionTouchesStudyMarkup(range)) {
+
+        showToast(
+            "That selection already contains a study mark."
+        );
+
+        return;
+    }
+
+    /*
+        Make sure the range does not contain block-level
+        structures. This keeps the saved markup clean.
+    */
+
+    const fragment =
+        range.cloneContents();
+
+    if (
+        fragment.querySelector(
+            "p, h1, h2, h3, h4, ul, ol, li, section, div"
+        )
+    ) {
+
+        showToast(
+            "Please select text inside one paragraph or item."
+        );
+
+        return;
+    }
+
+    const span =
+        document.createElement("span");
+
+    span.className =
+        `study-highlight ${color}`;
+
+    span.dataset.color = color;
+
+    try {
+
+        span.appendChild(
+            range.extractContents()
+        );
+
+        range.insertNode(span);
+
+        saveStudyHTML();
+
+        clearSelection();
+
+        showToast("Highlight saved ✨");
+
+    } catch (error) {
+
+        console.error(error);
+
+        showToast(
+            "That selection could not be highlighted."
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   HIGHLIGHT BUTTONS
+========================================================= */
+
+document
+    .querySelectorAll("[data-highlight]")
+    .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            activeHighlightColor =
+                button.dataset.highlight;
+
+            highlightSelection(
+                activeHighlightColor
+            );
+
+        });
+
+    });
+
+
+/* =========================================================
+   UNHIGHLIGHT
+========================================================= */
+
+document
+    .getElementById("unhighlightButton")
+    .addEventListener("click", () => {
+
+        const range = getSelectedRange();
+
+        if (!range) {
+
+            showToast("Select highlighted text first.");
+
+            return;
+        }
+
+        const container =
+            range.commonAncestorContainer.nodeType === 3
+                ? range.commonAncestorContainer.parentElement
+                : range.commonAncestorContainer;
+
+        const highlight =
+            container.closest(".study-highlight");
+
+        if (!highlight) {
+
+            showToast(
+                "Select text inside a highlight."
+            );
+
+            return;
+        }
+
+        const parent =
+            highlight.parentNode;
+
+        while (highlight.firstChild) {
+
+            parent.insertBefore(
+                highlight.firstChild,
+                highlight
+            );
+
+        }
+
+        parent.removeChild(highlight);
+
+        parent.normalize();
+
+        saveStudyHTML();
+
+        clearSelection();
+
+        showToast("Highlight removed.");
+
+    });
+
+
+/* =========================================================
+   ANNOTATION MODAL
+========================================================= */
+
+const annotationModal =
+    document.getElementById("annotationModal");
+
+const annotationInput =
+    document.getElementById("annotationInput");
+
+const annotationSelectedText =
+    document.getElementById("annotationSelectedText");
+
+const annotationModalTitle =
+    document.getElementById("annotationModalTitle");
+
+const deleteAnnotationModal =
+    document.getElementById("deleteAnnotationModal");
+
+
+function openNewAnnotation() {
+
+    const range = getSelectedRange();
+
+    if (!range) {
+
+        showToast("Select text first 📝");
+
+        return;
+    }
+
+    if (selectionTouchesStudyMarkup(range)) {
+
+        showToast(
+            "That text already has a study mark."
+        );
+
+        return;
+    }
+
+    const fragment =
+        range.cloneContents();
+
+    if (
+        fragment.querySelector(
+            "p, h1, h2, h3, h4, ul, ol, li, section, div"
+        )
+    ) {
+
+        showToast(
+            "Please select text inside one paragraph or item."
+        );
+
+        return;
+    }
+
+    const selectedText =
+        range.toString().trim();
+
+    if (!selectedText) {
+
+        showToast("Select some text first.");
+
+        return;
+    }
+
+    annotationTarget = range.cloneRange();
+
+    editingAnnotationId = null;
+
+    annotationModalTitle.textContent =
+        "📝 Add Annotation";
+
+    annotationSelectedText.textContent =
+        `"${selectedText}"`;
+
+    annotationInput.value = "";
+
+    deleteAnnotationModal.style.display =
+        "none";
+
+    annotationModal.classList.add("open");
+
+    setTimeout(() => {
+
+        annotationInput.focus();
+
+    }, 50);
+
+}
+
+
+document
+    .getElementById("annotateButton")
+    .addEventListener(
+        "click",
+        openNewAnnotation
+    );
+
+
+/* =========================================================
+   SAVE NEW ANNOTATION
+========================================================= */
+
+document
+    .getElementById("saveAnnotation")
+    .addEventListener("click", () => {
+
+        const note =
+            annotationInput.value.trim();
+
+        if (!note) {
+
+            showToast(
+                "Write a note before saving."
+            );
+
+            return;
+        }
+
+        if (editingAnnotationId) {
+
+            updateAnnotation(
+                editingAnnotationId,
+                note
+            );
+
+            return;
+        }
+
+        if (!annotationTarget) {
+
+            closeAnnotationModal();
+
+            return;
+        }
+
+        const span =
+            document.createElement("span");
+
+        span.className =
+            "study-annotation";
+
+        const id =
+            "annotation-" +
+            Date.now() +
+            "-" +
+            Math.random()
+                .toString(36)
+                .slice(2, 8);
+
+        span.dataset.annotationId = id;
+
+        span.dataset.note = note;
+
+        try {
+
+            span.appendChild(
+                annotationTarget.extractContents()
+            );
+
+            annotationTarget.insertNode(span);
+
+            saveStudyHTML();
+
+            closeAnnotationModal();
+
+            clearSelection();
+
+            showToast("Annotation saved 📝");
+
+        } catch (error) {
+
+            console.error(error);
+
+            showToast(
+                "That annotation could not be created."
+            );
+
+        }
+
+    });
+
+
+/* =========================================================
+   ANNOTATION CLICK
+========================================================= */
+
+studyContent.addEventListener("click", event => {
+
+    const annotation =
+        event.target.closest(".study-annotation");
+
+    if (!annotation) {
+        return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    openExistingAnnotation(annotation);
+
+});
+
+
+function openExistingAnnotation(annotation) {
+
+    editingAnnotationId =
+        annotation.dataset.annotationId;
+
+    annotationTarget = annotation;
+
+    annotationModalTitle.textContent =
+        "📝 Edit Annotation";
+
+    annotationSelectedText.textContent =
+        `"${annotation.textContent.trim()}"`;
+
+    annotationInput.value =
+        annotation.dataset.note || "";
+
+    deleteAnnotationModal.style.display =
+        "inline-block";
+
+    annotationModal.classList.add("open");
+
+    setTimeout(() => {
+
+        annotationInput.focus();
+
+    }, 50);
+
+}
+
+
+/* =========================================================
+   UPDATE ANNOTATION
+========================================================= */
+
+function updateAnnotation(id, note) {
+
+    const annotation =
+        studyContent.querySelector(
+            `.study-annotation[data-annotation-id="${CSS.escape(id)}"]`
+        );
+
+    if (!annotation) {
+
+        closeAnnotationModal();
+
+        return;
+    }
+
+    annotation.dataset.note =
+        note;
+
+    saveStudyHTML();
+
+    closeAnnotationModal();
+
+    showToast("Annotation updated ✨");
+
+}
+
+
+/* =========================================================
+   REMOVE ANNOTATION
+========================================================= */
+
+function removeAnnotationElement(annotation) {
+
+    if (!annotation) {
+
+        showToast(
+            "Select or click an annotation first."
+        );
+
+        return;
+    }
+
+    const parent =
+        annotation.parentNode;
+
+    while (annotation.firstChild) {
+
+        parent.insertBefore(
+            annotation.firstChild,
+            annotation
+        );
+
+    }
+
+    parent.removeChild(annotation);
+
+    parent.normalize();
+
+    saveStudyHTML();
+
+    closeAnnotationModal();
+
+    clearSelection();
+
+    showToast("Annotation removed.");
+
+}
+
+
+/* =========================================================
+   MODAL DELETE BUTTON
+========================================================= */
+
+deleteAnnotationModal
+    .addEventListener("click", () => {
+
+        if (!editingAnnotationId) {
+            return;
+        }
+
+        const annotation =
+            studyContent.querySelector(
+                `.study-annotation[data-annotation-id="${CSS.escape(editingAnnotationId)}"]`
+            );
+
+        removeAnnotationElement(annotation);
+
+    });
+
+
+/* =========================================================
+   TOOLBAR REMOVE ANNOTATION
+========================================================= */
+
+document
+    .getElementById("removeAnnotationButton")
+    .addEventListener("click", () => {
+
+        const range = getSelectedRange();
+
+        if (!range) {
+
+            showToast(
+                "Select text inside an annotation."
+            );
+
+            return;
+        }
+
+        const container =
+            range.commonAncestorContainer.nodeType === 3
+                ? range.commonAncestorContainer.parentElement
+                : range.commonAncestorContainer;
+
+        const annotation =
+            container.closest(".study-annotation");
+
+        if (!annotation) {
+
+            showToast(
+                "Select text inside an annotation."
+            );
+
+            return;
+        }
+
+        removeAnnotationElement(annotation);
+
+    });
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeAnnotationModal() {
+
+    annotationModal.classList.remove("open");
+
+    annotationInput.value = "";
+
+    annotationTarget = null;
+
+    editingAnnotationId = null;
+
+}
+
+
+document
+    .getElementById("cancelAnnotation")
+    .addEventListener(
+        "click",
+        closeAnnotationModal
+    );
+
+
+annotationModal.addEventListener("click", event => {
+
+    if (event.target === annotationModal) {
+
+        closeAnnotationModal();
+
+    }
+
+});
+
+
+document.addEventListener("keydown", event => {
+
+    if (
+        event.key === "Escape" &&
+        annotationModal.classList.contains("open")
+    ) {
+
+        closeAnnotationModal();
+
+    }
+
+});
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+function updateProgress() {
+
+    let progress = 0;
+
+    /*
+        Progress is intentionally NOT connected to:
+        - highlights
+        - annotations
+        - scrolling
+        - clicking around
+
+        This prevents the progress bar from randomly changing.
+    */
+
+    if (lessonData.quizCompleted) {
+        progress = 75;
+    }
+
+    if (lessonData.completed) {
+        progress = 100;
+    }
+
+    const fill =
+        document.getElementById("progressFill");
+
+    const text =
+        document.getElementById("progressText");
+
+    fill.style.width =
+        `${progress}%`;
+
+    text.textContent =
+        `${progress}%`;
+
+}
+
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+const correctAnswers = {
+    q1: "b",
+    q2: "a",
+    q3: "b",
+    q4: "b",
+    q5: "c"
+};
+
+
+document
+    .getElementById("quizSubmit")
+    .addEventListener("click", () => {
+
+        let score = 0;
+
+        let answered = 0;
+
+        Object.keys(correctAnswers)
+            .forEach(question => {
+
+                const selected =
+                    document.querySelector(
+                        `input[name="${question}"]:checked`
+                    );
+
+                if (selected) {
+
+                    answered++;
+
+                    if (
+                        selected.value ===
+                        correctAnswers[question]
+                    ) {
+
+                        score++;
+
+                    }
+
+                }
+
+            });
+
+
+        if (answered < 5) {
+
+            const missing =
+                5 - answered;
+
+            const result =
+                document.getElementById("quizResult");
+
+            result.className =
+                "quiz-result try";
+
+            result.textContent =
+                `You still have ${missing} question${missing === 1 ? "" : "s"} to answer.`;
+
+            return;
+        }
+
+
+        lessonData.quizScore =
+            score;
+
+        if (score >= 4) {
+
+            lessonData.quizCompleted = true;
+
+        } else {
+
+            lessonData.quizCompleted = false;
+
+        }
+
+        saveData();
+
+        updateProgress();
+
+        const result =
+            document.getElementById("quizResult");
+
+
+        if (score === 5) {
+
+            result.className =
+                "quiz-result good";
+
+            result.textContent =
+                "🎉 5/5! Perfect! You really understand the lesson.";
+
+        } else if (score >= 4) {
+
+            result.className =
+                "quiz-result good";
+
+            result.textContent =
+                `✨ ${score}/5! Great job! The quiz milestone is complete.`;
+
+        } else {
+
+            result.className =
+                "quiz-result try";
+
+            result.textContent =
+                `You got ${score}/5. Review the lesson and try again. You need 4/5 to complete the quiz milestone.`;
+
+        }
+
+    });
+
+
+/* =========================================================
+   COMPLETE LESSON
+========================================================= */
+
+const completeButton =
+    document.getElementById("completeButton");
+
+
+function updateCompleteButton() {
+
+    if (lessonData.completed) {
+
+        completeButton.textContent =
+            "✓ Lesson Completed";
+
+        completeButton.classList.add(
+            "completed"
+        );
+
+    } else {
+
+        completeButton.textContent =
+            "✓ Mark Lesson Complete";
+
+        completeButton.classList.remove(
+            "completed"
+        );
+
+    }
+
+}
+
+
+completeButton.addEventListener("click", () => {
+
+    if (lessonData.completed) {
+
+        showToast(
+            "Lesson 2 is already complete 💗"
+        );
+
+        return;
+    }
+
+    lessonData.completed = true;
+
+    saveData();
+
+    updateProgress();
+
+    updateCompleteButton();
+
+    showToast(
+        "Lesson 2 completed! 🎉"
+    );
+
+});
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+const searchInput =
+    document.getElementById("lessonSearch");
+
+
+searchInput.addEventListener("input", () => {
+
+    const query =
+        searchInput.value
+            .trim()
+            .toLowerCase();
+
+    const sections =
+        studyContent.querySelectorAll(
+            ".study-section"
+        );
+
+    sections.forEach(section => {
+
+        if (!query) {
+
+            section.style.display = "";
+
+            return;
+        }
+
+        const text =
+            section.textContent
+                .toLowerCase();
+
+        section.style.display =
+            text.includes(query)
+                ? ""
+                : "none";
+
+    });
+
+});
+
+
+/* =========================================================
+   SAVE WHEN LEAVING
+========================================================= */
+
+window.addEventListener("beforeunload", () => {
+
+    /*
+        This is an extra safety save.
+
+        Normally every study action saves immediately,
+        but this ensures the latest DOM is also stored.
+    */
+
+    lessonData.studyHTML =
+        studyContent.innerHTML;
+
+    saveData();
+
+});
+
+
+/* =========================================================
+   VISIBILITY SAVE
+========================================================= */
+
+document.addEventListener(
+    "visibilitychange",
+    () => {
+
+        if (document.visibilityState === "hidden") {
+
+            lessonData.studyHTML =
+                studyContent.innerHTML;
+
+            saveData();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   RESET LESSON STUDY DATA
+========================================================= */
+
+/*
+    Double-click the page title while holding SHIFT
+    if you ever need to completely reset Lesson 1 study
+    markings.
+
+    This does NOT reset your website settings.
+*/
+
+document
+    .querySelector(".lesson-hero h1")
+    .addEventListener("dblclick", event => {
+
+        if (!event.shiftKey) {
+            return;
+        }
+
+        const confirmed =
+            confirm(
+                "Reset all Lesson 2 highlights, annotations, quiz progress, and completion status?"
+            );
+
+        if (!confirmed) {
+            return;
+        }
+
+        localStorage.removeItem(
+            STORAGE_KEY
+        );
+
+        location.reload();
+
+    });
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+restoreStudyHTML();
+
+applySettings();
+
+updateProgress();
+
+updateCompleteButton();
+
+</script>
+
+</body>
+</html>
