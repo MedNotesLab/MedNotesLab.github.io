@@ -2370,27 +2370,19 @@ footer {
 <script>
 
 /* =========================================================
-   MEDNOTESLAB LESSON 1
-   STABLE STORAGE SYSTEM
+   MEDNOTESLAB — LESSON 1
+   COMPLETE FIXED SCRIPT
 ========================================================= */
 
-const STORAGE_KEY = "mednoteslab_lesson1_v2";
-
-/*
-    Everything for this lesson is stored in ONE object.
-
-    Important:
-    - Study markup is saved as HTML.
-    - Progress is stored separately.
-    - Settings are stored separately.
-*/
+const STORAGE_KEY = "mednoteslab_lesson1_v3";
 
 const defaultData = {
-    version: 2,
+    version: 3,
     completed: false,
     quizCompleted: false,
     quizScore: 0,
     studyHTML: null,
+
     settings: {
         theme: "pink",
         font: "Nunito",
@@ -2401,6 +2393,8 @@ const defaultData = {
 let lessonData = loadData();
 
 let activeHighlightColor = "yellow";
+
+let savedSelectionRange = null;
 
 let editingAnnotationId = null;
 
@@ -2415,29 +2409,53 @@ function loadData() {
 
     try {
 
-        const saved = localStorage.getItem(STORAGE_KEY);
+        const saved =
+            localStorage.getItem(STORAGE_KEY);
 
         if (!saved) {
-            return structuredClone(defaultData);
+
+            return structuredClone(
+                defaultData
+            );
+
         }
 
-        const parsed = JSON.parse(saved);
+        const parsed =
+            JSON.parse(saved);
 
         return {
-            ...structuredClone(defaultData),
+
+            ...structuredClone(
+                defaultData
+            ),
+
             ...parsed,
+
             settings: {
-                ...structuredClone(defaultData.settings),
+
+                ...structuredClone(
+                    defaultData.settings
+                ),
+
                 ...(parsed.settings || {})
+
             }
+
         };
 
     } catch (error) {
 
-        console.error("Could not load Lesson 1 data:", error);
+        console.error(
+            "Could not load Lesson 1 data:",
+            error
+        );
 
-        return structuredClone(defaultData);
+        return structuredClone(
+            defaultData
+        );
+
     }
+
 }
 
 
@@ -2452,11 +2470,13 @@ function saveData() {
 
     } catch (error) {
 
-        console.error("Could not save Lesson 1 data:", error);
-
-        showToast("Your browser could not save the study data.");
+        console.error(
+            "Could not save Lesson 1 data:",
+            error
+        );
 
     }
+
 }
 
 
@@ -2468,7 +2488,10 @@ let toastTimer;
 
 function showToast(message) {
 
-    const toast = document.getElementById("toast");
+    const toast =
+        document.getElementById("toast");
+
+    if (!toast) return;
 
     toast.textContent = message;
 
@@ -2476,11 +2499,15 @@ function showToast(message) {
 
     clearTimeout(toastTimer);
 
-    toastTimer = setTimeout(() => {
+    toastTimer =
+        setTimeout(() => {
 
-        toast.classList.remove("show");
+            toast.classList.remove(
+                "show"
+            );
 
-    }, 2200);
+        }, 2200);
+
 }
 
 
@@ -2489,40 +2516,73 @@ function showToast(message) {
 ========================================================= */
 
 const settingsButton =
-    document.getElementById("settingsButton");
+    document.getElementById(
+        "settingsButton"
+    );
 
 const settingsPanel =
-    document.getElementById("settingsPanel");
+    document.getElementById(
+        "settingsPanel"
+    );
 
 const closeSettings =
-    document.getElementById("closeSettings");
-
-settingsButton.addEventListener("click", () => {
-
-    settingsPanel.classList.toggle("open");
-
-});
-
-closeSettings.addEventListener("click", () => {
-
-    settingsPanel.classList.remove("open");
-
-});
+    document.getElementById(
+        "closeSettings"
+    );
 
 
-document.addEventListener("click", (event) => {
+settingsButton.addEventListener(
+    "click",
+    () => {
 
-    if (
-        settingsPanel.classList.contains("open") &&
-        !settingsPanel.contains(event.target) &&
-        !settingsButton.contains(event.target)
-    ) {
-
-        settingsPanel.classList.remove("open");
+        settingsPanel.classList.toggle(
+            "open"
+        );
 
     }
+);
 
-});
+
+closeSettings.addEventListener(
+    "click",
+    () => {
+
+        settingsPanel.classList.remove(
+            "open"
+        );
+
+    }
+);
+
+
+document.addEventListener(
+    "click",
+    event => {
+
+        if (
+
+            settingsPanel.classList.contains(
+                "open"
+            ) &&
+
+            !settingsPanel.contains(
+                event.target
+            ) &&
+
+            !settingsButton.contains(
+                event.target
+            )
+
+        ) {
+
+            settingsPanel.classList.remove(
+                "open"
+            );
+
+        }
+
+    }
+);
 
 
 function applySettings() {
@@ -2533,9 +2593,13 @@ function applySettings() {
         `theme-${lessonData.settings.theme}`
     );
 
-    if (!lessonData.settings.animations) {
+    if (
+        !lessonData.settings.animations
+    ) {
 
-        document.body.classList.add("no-animation");
+        document.body.classList.add(
+            "no-animation"
+        );
 
     }
 
@@ -2544,106 +2608,168 @@ function applySettings() {
         `"${lessonData.settings.font}", sans-serif`
     );
 
+
     document
-        .querySelectorAll(".theme-btn")
+        .querySelectorAll(
+            ".theme-btn"
+        )
         .forEach(button => {
 
             button.classList.toggle(
+
                 "active",
-                button.dataset.theme === lessonData.settings.theme
+
+                button.dataset.theme ===
+                lessonData.settings.theme
+
             );
 
         });
 
-    document.getElementById("fontSelect").value =
+
+    document.getElementById(
+        "fontSelect"
+    ).value =
         lessonData.settings.font;
 
-    document.getElementById("animationButton").textContent =
+
+    document.getElementById(
+        "animationButton"
+    ).textContent =
+
         lessonData.settings.animations
+
             ? "✨ Turn Animations Off"
+
             : "✨ Turn Animations On";
+
 }
 
 
 document
-    .querySelectorAll(".theme-btn")
+    .querySelectorAll(
+        ".theme-btn"
+    )
     .forEach(button => {
 
-        button.addEventListener("click", () => {
+        button.addEventListener(
+            "click",
+            () => {
 
-            lessonData.settings.theme =
-                button.dataset.theme;
+                lessonData.settings.theme =
+                    button.dataset.theme;
+
+                saveData();
+
+                applySettings();
+
+            }
+        );
+
+    });
+
+
+document
+    .getElementById(
+        "fontSelect"
+    )
+    .addEventListener(
+        "change",
+        event => {
+
+            lessonData.settings.font =
+                event.target.value;
 
             saveData();
+
             applySettings();
 
-        });
-
-    });
-
-
-document
-    .getElementById("fontSelect")
-    .addEventListener("change", event => {
-
-        lessonData.settings.font =
-            event.target.value;
-
-        saveData();
-        applySettings();
-
-    });
+        }
+    );
 
 
 document
-    .getElementById("animationButton")
-    .addEventListener("click", () => {
+    .getElementById(
+        "animationButton"
+    )
+    .addEventListener(
+        "click",
+        () => {
 
-        lessonData.settings.animations =
-            !lessonData.settings.animations;
+            lessonData.settings.animations =
+                !lessonData.settings.animations;
 
-        saveData();
-        applySettings();
+            saveData();
 
-    });
+            applySettings();
+
+        }
+    );
 
 
 document
-    .getElementById("resetSettings")
-    .addEventListener("click", () => {
+    .getElementById(
+        "resetSettings"
+    )
+    .addEventListener(
+        "click",
+        () => {
 
-        lessonData.settings =
-            structuredClone(defaultData.settings);
+            lessonData.settings =
+                structuredClone(
+                    defaultData.settings
+                );
 
-        saveData();
-        applySettings();
+            saveData();
 
-        showToast("Settings reset ✨");
+            applySettings();
 
-    });
+            showToast(
+                "Settings reset ✨"
+            );
+
+        }
+    );
 
 
 /* =========================================================
-   STUDY HTML STORAGE
+   STUDY CONTENT
 ========================================================= */
 
-/*
-    This is the biggest fix.
-
-    Instead of trying to remember where text was by searching
-    for words after refresh, we save the actual lesson content
-    INCLUDING the highlight and annotation elements.
-
-    Therefore:
-
-    highlight → save
-    leave page → return
-    saved HTML → restored exactly
-*/
-
 const studyContent =
-    document.getElementById("studyContent");
+    document.getElementById(
+        "studyContent"
+    );
 
+
+/* =========================================================
+   RESTORE SAVED HTML
+   IMPORTANT:
+   THIS HAPPENS BEFORE EVENT LISTENERS
+========================================================= */
+
+function restoreStudyHTML() {
+
+    if (
+        !lessonData.studyHTML
+    ) {
+
+        return;
+
+    }
+
+    studyContent.innerHTML =
+        lessonData.studyHTML;
+
+}
+
+
+restoreStudyHTML();
+
+
+/* =========================================================
+   SAVE STUDY HTML
+========================================================= */
 
 function saveStudyHTML() {
 
@@ -2655,60 +2781,52 @@ function saveStudyHTML() {
 }
 
 
-function restoreStudyHTML() {
-
-    if (!lessonData.studyHTML) {
-        return;
-    }
-
-    studyContent.innerHTML =
-        lessonData.studyHTML;
-
-}
-
-
 /* =========================================================
-   SELECTION
-   iPHONE / SAFARI FIX
+   SELECTION SYSTEM
+   PC + IPHONE
 ========================================================= */
-
-let savedSelectionRange = null;
-
-
-/*
-    iPhone Safari can remove the visible text selection
-    when the user taps a toolbar button.
-
-    This remembers the selection BEFORE Safari removes it,
-    so Highlight / Annotate / Unhighlight can still use it.
-*/
 
 function rememberSelection() {
 
-    const selection = window.getSelection();
+    const selection =
+        window.getSelection();
 
-    if (!selection || selection.rangeCount === 0) {
+    if (
+        !selection ||
+        selection.rangeCount === 0 ||
+        selection.isCollapsed
+    ) {
+
         return;
+
     }
 
-    if (selection.isCollapsed) {
+    const range =
+        selection.getRangeAt(0);
+
+    if (
+        !studyContent.contains(
+            range.commonAncestorContainer
+        )
+    ) {
+
         return;
+
     }
 
-    const range = selection.getRangeAt(0);
+    if (
+        !range.toString().trim()
+    ) {
 
-    if (!studyContent.contains(range.commonAncestorContainer)) {
         return;
+
     }
 
-    savedSelectionRange = range.cloneRange();
+    savedSelectionRange =
+        range.cloneRange();
 
 }
 
-
-/*
-    Watch for the blue text selection handles appearing.
-*/
 
 document.addEventListener(
     "selectionchange",
@@ -2720,29 +2838,33 @@ document.addEventListener(
 );
 
 
-/*
-    Get the current selection.
-
-    If Safari has already removed it because the user
-    tapped a toolbar button, use the saved copy instead.
-*/
-
 function getSelectedRange() {
 
-    const selection = window.getSelection();
+    const selection =
+        window.getSelection();
+
+
+    /* LIVE SELECTION */
 
     if (
+
         selection &&
         selection.rangeCount > 0 &&
         !selection.isCollapsed
+
     ) {
 
-        const range = selection.getRangeAt(0);
+        const range =
+            selection.getRangeAt(0);
 
         if (
+
             studyContent.contains(
                 range.commonAncestorContainer
-            )
+            ) &&
+
+            range.toString().trim()
+
         ) {
 
             savedSelectionRange =
@@ -2755,28 +2877,35 @@ function getSelectedRange() {
     }
 
 
-    /*
-        iPhone Safari fallback
-    */
+    /* SAVED SELECTION */
 
-    if (savedSelectionRange) {
+    if (
+        savedSelectionRange
+    ) {
 
         try {
 
             if (
+
                 studyContent.contains(
                     savedSelectionRange.commonAncestorContainer
-                )
+                ) &&
+
+                savedSelectionRange
+                    .toString()
+                    .trim()
+
             ) {
 
-                return savedSelectionRange.cloneRange();
+                return savedSelectionRange
+                    .cloneRange();
 
             }
 
         } catch (error) {
 
             console.error(
-                "Could not restore saved selection:",
+                "Could not restore selection:",
                 error
             );
 
@@ -2788,11 +2917,6 @@ function getSelectedRange() {
 
 }
 
-
-/*
-    Remove the visible selection after the action
-    has been completed.
-*/
 
 function clearSelection() {
 
@@ -2810,15 +2934,9 @@ function clearSelection() {
 }
 
 
-/*
-    IMPORTANT iPHONE FIX
-
-    Save the selection BEFORE Safari processes the
-    toolbar button tap.
-
-    pointerdown happens before click, which gives us
-    the selection before Safari collapses it.
-*/
+/* =========================================================
+   IPHONE TOOLBAR PROTECTION
+========================================================= */
 
 document
     .querySelectorAll(
@@ -2839,10 +2957,6 @@ document
         );
 
 
-        /*
-            Extra fallback specifically for iPhone/iPad.
-        */
-
         button.addEventListener(
             "touchstart",
             () => {
@@ -2857,7 +2971,14 @@ document
 
     });
 
-function selectionTouchesStudyMarkup(range) {
+
+/* =========================================================
+   CHECK STUDY MARKUP
+========================================================= */
+
+function selectionTouchesStudyMarkup(
+    range
+) {
 
     const fragment =
         range.cloneContents();
@@ -2865,6 +2986,7 @@ function selectionTouchesStudyMarkup(range) {
     return !!fragment.querySelector(
         ".study-highlight, .study-annotation"
     );
+
 }
 
 
@@ -2872,33 +2994,43 @@ function selectionTouchesStudyMarkup(range) {
    HIGHLIGHTING
 ========================================================= */
 
-function highlightSelection(color) {
+function highlightSelection(
+    color
+) {
 
-    const range = getSelectedRange();
+    const range =
+        getSelectedRange();
+
 
     if (!range) {
 
-        showToast("Select some text first ✨");
+        showToast(
+            "Select some text first ✨"
+        );
 
         return;
+
     }
 
-    if (selectionTouchesStudyMarkup(range)) {
+
+    if (
+        selectionTouchesStudyMarkup(
+            range
+        )
+    ) {
 
         showToast(
             "That selection already contains a study mark."
         );
 
         return;
+
     }
 
-    /*
-        Make sure the range does not contain block-level
-        structures. This keeps the saved markup clean.
-    */
 
     const fragment =
         range.cloneContents();
+
 
     if (
         fragment.querySelector(
@@ -2911,15 +3043,21 @@ function highlightSelection(color) {
         );
 
         return;
+
     }
 
+
     const span =
-        document.createElement("span");
+        document.createElement(
+            "span"
+        );
 
     span.className =
         `study-highlight ${color}`;
 
-    span.dataset.color = color;
+    span.dataset.color =
+        color;
+
 
     try {
 
@@ -2927,13 +3065,17 @@ function highlightSelection(color) {
             range.extractContents()
         );
 
-        range.insertNode(span);
+        range.insertNode(
+            span
+        );
 
         saveStudyHTML();
 
         clearSelection();
 
-        showToast("Highlight saved ✨");
+        showToast(
+            "Highlight saved ✨"
+        );
 
     } catch (error) {
 
@@ -2953,19 +3095,24 @@ function highlightSelection(color) {
 ========================================================= */
 
 document
-    .querySelectorAll("[data-highlight]")
+    .querySelectorAll(
+        "[data-highlight]"
+    )
     .forEach(button => {
 
-        button.addEventListener("click", () => {
+        button.addEventListener(
+            "click",
+            () => {
 
-            activeHighlightColor =
-                button.dataset.highlight;
+                activeHighlightColor =
+                    button.dataset.highlight;
 
-            highlightSelection(
-                activeHighlightColor
-            );
+                highlightSelection(
+                    activeHighlightColor
+                );
 
-        });
+            }
+        );
 
     });
 
@@ -2975,102 +3122,158 @@ document
 ========================================================= */
 
 document
-    .getElementById("unhighlightButton")
-    .addEventListener("click", () => {
+    .getElementById(
+        "unhighlightButton"
+    )
+    .addEventListener(
+        "click",
+        () => {
 
-        const range = getSelectedRange();
+            const range =
+                getSelectedRange();
 
-        if (!range) {
+            if (!range) {
 
-            showToast("Select highlighted text first.");
+                showToast(
+                    "Select highlighted text first."
+                );
 
-            return;
-        }
+                return;
 
-        const container =
-            range.commonAncestorContainer.nodeType === 3
-                ? range.commonAncestorContainer.parentElement
-                : range.commonAncestorContainer;
+            }
 
-        const highlight =
-            container.closest(".study-highlight");
 
-        if (!highlight) {
+            const container =
 
-            showToast(
-                "Select text inside a highlight."
-            );
+                range.commonAncestorContainer
+                    .nodeType === 3
 
-            return;
-        }
+                    ? range.commonAncestorContainer
+                        .parentElement
 
-        const parent =
-            highlight.parentNode;
+                    : range.commonAncestorContainer;
 
-        while (highlight.firstChild) {
 
-            parent.insertBefore(
-                highlight.firstChild,
+            const highlight =
+                container.closest(
+                    ".study-highlight"
+                );
+
+
+            if (!highlight) {
+
+                showToast(
+                    "Select text inside a highlight."
+                );
+
+                return;
+
+            }
+
+
+            const parent =
+                highlight.parentNode;
+
+
+            while (
+                highlight.firstChild
+            ) {
+
+                parent.insertBefore(
+                    highlight.firstChild,
+                    highlight
+                );
+
+            }
+
+
+            parent.removeChild(
                 highlight
             );
 
+            parent.normalize();
+
+            saveStudyHTML();
+
+            clearSelection();
+
+            showToast(
+                "Highlight removed."
+            );
+
         }
-
-        parent.removeChild(highlight);
-
-        parent.normalize();
-
-        saveStudyHTML();
-
-        clearSelection();
-
-        showToast("Highlight removed.");
-
-    });
+    );
 
 
 /* =========================================================
-   ANNOTATION MODAL
+   ANNOTATION ELEMENTS
 ========================================================= */
 
 const annotationModal =
-    document.getElementById("annotationModal");
+    document.getElementById(
+        "annotationModal"
+    );
 
 const annotationInput =
-    document.getElementById("annotationInput");
+    document.getElementById(
+        "annotationInput"
+    );
 
 const annotationSelectedText =
-    document.getElementById("annotationSelectedText");
+    document.getElementById(
+        "annotationSelectedText"
+    );
 
 const annotationModalTitle =
-    document.getElementById("annotationModalTitle");
+    document.getElementById(
+        "annotationModalTitle"
+    );
 
 const deleteAnnotationModal =
-    document.getElementById("deleteAnnotationModal");
+    document.getElementById(
+        "deleteAnnotationModal"
+    );
 
+
+/* =========================================================
+   NEW ANNOTATION
+========================================================= */
 
 function openNewAnnotation() {
 
-    const range = getSelectedRange();
+    const range =
+        getSelectedRange();
+
 
     if (!range) {
 
-        showToast("Select text first 📝");
+        showToast(
+            "Select text first 📝"
+        );
 
         return;
+
     }
 
-    if (selectionTouchesStudyMarkup(range)) {
+
+    if (
+        selectionTouchesStudyMarkup(
+            range
+        )
+    ) {
 
         showToast(
             "That text already has a study mark."
         );
 
         return;
+
     }
+
 
     const fragment =
         range.cloneContents();
+
 
     if (
         fragment.querySelector(
@@ -3083,46 +3286,68 @@ function openNewAnnotation() {
         );
 
         return;
+
     }
+
 
     const selectedText =
         range.toString().trim();
 
+
     if (!selectedText) {
 
-        showToast("Select some text first.");
+        showToast(
+            "Select some text first."
+        );
 
         return;
+
     }
 
-    annotationTarget = range.cloneRange();
 
-    editingAnnotationId = null;
+    annotationTarget =
+        range.cloneRange();
+
+    editingAnnotationId =
+        null;
+
 
     annotationModalTitle.textContent =
         "📝 Add Annotation";
 
+
     annotationSelectedText.textContent =
         `"${selectedText}"`;
 
+
     annotationInput.value = "";
+
 
     deleteAnnotationModal.style.display =
         "none";
 
-    annotationModal.classList.add("open");
 
-    setTimeout(() => {
+    annotationModal.classList.add(
+        "open"
+    );
 
-        annotationInput.focus();
 
-    }, 50);
+    setTimeout(
+        () => {
+
+            annotationInput.focus();
+
+        },
+        50
+    );
 
 }
 
 
 document
-    .getElementById("annotateButton")
+    .getElementById(
+        "annotateButton"
+    )
     .addEventListener(
         "click",
         openNewAnnotation
@@ -3130,136 +3355,185 @@ document
 
 
 /* =========================================================
-   SAVE NEW ANNOTATION
+   SAVE ANNOTATION
 ========================================================= */
 
 document
-    .getElementById("saveAnnotation")
-    .addEventListener("click", () => {
+    .getElementById(
+        "saveAnnotation"
+    )
+    .addEventListener(
+        "click",
+        () => {
 
-        const note =
-            annotationInput.value.trim();
+            const note =
+                annotationInput.value.trim();
 
-        if (!note) {
 
-            showToast(
-                "Write a note before saving."
-            );
+            if (!note) {
 
-            return;
+                showToast(
+                    "Write a note before saving."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                editingAnnotationId
+            ) {
+
+                updateAnnotation(
+                    editingAnnotationId,
+                    note
+                );
+
+                return;
+
+            }
+
+
+            if (
+                !annotationTarget
+            ) {
+
+                closeAnnotationModal();
+
+                return;
+
+            }
+
+
+            const span =
+                document.createElement(
+                    "span"
+                );
+
+            span.className =
+                "study-annotation";
+
+
+            const id =
+                "annotation-" +
+                Date.now() +
+                "-" +
+                Math.random()
+                    .toString(36)
+                    .slice(2, 8);
+
+
+            span.dataset.annotationId =
+                id;
+
+            span.dataset.note =
+                note;
+
+
+            try {
+
+                span.appendChild(
+                    annotationTarget.extractContents()
+                );
+
+                annotationTarget.insertNode(
+                    span
+                );
+
+                saveStudyHTML();
+
+                closeAnnotationModal();
+
+                clearSelection();
+
+                showToast(
+                    "Annotation saved 📝"
+                );
+
+            } catch (error) {
+
+                console.error(error);
+
+                showToast(
+                    "That annotation could not be created."
+                );
+
+            }
+
         }
-
-        if (editingAnnotationId) {
-
-            updateAnnotation(
-                editingAnnotationId,
-                note
-            );
-
-            return;
-        }
-
-        if (!annotationTarget) {
-
-            closeAnnotationModal();
-
-            return;
-        }
-
-        const span =
-            document.createElement("span");
-
-        span.className =
-            "study-annotation";
-
-        const id =
-            "annotation-" +
-            Date.now() +
-            "-" +
-            Math.random()
-                .toString(36)
-                .slice(2, 8);
-
-        span.dataset.annotationId = id;
-
-        span.dataset.note = note;
-
-        try {
-
-            span.appendChild(
-                annotationTarget.extractContents()
-            );
-
-            annotationTarget.insertNode(span);
-
-            saveStudyHTML();
-
-            closeAnnotationModal();
-
-            clearSelection();
-
-            showToast("Annotation saved 📝");
-
-        } catch (error) {
-
-            console.error(error);
-
-            showToast(
-                "That annotation could not be created."
-            );
-
-        }
-
-    });
+    );
 
 
 /* =========================================================
-   ANNOTATION CLICK
+   CLICK EXISTING ANNOTATION
 ========================================================= */
 
-studyContent.addEventListener("click", event => {
+studyContent.addEventListener(
+    "click",
+    event => {
 
-    const annotation =
-        event.target.closest(".study-annotation");
+        const annotation =
+            event.target.closest(
+                ".study-annotation"
+            );
 
-    if (!annotation) {
-        return;
+        if (!annotation) {
+            return;
+        }
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+        openExistingAnnotation(
+            annotation
+        );
+
     }
-
-    event.preventDefault();
-    event.stopPropagation();
-
-    openExistingAnnotation(annotation);
-
-});
+);
 
 
-function openExistingAnnotation(annotation) {
+function openExistingAnnotation(
+    annotation
+) {
 
     editingAnnotationId =
         annotation.dataset.annotationId;
 
-    annotationTarget = annotation;
+    annotationTarget =
+        annotation;
+
 
     annotationModalTitle.textContent =
         "📝 Edit Annotation";
 
+
     annotationSelectedText.textContent =
         `"${annotation.textContent.trim()}"`;
+
 
     annotationInput.value =
         annotation.dataset.note || "";
 
+
     deleteAnnotationModal.style.display =
         "inline-block";
 
-    annotationModal.classList.add("open");
 
-    setTimeout(() => {
+    annotationModal.classList.add(
+        "open"
+    );
 
-        annotationInput.focus();
 
-    }, 50);
+    setTimeout(
+        () => {
+
+            annotationInput.focus();
+
+        },
+        50
+    );
 
 }
 
@@ -3268,19 +3542,25 @@ function openExistingAnnotation(annotation) {
    UPDATE ANNOTATION
 ========================================================= */
 
-function updateAnnotation(id, note) {
+function updateAnnotation(
+    id,
+    note
+) {
 
     const annotation =
         studyContent.querySelector(
             `.study-annotation[data-annotation-id="${CSS.escape(id)}"]`
         );
 
+
     if (!annotation) {
 
         closeAnnotationModal();
 
         return;
+
     }
+
 
     annotation.dataset.note =
         note;
@@ -3289,7 +3569,9 @@ function updateAnnotation(id, note) {
 
     closeAnnotationModal();
 
-    showToast("Annotation updated ✨");
+    showToast(
+        "Annotation updated ✨"
+    );
 
 }
 
@@ -3298,7 +3580,9 @@ function updateAnnotation(id, note) {
    REMOVE ANNOTATION
 ========================================================= */
 
-function removeAnnotationElement(annotation) {
+function removeAnnotationElement(
+    annotation
+) {
 
     if (!annotation) {
 
@@ -3307,12 +3591,17 @@ function removeAnnotationElement(annotation) {
         );
 
         return;
+
     }
+
 
     const parent =
         annotation.parentNode;
 
-    while (annotation.firstChild) {
+
+    while (
+        annotation.firstChild
+    ) {
 
         parent.insertBefore(
             annotation.firstChild,
@@ -3321,7 +3610,10 @@ function removeAnnotationElement(annotation) {
 
     }
 
-    parent.removeChild(annotation);
+
+    parent.removeChild(
+        annotation
+    );
 
     parent.normalize();
 
@@ -3331,30 +3623,42 @@ function removeAnnotationElement(annotation) {
 
     clearSelection();
 
-    showToast("Annotation removed.");
+    showToast(
+        "Annotation removed."
+    );
 
 }
 
 
 /* =========================================================
-   MODAL DELETE BUTTON
+   MODAL DELETE
 ========================================================= */
 
-deleteAnnotationModal
-    .addEventListener("click", () => {
+deleteAnnotationModal.addEventListener(
+    "click",
+    () => {
 
-        if (!editingAnnotationId) {
+        if (
+            !editingAnnotationId
+        ) {
+
             return;
+
         }
+
 
         const annotation =
             studyContent.querySelector(
                 `.study-annotation[data-annotation-id="${CSS.escape(editingAnnotationId)}"]`
             );
 
-        removeAnnotationElement(annotation);
 
-    });
+        removeAnnotationElement(
+            annotation
+        );
+
+    }
+);
 
 
 /* =========================================================
@@ -3362,49 +3666,73 @@ deleteAnnotationModal
 ========================================================= */
 
 document
-    .getElementById("removeAnnotationButton")
-    .addEventListener("click", () => {
+    .getElementById(
+        "removeAnnotationButton"
+    )
+    .addEventListener(
+        "click",
+        () => {
 
-        const range = getSelectedRange();
+            const range =
+                getSelectedRange();
 
-        if (!range) {
 
-            showToast(
-                "Select text inside an annotation."
+            if (!range) {
+
+                showToast(
+                    "Select text inside an annotation."
+                );
+
+                return;
+
+            }
+
+
+            const container =
+
+                range.commonAncestorContainer
+                    .nodeType === 3
+
+                    ? range.commonAncestorContainer
+                        .parentElement
+
+                    : range.commonAncestorContainer;
+
+
+            const annotation =
+                container.closest(
+                    ".study-annotation"
+                );
+
+
+            if (!annotation) {
+
+                showToast(
+                    "Select text inside an annotation."
+                );
+
+                return;
+
+            }
+
+
+            removeAnnotationElement(
+                annotation
             );
 
-            return;
         }
-
-        const container =
-            range.commonAncestorContainer.nodeType === 3
-                ? range.commonAncestorContainer.parentElement
-                : range.commonAncestorContainer;
-
-        const annotation =
-            container.closest(".study-annotation");
-
-        if (!annotation) {
-
-            showToast(
-                "Select text inside an annotation."
-            );
-
-            return;
-        }
-
-        removeAnnotationElement(annotation);
-
-    });
+    );
 
 
 /* =========================================================
-   CLOSE MODAL
+   CLOSE ANNOTATION MODAL
 ========================================================= */
 
 function closeAnnotationModal() {
 
-    annotationModal.classList.remove("open");
+    annotationModal.classList.remove(
+        "open"
+    );
 
     annotationInput.value = "";
 
@@ -3416,36 +3744,52 @@ function closeAnnotationModal() {
 
 
 document
-    .getElementById("cancelAnnotation")
+    .getElementById(
+        "cancelAnnotation"
+    )
     .addEventListener(
         "click",
         closeAnnotationModal
     );
 
 
-annotationModal.addEventListener("click", event => {
+annotationModal.addEventListener(
+    "click",
+    event => {
 
-    if (event.target === annotationModal) {
+        if (
+            event.target ===
+            annotationModal
+        ) {
 
-        closeAnnotationModal();
+            closeAnnotationModal();
 
-    }
-
-});
-
-
-document.addEventListener("keydown", event => {
-
-    if (
-        event.key === "Escape" &&
-        annotationModal.classList.contains("open")
-    ) {
-
-        closeAnnotationModal();
+        }
 
     }
+);
 
-});
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+
+            event.key === "Escape" &&
+
+            annotationModal.classList.contains(
+                "open"
+            )
+
+        ) {
+
+            closeAnnotationModal();
+
+        }
+
+    }
+);
 
 
 /* =========================================================
@@ -3456,29 +3800,42 @@ function updateProgress() {
 
     let progress = 0;
 
-    /*
-        Progress is intentionally NOT connected to:
-        - highlights
-        - annotations
-        - scrolling
-        - clicking around
 
-        This prevents the progress bar from randomly changing.
-    */
+    if (
+        typeof lessonData.quizScore ===
+        "number"
+    ) {
 
-    if (lessonData.quizCompleted) {
-        progress = 75;
+        progress =
+            Math.round(
+                (
+                    lessonData.quizScore /
+                    5
+                ) * 100
+            );
+
     }
 
-    if (lessonData.completed) {
+
+    if (
+        lessonData.completed
+    ) {
+
         progress = 100;
+
     }
+
 
     const fill =
-        document.getElementById("progressFill");
+        document.getElementById(
+            "progressFill"
+        );
 
     const text =
-        document.getElementById("progressText");
+        document.getElementById(
+            "progressText"
+        );
+
 
     fill.style.width =
         `${progress}%`;
@@ -3491,39 +3848,27 @@ function updateProgress() {
 
 /* =========================================================
    QUIZ
-   FIXED SO IT STILL WORKS AFTER STUDY HTML IS RESTORED
 ========================================================= */
 
 const correctAnswers = {
+
     q1: "b",
     q2: "a",
     q3: "b",
     q4: "b",
     q5: "c"
+
 };
 
-
-/*
-    IMPORTANT:
-
-    The lesson saves and restores studyContent.innerHTML.
-
-    That means the quiz button can be replaced when the
-    saved lesson is restored.
-
-    Instead of attaching the click directly to the button,
-    we listen on studyContent itself.
-
-    This keeps the quiz working even after highlights,
-    annotations, or saved lesson HTML are restored.
-*/
 
 studyContent.addEventListener(
     "click",
     event => {
 
         const quizButton =
-            event.target.closest("#quizSubmit");
+            event.target.closest(
+                "#quizSubmit"
+            );
 
         if (!quizButton) {
             return;
@@ -3535,91 +3880,34 @@ studyContent.addEventListener(
         let answered = 0;
 
 
-        Object.keys(correctAnswers)
-            .forEach(question => {
+        Object.keys(
+            correctAnswers
+        )
+        .forEach(question => {
 
-                const selected =
-                    studyContent.querySelector(
-                        `input[name="${question}"]:checked`
-                    );
-
-
-                if (selected) {
-
-                    answered++;
-
-
-                    if (
-                        selected.value ===
-                        correctAnswers[question]
-                    ) {
-
-                        score++;
-
-                    }
-
-                }
-
-            });
-
-
-        /*
-            Make sure every question has an answer.
-        */
-
-        if (answered < 5) {
-
-            const missing =
-                5 - answered;
-
-
-            const result =
+            const selected =
                 studyContent.querySelector(
-                    "#quizResult"
+                    `input[name="${question}"]:checked`
                 );
 
 
-            result.className =
-                "quiz-result try";
+            if (selected) {
+
+                answered++;
 
 
-            result.textContent =
-                `You still have ${missing} question${missing === 1 ? "" : "s"} to answer.`;
+                if (
+                    selected.value ===
+                    correctAnswers[question]
+                ) {
 
+                    score++;
 
-            return;
+                }
 
-        }
+            }
 
-
-        /*
-            Save the score.
-        */
-
-        lessonData.quizScore =
-            score;
-
-
-        /*
-            4/5 or higher completes the quiz milestone.
-        */
-
-        if (score >= 4) {
-
-            lessonData.quizCompleted =
-                true;
-
-        } else {
-
-            lessonData.quizCompleted =
-                false;
-
-        }
-
-
-        saveData();
-
-        updateProgress();
+        });
 
 
         const result =
@@ -3628,11 +3916,43 @@ studyContent.addEventListener(
             );
 
 
-        /*
-            Quiz feedback.
-        */
+        if (
+            answered < 5
+        ) {
 
-        if (score === 5) {
+            const missing =
+                5 - answered;
+
+
+            result.className =
+                "quiz-result try";
+
+
+            result.textContent =
+
+                `You still have ${missing} question${missing === 1 ? "" : "s"} to answer.`;
+
+            return;
+
+        }
+
+
+        lessonData.quizScore =
+            score;
+
+
+        lessonData.quizCompleted =
+            score >= 4;
+
+
+        saveData();
+
+        updateProgress();
+
+
+        if (
+            score === 5
+        ) {
 
             result.className =
                 "quiz-result good";
@@ -3640,8 +3960,11 @@ studyContent.addEventListener(
             result.textContent =
                 "🎉 5/5! Perfect! You really understand the lesson.";
 
+        }
 
-        } else if (score >= 4) {
+        else if (
+            score >= 4
+        ) {
 
             result.className =
                 "quiz-result good";
@@ -3649,8 +3972,9 @@ studyContent.addEventListener(
             result.textContent =
                 `✨ ${score}/5! Great job! The quiz milestone is complete.`;
 
+        }
 
-        } else {
+        else {
 
             result.className =
                 "quiz-result try";
@@ -3660,11 +3984,6 @@ studyContent.addEventListener(
 
         }
 
-
-        /*
-            Save again so the quiz result/progress stays
-            consistent when leaving the page.
-        */
 
         lessonData.studyHTML =
             studyContent.innerHTML;
@@ -3674,115 +3993,22 @@ studyContent.addEventListener(
     }
 );
 
-        let score = 0;
-
-        let answered = 0;
-
-        Object.keys(correctAnswers)
-            .forEach(question => {
-
-                const selected =
-                    document.querySelector(
-                        `input[name="${question}"]:checked`
-                    );
-
-                if (selected) {
-
-                    answered++;
-
-                    if (
-                        selected.value ===
-                        correctAnswers[question]
-                    ) {
-
-                        score++;
-
-                    }
-
-                }
-
-            });
-
-
-        if (answered < 5) {
-
-            const missing =
-                5 - answered;
-
-            const result =
-                document.getElementById("quizResult");
-
-            result.className =
-                "quiz-result try";
-
-            result.textContent =
-                `You still have ${missing} question${missing === 1 ? "" : "s"} to answer.`;
-
-            return;
-        }
-
-
-        lessonData.quizScore =
-            score;
-
-        if (score >= 4) {
-
-            lessonData.quizCompleted = true;
-
-        } else {
-
-            lessonData.quizCompleted = false;
-
-        }
-
-        saveData();
-
-        updateProgress();
-
-        const result =
-            document.getElementById("quizResult");
-
-
-        if (score === 5) {
-
-            result.className =
-                "quiz-result good";
-
-            result.textContent =
-                "🎉 5/5! Perfect! You really understand the lesson.";
-
-        } else if (score >= 4) {
-
-            result.className =
-                "quiz-result good";
-
-            result.textContent =
-                `✨ ${score}/5! Great job! The quiz milestone is complete.`;
-
-        } else {
-
-            result.className =
-                "quiz-result try";
-
-            result.textContent =
-                `You got ${score}/5. Review the lesson and try again. You need 4/5 to complete the quiz milestone.`;
-
-        }
-
-    });
-
 
 /* =========================================================
    COMPLETE LESSON
 ========================================================= */
 
 const completeButton =
-    document.getElementById("completeButton");
+    document.getElementById(
+        "completeButton"
+    );
 
 
 function updateCompleteButton() {
 
-    if (lessonData.completed) {
+    if (
+        lessonData.completed
+    ) {
 
         completeButton.textContent =
             "✓ Lesson Completed";
@@ -3805,30 +4031,48 @@ function updateCompleteButton() {
 }
 
 
-completeButton.addEventListener("click", () => {
+studyContent.addEventListener(
+    "click",
+    event => {
 
-    if (lessonData.completed) {
+        const button =
+            event.target.closest(
+                "#completeButton"
+            );
+
+        if (!button) {
+            return;
+        }
+
+
+        if (
+            lessonData.completed
+        ) {
+
+            showToast(
+                "Lesson 1 is already complete 💗"
+            );
+
+            return;
+
+        }
+
+
+        lessonData.completed =
+            true;
+
+        saveData();
+
+        updateProgress();
+
+        updateCompleteButton();
 
         showToast(
-            "Lesson 1 is already complete 💗"
+            "Lesson 1 completed! 🎉"
         );
 
-        return;
     }
-
-    lessonData.completed = true;
-
-    saveData();
-
-    updateProgress();
-
-    updateCompleteButton();
-
-    showToast(
-        "Lesson 1 completed! 🎉"
-    );
-
-});
+);
 
 
 /* =========================================================
@@ -3836,74 +4080,86 @@ completeButton.addEventListener("click", () => {
 ========================================================= */
 
 const searchInput =
-    document.getElementById("lessonSearch");
+    document.getElementById(
+        "lessonSearch"
+    );
 
 
-searchInput.addEventListener("input", () => {
+searchInput.addEventListener(
+    "input",
+    () => {
 
-    const query =
-        searchInput.value
-            .trim()
-            .toLowerCase();
-
-    const sections =
-        studyContent.querySelectorAll(
-            ".study-section"
-        );
-
-    sections.forEach(section => {
-
-        if (!query) {
-
-            section.style.display = "";
-
-            return;
-        }
-
-        const text =
-            section.textContent
+        const query =
+            searchInput.value
+                .trim()
                 .toLowerCase();
 
-        section.style.display =
-            text.includes(query)
-                ? ""
-                : "none";
 
-    });
+        const sections =
+            studyContent.querySelectorAll(
+                ".study-section"
+            );
 
-});
+
+        sections.forEach(
+            section => {
+
+                if (!query) {
+
+                    section.style.display =
+                        "";
+
+                    return;
+
+                }
+
+
+                const text =
+                    section.textContent
+                        .toLowerCase();
+
+
+                section.style.display =
+                    text.includes(query)
+                        ? ""
+                        : "none";
+
+            }
+        );
+
+    }
+);
 
 
 /* =========================================================
-   SAVE WHEN LEAVING
+   SAVE BEFORE LEAVING
 ========================================================= */
 
-window.addEventListener("beforeunload", () => {
+window.addEventListener(
+    "beforeunload",
+    () => {
 
-    /*
-        This is an extra safety save.
+        lessonData.studyHTML =
+            studyContent.innerHTML;
 
-        Normally every study action saves immediately,
-        but this ensures the latest DOM is also stored.
-    */
+        saveData();
 
-    lessonData.studyHTML =
-        studyContent.innerHTML;
-
-    saveData();
-
-});
+    }
+);
 
 
 /* =========================================================
-   VISIBILITY SAVE
+   SAVE WHEN TAB/APP BECOMES HIDDEN
 ========================================================= */
 
 document.addEventListener(
     "visibilitychange",
     () => {
 
-        if (document.visibilityState === "hidden") {
+        if (
+            document.visibilityState ===
+            "hidden"
+        ) {
 
             lessonData.studyHTML =
                 studyContent.innerHTML;
@@ -3917,48 +4173,51 @@ document.addEventListener(
 
 
 /* =========================================================
-   RESET LESSON STUDY DATA
+   RESET LESSON DATA
 ========================================================= */
 
-/*
-    Double-click the page title while holding SHIFT
-    if you ever need to completely reset Lesson 1 study
-    markings.
-
-    This does NOT reset your website settings.
-*/
-
 document
-    .querySelector(".lesson-hero h1")
-    .addEventListener("dblclick", event => {
+    .querySelector(
+        ".lesson-hero h1"
+    )
+    .addEventListener(
+        "dblclick",
+        event => {
 
-        if (!event.shiftKey) {
-            return;
-        }
+            if (
+                !event.shiftKey
+            ) {
 
-        const confirmed =
-            confirm(
-                "Reset all Lesson 1 highlights, annotations, quiz progress, and completion status?"
+                return;
+
+            }
+
+
+            const confirmed =
+                confirm(
+                    "Reset all Lesson 1 highlights, annotations, quiz progress, and completion status?"
+                );
+
+
+            if (!confirmed) {
+                return;
+            }
+
+
+            localStorage.removeItem(
+                STORAGE_KEY
             );
 
-        if (!confirmed) {
-            return;
+
+            location.reload();
+
         }
-
-        localStorage.removeItem(
-            STORAGE_KEY
-        );
-
-        location.reload();
-
-    });
+    );
 
 
 /* =========================================================
    INITIALIZE
 ========================================================= */
-
-restoreStudyHTML();
 
 applySettings();
 
@@ -3967,6 +4226,6 @@ updateProgress();
 updateCompleteButton();
 
 </script>
-
+    
 </body>
 </html>
